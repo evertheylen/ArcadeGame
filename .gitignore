@@ -1,6 +1,8 @@
 # Owm mods
 *.d
 main
+*.cproject
+*.project
 
 # Compiled Object files
 *.slo
