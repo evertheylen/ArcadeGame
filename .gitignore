@@ -1,3 +1,7 @@
+# Owm mods
+*.d
+main
+
 # Compiled Object files
 *.slo
 *.lo
