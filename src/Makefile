@@ -1,9 +1,9 @@
 CXXFLAGS   = -Wall -Wextra -g -fstack-protector-all -std=c++11
-#CXXFLAGS   = -O3
 LDFLAGS    =
-EXECUTABLE = engine
-EXTENSION  = cc
+EXECUTABLE = main
+EXTENSION  = cpp
 SOURCES    = $(basename $(shell find . -name '*.$(EXTENSION)'))
+CXX        = g++
 
 .PHONY: all
 all: $(EXECUTABLE)
@@ -31,7 +31,7 @@ all_and_clean:
 
 .PHONY: run
 run:
-	./engine ./tests/_default_test.ini
+	./main
 
 .PHONY: test
 test:
