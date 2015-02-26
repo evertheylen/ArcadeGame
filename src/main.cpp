@@ -2,8 +2,12 @@
 #include "game/game.h"
 #include <iostream>
 
-int main() {
+int main(int argc, char const* argv[]) {
 	TiXmlDocument doc;
+	if(!doc.LoadFile(argv[1])){
+		std::cerr << doc.ErrorDesc() << std::endl;
+		return 1;
+	}
 
 	Game g = Game(doc);
 	g.popMove();

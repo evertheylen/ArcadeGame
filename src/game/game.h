@@ -12,6 +12,8 @@ class Game {
 public:
 	Game(TiXmlDocument& doc);
 
+	std::string readElement(TiXmlElement* elem, const char* tag);
+
 	void writeBoard(std::ostream& stream);
 
 	void writeMovements(std::ostream& stream);
