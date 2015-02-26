@@ -17,6 +17,10 @@ Game::Game(TiXmlDocument& doc) :
 	}
 
 	forceLowerCase(root);
+	forceLowerCase(root->FirstChildElement("speler"));
+	/*for (TiXmlElement* elem = root->FirstChildElement("obstakel"); elem->Value() != NULL; elem->NextSibling()){
+		forceLowerCase(elem);
+	}*/
 
 	std::string boardname = readElement(root, "naam");
 	int x = atoi(readElement(root, "breedte").c_str());
@@ -26,12 +30,13 @@ Game::Game(TiXmlDocument& doc) :
 
 	std::cout << "Width: " << _board.get_width() << "   Height: " << _board.get_height() << "   Name: " << _board.get_name() << std::endl;
 
+	// TODO We must make a function that can force attributes to lower case and that can fix the endless loop of obstacle and Type.
 
 }
 
 void Game::forceLowerCase(TiXmlElement* elem) {
 
-	//TODO This function loops through all "first" elements of the xml-file. Therefore elements like type or playername or not yet converted.
+	// TODO This function loops through all "first" elements of the xml-file. Therefore elements like type or playername or not yet converted.
 	// I don't know how to fix this yet though.
 
 	TiXmlNode* child = 0;
@@ -40,6 +45,7 @@ void Game::forceLowerCase(TiXmlElement* elem) {
 		std::transform(data.begin(), data.end(), data.begin(), ::tolower);
 		const char * data2 = data.c_str();
 		child->SetValue(data2);
+		//std::cout << child->Value() << std::endl;
 	}
 	return;
 }
