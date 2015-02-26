@@ -14,6 +14,8 @@ public:
 
 	std::string readElement(TiXmlElement* elem, const char* tag);
 
+	void forceLowerCase(TiXmlElement* elem);
+
 	void writeBoard(std::ostream& stream);
 
 	void writeMovements(std::ostream& stream);

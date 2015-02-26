@@ -15,18 +15,33 @@ Game::Game(TiXmlDocument& doc) :
 		doc.Clear();
 		return;
 	}
-	TiXmlNode* child = 0;
-		while( child = root->IterateChildren( child ) ){
-			std::string data = child->Value();
-			std::transform(data.begin(), data.end(), data.begin(), ::tolower);
-			const char * data2 = data.c_str();
-			child->SetValue(data2);
-		}
+
+	forceLowerCase(root);
 
 	std::string boardname = readElement(root, "naam");
+	int x = atoi(readElement(root, "breedte").c_str());
+	int y = atoi(readElement(root, "lengte").c_str());
+	_board = Board(x, y);
 	_board.set_name(boardname);
-	std::cout << _board.get_name() << std::endl;
 
+	std::cout << "Width: " << _board.get_width() << "   Height: " << _board.get_height() << "   Name: " << _board.get_name() << std::endl;
+
+
+}
+
+void Game::forceLowerCase(TiXmlElement* elem) {
+
+	//TODO This function loops through all "first" elements of the xml-file. Therefore elements like type or playername or not yet converted.
+	// I don't know how to fix this yet though.
+
+	TiXmlNode* child = 0;
+	while (child = elem->IterateChildren(child)) {
+		std::string data = child->Value();
+		std::transform(data.begin(), data.end(), data.begin(), ::tolower);
+		const char * data2 = data.c_str();
+		child->SetValue(data2);
+	}
+	return;
 }
 
 std::string Game::readElement(TiXmlElement* elem, const char* tag) {
