@@ -10,7 +10,7 @@
 
 class Game {
 public:
-	Game(TiXmlDocument& doc);
+	Game(TiXmlDocument& doc); // TODO 2 xml docs?
 
 	std::string readElement(TiXmlElement* elem, const char* tag);
 

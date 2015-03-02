@@ -4,6 +4,7 @@
 
 Game::Game(TiXmlDocument& doc) :
 		_board(Board(0, 0)) {
+	// currently expects doc to be the playing field
 	_players = std::vector<Player>( { Player("Stijn"), Player("Evert") });
 	_board = Board(20, 20);
 	_movements = std::vector<Movement>( { Movement(Direction::up, &_players[0]),
@@ -16,7 +17,7 @@ Game::Game(TiXmlDocument& doc) :
 		return;
 	}
 
-	forceLowerCase(root);
+	/*forceLowerCase(root);
 	forceLowerCase(root->FirstChildElement("speler"));
 	/*for (TiXmlElement* elem = root->FirstChildElement("obstakel"); elem->Value() != NULL; elem->NextSibling()){
 		forceLowerCase(elem);

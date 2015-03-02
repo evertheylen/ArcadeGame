@@ -4,7 +4,8 @@
 
 int main(int argc, char const* argv[]) {
 	TiXmlDocument doc;
-	if(!doc.LoadFile(argv[1])){
+
+	if(argc <= 1 || !doc.LoadFile(argv[1])) {
 		std::cerr << doc.ErrorDesc() << std::endl;
 		return 1;
 	}
