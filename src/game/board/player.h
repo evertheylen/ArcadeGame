@@ -9,7 +9,7 @@ private:
 	std::string _name;
 
 public:
-	Player(std::string name, unsigned int x = 0, unsigned int y = 0);
+	Player(std::string name = "noname", unsigned int x = 0, unsigned int y = 0);
 	const std::string& get_name() const;
 	void set_name(const std::string& name);
 };

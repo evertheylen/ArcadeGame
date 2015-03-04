@@ -1,3 +1,4 @@
+#include <string>
 #include "../board/player.h"
 
 #ifndef _Movement
@@ -8,6 +9,7 @@ enum Direction {up, left, down, right};
 class Movement {
 public:
 	Movement(Direction dir, Player* player);
+	Movement(std::string dir_s, Player* player);
 
 	Direction get_dir() const;
 	void set_dir(Direction dir);

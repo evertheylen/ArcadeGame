@@ -1,5 +1,6 @@
 #include "player.h"
 #include "thing.h"
+#include <iostream>
 
 Player::Player(std::string name, unsigned int x, unsigned int y):
 	Thing(x,y,true),

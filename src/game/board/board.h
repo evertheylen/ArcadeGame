@@ -7,7 +7,9 @@
 
 class Board {
 public:
-	Board(unsigned int x, unsigned int y);
+	Board(unsigned int x = 0, unsigned int y = 0);
+
+	~Board();
 
 	unsigned int get_height() const;
 
@@ -16,14 +18,12 @@ public:
 
 	unsigned int get_width() const;
 
-	Thing* operator()(unsigned int x, unsigned int y);
-
+	Thing*& operator()(unsigned int x, unsigned int y);
 
 private:
 	std::string _name;
 	unsigned int _width, _height;
-	std::vector <std::vector <Thing* > > _data;
+	std::vector<std::vector<Thing*>> _data;
 };
-
 
 #endif //_Board
