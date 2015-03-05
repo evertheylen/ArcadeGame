@@ -28,8 +28,10 @@ int main(int argc, char const* argv[]) {
 	Game g = Game(doc_board, doc_moves);
 	g.popMove();
 	std::ofstream output_file;
-	output_file.open("huidig_speelveld.txt");
+	output_file.open("HuidigSpeelveld.txt");
 	g.writeBoard(output_file);
+	output_file.close();
+	output_file.open("ResterendeBewegingen.txt");
 	g.writeMovements(output_file);
 	output_file.close();
 }

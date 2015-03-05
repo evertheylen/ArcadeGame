@@ -19,6 +19,8 @@ public:
 	// When setting to other player, take care of memory leaks.
 	void set_player(Player* player);
 
+	friend std::ostream& operator<< (std::ostream &out, Movement& move);
+
 private:
 	Direction _dir;
 	Player* _player;

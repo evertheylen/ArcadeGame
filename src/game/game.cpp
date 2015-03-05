@@ -275,7 +275,9 @@ void Game::writeBoard(std::ostream& stream) {
 }
 
 void Game::writeMovements(std::ostream& stream) {
-	stream << "movements\n";
+	for (std::vector<Movement>::iterator i = _movements.begin(); i != _movements.end(); i++) {
+		stream << *i << std::endl;
+	}
 }
 
 void Game::popMove() {

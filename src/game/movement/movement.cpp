@@ -37,3 +37,8 @@ const Player* Movement::get_player() const {
 void Movement::set_player(Player* player) {
 	_player = player;
 }
+
+std::ostream& operator<< (std::ostream &out, Movement& move){
+	out << "Speler " << move.get_player()->get_name() << " zal volgende beweging nog uitvoeren:\n"
+		<< move.get_dir() << std::endl;
+}
