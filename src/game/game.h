@@ -18,7 +18,12 @@ public:
 	Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc); // TODO 2 xml docs?
 
 	std::string readElement(TiXmlElement* elem, const char* tag);
+	std::string readElement(TiXmlElement* elem);
 	std::string readAttribute(TiXmlElement* elem, const char* tag);
+
+	void parsePlayer(TiXmlElement* elem);
+
+	void parseObstacle(TiXmlElement* elem);
 
 	void forceLowerCase(TiXmlElement* elem);
 

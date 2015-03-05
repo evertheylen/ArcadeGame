@@ -18,80 +18,200 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 		// TODO proper error handling, also below
 	}
 
-	// Load Board properties
-	std::string boardname = readElement(root, "NAAM");
+	TiXmlElement* current_el = root->FirstChildElement();
+	std::string boardname;
+	_players = Playermap();
+
 	int x = atoi(readElement(root, "BREEDTE").c_str());
 	int y = atoi(readElement(root, "LENGTE").c_str());
 
-	// TODO Check on error atoi. If it returns 0 -> error.
-
 	_board = Board(x, y);
-	_board.set_name(boardname);
 
+	//TODO Test if all necessary elements are specified in the xml file. Else error!
+
+	while (current_el != NULL) {
+
+		if (current_el->ValueTStr() == "NAAM") {
+			boardname = readElement(current_el);
+			_board.set_name(boardname);
+		} else {
+			if (current_el->ValueTStr() == "SPELER") {
+				parsePlayer(current_el);
+			} else {
+				if (current_el->ValueTStr() == "OBSTAKEL") {
+					parseObstacle(current_el);
+				} else {
+					if (current_el->ValueTStr() != "BREEDTE"
+							&& current_el->ValueTStr() != "LENGTE") {
+						std::cerr << "Error: tag " << current_el->Value()
+								<< " not defined." << std::endl;
+						//TODO proper error handling!
+					}
+				}
+			}
+		}
+		current_el = current_el->NextSiblingElement();
+	}
+
+	// Load Board properties
+	/*boardname = readElement(root, "NAAM");
+	 x = atoi(readElement(root, "BREEDTE").c_str());
+	 y = atoi(readElement(root, "LENGTE").c_str());
+	 */
+	// TODO Check on error atoi. If it returns 0 -> error.
 	std::cout << "Width: " << _board.get_width() << "   Height: "
 			<< _board.get_height() << "   Name: " << _board.get_name()
 			<< std::endl;
 
 	// Load players
-	_players = Playermap();
 
-	for (TiXmlElement* player_el = root->FirstChildElement("SPELER");
-			player_el != NULL;
-			player_el = player_el->NextSiblingElement("SPELER")) {
-		std::string name = readElement(player_el, "NAAM");
-		unsigned int x = atoi(readAttribute(player_el, "x").c_str());
-		unsigned int y = atoi(readAttribute(player_el, "y").c_str());
-		Player* player = new Player(name, x, y);
-		_players[name] = *player;
+	/*for (TiXmlElement* player_el = root->FirstChildElement("SPELER");
+	 player_el != NULL;
+	 player_el = player_el->NextSiblingElement("SPELER")) {
+	 std::string name = readElement(player_el, "NAAM");
+	 unsigned int x = atoi(readAttribute(player_el, "x").c_str());
+	 unsigned int y = atoi(readAttribute(player_el, "y").c_str());
+	 Player* player = new Player(name, x, y);
+	 _players[name] = *player;
 
-		// Put on board
-		_board(x,y) = player;
+	 // Put on board
+	 _board(x,y) = player;
 
-		std::cout << _players[name].get_name() << std::endl;
-	}
+	 std::cout << _players[name].get_name() << std::endl;
+	 }*/
 
 	// Obstacles
-	for (TiXmlElement* obstacle_el = root->FirstChildElement("OBSTAKEL");
-			obstacle_el != NULL;
-			obstacle_el = obstacle_el->NextSiblingElement("OBSTAKEL")) {
-		std::string type = readElement(obstacle_el, "TYPE");
-		unsigned int x = atoi(readAttribute(obstacle_el, "x").c_str());
-		unsigned int y = atoi(readAttribute(obstacle_el, "y").c_str());
+	/*
+	 for (TiXmlElement* obstacle_el = root->FirstChildElement("OBSTAKEL");
+	 obstacle_el != NULL;
+	 obstacle_el = obstacle_el->NextSiblingElement("OBSTAKEL")) {
+	 std::string type = readElement(obstacle_el, "TYPE");
+	 unsigned int x = atoi(readAttribute(obstacle_el, "x").c_str());
+	 unsigned int y = atoi(readAttribute(obstacle_el, "y").c_str());
 
-		Thing* obst;
-		if (type == "ton") {
-			// TODO check beweegbaar
-			obst = new Barrel(x,y);
-		} else if (type == "muur") {
-			// TODO check beweegbaar
-			obst = new Wall(x,y);
-		}
+	 Thing* obst;
+	 if (type == "ton") {
+	 // TODO check beweegbaar
+	 obst = new Barrel(x,y);
+	 } else if (type == "muur") {
+	 // TODO check beweegbaar
+	 obst = new Wall(x,y);
+	 }
 
-		// Put on board
-		_board(x,y) = obst;
+	 // Put on board
+	 _board(x,y) = obst;
 
-		std::cout << _board(x,y)->is_movable() << "\n";
-	}
+	 std::cout << _board(x,y)->is_movable() << "\n";
+	 }*/
 
 	// Movements
 	root = moves_doc.FirstChildElement();
 	if (root == NULL) {
-		std::cerr << "Failed to load movements file: No root element." << std::endl;
+		std::cerr << "Failed to load movements file: No root element."
+				<< std::endl;
 		moves_doc.Clear();
 		return;
 	}
-	std::cout << "Starting..\n";
-	for (TiXmlElement* move_el = root->FirstChildElement("BEWEGING");
-				move_el != NULL;
-				move_el = move_el->NextSiblingElement("BEWEGING")) {
-			std::string dir_s = readElement(move_el, "RICHTING");
-			std::string player_name = readElement(move_el, "SPELERNAAM");
+	current_el = root->FirstChildElement();
+	TiXmlElement* current_el_2;
+	while (current_el != NULL) {
+		if (current_el->ValueTStr() == "BEWEGING") {
+			current_el_2 = current_el->FirstChildElement();
+			while (current_el_2 != NULL) {
+				if (current_el_2->ValueTStr() != "SPELERNAAM"
+						&& current_el_2->ValueTStr() != "RICHTING") {
+					std::cerr << "Error: tag " << current_el->Value()
+							<< " not defined." << std::endl;
+					//TODO proper error handling!
+				}
+				current_el_2 = current_el_2->NextSiblingElement();
+			}
+			std::string dir_s = readElement(current_el, "RICHTING");
+			std::string player_name = readElement(current_el, "SPELERNAAM");
 
 			Movement move(dir_s, &_players[player_name]);
 			_movements.push_back(move);
 
 			std::cout << _movements.back().get_dir() << "\n";
+		} else {
+			std::cerr << "Error: tag " << current_el->Value() << " not defined."
+					<< std::endl;
+			//TODO proper error handling!
+		}
+		current_el = current_el->NextSiblingElement();
 	}
+	/*
+	 std::cout << "Starting..\n";
+	 for (TiXmlElement* move_el = root->FirstChildElement("BEWEGING");
+	 move_el != NULL;
+	 move_el = move_el->NextSiblingElement("BEWEGING")) {
+	 std::string dir_s = readElement(move_el, "RICHTING");
+	 std::string player_name = readElement(move_el, "SPELERNAAM");
+
+	 Movement move(dir_s, &_players[player_name]);
+	 _movements.push_back(move);
+
+	 std::cout << _movements.back().get_dir() << "\n";
+	 }*/
+}
+
+void Game::parsePlayer(TiXmlElement* elem) {
+	TiXmlElement* current_el = elem->FirstChildElement();
+	std::string name;
+	//TODO Test if name is specified!
+	while (current_el != NULL) {
+		if (current_el->ValueTStr() == "NAAM") {
+			name = readElement(current_el);
+		} else {
+			std::cerr << "Error: tag " << current_el->Value() << " not defined."
+					<< std::endl;
+		}
+
+		current_el = current_el->NextSiblingElement();
+	}
+	unsigned int x = atoi(readAttribute(elem, "x").c_str());
+	unsigned int y = atoi(readAttribute(elem, "y").c_str());
+	Player* player = new Player(name, x, y);
+	_players[name] = *player;
+
+	// Put on board
+	// TODO Check consistency of playing board!
+
+	_board(x, y) = player;
+
+	//std::cout << _players[name].get_name() << std::endl;
+}
+
+void Game::parseObstacle(TiXmlElement* elem) {
+	TiXmlElement* current_el = elem->FirstChildElement();
+	std::string type;
+	//TODO Test if type is specified!
+	while (current_el != NULL) {
+		if (current_el->ValueTStr() == "TYPE") {
+			type = readElement(current_el);
+		} else {
+			std::cerr << "Error: tag " << current_el->Value() << " not defined."
+					<< std::endl;
+		}
+
+		current_el = current_el->NextSiblingElement();
+	}
+	unsigned int x = atoi(readAttribute(elem, "x").c_str());
+	unsigned int y = atoi(readAttribute(elem, "y").c_str());
+
+	Thing* obst;
+	if (type == "ton") {
+		// TODO check beweegbaar
+		obst = new Barrel(x, y);
+	} else if (type == "muur") {
+		// TODO check beweegbaar
+		obst = new Wall(x, y);
+	}
+
+	// Put on board
+	_board(x, y) = obst;
+
+	//std::cout << _board(x,y)->is_movable() << "\n";
 }
 
 void Game::forceLowerCase(TiXmlElement* elem) {
@@ -116,6 +236,15 @@ std::string Game::readElement(TiXmlElement* elem, const char* tag) {
 		std::cerr << "Error: Tag not defined.";
 	}
 	TiXmlNode* node = e->FirstChild();
+	TiXmlText* text = node->ToText();
+	return text->Value();
+}
+
+std::string Game::readElement(TiXmlElement* elem) {
+	if (elem == NULL) {
+		std::cerr << "Error: Tag not defined.";
+	}
+	TiXmlNode* node = elem->FirstChild();
 	TiXmlText* text = node->ToText();
 	return text->Value();
 }

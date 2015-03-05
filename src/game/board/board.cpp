@@ -19,6 +19,16 @@ unsigned int Board::get_height() const {
 	return _height;
 }
 
+/*void Board::set_height(unsigned int y) {
+	_height = y;
+	_data = std::vector<std::vector<Thing*>>(_width, std::vector<Thing*>(_height, nullptr));
+}
+
+void Board::set_width(unsigned int x) {
+	_width = x;
+	_data = std::vector<std::vector<Thing*>>(_width, std::vector<Thing*>(_height, nullptr));
+}*/
+
 const std::string& Board::get_name() const {
 	return _name;
 }

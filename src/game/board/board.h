@@ -12,11 +12,13 @@ public:
 	~Board();
 
 	unsigned int get_height() const;
+	//void set_height(unsigned int y);
 
 	const std::string& get_name() const;
 	void set_name(std::string& name);
 
 	unsigned int get_width() const;
+	//void set_width(unsigned int x);
 
 	Thing*& operator()(unsigned int x, unsigned int y);
 
