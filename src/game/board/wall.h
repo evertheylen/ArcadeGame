@@ -6,6 +6,7 @@
 class Wall: public Obstacle {
 public:
 	Wall(unsigned int x, unsigned int y);
+	std::ostream& print(std::ostream& out);
 };
 
 

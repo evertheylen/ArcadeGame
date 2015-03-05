@@ -1,6 +1,7 @@
 #include "lib/tinyxml.h"
 #include "game/game.h"
 #include <iostream>
+#include <fstream>
 
 int main(int argc, char const* argv[]) {
 	TiXmlDocument doc_board, doc_moves;
@@ -24,9 +25,11 @@ int main(int argc, char const* argv[]) {
 	if (!(board_loaded && moves_loaded)) {
 		return 1;
 	}
-
 	Game g = Game(doc_board, doc_moves);
 	g.popMove();
-	g.writeBoard(std::cout);
-	g.writeMovements(std::cout);
+	std::ofstream output_file;
+	output_file.open("huidig_speelveld.txt");
+	g.writeBoard(output_file);
+	g.writeMovements(output_file);
+	output_file.close();
 }

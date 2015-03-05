@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <map>
 
@@ -254,7 +255,23 @@ std::string Game::readAttribute(TiXmlElement* elem, const char* tag) {
 }
 
 void Game::writeBoard(std::ostream& stream) {
-	stream << "board\n";
+	/*Het huidige speelveld is Level 1:
+	Eigenschappen van dit veld:
+	-Breedte 10
+	-Lengte 10*/
+	stream << "Het huidige speelveld is " << _board.get_name() << ":\n"
+			<< "Eigenschappen van dit veld:\n"
+			<< "-Breedte " << _board.get_width() << "\n"
+			<< "-Lengte " << _board.get_height() << "\n\n";
+
+	// Find player.
+	for (int i = 0; i != _board.get_width(); i++) {
+		for (int j = 0; j != _board.get_height(); j++) {
+			if (_board(i,j) != NULL ) {
+				stream << *_board(i,j) << "(" << i << "," << j <<").\n";
+			}
+		}
+	}
 }
 
 void Game::writeMovements(std::ostream& stream) {

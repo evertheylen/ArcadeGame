@@ -1,0 +1,46 @@
+Het huidige speelveld is Level 1:
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+(0,0).
+(0,1).
+(0,2).
+(0,3).
+(0,4).
+(0,5).
+(0,6).
+(0,7).
+(0,8).
+(0,9).
+(1,0).
+(1,9).
+(2,0).
+(2,9).
+(3,0).
+Er bevindt zich een ton op positie (3,4).
+(3,9).
+(4,0).
+Speler Chip bevindt zich in dit speelveld op positie (4,5).
+(4,9).
+(5,0).
+Er bevindt zich een ton op positie (5,1).
+Er bevindt zich een ton op positie (5,2).
+(5,9).
+(6,0).
+(6,9).
+(7,0).
+(7,9).
+(8,0).
+(8,9).
+(9,0).
+(9,1).
+(9,2).
+(9,3).
+(9,4).
+(9,5).
+(9,6).
+(9,7).
+(9,8).
+(9,9).
+movements

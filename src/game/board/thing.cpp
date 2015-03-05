@@ -29,3 +29,18 @@ unsigned int Thing::get_y() const {
 void Thing::set_y(unsigned int y) {
 	_y = y;
 }
+
+/*void Thing::print(){
+	std::cout << "Thing" << std::endl;
+}*/
+
+std::ostream& Thing::print(std::ostream& out) {
+	out << "Thing" << std::endl;
+	return out;
+}
+
+std::ostream& operator<< (std::ostream &out, Thing &thing){
+	thing.print(out);
+	return out;
+}
+

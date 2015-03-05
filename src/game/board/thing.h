@@ -1,6 +1,8 @@
 #ifndef _Thing
 #define _Thing
 
+#include <iostream>
+
 class Thing {
 public:
 	Thing();
@@ -17,11 +19,12 @@ public:
 	void set_y(unsigned int y);
 
 	void move(unsigned int x, unsigned int y);
+	friend std::ostream& operator<< (std::ostream &out, Thing &thing);
+	virtual std::ostream& print(std::ostream &out);
 
 protected:
 	unsigned int _x, _y;
 	bool _movable;
-
 
 };
 

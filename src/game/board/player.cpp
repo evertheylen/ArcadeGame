@@ -13,3 +13,8 @@ const std::string& Player::get_name() const {
 void Player::set_name(const std::string& name) {
 	_name = name;
 }
+
+std::ostream& Player::print(std::ostream& out){
+	out << "Speler " << _name << " bevindt zich in dit speelveld op positie ";
+	return out;
+}
