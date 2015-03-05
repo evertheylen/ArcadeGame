@@ -1,21 +1,21 @@
 Speler Chip zal volgende beweging nog uitvoeren:
-0
+OMHOOG
 
 Speler Chip zal volgende beweging nog uitvoeren:
-0
+OMHOOG
 
 Speler Chip zal volgende beweging nog uitvoeren:
-1
+LINKS
 
 Speler Chip zal volgende beweging nog uitvoeren:
-0
+OMHOOG
 
 Speler Chip zal volgende beweging nog uitvoeren:
-1
+LINKS
 
 Speler Chip zal volgende beweging nog uitvoeren:
-0
+OMHOOG
 
 Speler Chip zal volgende beweging nog uitvoeren:
-3
+RECHTS
 

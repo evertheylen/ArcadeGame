@@ -267,7 +267,7 @@ void Game::writeBoard(std::ostream& stream) {
 	// Find player.
 	for (int i = 0; i != _board.get_width(); i++) {
 		for (int j = 0; j != _board.get_height(); j++) {
-			if (_board(i,j) != NULL ) {
+			if (_board(i,j) != NULL && _board(i,j)->is_movable() == true) {
 				stream << *_board(i,j) << "(" << i << "," << j <<").\n";
 			}
 		}

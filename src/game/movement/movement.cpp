@@ -26,6 +26,23 @@ Direction Movement::get_dir() const {
 	return _dir;
 }
 
+std::string Movement::get_dir_name() const {
+	std::string result;
+	if (_dir == 0) {
+		result = "OMHOOG";
+	}
+	if (_dir == 1) {
+		result = "LINKS";
+	}
+	if (_dir == 2) {
+		result = "OMLAAG";
+	}
+	if (_dir == 3) {
+		result = "RECHTS";
+	}
+	return result;
+}
+
 void Movement::set_dir(Direction dir) {
 	_dir = dir;
 }
@@ -40,5 +57,6 @@ void Movement::set_player(Player* player) {
 
 std::ostream& operator<< (std::ostream &out, Movement& move){
 	out << "Speler " << move.get_player()->get_name() << " zal volgende beweging nog uitvoeren:\n"
-		<< move.get_dir() << std::endl;
+		<< move.get_dir_name() << std::endl;
+	return out;
 }

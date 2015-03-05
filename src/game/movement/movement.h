@@ -12,6 +12,7 @@ public:
 	Movement(std::string dir_s, Player* player);
 
 	Direction get_dir() const;
+	std::string get_dir_name() const;
 	void set_dir(Direction dir);
 
 	const Player* get_player() const;
