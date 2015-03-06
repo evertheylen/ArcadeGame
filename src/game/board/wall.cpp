@@ -7,3 +7,7 @@ Wall::Wall(unsigned int x, unsigned int y):
 std::ostream& Wall::print(std::ostream& out){
 	return out;
 }
+
+char Wall::to_char() {
+	return 'X';
+}

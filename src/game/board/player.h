@@ -13,7 +13,8 @@ public:
 	const std::string& get_name() const;
 	void set_name(const std::string& name);
 	std::ostream& print(std::ostream& out);
-
+	
+	char to_char();
 };
 
 #endif // _Player

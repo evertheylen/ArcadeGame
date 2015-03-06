@@ -44,3 +44,6 @@ std::ostream& operator<< (std::ostream &out, Thing &thing){
 	return out;
 }
 
+char Thing::to_char() {
+	return 'T';
+}

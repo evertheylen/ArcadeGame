@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include "thing.h"
+#include <iostream>
 
 #ifndef _Board
 #define _Board
@@ -21,6 +22,8 @@ public:
 	//void set_width(unsigned int x);
 
 	Thing*& operator()(unsigned int x, unsigned int y);
+
+	friend std::ostream& operator<< (std::ostream& out, Board& board);
 
 private:
 	std::string _name;

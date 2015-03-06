@@ -21,6 +21,8 @@ public:
 	void move(unsigned int x, unsigned int y);
 	friend std::ostream& operator<< (std::ostream &out, Thing &thing);
 	virtual std::ostream& print(std::ostream &out);
+	
+	virtual char to_char();
 
 protected:
 	unsigned int _x, _y;

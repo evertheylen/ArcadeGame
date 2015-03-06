@@ -280,10 +280,14 @@ void Game::writeMovements(std::ostream& stream) {
 }
 
 void Game::popMove() {
+	std::cout << _board << "\n";
+	
 	// TODO Require length >= 1
 	std::cout << "popped\n";
 	doMove(_movements.back());
 	_movements.pop_back();
+	
+	std::cout << _board << "\n";
 }
 
 void Game::doMove(Movement& movement) {

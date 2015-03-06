@@ -8,3 +8,7 @@ std::ostream& Obstacle::print(std::ostream& out){
 	out << "Obstacle" << std::endl;
 	return out;
 }
+
+char Obstacle::to_char() {
+	return 'O';
+}

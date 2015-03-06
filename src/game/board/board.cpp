@@ -1,6 +1,7 @@
 #include "board.h"
 #include <string>
 #include <vector>
+#include <iostream>
 
 Board::Board(unsigned int width, unsigned int height):
 	_width(width), _height(height),
@@ -45,3 +46,16 @@ Thing*& Board::operator()(unsigned int x, unsigned int y) {
 	return _data.at(x).at(y);
 }
 
+std::ostream& operator<< (std::ostream &out, Board& board) {
+	for (int j=board.get_height()-1; j>=0; --j) {
+		// print row
+		for (int i=0; i<board.get_width(); ++i) {
+			if (board(i,j) != nullptr) {
+				out << board(i,j)->to_char();
+			} else {
+				out << " ";
+			}
+		}
+		out << "\n";
+	}
+}

@@ -22,7 +22,7 @@ Movement::Movement(std::string dir_s, Player* player):
 	}
 }
 
-void doDirection(Direction& dir, unsigned int& x, unsigned int& y) {
+void doDirection(Direction dir, unsigned int& x, unsigned int& y) {
 	switch (dir) {
 		case up:
 			y++;
@@ -62,7 +62,7 @@ void Movement::set_dir(Direction dir) {
 	_dir = dir;
 }
 
-const Player* Movement::get_player() const {
+Player* Movement::get_player() const {
 	return _player;
 }
 

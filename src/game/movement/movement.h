@@ -6,7 +6,7 @@
 
 enum Direction {up, left, down, right};
 
-void doDirection(Direction& dir, unsigned int& x, unsigned int& y);
+void doDirection(Direction dir, unsigned int& x, unsigned int& y);
 
 class Movement {
 public:
@@ -17,7 +17,7 @@ public:
 	std::string get_dir_name() const;
 	void set_dir(Direction dir);
 
-	const Player* get_player() const;
+	Player* get_player() const;
 
 	// When setting to other player, take care of memory leaks.
 	void set_player(Player* player);

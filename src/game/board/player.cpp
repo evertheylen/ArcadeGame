@@ -18,3 +18,7 @@ std::ostream& Player::print(std::ostream& out){
 	out << "Speler " << _name << " bevindt zich in dit speelveld op positie ";
 	return out;
 }
+
+char Player::to_char() {
+	return '@';
+}
