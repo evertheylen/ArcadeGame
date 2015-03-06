@@ -31,7 +31,6 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	//TODO Test if all necessary elements are specified in the xml file. Else error!
 
 	while (current_el != NULL) {
-
 		if (current_el->ValueTStr() == "NAAM") {
 			boardname = readElement(current_el);
 			_board.set_name(boardname);
@@ -281,12 +280,18 @@ void Game::writeMovements(std::ostream& stream) {
 }
 
 void Game::popMove() {
+	// TODO Require length >= 1
 	std::cout << "popped\n";
 	doMove(_movements.back());
-	// TODO POP
+	_movements.pop_back();
 }
 
 void Game::doMove(Movement& movement) {
-	std::cout << "do move with player " << movement.get_player()->get_name()
-			<< "\n";
+	// TODO return/require valid movement
+	unsigned int x = movement.get_player()->get_x();
+	unsigned int y = movement.get_player()->get_y();
+	
+	_board(x, y) = nullptr;
+	doDirection(movement.get_dir(), x, y);
+	_board(x, y) = movement.get_player();
 }

@@ -6,6 +6,8 @@
 
 enum Direction {up, left, down, right};
 
+void doDirection(Direction& dir, unsigned int& x, unsigned int& y);
+
 class Movement {
 public:
 	Movement(Direction dir, Player* player);

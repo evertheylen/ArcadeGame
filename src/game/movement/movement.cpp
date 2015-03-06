@@ -22,25 +22,40 @@ Movement::Movement(std::string dir_s, Player* player):
 	}
 }
 
+void doDirection(Direction& dir, unsigned int& x, unsigned int& y) {
+	switch (dir) {
+		case up:
+			y++;
+			break;
+		case left:
+			x--;
+			break;
+		case down:
+			y--;
+			break;
+		case right:
+			x++;
+			break;
+	}
+	
+	return;
+}
+
 Direction Movement::get_dir() const {
 	return _dir;
 }
 
 std::string Movement::get_dir_name() const {
-	std::string result;
-	if (_dir == 0) {
-		result = "OMHOOG";
+	switch (_dir) {
+		case up:
+			return "OMHOOG";
+		case left:
+			return "LINKS";
+		case down:
+			return "OMLAAG";
+		case right:
+			return "RECHTS";
 	}
-	if (_dir == 1) {
-		result = "LINKS";
-	}
-	if (_dir == 2) {
-		result = "OMLAAG";
-	}
-	if (_dir == 3) {
-		result = "RECHTS";
-	}
-	return result;
 }
 
 void Movement::set_dir(Direction dir) {
