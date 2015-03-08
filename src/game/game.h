@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 #include <string>
 #include <map>
 
@@ -35,9 +36,11 @@ public:
 
 	void doMove(Movement& movement);
 
+	void doAllMoves();
+
 private:
 	Board _board;
-	std::vector<Movement> _movements;
+	std::list<Movement> _movements;
 	Playermap _players;
 
 

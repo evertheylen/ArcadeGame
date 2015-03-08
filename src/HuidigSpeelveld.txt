@@ -4,7 +4,6 @@ Eigenschappen van dit veld:
 -Lengte 10
 
 Er bevindt zich een ton op positie (3,4).
-Speler Chip bevindt zich in dit speelveld op positie (4,6).
+Speler Chip bevindt zich in dit speelveld op positie (3,7).
 Er bevindt zich een ton op positie (5,1).
 Er bevindt zich een ton op positie (5,2).
-Speler Chip bevindt zich in dit speelveld op positie (5,5).

@@ -26,19 +26,17 @@ void doDirection(Direction dir, unsigned int& x, unsigned int& y) {
 	switch (dir) {
 		case up:
 			y++;
-			break;
+			return;
 		case left:
 			x--;
-			break;
+			return;
 		case down:
 			y--;
-			break;
+			return;
 		case right:
 			x++;
-			break;
+			return;
 	}
-	
-	return;
 }
 
 Direction Movement::get_dir() const {

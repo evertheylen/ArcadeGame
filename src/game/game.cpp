@@ -264,8 +264,8 @@ void Game::writeBoard(std::ostream& stream) {
 			<< "-Lengte " << _board.get_height() << "\n\n";
 
 	// Find player.
-	for (int i = 0; i != _board.get_width(); i++) {
-		for (int j = 0; j != _board.get_height(); j++) {
+	for (unsigned int i = 0; i != _board.get_width(); i++) {
+		for (unsigned int j = 0; j != _board.get_height(); j++) {
 			if (_board(i,j) != NULL && _board(i,j)->is_movable() == true) {
 				stream << *_board(i,j) << "(" << i << "," << j <<").\n";
 			}
@@ -274,7 +274,7 @@ void Game::writeBoard(std::ostream& stream) {
 }
 
 void Game::writeMovements(std::ostream& stream) {
-	for (std::vector<Movement>::iterator i = _movements.begin(); i != _movements.end(); i++) {
+	for (std::list<Movement>::iterator i = _movements.begin(); i != _movements.end(); i++) {
 		stream << *i << std::endl;
 	}
 }
@@ -284,18 +284,36 @@ void Game::popMove() {
 	
 	// TODO Require length >= 1
 	std::cout << "popped\n";
-	doMove(_movements.back());
-	_movements.pop_back();
+	doMove(_movements.front());
+	/*std::cout << _movements.size() << std::endl;
+	for (int i = 0; i != _movements.size(); i++) {
+		std::cout << _movements.at(i) << std::endl;
+	}*/
+	_movements.pop_front();
+	//std::cout << _movements.size() << std::endl;
+	//_movements.pop_back();
 	
 	std::cout << _board << "\n";
 }
 
 void Game::doMove(Movement& movement) {
 	// TODO return/require valid movement
+
+	// TODO check / require move obstacle.
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
-	
+	std::cout << movement << std::endl;
 	_board(x, y) = nullptr;
 	doDirection(movement.get_dir(), x, y);
 	_board(x, y) = movement.get_player();
+	movement.get_player()->set_x(x);
+	movement.get_player()->set_y(y);
+}
+
+void Game::doAllMoves() {
+	for (unsigned int i = 0; i != _movements.size(); i++){
+		doMove(_movements.front());
+		_movements.pop_front();
+		std::cout << _board << "\n";
+	}
 }
