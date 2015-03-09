@@ -6,6 +6,7 @@
 #include <map>
 
 #include "game.h"
+#include "../DesignByContract.h"
 #include "board/barrel.h"
 #include "board/wall.h"
 #include "movement/movement.h"
@@ -298,13 +299,15 @@ void Game::popMove() {
 
 void Game::doMove(Movement& movement) {
 	// TODO return/require valid movement
-
 	// TODO check / require move obstacle.
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	std::cout << movement << std::endl;
+	std::cout << _board(x,y)->is_movable() << "\n";
+
 	_board(x, y) = nullptr;
 	doDirection(movement.get_dir(), x, y);
+	//REQUIRE(_board(x,y)->is_movable()!=false, "Player moves into unmovable object.\n");
 	_board(x, y) = movement.get_player();
 	movement.get_player()->set_x(x);
 	movement.get_player()->set_y(y);
