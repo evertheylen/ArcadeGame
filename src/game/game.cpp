@@ -130,7 +130,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 			std::string dir_s = readElement(current_el, "RICHTING");
 			std::string player_name = readElement(current_el, "SPELERNAAM");
 
-			Movement move(dir_s, &_players[player_name]);
+			Movement move(dir_s, _players[player_name]);
 			_movements.push_back(move);
 
 			std::cout << _movements.back().get_dir() << "\n";
@@ -173,7 +173,7 @@ void Game::parsePlayer(TiXmlElement* elem) {
 	unsigned int x = atoi(readAttribute(elem, "x").c_str());
 	unsigned int y = atoi(readAttribute(elem, "y").c_str());
 	Player* player = new Player(name, x, y);
-	_players[name] = *player;
+	_players[name] = player;
 
 	// Put on board
 	// TODO Check consistency of playing board!
@@ -208,7 +208,7 @@ void Game::parseObstacle(TiXmlElement* elem) {
 		// TODO check beweegbaar
 		obst = new Wall(x, y);
 	}
-
+	
 	// Put on board
 	_board(x, y) = obst;
 
@@ -306,8 +306,8 @@ void Game::doMove(Movement& movement) {
 	std::cout << _board(x,y)->is_movable() << "\n";
 
 	_board(x, y) = nullptr;
-	doDirection(movement.get_dir(), x, y);
-	//REQUIRE(_board(x,y)->is_movable()!=false, "Player moves into unmovable object.\n");
+	doDirection(movement.get_dir(), x, y);  // x or y are modified
+	//REQUIRE(_board(x,y) == nullptr || _board(x,y)->is_movable()==true, "Player moves into unmovable object.");
 	_board(x, y) = movement.get_player();
 	movement.get_player()->set_x(x);
 	movement.get_player()->set_y(y);

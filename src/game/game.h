@@ -13,8 +13,8 @@
 
 class Game {
 public:
-	typedef std::map<std::string, Player> Playermap;
-	typedef std::pair<std::string, Player> Playerpair;
+	typedef std::map<std::string, Player*> Playermap;
+	typedef std::pair<std::string, Player*> Playerpair;
 
 	Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc); // TODO 2 xml docs?
 
