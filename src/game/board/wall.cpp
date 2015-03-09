@@ -1,7 +1,7 @@
 #include "wall.h"
 
 Wall::Wall(unsigned int x, unsigned int y):
-	Obstacle(x,y,false)
+	Obstacle(x,y,-1)  // inf weight
 	{}
 
 std::ostream& Wall::print(std::ostream& out){

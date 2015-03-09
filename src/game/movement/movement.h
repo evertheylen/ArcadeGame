@@ -7,6 +7,7 @@
 enum Direction {up, left, down, right};
 
 void doDirection(Direction dir, unsigned int& x, unsigned int& y);
+void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y);
 
 class Movement {
 public:

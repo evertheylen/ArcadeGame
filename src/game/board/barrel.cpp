@@ -1,7 +1,7 @@
 #include "barrel.h"
 
 Barrel::Barrel(unsigned int x, unsigned int y):
-	Obstacle(x,y,true)
+	Obstacle(x,y,1000)
 	{}
 
 std::ostream& Barrel::print(std::ostream& out){

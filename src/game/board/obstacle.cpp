@@ -1,7 +1,7 @@
 #include "obstacle.h"
 
-Obstacle::Obstacle(unsigned int x, unsigned int y, bool movable):
-	Thing(x,y,movable)
+Obstacle::Obstacle(unsigned int x, unsigned int y, int weight):
+	Thing(x,y,weight)
 	{}
 
 std::ostream& Obstacle::print(std::ostream& out){

@@ -133,7 +133,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 			Movement move(dir_s, _players[player_name]);
 			_movements.push_back(move);
 
-			std::cout << _movements.back().get_dir() << "\n";
+			//std::cout << _movements.back().get_dir() << "\n";
 		} else {
 			std::cerr << "Error: tag " << current_el->Value() << " not defined."
 					<< std::endl;
@@ -281,40 +281,69 @@ void Game::writeMovements(std::ostream& stream) {
 }
 
 void Game::popMove() {
-	std::cout << _board << "\n";
-	
 	// TODO Require length >= 1
 	std::cout << "popped\n";
 	doMove(_movements.front());
-	/*std::cout << _movements.size() << std::endl;
-	for (int i = 0; i != _movements.size(); i++) {
-		std::cout << _movements.at(i) << std::endl;
-	}*/
 	_movements.pop_front();
-	//std::cout << _movements.size() << std::endl;
-	//_movements.pop_back();
-	
-	std::cout << _board << "\n";
 }
 
 void Game::doMove(Movement& movement) {
-	// TODO return/require valid movement
 	// TODO check / require move obstacle.
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	std::cout << movement << std::endl;
-	std::cout << _board(x,y)->is_movable() << "\n";
-
-	_board(x, y) = nullptr;
-	doDirection(movement.get_dir(), x, y);  // x or y are modified
-	//REQUIRE(_board(x,y) == nullptr || _board(x,y)->is_movable()==true, "Player moves into unmovable object.");
-	_board(x, y) = movement.get_player();
+	//std::cout << _board(x,y)->is_movable() << "\n";
+	
+	REQUIRE(_board.valid_location(x,y), "Not a valid location.");
+	
+	// calculate total weight
+	unsigned int x_next = x;
+	unsigned int y_next = y;
+	// calculate new location
+	doDirection(movement.get_dir(), x_next, y_next);  // x or y are modified
+	int total_weight = 0;
+	// while not out of board and not an empty spot
+	while (_board.valid_location(x_next, y_next) && _board(x_next, y_next) != nullptr) {
+		REQUIRE(_board(x_next, y_next)->get_weight() != -1, "Can't move infinite weight (like a wall)");
+		total_weight += _board(x_next, y_next)->get_weight();
+		doDirection(movement.get_dir(), x_next, y_next);
+	}
+	REQUIRE(_board.valid_location(x_next, y_next) && _board(x_next, y_next) == nullptr, "Player (and perhaps other things) have no place to go.");
+	REQUIRE(total_weight <= movement.get_player()->get_maximum_weight(), "Player tries to move too much weight.");
+	
+	// move all things, we work backwards
+	unsigned int x_new = x_next;
+	unsigned int y_new = y_next;
+	doReverseDirection(movement.get_dir(), x_new, y_new);
+	while (x_next != x || y_next != y) {
+		#define print_status(obj)\
+			if (obj==nullptr) {\
+				std::cout << "is nullptr" << std::endl;\
+			} else {\
+				std::cout << "is of char " << obj->to_char() << std::endl;\
+			}\
+		
+		Thing* temp = _board(x_new, y_new);
+		std::cout << x_new << ", "<< y_new << ", "<< x_next << ", "<< y_next << ", " << std::endl;
+		print_status(temp);
+		_board(x_new, y_new) = _board(x_next, y_next);
+		print_status(_board(x_new, y_new));
+		_board(x_next, y_next) = temp;
+		print_status(_board(x_next, y_next));
+		x_next = x_new;
+		y_next = y_new;
+		doReverseDirection(movement.get_dir(), x_new, y_new);
+	}
+	doDirection(movement.get_dir(), x, y);
 	movement.get_player()->set_x(x);
 	movement.get_player()->set_y(y);
 }
 
 void Game::doAllMoves() {
-	for (unsigned int i = 0; i < _movements.size(); i++){
+	std::cout << "About to do all " << _movements.size() << " movements.\n";
+	std::cout << _board << "\nStarting now:\n";
+	
+	while (! _movements.empty()) {
 		doMove(_movements.front());
 		_movements.pop_front();
 		std::cout << _board << "\n";

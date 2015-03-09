@@ -39,6 +39,23 @@ void doDirection(Direction dir, unsigned int& x, unsigned int& y) {
 	}
 }
 
+void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y) {
+	switch (dir) {
+		case up:
+			y--;
+			return;
+		case left:
+			x++;
+			return;
+		case down:
+			y++;
+			return;
+		case right:
+			x--;
+			return;
+	}
+}
+
 Direction Movement::get_dir() const {
 	return _dir;
 }

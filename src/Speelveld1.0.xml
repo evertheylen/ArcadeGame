@@ -9,6 +9,9 @@
     <OBSTAKEL beweegbaar="true" x="5" y="1">
         <TYPE>ton</TYPE>
     </OBSTAKEL>
+	<OBSTAKEL beweegbaar="true" x="4" y="3">
+        <TYPE>ton</TYPE>
+    </OBSTAKEL>
     <OBSTAKEL beweegbaar="true" x="5" y="2">
         <TYPE>ton</TYPE>
     </OBSTAKEL>

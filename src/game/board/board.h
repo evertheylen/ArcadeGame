@@ -22,6 +22,8 @@ public:
 	//void set_width(unsigned int x);
 
 	Thing*& operator()(unsigned int x, unsigned int y);
+	
+	bool valid_location(unsigned int x, unsigned int y);
 
 	friend std::ostream& operator<< (std::ostream& out, Board& board);
 

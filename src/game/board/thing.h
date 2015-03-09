@@ -7,11 +7,13 @@ class Thing {
 public:
 	Thing();
 
-	Thing(unsigned int x, unsigned int y, bool movable);
+	Thing(unsigned int x, unsigned int y, int weight);
 
-	bool is_movable() const;
-	void set_movable(bool movable);
+	bool is_movable() const;  // _weight >= 0 (-1 means infinity)
 
+	int get_weight() const;
+	void set_weight(int weight);
+	
 	unsigned int get_x() const;
 	void set_x(unsigned int x);
 
@@ -28,7 +30,7 @@ public:
 
 protected:
 	unsigned int _x, _y;
-	bool _movable;
+	int _weight;
 
 };
 

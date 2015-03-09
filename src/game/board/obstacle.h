@@ -6,7 +6,7 @@
 
 class Obstacle: public Thing {
 public:
-	Obstacle(unsigned int x, unsigned int y, bool movable);
+	Obstacle(unsigned int x, unsigned int y, int weight);
 	virtual std::ostream& print(std::ostream& out);
 	
 	virtual char to_char();

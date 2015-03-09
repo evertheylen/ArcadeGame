@@ -25,9 +25,8 @@ int main(int argc, char const* argv[]) {
 	if (!(board_loaded && moves_loaded)) {
 		return 1;
 	}
+	
 	Game g = Game(doc_board, doc_moves);
-	g.popMove();
-	g.popMove();
 	g.doAllMoves();
 	std::ofstream output_file;
 	output_file.open("HuidigSpeelveld.txt");

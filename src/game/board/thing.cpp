@@ -2,16 +2,20 @@
 
 Thing::Thing() {}
 
-Thing::Thing(unsigned int x, unsigned int y, bool movable):
-	_x(x), _y(y), _movable(movable)
+Thing::Thing(unsigned int x, unsigned int y, int weight):
+	_x(x), _y(y), _weight(weight)
 	{}
 
 bool Thing::is_movable() const {
-	return _movable;
+	return _weight>=0;
 }
 
-void Thing::set_movable(bool movable) {
-	_movable = movable;
+int Thing::get_weight() const {
+	return _weight;
+}
+
+void Thing::set_weight(int weight) {
+	_weight = weight;
 }
 
 unsigned int Thing::get_x() const {

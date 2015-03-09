@@ -50,6 +50,10 @@ Thing*& Board::operator()(unsigned int x, unsigned int y) {
 	return _data.at(x).at(y);
 }
 
+bool Board::valid_location(unsigned int x, unsigned int y) {
+	return 0<x && x<_width && 0<y && y<_height;
+}
+
 std::ostream& operator<< (std::ostream &out, Board& board) {
 	for (int j=board.get_height()-1; j>=0; --j) {
 		// print row
