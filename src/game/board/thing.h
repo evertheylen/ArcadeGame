@@ -23,6 +23,8 @@ public:
 	virtual std::ostream& print(std::ostream &out);
 	
 	virtual char to_char();
+	
+	virtual ~Thing() {}
 
 protected:
 	unsigned int _x, _y;

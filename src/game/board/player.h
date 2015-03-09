@@ -15,6 +15,8 @@ public:
 	std::ostream& print(std::ostream& out);
 	
 	char to_char();
+	
+	~Player() {}
 };
 
 #endif // _Player
