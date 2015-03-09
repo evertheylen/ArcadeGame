@@ -11,7 +11,11 @@ Board::Board(unsigned int width, unsigned int height):
 Board::~Board() {
 	for (std::vector<std::vector<Thing*>>::iterator i = _data.begin(); i != _data.end(); ++i) {
 		for (std::vector<Thing*>::iterator j = i->begin(); j != i->end(); ++j) {
-			delete(*j);
+			std::cout << " ? deleting " << *j << std::endl;
+			if (*j != nullptr) {
+				std::cout << "   deleted " << **j << std::endl;
+				delete(*j);
+			}
 		}
 	}
 }

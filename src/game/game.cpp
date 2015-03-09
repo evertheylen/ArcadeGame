@@ -314,7 +314,7 @@ void Game::doMove(Movement& movement) {
 }
 
 void Game::doAllMoves() {
-	for (unsigned int i = 0; i != _movements.size(); i++){
+	for (unsigned int i = 0; i < _movements.size(); i++){
 		doMove(_movements.front());
 		_movements.pop_front();
 		std::cout << _board << "\n";
