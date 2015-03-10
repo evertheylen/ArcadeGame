@@ -1,6 +1,8 @@
 # Owm mods
 *.d
 main
+ArcadeMain
+ArcadeTests
 *.cproject
 *.project
 
