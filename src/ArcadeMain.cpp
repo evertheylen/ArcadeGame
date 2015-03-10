@@ -1,4 +1,4 @@
-#include "lib/tinyxml.h"
+#include "../lib/tinyxml/tinyxml.h"
 #include "game/game.h"
 #include <iostream>
 #include <fstream>

@@ -5,6 +5,7 @@
 #include <string>
 #include <map>
 
+#include "../../lib/tinyxml/tinyxml.h"
 #include "game.h"
 #include "../DesignByContract.h"
 #include "board/barrel.h"

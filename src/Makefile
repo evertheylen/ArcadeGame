@@ -1,40 +1,66 @@
-CXXFLAGS   = -Wall -Wextra -g -fstack-protector-all -std=c++11
-LDFLAGS    =
-EXECUTABLE = main
-EXTENSION  = cpp
-SOURCES    = $(basename $(shell find . -name '*.$(EXTENSION)'))
-CXX        = g++
+#--- the location of the test includes; YOU MIGHT NEED TO MODIFY THESE
+INCL =		../lib/gtest/include
+#--- the location of the test libraries; YOU MIGHT NEED TO MODIFY THESE
+TLIBPATH =	-L../lib/gtest/lib
+TLIBS =		-lgtest -lgtest_main
 
+# include all .o files in lib/tinyxml
+TINYXMLLIBS = 	$(shell find ../lib/tinyxml -name '*.o')
+
+CXXFLAGS =	-g -std=c++11 -Wall -Wextra -fstack-protector-all -I$(INCL) 
+
+# All .cpp files not in src itself
+OBJS =		$(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))
+
+# SRCS =		TicTacToe.cpp \
+# 			TicTacToeMain.cpp \
+# 			TicTacToeTests.cpp
+TARGET =	ArcadeMain ArcadeTests
+
+#--- primary target
 .PHONY: all
-all: $(EXECUTABLE)
+all: $(TARGET)
 
-$(EXECUTABLE): $(addsuffix .o,$(SOURCES))
-	$(CXX) $(LDFLAGS) $^ -o $@
 
-%.d: %.$(EXTENSION)
-	$(CXX) $(CXXFLAGS) -MM $< -o $@
-	echo sed -i 's/:/ $@:/' $@
-	printf '\t$$(CC) $$(CXXFLAGS) -c $$< -o $$@\n' >>$@
+#--- compiler targets
+ArcadeMain: $(OBJS) ArcadeMain.o
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeMain.o $(TINYXMLLIBS)
 
--include $(addsuffix .d,$(SOURCES))
+ArcadeTests: $(OBJS) ArcadeTests.o
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread
 
+%.o: %.cpp %.h
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	#@echo vreemd ding is $<
+
+
+#--- non-file targets
 .PHONY: clean
 clean:
 	find . -name '*.o' -delete
 	find . -name '*.d' -delete
 	find . -name '*~'  -delete
+	#rm -f $(TARGET)
+	#rm -f testOutput/file*.txt testOutput/happyDayOut.txt  testOutput/noWinnerOut.txt
 
-.PHONY: all_and_clean
-all_and_clean:
-	make all
-	make clean
+	
+# .PHONY: cleantests
+# cleantests:
+# 	rm -f testOutput/file*.txt testOutput/happyDayOut.txt
 
-.PHONY: run
-run:
-	./main
+# .PHONY: depend
+# depend:
+# 	g++ -MM -I $(INCL) $(SRCS)
 
-.PHONY: test
-test:
-	make clean
-	make all
-	make run
+.PHONY: echo
+echo:
+	@echo CXXFLAGS = $(CXXFLAGS)
+	@echo CXX = $(CXX)
+	@echo LDFLAGS = $(LDFLAGS)
+	@echo INCL = $(INCL)
+	@echo TLIBPATH = $(TLIBPATH)
+	@echo TLIBS = $(TLIBS)
+
+
+
+
