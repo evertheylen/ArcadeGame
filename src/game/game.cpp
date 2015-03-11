@@ -155,14 +155,22 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	ENSURE(properlyInitialized(), "constructor must end ...");
 }
 
-bool Game::properlyInitialized() {
+bool Game::properlyInitialized() const {
 	return _initCheck == this;
+}
+
+bool Game::reqElement(TiXmlElement* elem, const char* tag) {
+	TiXmlElement* e = elem->FirstChildElement(tag);
+	if (e == NULL) {
+		return false;
+	}
+	return true;
 }
 
 void Game::parsePlayer(TiXmlElement* elem) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	std::string name;
-	//TODO Test if name is specified!
+	REQUIRE(reqElement(elem, "NAAM"), "Player must have a name specified.");
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "NAAM") {
 			name = readElement(current_el);
@@ -192,7 +200,7 @@ void Game::parsePlayer(TiXmlElement* elem) {
 void Game::parseObstacle(TiXmlElement* elem) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	std::string type;
-	//TODO Test if type is specified!
+	REQUIRE(reqElement(elem, "TYPE"), "Obstacle must have a type specified.");
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "TYPE") {
 			type = readElement(current_el);
@@ -211,10 +219,10 @@ void Game::parseObstacle(TiXmlElement* elem) {
 
 	Thing* obst;
 	if (type == "ton") {
-		// TODO check beweegbaar
+		REQUIRE(readAttribute(elem, "beweegbaar") == "true", "A barrel must be movable.");
 		obst = new Barrel(x, y);
 	} else if (type == "muur") {
-		// TODO check beweegbaar
+		REQUIRE(readAttribute(elem, "beweegbaar") == "false", "A wall may not be movable.");
 		obst = new Wall(x, y);
 	}
 	
@@ -226,7 +234,7 @@ void Game::parseObstacle(TiXmlElement* elem) {
 
 void Game::forceLowerCase(TiXmlElement* elem) {
 
-	// TODO This function loops through all "first" elements of the xml-file. Therefore elements like type or playername or not yet converted.
+	// This function loops through all "first" elements of the xml-file. Therefore elements like type or playername or not yet converted.
 	// I don't know how to fix this yet though.
 
 	TiXmlNode* child = 0;

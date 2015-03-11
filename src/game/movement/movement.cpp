@@ -1,11 +1,16 @@
 #include <string>
 #include <iostream>
+#include <sstream>
 #include "movement.h"
 #include "../board/player.h"
+#include "../../DesignByContract.h"
 
 Movement::Movement(Direction dir, Player* player):
 	_dir(dir), _player(player) {
 	_initCheck = this;
+	ENSURE(properlyInitialized(), "constructor must end ...");
+
+	// TODO Something is going wrong during initialization, cuz everything crashes.
 }
 
 Movement::Movement(std::string dir_s, Player* player):
@@ -19,13 +24,17 @@ Movement::Movement(std::string dir_s, Player* player):
 	} else if (dir_s == "RECHTS") {
 		_dir = Direction::right;
 	} else {
-		std::cerr << "Did not recognize type '" << dir_s << "' as a direction.\n";
-		// TODO proper error handling
+		std::stringstream ss;
+		ss << "Did not recognize type " << dir_s << " as a direction.";
+		std::string str = ss.str();
+		ss.str("");
+		REQUIRE(false, str.c_str());
 	}
 	_initCheck = this;
+	ENSURE(properlyInitialized(), "constructor must end ...");
 }
 
-bool Movement::properlyInitialized() {
+bool Movement::properlyInitialized() const {
 	return _initCheck == this;
 }
 
@@ -64,10 +73,14 @@ void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y) {
 }
 
 Direction Movement::get_dir() const {
-	return _dir;
+	//REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_dir");
+	Direction result = _dir;
+	ENSURE(result == _dir, "Wrong result when executing get_dir");
+	return result;
 }
 
 std::string Movement::get_dir_name() const {
+	//REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_dir_name");
 	switch (_dir) {
 		case up:
 			return "OMHOOG";
@@ -81,18 +94,28 @@ std::string Movement::get_dir_name() const {
 }
 
 void Movement::set_dir(Direction dir) {
+	//REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_dir");
 	_dir = dir;
+	ENSURE(_dir == dir, "Direction not set correctly");
 }
 
 Player* Movement::get_player() const {
-	return _player;
+
+	//TODO Fix this? When we require this, we get an error that movement wasnt initialized when we do a move in doMove.
+	//REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_player");
+	Player* result = _player;
+	ENSURE(result == _player, "Wrong result when executing get_player");
+	return result;
 }
 
 void Movement::set_player(Player* player) {
+	//REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
 	_player = player;
+	ENSURE(_player == player, "Player not set correctly");
 }
 
 std::ostream& operator<< (std::ostream &out, Movement& move){
+	//REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator <<");
 	out << "Speler " << move.get_player()->get_name() << " zal volgende beweging nog uitvoeren:\n"
 		<< move.get_dir_name() << std::endl;
 	return out;

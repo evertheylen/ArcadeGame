@@ -28,7 +28,7 @@ public:
 	
 	virtual ~Thing() {}
 
-	bool properlyInitialized();
+	bool properlyInitialized () const;
 
 protected:
 	unsigned int _x, _y;

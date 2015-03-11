@@ -39,7 +39,7 @@ public:
 	// REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
 	// ENSURE(_movements.empty(), "Not all movements are executed");
 
-	bool properlyInitialized();
+	bool properlyInitialized() const;
 
 private:
 	Board _board;
@@ -54,10 +54,14 @@ private:
 	std::string readAttribute(TiXmlElement* elem, const char* tag);
 
 	void parsePlayer(TiXmlElement* elem);
+	// REQUIRE(reqElement(elem, "NAAM",, "Player must have a name specified.");
 
 	void parseObstacle(TiXmlElement* elem);
+	// REQUIRE(reqElement(elem, "TYPE"), "Obstacle must have a type specified.");
 
 	void forceLowerCase(TiXmlElement* elem);
+
+	bool reqElement(TiXmlElement* elem, const char* tag);
 
 
 };

@@ -10,7 +10,7 @@ Thing::Thing(unsigned int x, unsigned int y, int weight):
 	_initCheck = this;
 }
 
-bool Thing::properlyInitialized() {
+bool Thing::properlyInitialized() const {
 	return _initCheck == this;
 }
 
