@@ -31,7 +31,6 @@ ArcadeTests: $(OBJS) ArcadeTests.o
 
 %.o: %.cpp %.h
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
-	#@echo vreemd ding is $<
 
 
 #--- non-file targets

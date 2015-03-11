@@ -1,40 +1,81 @@
+#include "../lib/tinyxml/tinyxml.h"
+#include "../lib/gtest/include/gtest/gtest.h"
+
 #include "game/game.h"
+
 #include <iostream>
 #include <fstream>
-#include "../lib/tinyxml/tinyxml.h"
+#include <sys/stat.h>
 
-int main(int argc, char const* argv[]) {
-	TiXmlDocument doc_board, doc_moves;
+bool DirectoryExists(const char *dirname) {
+	struct stat st;
+	return stat(dirname, &st) == 0;
+}
 
-	if(argc <= 2) {
-		std::cerr << "Not enough arguments given.\n";
-		return 1;
-	}
+/**
+Auxiliary function for file manipulation in unit tests.
+*/
+bool FileCompare(const char *leftFileName, const char *rightFileName) {
+	ifstream leftFile, rightFile;
+	char leftRead, rightRead;
+	bool result;
 
-	bool board_loaded = doc_board.LoadFile(argv[1]);
-	bool moves_loaded = doc_moves.LoadFile(argv[2]);
+	// Open the two files.
+	leftFile.open(leftFileName);
+	if (!leftFile.is_open()) {
+		return false;
+	};
+	rightFile.open(rightFileName);
+	if (!rightFile.is_open()) {
+		leftFile.close();
+		return false;
+	};
 
-	if (!board_loaded) {
-		std::cerr << "Error loading board.\n";
-	}
+	result = true; // files exist and are open; assume equality unless a counterexamples shows up.
+	while (result && leftFile.good() && rightFile.good()) {
+		leftFile.get(leftRead);
+		rightFile.get(rightRead);
+		result = (leftRead == rightRead);
+	};
+	if (result) {
+		// last read was still equal; are we at the end of both files ?
+		result = (!leftFile.good()) && (!rightFile.good());
+	};
 
-	if (!moves_loaded) {
-		std::cerr << "Error loading moves.\n";
-	}
+	leftFile.close();
+	rightFile.close();
+	return result;
+}
 
-	if (!(board_loaded && moves_loaded)) {
-		return 1;
-	}
+// ----[ Game ]-------------------------------------
+
+class ArcadeGameTest: public ::testing::Test {
+protected:
+	friend class Game;
 	
-	Game g = Game(doc_board, doc_moves);
-	g.doAllMoves();
-	std::ofstream output_file;
-	output_file.open("HuidigSpeelveld.txt");
-	g.writeBoard(output_file);
-	output_file.close();
-	output_file.open("ResterendeBewegingen.txt");
-	g.writeMovements(output_file);
-	output_file.close();
+	virtual void SetUp() {}
 	
-	std::cout << "\n\nblablabla\n\n";
+	virtual void TearDown() {}
+	
+	// No default constructor for game, sooo
+	//Game game;
+};
+
+TEST_F(ArcadeGameTest, HappyDay) {
+	
+}
+
+
+TEST_F(ArcadeGameTest, GTestTest) {
+	EXPECT_TRUE(true);
+}
+
+TEST_F(ArcadeGameTest, ) {
+	// Set up tests
+}
+
+
+int main(int argc, char **argv) {
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
 }

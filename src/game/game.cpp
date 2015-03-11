@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <stdexcept>
 
 #include "../../lib/tinyxml/tinyxml.h"
 #include "game.h"
@@ -13,18 +14,28 @@
 #include "board/wall.h"
 #include "movement/movement.h"
 
+
 Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
+	
+	// ---- Board ----
 	TiXmlElement* root = board_doc.FirstChildElement();
 	REQUIRE(root != NULL, "Failed to load board file: No root element.");
-
+	// Warning, for some mysterious reason, root->Value() == "VELD" will always fail, even if it should definitly pass.
+	REQUIRE(root->ValueTStr() == "VELD", "Failed to load board file: Wrong root element tag.");
+	
 	TiXmlElement* current_el = root->FirstChildElement();
 	std::string boardname;
 	_players = Playermap();
 
 	// TODO FIX THIS SHIT, this function atoi must be called, but some idiot can give in a string as value <BREEDTE>vijf</BREEDTE>
-	// must give an error and the next element should be parsed.
-	int x = atoi(readElement(root, "BREEDTE").c_str());
-	int y = atoi(readElement(root, "LENGTE").c_str());
+	// must give an error and the next element should be parsed. --> impossible, x and y NEED to be known...
+	unsigned int x, y;
+	try {
+		x = std::stoi(readElement(root, "BREEDTE"));
+		y = std::stoi(readElement(root, "LENGTE"));
+	} catch (std::invalid_argument& e) {
+		REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
+	}
 
 	_board = Board(x, y);
 
@@ -55,58 +66,11 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 		current_el = current_el->NextSiblingElement();
 	}
 
-	// Load Board properties
-	/*boardname = readElement(root, "NAAM");
-	 x = atoi(readElement(root, "BREEDTE").c_str());
-	 y = atoi(readElement(root, "LENGTE").c_str());
-	 */
 
-	std::cout << "Width: " << _board.get_width() << "   Height: "
-			<< _board.get_height() << "   Name: " << _board.get_name()
-			<< std::endl;
-
-	// Load players
-
-	/*for (TiXmlElement* player_el = root->FirstChildElement("SPELER");
-	 player_el != NULL;
-	 player_el = player_el->NextSiblingElement("SPELER")) {
-	 std::string name = readElement(player_el, "NAAM");
-	 unsigned int x = atoi(readAttribute(player_el, "x").c_str());
-	 unsigned int y = atoi(readAttribute(player_el, "y").c_str());
-	 Player* player = new Player(name, x, y);
-	 _players[name] = *player;
-
-	 // Put on board
-	 _board(x,y) = player;
-
-	 std::cout << _players[name].get_name() << std::endl;
-	 }*/
-
-	// Obstacles
-	/*
-	 for (TiXmlElement* obstacle_el = root->FirstChildElement("OBSTAKEL");
-	 obstacle_el != NULL;
-	 obstacle_el = obstacle_el->NextSiblingElement("OBSTAKEL")) {
-	 std::string type = readElement(obstacle_el, "TYPE");
-	 unsigned int x = atoi(readAttribute(obstacle_el, "x").c_str());
-	 unsigned int y = atoi(readAttribute(obstacle_el, "y").c_str());
-
-	 Thing* obst;
-	 if (type == "ton") {
-	 obst = new Barrel(x,y);
-	 } else if (type == "muur") {
-	 obst = new Wall(x,y);
-	 }
-
-	 // Put on board
-	 _board(x,y) = obst;
-
-	 std::cout << _board(x,y)->is_movable() << "\n";
-	 }*/
-
-	// Movements
+	// ---- Movements ----
 	root = moves_doc.FirstChildElement();
 	REQUIRE(root != NULL, "Failed to load movements file: No root element.");
+	REQUIRE(root->ValueTStr() == "BEWEGINGEN", "Failed to load movements file: Wrong root element tag.");
 	current_el = root->FirstChildElement();
 	TiXmlElement* current_el_2;
 	while (current_el != NULL) {
@@ -121,9 +85,19 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 			}
 			std::string dir_s = readElement(current_el, "RICHTING");
 			std::string player_name = readElement(current_el, "SPELERNAAM");
-
-			Movement move(dir_s, _players[player_name]);
-			_movements.push_back(move);
+			
+			Direction dir = toDirection(dir_s);
+			if (dir == Direction::no_dir) {
+				std::cerr << "Invalid direction specified, skipping movement in movement file.\n";
+				continue;
+			}
+			
+			if (_players.find(player_name) == _players.end()) {
+				std::cerr << "Invalid player specified, skipping movement in movement file.\n";
+				continue;
+			}
+			
+			_movements.push_back(Movement(dir, _players[player_name]));
 
 			//std::cout << _movements.back().get_dir() << "\n";
 		} else {
@@ -131,22 +105,9 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 		}
 		current_el = current_el->NextSiblingElement();
 	}
-	/*
-	 std::cout << "Starting..\n";
-	 for (TiXmlElement* move_el = root->FirstChildElement("BEWEGING");
-	 move_el != NULL;
-	 move_el = move_el->NextSiblingElement("BEWEGING")) {
-	 std::string dir_s = readElement(move_el, "RICHTING");
-	 std::string player_name = readElement(move_el, "SPELERNAAM");
-
-	 Movement move(dir_s, &_players[player_name]);
-	 _movements.push_back(move);
-
-	 std::cout << _movements.back().get_dir() << "\n";
-	 }*/
 
 	_initCheck = this;
-	ENSURE(properlyInitialized(), "constructor must end ...");
+	ENSURE(properlyInitialized(), "Constructor of Game did not end properly.");
 }
 
 bool Game::properlyInitialized() const {
@@ -174,8 +135,15 @@ void Game::parsePlayer(TiXmlElement* elem) {
 
 		current_el = current_el->NextSiblingElement();
 	}
-	unsigned int x = atoi(readAttribute(elem, "x").c_str());
-	unsigned int y = atoi(readAttribute(elem, "y").c_str());
+	unsigned int x, y;
+	try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	} catch (std::invalid_argument& e) {
+		std::cerr << "Invalid x or y specified for player, skipping.\n";
+		return;
+	}
+	
 	Player* player = new Player(name, x, y);
 	_players[name] = player;
 
@@ -203,8 +171,15 @@ void Game::parseObstacle(TiXmlElement* elem) {
 
 		current_el = current_el->NextSiblingElement();
 	}
-	unsigned int x = atoi(readAttribute(elem, "x").c_str());
-	unsigned int y = atoi(readAttribute(elem, "y").c_str());
+	
+	// TODO again atoi check
+	unsigned int x,y;
+	try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	} catch (std::invalid_argument& e) {
+		std::cerr << "Invalid x or y specified for obstacle, skipping.\n";
+	}
 
 	Thing* obst;
 	if (type == "ton") {
@@ -298,8 +273,8 @@ void Game::writeMovements(std::ostream& stream) {
 		stream << "geen bewegingen\n";
 		return;
 	}
-	for (std::list<Movement>::iterator i = _movements.begin(); i != _movements.end(); i++) {
-		stream << *i << std::endl;
+	for (auto i: _movements) {
+		stream << i << std::endl;
 	}
 }
 
@@ -333,14 +308,15 @@ void Game::doMove(Movement& movement) {
 	int total_weight = 0;
 	// while not out of board and not an empty spot
 
-	// TODO Check the specs: it says, stop beweging en geef foutmelding wanneer nog niet over de volledige afstand verschoven. Should we quit the game??
-	// Perhaps we should ask this tomorrow.
+	// TODO Check the specs: it says "stop beweging en geef foutmelding wanneer nog niet over de volledige afstand verschoven."
+	// Should we quit the game?? Perhaps we should ask this on 12/4.
 
 	while (_board.valid_location(x_next, y_next) && _board(x_next, y_next) != nullptr) {
 		REQUIRE(_board(x_next, y_next)->get_weight() != -1, "Can't move infinite weight (like a wall)");
 		total_weight += _board(x_next, y_next)->get_weight();
 		doDirection(movement.get_dir(), x_next, y_next);
 	}
+	
 	REQUIRE(_board.valid_location(x_next, y_next) && _board(x_next, y_next) == nullptr, "Player (and perhaps other things) have no place to go.");
 	REQUIRE(total_weight <= movement.get_player()->get_maximum_weight(), "Player tries to move too much weight.");
 	
@@ -350,11 +326,11 @@ void Game::doMove(Movement& movement) {
 	doReverseDirection(movement.get_dir(), x_new, y_new);
 	while (x_next != x || y_next != y) {
 		#define print_status(obj)\
-			if (obj==nullptr) {\
+			/*if (obj==nullptr) {\
 				std::cout << "is nullptr" << std::endl;\
 			} else {\
 				std::cout << "is of char " << obj->to_char() << std::endl;\
-			}\
+			}*/\
 		
 		Thing* temp = _board(x_new, y_new);
 		std::cout << x_new << ", "<< y_new << ", "<< x_next << ", "<< y_next << ", " << std::endl;
@@ -370,7 +346,7 @@ void Game::doMove(Movement& movement) {
 	doDirection(movement.get_dir(), x, y);
 	movement.get_player()->set_x(x);
 	movement.get_player()->set_y(y);
-	ENSURE(x_original != x || y_original != y, "Movement not completed, location stayed the same");
+	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");
 }
 
 void Game::doAllMoves() {
@@ -384,5 +360,5 @@ void Game::doAllMoves() {
 		std::cout << _board << "\n";
 	}
 
-	ENSURE(_movements.empty(), "Not all movements are executed");
+	ENSURE(_movements.empty(), "Not all movements were executed.");
 }

@@ -7,23 +7,23 @@ Path=gcc
 Type=GCC
 
 [Launch]
-Launch Configurations=Launch Configuration 0
+Launch Configurations=Launch Configuration 0,Launch Configuration 1
 
 [Launch][Launch Configuration 0]
 Configured Launch Modes=execute
 Configured Launchers=nativeAppLauncher
-Name=New Compiled Binary Launcher
+Name=Main
 Type=Native Application
 
 [Launch][Launch Configuration 0][Data]
 Arguments=Speelveld1.0.xml Bewegingen1.0.xml
 Debugger Shell=
-Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x14\x00A\x00r\x00c\x00a\x00d\x00e\x00G\x00a\x00m\x00e\x00\x00\x00\x1a\x00a\x00l\x00l\x00_\x00a\x00n\x00d\x00_\x00c\x00l\x00e\x00a\x00n)
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x14\x00A\x00r\x00c\x00a\x00d\x00e\x00G\x00a\x00m\x00e\x00\x00\x00\x14\x00A\x00r\x00c\x00a\x00d\x00e\x00M\x00a\x00i\x00n)
 Dependency Action=Build
 Display Demangle Names=true
-Display Static Members=false
+Display Static Members=true
 EnvironmentGroup=
-Executable=file:///Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/main
+Executable=file:///Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/ArcadeMain
 External Terminal=konsole --noclose --workdir %workdir -e %exe
 GDB Path=
 Project Target=
@@ -31,6 +31,24 @@ Remote GDB Config Script=
 Remote GDB Run Script=
 Remote GDB Shell Script=
 Start With=ApplicationOutput
+Use External Terminal=false
+Working Directory=
+isExecutable=true
+
+[Launch][Launch Configuration 1]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=Test
+Type=Native Application
+
+[Launch][Launch Configuration 1][Data]
+Arguments=
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x14\x00A\x00r\x00c\x00a\x00d\x00e\x00G\x00a\x00m\x00e\x00\x00\x00\x16\x00A\x00r\x00c\x00a\x00d\x00e\x00T\x00e\x00s\x00t\x00s)
+Dependency Action=Build
+EnvironmentGroup=
+Executable=file:///Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/ArcadeMain
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=
 Use External Terminal=false
 Working Directory=
 isExecutable=true

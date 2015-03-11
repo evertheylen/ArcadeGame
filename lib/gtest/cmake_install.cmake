@@ -1,4 +1,4 @@
-# Install script for directory: /tmp/gtest_make_ansymore/gtest-1.7.0
+# Install script for directory: /Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/lib/gtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/tmp/gtest_make_ansymore/gtest-1.7.0/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/lib/gtest/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/tmp/gtest_make_ansymore/gtest-1.7.0/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/lib/gtest/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()
