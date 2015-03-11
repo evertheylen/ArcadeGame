@@ -7,9 +7,14 @@
 class Obstacle: public Thing {
 public:
 	Obstacle(unsigned int x, unsigned int y, int weight);
+	// REQUIRE(x >= 0 && y >= 0 && weight >= -1, "Incorrect constructor parameters given for obstacle");
+	// ENSURE(properlyInitialized(), "constructor must end...");
+
 	virtual std::ostream& print(std::ostream& out);
-	
+	// REQUIRE(properlyInitialized(), "Obstacle wasn't initialized when calling print");
+
 	virtual char to_char();
+	// REQUIRE(properlyInitialized(), "Obstacle wasn't initialized when calling to_char");
 };
 
 #endif // _Obstacle
