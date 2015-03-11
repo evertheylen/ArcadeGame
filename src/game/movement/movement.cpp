@@ -111,7 +111,7 @@ Player* Movement::get_player() const {
 void Movement::set_player(Player* player) {
 	//REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
 	_player = player;
-	ENSURE(_player == player, "Player not set correctly");
+	ENSURE(_player == player && player->properlyInitialized(), "Player not set correctly");
 }
 
 std::ostream& operator<< (std::ostream &out, Movement& move){

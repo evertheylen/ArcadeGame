@@ -6,25 +6,49 @@
 class Thing {
 public:
 	Thing();
+	// ENSURE(properlyInitialized(), "constructor must end...");
 
 	Thing(unsigned int x, unsigned int y, int weight);
+	// ENSURE(properlyInitialized(), "constructor must end...");
 
 	bool is_movable() const;  // _weight >= 0 (-1 means infinity)
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling is_movable");
 
 	int get_weight() const;
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_weight");
+	// ENSURE(result == _weight && result >= -1, "Incorrect weight or no weight at all returned");
+
 	void set_weight(int weight);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_weight");
+	// ENSURE(_weight == weight && weight >= -1, "Incorrect weight specified");
 	
 	unsigned int get_x() const;
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_x");
+	// ENSURE(result == _x && _x >= 0, "Incorrect x coordinate returned");
+
 	void set_x(unsigned int x);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_x");
+	// ENSURE(_x == x && x >= 0, "Incorrect x specified");
 
 	unsigned int get_y() const;
-	void set_y(unsigned int y);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_y");
+	// ENSURE(result == _y && _y >= 0, "Incorrect y coordinate returned");
 
-	void move(unsigned int x, unsigned int y);
+	void set_y(unsigned int y);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_y");
+	// ENSURE(_y == y && y >= 0, "Incorrect y specified");
+
+	//void move(unsigned int x, unsigned int y);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_x");
+
 	friend std::ostream& operator<< (std::ostream &out, Thing &thing);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling operator <<");
+
 	virtual std::ostream& print(std::ostream &out);
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling print");
 	
 	virtual char to_char();
+	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling to_char");
 	
 	virtual ~Thing() {}
 

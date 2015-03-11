@@ -8,6 +8,7 @@ Board::Board(unsigned int width, unsigned int height):
 	_width(width), _height(height),
 	_data(std::vector<std::vector<Thing*>>(width, std::vector<Thing*>(height, nullptr)))
 	{
+	REQUIRE(width >= 0 && height >= 0, "incorrect height or width");
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end ...");
 }

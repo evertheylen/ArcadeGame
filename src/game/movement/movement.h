@@ -34,7 +34,7 @@ public:
 	// When setting to other player, take care of memory leaks.
 	void set_player(Player* player);
 	// REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
-	// ENSURE(_player == player, "Player not set correctly");
+	// ENSURE(_player == player && player->properlyInitialized(), "Player not set correctly");
 
 	friend std::ostream& operator<< (std::ostream &out, Movement& move);
 	// REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator <<");
