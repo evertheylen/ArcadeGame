@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <map>
@@ -14,12 +15,7 @@
 
 Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	TiXmlElement* root = board_doc.FirstChildElement();
-	if (root == NULL) {
-		std::cerr << "Failed to load board file: No root element." << std::endl;
-		board_doc.Clear();
-		return;
-		// TODO proper error handling, also below
-	}
+	REQUIRE(root != NULL, "Failed to load board file: No root element.");
 
 	TiXmlElement* current_el = root->FirstChildElement();
 	std::string boardname;
@@ -45,9 +41,11 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 				} else {
 					if (current_el->ValueTStr() != "BREEDTE"
 							&& current_el->ValueTStr() != "LENGTE") {
-						std::cerr << "Error: tag " << current_el->Value()
-								<< " not defined." << std::endl;
-						//TODO proper error handling!
+						std::stringstream ss;
+						ss << "Error: tag " << current_el->Value() << " not defined.\n";
+						std::string str = ss.str();
+						ss.str("");
+						REQUIRE(false, str.c_str());
 					}
 				}
 			}
@@ -60,7 +58,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	 x = atoi(readElement(root, "BREEDTE").c_str());
 	 y = atoi(readElement(root, "LENGTE").c_str());
 	 */
-	// TODO Check on error atoi. If it returns 0 -> error.
+
 	std::cout << "Width: " << _board.get_width() << "   Height: "
 			<< _board.get_height() << "   Name: " << _board.get_name()
 			<< std::endl;
@@ -93,10 +91,8 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 
 	 Thing* obst;
 	 if (type == "ton") {
-	 // TODO check beweegbaar
 	 obst = new Barrel(x,y);
 	 } else if (type == "muur") {
-	 // TODO check beweegbaar
 	 obst = new Wall(x,y);
 	 }
 
@@ -108,12 +104,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 
 	// Movements
 	root = moves_doc.FirstChildElement();
-	if (root == NULL) {
-		std::cerr << "Failed to load movements file: No root element."
-				<< std::endl;
-		moves_doc.Clear();
-		return;
-	}
+	REQUIRE(root != NULL, "Failed to load movements file: No root element.");
 	current_el = root->FirstChildElement();
 	TiXmlElement* current_el_2;
 	while (current_el != NULL) {
@@ -122,9 +113,11 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 			while (current_el_2 != NULL) {
 				if (current_el_2->ValueTStr() != "SPELERNAAM"
 						&& current_el_2->ValueTStr() != "RICHTING") {
-					std::cerr << "Error: tag " << current_el->Value()
-							<< " not defined." << std::endl;
-					//TODO proper error handling!
+					std::stringstream ss;
+					ss << "Error: tag " << current_el->Value() << " not defined.\n";
+					std::string str = ss.str();
+					ss.str("");
+					REQUIRE(false, str.c_str());
 				}
 				current_el_2 = current_el_2->NextSiblingElement();
 			}
@@ -136,9 +129,11 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 
 			//std::cout << _movements.back().get_dir() << "\n";
 		} else {
-			std::cerr << "Error: tag " << current_el->Value() << " not defined."
-					<< std::endl;
-			//TODO proper error handling!
+			std::stringstream ss;
+			ss << "Error: tag " << current_el->Value() << " not defined.\n";
+			std::string str = ss.str();
+			ss.str("");
+			REQUIRE(false, str.c_str());
 		}
 		current_el = current_el->NextSiblingElement();
 	}
@@ -157,6 +152,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	 }*/
 
 	_initCheck = this;
+	ENSURE(properlyInitialized(), "constructor must end ...");
 }
 
 bool Game::properlyInitialized() {
@@ -171,8 +167,11 @@ void Game::parsePlayer(TiXmlElement* elem) {
 		if (current_el->ValueTStr() == "NAAM") {
 			name = readElement(current_el);
 		} else {
-			std::cerr << "Error: tag " << current_el->Value() << " not defined."
-					<< std::endl;
+			std::stringstream ss;
+			ss << "Error: tag " << current_el->Value() << " not defined.\n";
+			std::string str = ss.str();
+			ss.str("");
+			REQUIRE(false, str.c_str());
 		}
 
 		current_el = current_el->NextSiblingElement();
@@ -198,8 +197,11 @@ void Game::parseObstacle(TiXmlElement* elem) {
 		if (current_el->ValueTStr() == "TYPE") {
 			type = readElement(current_el);
 		} else {
-			std::cerr << "Error: tag " << current_el->Value() << " not defined."
-					<< std::endl;
+			std::stringstream ss;
+			ss << "Error: tag " << current_el->Value() << " not defined.\n";
+			std::string str = ss.str();
+			ss.str("");
+			REQUIRE(false, str.c_str());
 		}
 
 		current_el = current_el->NextSiblingElement();
@@ -266,6 +268,9 @@ void Game::writeBoard(std::ostream& stream) {
 	Eigenschappen van dit veld:
 	-Breedte 10
 	-Lengte 10*/
+
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeBoard");
+
 	stream << "Het huidige speelveld is " << _board.get_name() << ":\n"
 			<< "Eigenschappen van dit veld:\n"
 			<< "-Breedte " << _board.get_width() << "\n"
@@ -282,22 +287,29 @@ void Game::writeBoard(std::ostream& stream) {
 }
 
 void Game::writeMovements(std::ostream& stream) {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");
 	for (std::list<Movement>::iterator i = _movements.begin(); i != _movements.end(); i++) {
 		stream << *i << std::endl;
 	}
 }
 
 void Game::popMove() {
-	// TODO Require length >= 1
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popMove");
+	REQUIRE(!_movements.empty(), "Movements was empty, can't be popped");
+	int original_size = _movements.size();
 	std::cout << "popped\n";
 	doMove(_movements.front());
 	_movements.pop_front();
+	ENSURE(_movements.size() == original_size - 1, "Movement was not popped");
 }
 
 void Game::doMove(Movement& movement) {
-	// TODO check / require move obstacle.
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
+	REQUIRE(!_movements.empty(), "Movements was empty, can't be done");
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
+	unsigned int x_original = x;
+	unsigned int y_original = y;
 	std::cout << movement << std::endl;
 	//std::cout << _board(x,y)->is_movable() << "\n";
 	
@@ -344,9 +356,11 @@ void Game::doMove(Movement& movement) {
 	doDirection(movement.get_dir(), x, y);
 	movement.get_player()->set_x(x);
 	movement.get_player()->set_y(y);
+	ENSURE(x_original != x || y_original != y, "Movement not completed, location stayed the same");
 }
 
 void Game::doAllMoves() {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
 	std::cout << "About to do all " << _movements.size() << " movements.\n";
 	std::cout << _board << "\nStarting now:\n";
 	
@@ -355,4 +369,6 @@ void Game::doAllMoves() {
 		_movements.pop_front();
 		std::cout << _board << "\n";
 	}
+
+	ENSURE(_movements.empty(), "Not all movements are executed");
 }
