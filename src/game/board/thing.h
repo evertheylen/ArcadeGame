@@ -28,9 +28,12 @@ public:
 	
 	virtual ~Thing() {}
 
+	bool properlyInitialized();
+
 protected:
 	unsigned int _x, _y;
 	int _weight;
+	Thing* _initCheck;
 
 };
 

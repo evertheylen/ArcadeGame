@@ -25,9 +25,12 @@ public:
 
 	friend std::ostream& operator<< (std::ostream &out, Movement& move);
 
+	bool properlyInitialized();
+
 private:
 	Direction _dir;
 	Player* _player;
+	Movement* _initCheck;
 };
 
 

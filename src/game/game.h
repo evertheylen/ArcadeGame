@@ -38,10 +38,13 @@ public:
 
 	void doAllMoves();
 
+	bool properlyInitialized();
+
 private:
 	Board _board;
 	std::list<Movement> _movements;
 	Playermap _players;
+	Game* _initCheck;
 
 
 };

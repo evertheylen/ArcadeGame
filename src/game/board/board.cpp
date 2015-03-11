@@ -6,7 +6,13 @@
 Board::Board(unsigned int width, unsigned int height):
 	_width(width), _height(height),
 	_data(std::vector<std::vector<Thing*>>(width, std::vector<Thing*>(height, nullptr)))
-	{}
+	{
+	_initCheck = this;
+}
+
+bool Board::properlyInitialized() {
+	return _initCheck == this;
+}
 
 Board::~Board() {
 	for (std::vector<std::vector<Thing*>>::iterator i = _data.begin(); i != _data.end(); ++i) {

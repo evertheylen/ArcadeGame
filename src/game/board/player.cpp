@@ -6,7 +6,9 @@ Player::Player(std::string name, unsigned int x, unsigned int y):
 	Thing(x,y,0),
 	_name(name),
 	_maximum_weight(1000)  // 1 ton
-	{}
+	{
+	_initCheck = this;
+}
 
 const std::string& Player::get_name() const {
 	return _name;

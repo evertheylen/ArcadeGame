@@ -155,6 +155,12 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 
 	 std::cout << _movements.back().get_dir() << "\n";
 	 }*/
+
+	_initCheck = this;
+}
+
+bool Game::properlyInitialized() {
+	return _initCheck == this;
 }
 
 void Game::parsePlayer(TiXmlElement* elem) {

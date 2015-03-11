@@ -27,10 +27,13 @@ public:
 
 	friend std::ostream& operator<< (std::ostream& out, Board& board);
 
+	bool properlyInitialized();
+
 private:
 	std::string _name;
 	unsigned int _width, _height;
 	std::vector<std::vector<Thing*>> _data;
+	Board* _initCheck;
 };
 
 #endif //_Board

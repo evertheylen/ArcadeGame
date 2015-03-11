@@ -1,10 +1,18 @@
 #include "thing.h"
 
-Thing::Thing() {}
+Thing::Thing() {
+	_initCheck = this;
+}
 
 Thing::Thing(unsigned int x, unsigned int y, int weight):
 	_x(x), _y(y), _weight(weight)
-	{}
+	{
+	_initCheck = this;
+}
+
+bool Thing::properlyInitialized() {
+	return _initCheck == this;
+}
 
 bool Thing::is_movable() const {
 	return _weight>=0;

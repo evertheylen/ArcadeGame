@@ -4,7 +4,9 @@
 #include "../board/player.h"
 
 Movement::Movement(Direction dir, Player* player):
-	_dir(dir), _player(player) {}
+	_dir(dir), _player(player) {
+	_initCheck = this;
+}
 
 Movement::Movement(std::string dir_s, Player* player):
 	_player(player) {
@@ -20,6 +22,11 @@ Movement::Movement(std::string dir_s, Player* player):
 		std::cerr << "Did not recognize type '" << dir_s << "' as a direction.\n";
 		// TODO proper error handling
 	}
+	_initCheck = this;
+}
+
+bool Movement::properlyInitialized() {
+	return _initCheck == this;
 }
 
 void doDirection(Direction dir, unsigned int& x, unsigned int& y) {
