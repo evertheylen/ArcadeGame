@@ -4,7 +4,7 @@
 #ifndef _Movement
 #define _Movement
 
-enum Direction {up, left, down, right};
+enum Direction {up, left, down, right, no_dir};			//TODO Somehow we should get this into some kind of class perhaps, so we can do propInit and some other contracts?
 
 void doDirection(Direction dir, unsigned int& x, unsigned int& y);
 void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y);

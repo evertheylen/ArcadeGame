@@ -21,12 +21,14 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	std::string boardname;
 	_players = Playermap();
 
+	// TODO FIX THIS SHIT, this function atoi must be called, but some idiot can give in a string as value <BREEDTE>vijf</BREEDTE>
+	// must give an error and the next element should be parsed.
 	int x = atoi(readElement(root, "BREEDTE").c_str());
 	int y = atoi(readElement(root, "LENGTE").c_str());
 
 	_board = Board(x, y);
 
-	//TODO Test if all necessary elements are specified in the xml file. Else error!
+	//TODO Test if all necessary elements are specified in the xml file. Else error! I think this is done for the most part???
 
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "NAAM") {
@@ -41,11 +43,11 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 				} else {
 					if (current_el->ValueTStr() != "BREEDTE"
 							&& current_el->ValueTStr() != "LENGTE") {
-						std::stringstream ss;
-						ss << "Error: tag " << current_el->Value() << " not defined.\n";
+						std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
+						/*ss << "Error: tag " << current_el->Value() << " not defined.\n";
 						std::string str = ss.str();
 						ss.str("");
-						REQUIRE(false, str.c_str());
+						REQUIRE(false, str.c_str());*/
 					}
 				}
 			}
@@ -113,11 +115,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 			while (current_el_2 != NULL) {
 				if (current_el_2->ValueTStr() != "SPELERNAAM"
 						&& current_el_2->ValueTStr() != "RICHTING") {
-					std::stringstream ss;
-					ss << "Error: tag " << current_el->Value() << " not defined.\n";
-					std::string str = ss.str();
-					ss.str("");
-					REQUIRE(false, str.c_str());
+					std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
 				}
 				current_el_2 = current_el_2->NextSiblingElement();
 			}
@@ -129,11 +127,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 
 			//std::cout << _movements.back().get_dir() << "\n";
 		} else {
-			std::stringstream ss;
-			ss << "Error: tag " << current_el->Value() << " not defined.\n";
-			std::string str = ss.str();
-			ss.str("");
-			REQUIRE(false, str.c_str());
+			std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
 		}
 		current_el = current_el->NextSiblingElement();
 	}
@@ -175,11 +169,7 @@ void Game::parsePlayer(TiXmlElement* elem) {
 		if (current_el->ValueTStr() == "NAAM") {
 			name = readElement(current_el);
 		} else {
-			std::stringstream ss;
-			ss << "Error: tag " << current_el->Value() << " not defined.\n";
-			std::string str = ss.str();
-			ss.str("");
-			REQUIRE(false, str.c_str());
+			std::cerr << "Error: Tag " << current_el->Value() << " not defined.\n";
 		}
 
 		current_el = current_el->NextSiblingElement();
@@ -200,16 +190,15 @@ void Game::parsePlayer(TiXmlElement* elem) {
 void Game::parseObstacle(TiXmlElement* elem) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	std::string type;
-	REQUIRE(reqElement(elem, "TYPE"), "Obstacle must have a type specified.");
+	if (!reqElement(elem, "TYPE")) {
+		std::cerr << "Obstacle must have a type specified.\n";
+		return;
+	}
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "TYPE") {
 			type = readElement(current_el);
 		} else {
-			std::stringstream ss;
-			ss << "Error: tag " << current_el->Value() << " not defined.\n";
-			std::string str = ss.str();
-			ss.str("");
-			REQUIRE(false, str.c_str());
+			std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
 		}
 
 		current_el = current_el->NextSiblingElement();
@@ -219,16 +208,25 @@ void Game::parseObstacle(TiXmlElement* elem) {
 
 	Thing* obst;
 	if (type == "ton") {
-		REQUIRE(readAttribute(elem, "beweegbaar") == "true", "A barrel must be movable.");
-		obst = new Barrel(x, y);
+		if (readAttribute(elem, "beweegbaar") != "true") {
+			std::cerr << "Error: A barrel must be declared movable.\n";
+		} else {
+			obst = new Barrel(x, y);
+			// Put on board
+			_board(x, y) = obst;
+		}
 	} else if (type == "muur") {
-		REQUIRE(readAttribute(elem, "beweegbaar") == "false", "A wall may not be movable.");
-		obst = new Wall(x, y);
+		if (readAttribute(elem, "beweegbaar") != "false") {
+			std::cerr << "Error: A wall may not be declared movable.\n";
+		} else {
+			obst = new Wall(x, y);
+			// Put on board
+			_board(x, y) = obst;
+		}
+	} else {
+		std::cerr << "Error: Type " << type << " is not defined as an obstacle.\n";
 	}
 	
-	// Put on board
-	_board(x, y) = obst;
-
 	//std::cout << _board(x,y)->is_movable() << "\n";
 }
 
@@ -296,6 +294,10 @@ void Game::writeBoard(std::ostream& stream) {
 
 void Game::writeMovements(std::ostream& stream) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");
+	if (_movements.empty()) {
+		stream << "geen bewegingen\n";
+		return;
+	}
 	for (std::list<Movement>::iterator i = _movements.begin(); i != _movements.end(); i++) {
 		stream << *i << std::endl;
 	}
@@ -304,7 +306,7 @@ void Game::writeMovements(std::ostream& stream) {
 void Game::popMove() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popMove");
 	REQUIRE(!_movements.empty(), "Movements was empty, can't be popped");
-	int original_size = _movements.size();
+	unsigned int original_size = _movements.size();
 	std::cout << "popped\n";
 	doMove(_movements.front());
 	_movements.pop_front();
@@ -330,6 +332,10 @@ void Game::doMove(Movement& movement) {
 	doDirection(movement.get_dir(), x_next, y_next);  // x or y are modified
 	int total_weight = 0;
 	// while not out of board and not an empty spot
+
+	// TODO Check the specs: it says, stop beweging en geef foutmelding wanneer nog niet over de volledige afstand verschoven. Should we quit the game??
+	// Perhaps we should ask this tomorrow.
+
 	while (_board.valid_location(x_next, y_next) && _board(x_next, y_next) != nullptr) {
 		REQUIRE(_board(x_next, y_next)->get_weight() != -1, "Can't move infinite weight (like a wall)");
 		total_weight += _board(x_next, y_next)->get_weight();

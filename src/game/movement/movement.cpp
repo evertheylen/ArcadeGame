@@ -24,11 +24,7 @@ Movement::Movement(std::string dir_s, Player* player):
 	} else if (dir_s == "RECHTS") {
 		_dir = Direction::right;
 	} else {
-		std::stringstream ss;
-		ss << "Did not recognize type " << dir_s << " as a direction.";
-		std::string str = ss.str();
-		ss.str("");
-		REQUIRE(false, str.c_str());
+		std::cerr << "Did not recognize type " << dir_s << " as a direction.";	// TODO We should fix this so that the incorrect movement does NOT get pushed on the movements vector!
 	}
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end ...");
