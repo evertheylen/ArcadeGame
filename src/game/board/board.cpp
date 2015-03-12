@@ -72,7 +72,7 @@ Thing*& Board::operator()(unsigned int x, unsigned int y) {
 
 bool Board::valid_location(int x, int y) {
 	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling valid_location");
-	return 0<x && x<_width && 0<y && y<_height;
+	return 0<=x && x<_width && 0<=y && y<_height;
 }
 
 std::ostream& operator<< (std::ostream &out, Board& board) {

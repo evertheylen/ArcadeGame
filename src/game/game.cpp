@@ -39,7 +39,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 		REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
 	}
 	
-	if (_board.valid_location(x,y)) {
+	if (x<1 || y<1) {
 		std::cerr << "Invalid board dimensions.\n";
 		return;
 	}
@@ -151,7 +151,7 @@ void Game::parsePlayer(TiXmlElement* elem) {
 		return;
 	}
 	
-	if (_board.valid_location(x,y)) {
+	if (! _board.valid_location(x,y)) {
 		std::cerr << "Invalid location given.\n";
 		return;
 	}
@@ -193,7 +193,7 @@ void Game::parseObstacle(TiXmlElement* elem) {
 	}
 	
 	
-	if (_board.valid_location(x,y)) {
+	if (! _board.valid_location(x,y)) {
 		std::cerr << "Invalid location given.\n";
 		return;
 	}
