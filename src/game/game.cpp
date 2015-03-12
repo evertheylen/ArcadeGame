@@ -280,9 +280,18 @@ void Game::writeMovements(std::ostream& stream) {
 	}
 }
 
+void Game::popMove(std::ostream& out) {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popMove");
+	REQUIRE(!_movements.empty(), "Movements was empty, can't be popped");
+	unsigned int original_size = _movements.size();
+	//out << "popped\n";
+	doMove(_movements.front(), out);
+	_movements.pop_front();
+	ENSURE(_movements.size() == original_size - 1, "Movement was not popped");
+}
+
 void Game::doMove(Movement& movement, std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
-	REQUIRE(!get_movements().empty(), "Movements was empty, can't be done");
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	unsigned int x_original = x;
@@ -336,8 +345,7 @@ void Game::doAllMoves(std::ostream& out) {
 	out << _board << "\nStarting now:\n";
 	
 	while (! _movements.empty()) {
-		doMove(_movements.front(), out);
-		_movements.pop_front();
+		popMove(out);
 		out << _board << "\n";
 	}
 
