@@ -25,6 +25,7 @@ Movement::Movement(const Movement& that):
 	_dir(that._dir),
 	_player(that._player) {
 	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
 
 // copy assignment
@@ -32,6 +33,8 @@ Movement& Movement::operator=(const Movement& that) {
 	_dir = that._dir;
 	_player = that._player;
 	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
 }
 
 Movement::Movement(Direction dir, Player* player):

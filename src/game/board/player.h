@@ -5,11 +5,15 @@
 #define _Player
 
 class Player: public Thing {
-private:
-	std::string _name;
-	int _maximum_weight;
-
 public:
+	// copy constructor
+	Player(const Player& that);
+	// ENSURE(properlyInitialized(), "Copy constructor must end...");
+
+	// copy assignment
+	Player& operator=(const Player& that);
+	// ENSURE(properlyInitialized(), "Copy by assignment must end...");
+
 	Player(std::string name = "noname", unsigned int x = 0, unsigned int y = 0);
 	// REQUIRE(x >= 0 && y >= 0, "Incorrect arguments for constructor of player.");
 	// ENSURE(properlyInitialized(), "constructor must end...");
@@ -35,6 +39,11 @@ public:
 	// REQUIRE(properlyInitialized(), "Player wasn't initialized when calling to_char");
 	
 	~Player() {}
+
+private:
+	std::string _name;
+	int _maximum_weight;
+
 };
 
 #endif // _Player

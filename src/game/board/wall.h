@@ -5,6 +5,14 @@
 
 class Wall: public Obstacle {
 public:
+	// copy constructor
+	Wall(const Wall& that);
+	//ENSURE(properlyInitialized(), "Copy constructor must end...");
+
+	// copy assignment
+	Wall& operator=(const Wall& that);
+	//ENSURE(properlyInitialized(), "Copy by assignment must end...");
+
 	Wall(unsigned int x, unsigned int y);
 	// REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of wall");
 	// ENSURE(properlyInitialized(), "constructor must end...");

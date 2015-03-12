@@ -16,9 +16,11 @@ public:
 	
 	// copy constructor
 	Movement(const Movement& that);
+	// ENSURE(properlyInitialized(), "Copy constructor must end...");
 
 	// copy assignment
 	Movement& operator=(const Movement& that);
+	// ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	
 	Movement(Direction dir, Player* player);
 	// ENSURE(properlyInitialized(), "constructor must end ...");

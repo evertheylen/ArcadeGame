@@ -11,6 +11,14 @@ public:
 	Thing(unsigned int x, unsigned int y, int weight);
 	// ENSURE(properlyInitialized(), "constructor must end...");
 
+	// copy constructor
+	Thing(const Thing& that);
+	//ENSURE(properlyInitialized(), "Copy constructor must end...");
+
+	// copy assignment
+	Thing& operator=(const Thing& that);
+	//ENSURE(properlyInitialized(), "Copy by assignment must end...");
+
 	bool is_movable() const;  // _weight >= 0 (-1 means infinity)
 	// REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling is_movable");
 

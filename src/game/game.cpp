@@ -14,6 +14,24 @@
 #include "board/wall.h"
 #include "movement/movement.h"
 
+// copy constructor
+Game::Game(const Game& that):
+	_board(that._board),
+	_movements(that._movements),
+	_players(that._players) {
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+// copy assignment
+Game& Game::operator=(const Game& that) {
+	_board = that._board;
+	_movements = that._movements;
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
+
 std::list<Movement>& Game::get_movements() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");
 	return _movements;

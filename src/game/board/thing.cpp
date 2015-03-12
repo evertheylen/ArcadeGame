@@ -13,6 +13,25 @@ Thing::Thing(unsigned int x, unsigned int y, int weight):
 	ENSURE(properlyInitialized(), "constructor must end...");
 }
 
+// copy constructor
+Thing::Thing(const Thing& that):
+	_x(that._x),
+	_y(that._y),
+	_weight(that._weight) {
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+// copy assignment
+Thing& Thing::operator=(const Thing& that) {
+	_x = that._x;
+	_y = that._y;
+	_weight = that._weight;
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
+
 bool Thing::properlyInitialized() const {
 	return _initCheck == this;
 }

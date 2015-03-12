@@ -3,6 +3,25 @@
 #include "../../DesignByContract.h"
 #include <iostream>
 
+// copy constructor
+Player::Player(const Player& that):
+	Thing(that),
+	_name(that._name),
+	_maximum_weight(that._maximum_weight) {
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+// copy assignment
+Player& Player::operator=(const Player& that) {
+	Thing::operator=(that);
+	_name = that._name;
+	_maximum_weight = that._maximum_weight;
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
+
 Player::Player(std::string name, unsigned int x, unsigned int y):
 	Thing(x,y,0),
 	_name(name),

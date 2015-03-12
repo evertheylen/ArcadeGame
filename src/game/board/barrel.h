@@ -9,6 +9,14 @@ public:
 	// REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of barrel");
 	// ENSURE(properlyInitialized(), "constructor must end...");
 
+	// copy constructor
+	Barrel(const Barrel& that);
+	//ENSURE(properlyInitialized(), "Copy constructor must end...");
+
+	// copy assignment
+	Barrel& operator=(const Barrel& that);
+	//ENSURE(properlyInitialized(), "Copy by assignment must end...");
+
 	std::ostream& print(std::ostream& out);
 	// REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling print");
 	

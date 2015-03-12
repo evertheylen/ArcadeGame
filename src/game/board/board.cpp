@@ -29,6 +29,27 @@ Board::~Board() {
 	}
 }
 
+// copy constructor
+Board::Board(const Board& that):
+	_name(that._name),
+	_width(that._width),
+	_height(that._height),
+	_data(that._data) {
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+// copy assignment
+Board& Board::operator=(const Board& that) {
+	_name = that._name;
+	_width = that._width;
+	_height = that._height;
+	_data = that._data;
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
+
 unsigned int Board::get_height() const {
 	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_height");+
 	unsigned int result = _height;

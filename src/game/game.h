@@ -16,6 +16,14 @@ public:
 	typedef std::map<std::string, Player*> Playermap;
 	typedef std::pair<std::string, Player*> Playerpair;
 
+	// copy constructor
+	Game(const Game& that);
+	//ENSURE(properlyInitialized(), "Copy constructor must end...");
+
+	// copy assignment
+	Game& operator=(const Game& that);
+	//ENSURE(properlyInitialized(), "Copy by assignment must end...");
+
 	Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc);
 	// ENSURE(properlyInitialized(), "constructor must end ...");
 

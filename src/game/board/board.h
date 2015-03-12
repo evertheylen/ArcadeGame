@@ -14,6 +14,14 @@ public:
 
 	~Board();
 
+	// copy constructor
+	Board(const Board& that);
+	//ENSURE(properlyInitialized(), "Copy constructor must end...");
+
+	// copy assignment
+	Board& operator=(const Board& that);
+	//ENSURE(properlyInitialized(), "Copy by assignment must end...");
+
 	unsigned int get_height() const;
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_height");
 	// ENSURE(result > 0, "Board has incorrect height or height is not returned correctly");

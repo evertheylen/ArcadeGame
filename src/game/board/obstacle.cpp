@@ -9,6 +9,21 @@ Obstacle::Obstacle(unsigned int x, unsigned int y, int weight):
 	ENSURE(properlyInitialized(), "constructor must end...");
 }
 
+// copy constructor
+Obstacle::Obstacle(const Obstacle& that):
+	Thing(that) {
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+// copy assignment
+Obstacle& Obstacle::operator=(const Obstacle& that) {
+	Thing::operator=(that);
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
+
 std::ostream& Obstacle::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Obstacle wasn't initialized when calling print");
 	out << "Obstacle" << std::endl;
