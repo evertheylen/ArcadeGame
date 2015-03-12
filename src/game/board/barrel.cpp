@@ -17,5 +17,5 @@ std::ostream& Barrel::print(std::ostream& out){
 
 char Barrel::to_char() {
 	REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling to_char");
-	return '#';
+	return 'o';
 }

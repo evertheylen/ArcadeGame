@@ -40,7 +40,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	}
 	
 	if (_board.valid_location(x,y)) {
-		std:cerr << "Invalid board dimensions.\n";
+		std::cerr << "Invalid board dimensions.\n";
 		return;
 	}
 	
@@ -152,7 +152,7 @@ void Game::parsePlayer(TiXmlElement* elem) {
 	}
 	
 	if (_board.valid_location(x,y)) {
-		std:cerr << "Invalid location given.\n";
+		std::cerr << "Invalid location given.\n";
 		return;
 	}
 	
@@ -194,7 +194,7 @@ void Game::parseObstacle(TiXmlElement* elem) {
 	
 	
 	if (_board.valid_location(x,y)) {
-		std:cerr << "Invalid location given.\n";
+		std::cerr << "Invalid location given.\n";
 		return;
 	}
 
