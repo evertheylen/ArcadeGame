@@ -27,8 +27,6 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	std::string boardname;
 	_players = Playermap();
 
-	// TODO FIX THIS SHIT, this function atoi must be called, but some idiot can give in a string as value <BREEDTE>vijf</BREEDTE>
-	// must give an error and the next element should be parsed. --> impossible, x and y NEED to be known...
 	unsigned int x, y;
 	try {
 		x = std::stoi(readElement(root, "BREEDTE"));
