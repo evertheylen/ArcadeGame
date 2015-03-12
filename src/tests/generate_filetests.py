@@ -15,7 +15,10 @@ TEST_F(ArcadeGameTest, {0} ) {{
 
 	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
 	
-	Game g = Game(doc_board, doc_moves);
+	std::ofstream new_cout;
+	new_cout.open(Base+"output.txt");
+	
+	Game g = Game(doc_board, doc_moves, new_cout);
 	
 	std::ofstream output_file;
 	
@@ -23,9 +26,8 @@ TEST_F(ArcadeGameTest, {0} ) {{
 	g.writeMovements(output_file);
 	output_file.close();
 	
-	output_file.open(Base+"output.txt");
-	g.doAllMoves(output_file);
-	output_file.close();
+	g.doAllMoves(new_cout);
+	new_cout.close();
 	
 	output_file.open(Base+"HuidigSpeelveld.txt");
 	g.writeBoard(output_file);

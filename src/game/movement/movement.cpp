@@ -15,7 +15,7 @@ Direction toDirection(std::string dir_s) {
 	} else if (dir_s == "RECHTS") {
 		return Direction::right;
 	} else {
-		std::cerr << "Did not recognize type " << dir_s << " as a direction.";
+		//std::cerr << "Did not recognize type " << dir_s << " as a direction.";
 		return Direction::no_dir;
 	}
 }

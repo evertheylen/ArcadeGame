@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<VELD>
+    <NAAM>Level 1</NAAM>
+    <LENGTE>10</LENGTE>
+    <BREEDTE>10</BREEDTE>
+    <SPELER x="4" y="5">
+        <NAAM>Chip</NAAM>
+    </SPELER>
+	<SPELER x="8" y="5">
+        <NAAM>Chip</NAAM>
+    </SPELER>
+	<SPELER x="3" y="3">
+        <NAAM>Munk</NAAM>
+    </SPELER>
+	<SPELER x="3" y="3">
+        <NAAM>Ape</NAAM>
+    </SPELER>
+	<OBSTAKEL beweegbaar="true" x="2" y="5">
+        <TYPE>ton</TYPE>
+    </OBSTAKEL>
+</VELD>

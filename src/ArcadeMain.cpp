@@ -38,7 +38,7 @@ int main(int argc, char const* argv[]) {
 		return 1;
 	}
 	
-	Game g = Game(doc_board, doc_moves);
+	Game g = Game(doc_board, doc_moves, std::cout);
 	
 	if (argc == 4) {
 		// Different modes
@@ -46,8 +46,9 @@ int main(int argc, char const* argv[]) {
 			// print the board and stop.
 			NullStream null;
 			g.writeBoard(std::cout);
-			g.doAllMoves(null);
-			std::cout << "\n\n --------------------------------- \n\n";
+			std::cout << "\n\n---------------------------------\n\n";
+			g.doAllMoves(std::cout);
+			std::cout << "\n\n---------------------------------\n\n";
 			g.writeBoard(std::cout);
 			
 		} else {
