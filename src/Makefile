@@ -42,6 +42,14 @@ clean:
 	#rm -f $(TARGET)
 	#rm -f testOutput/file*.txt testOutput/happyDayOut.txt  testOutput/noWinnerOut.txt
 
+.PHONY: cleann
+cleann:
+	find . -name '*.o' -delete
+	find . -name '*.d' -delete
+	find . -name '*~'  -delete
+	rm -f $(TARGET)
+	rm -f testOutput/file*.txt testOutput/happyDayOut.txt  testOutput/noWinnerOut.txt
+
 	
 # .PHONY: cleantests
 # cleantests:
@@ -50,6 +58,14 @@ clean:
 # .PHONY: depend
 # depend:
 # 	g++ -MM -I $(INCL) $(SRCS)
+
+.PHONY: test
+test:
+	python3 tests/generate_filetests.py
+	make clean
+	rm ArcadeTests
+	make ArcadeTests
+	./ArcadeTests
 
 .PHONY: echo
 echo:

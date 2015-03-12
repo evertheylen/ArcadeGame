@@ -15,8 +15,8 @@ bool DirectoryExists(const char *dirname) {
 /**
 Auxiliary function for file manipulation in unit tests.
 */
-bool FileCompare(const char *leftFileName, const char *rightFileName) {
-	ifstream leftFile, rightFile;
+bool fileCompare(std::string leftFileName, std::string rightFileName) {
+	std::ifstream leftFile, rightFile;
 	char leftRead, rightRead;
 	bool result;
 
@@ -61,9 +61,9 @@ protected:
 	//Game game;
 };
 
-TEST_F(ArcadeGameTest, HappyDay) {
-	
-}
+
+// Literal copy-paste
+#include "tests/filetests.tests"
 
 
 TEST_F(ArcadeGameTest, GTestTest) {

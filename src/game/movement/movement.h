@@ -15,9 +15,12 @@ void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y);
 
 class Movement {
 public:
-	Movement& operator= (Movement& other);
 	
-	Movement& operator= (const Movement& other);
+	// copy constructor
+	Movement(const Movement& that);
+
+	// copy assignment
+	Movement& operator=(const Movement& that);
 	
 	Movement(Direction dir, Player* player);
 	// ENSURE(properlyInitialized(), "constructor must end ...");

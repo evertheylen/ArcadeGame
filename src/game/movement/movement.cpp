@@ -20,27 +20,26 @@ Direction toDirection(std::string dir_s) {
 	}
 }
 
+// copy constructor
+Movement::Movement(const Movement& that):
+	_dir(that._dir),
+	_player(that._player) {
+	_initCheck = this;
+}
+
+// copy assignment
+Movement& Movement::operator=(const Movement& that) {
+	_dir = that._dir;
+	_player = that._player;
+	_initCheck = this;
+}
+
 Movement::Movement(Direction dir, Player* player):
 	_dir(dir), _player(player) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end ...");
-
-	// TODO Something is going wrong during initialization, cuz everything crashes.
 }
 
-Movement& Movement::operator= (Movement& other) {
-	if (this != &other) {
-		_initCheck = &other;
-	}
-	// by convention, always return *this
-	return *this;
-}
-
-Movement& Movement::operator= (const Movement& other) {
-	std::cout << "I'm called!\n";
-	// by convention, always return *this
-	return *this;
-}
 
 Movement::Movement(std::string dir_s, Player* player):
 	_player(player) {

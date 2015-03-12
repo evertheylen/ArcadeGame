@@ -278,24 +278,14 @@ void Game::writeMovements(std::ostream& stream) {
 	}
 }
 
-void Game::popMove() {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popMove");
-	REQUIRE(!_movements.empty(), "Movements was empty, can't be popped");
-	unsigned int original_size = _movements.size();
-	std::cout << "popped\n";
-	doMove(_movements.front());
-	_movements.pop_front();
-	ENSURE(_movements.size() == original_size - 1, "Movement was not popped");
-}
-
-void Game::doMove(Movement& movement) {
+void Game::doMove(Movement& movement, std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
 	REQUIRE(!_movements.empty(), "Movements was empty, can't be done");
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	unsigned int x_original = x;
 	unsigned int y_original = y;
-	std::cout << movement << std::endl;
+	out << movement << std::endl;
 	//std::cout << _board(x,y)->is_movable() << "\n";
 	
 	REQUIRE(_board.valid_location(x,y), "Not a valid location.");
@@ -325,20 +315,9 @@ void Game::doMove(Movement& movement) {
 	unsigned int y_new = y_next;
 	doReverseDirection(movement.get_dir(), x_new, y_new);
 	while (x_next != x || y_next != y) {
-		#define print_status(obj)\
-			/*if (obj==nullptr) {\
-				std::cout << "is nullptr" << std::endl;\
-			} else {\
-				std::cout << "is of char " << obj->to_char() << std::endl;\
-			}*/\
-		
 		Thing* temp = _board(x_new, y_new);
-		std::cout << x_new << ", "<< y_new << ", "<< x_next << ", "<< y_next << ", " << std::endl;
-		print_status(temp);
 		_board(x_new, y_new) = _board(x_next, y_next);
-		print_status(_board(x_new, y_new));
 		_board(x_next, y_next) = temp;
-		print_status(_board(x_next, y_next));
 		x_next = x_new;
 		y_next = y_new;
 		doReverseDirection(movement.get_dir(), x_new, y_new);
@@ -349,15 +328,15 @@ void Game::doMove(Movement& movement) {
 	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");
 }
 
-void Game::doAllMoves() {
+void Game::doAllMoves(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
-	std::cout << "About to do all " << _movements.size() << " movements.\n";
-	std::cout << _board << "\nStarting now:\n";
+	out << "About to do all " << _movements.size() << " movements.\n";
+	out << _board << "\nStarting now:\n";
 	
 	while (! _movements.empty()) {
-		doMove(_movements.front());
+		doMove(_movements.front(), out);
 		_movements.pop_front();
-		std::cout << _board << "\n";
+		out << _board << "\n";
 	}
 
 	ENSURE(_movements.empty(), "Not all movements were executed.");

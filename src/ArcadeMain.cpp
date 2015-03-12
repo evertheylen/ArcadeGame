@@ -27,7 +27,7 @@ int main(int argc, char const* argv[]) {
 	}
 	
 	Game g = Game(doc_board, doc_moves);
-	g.doAllMoves();
+	g.doAllMoves(std::cout);
 	std::ofstream output_file;
 	output_file.open("HuidigSpeelveld.txt");
 	g.writeBoard(output_file);
@@ -35,6 +35,4 @@ int main(int argc, char const* argv[]) {
 	output_file.open("ResterendeBewegingen.txt");
 	g.writeMovements(output_file);
 	output_file.close();
-	
-	std::cout << "\n\nblablabla\n\n";
 }
