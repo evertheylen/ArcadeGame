@@ -31,14 +31,19 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	std::string boardname;
 	_players = Playermap();
 
-	unsigned int x, y;
+	int x, y;
 	try {
 		x = std::stoi(readElement(root, "BREEDTE"));
 		y = std::stoi(readElement(root, "LENGTE"));
 	} catch (std::invalid_argument& e) {
 		REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
 	}
-
+	
+	if (_board.valid_location(x,y)) {
+		std:cerr << "Invalid board dimensions.\n";
+		return;
+	}
+	
 	_board = Board(x, y);
 
 	//TODO Test if all necessary elements are specified in the xml file. Else error! I think this is done for the most part???
@@ -146,6 +151,11 @@ void Game::parsePlayer(TiXmlElement* elem) {
 		return;
 	}
 	
+	if (_board.valid_location(x,y)) {
+		std:cerr << "Invalid location given.\n";
+		return;
+	}
+	
 	Player* player = new Player(name, x, y);
 	_players[name] = player;
 
@@ -174,13 +184,18 @@ void Game::parseObstacle(TiXmlElement* elem) {
 		current_el = current_el->NextSiblingElement();
 	}
 	
-	// TODO again atoi check
 	unsigned int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
 		y = std::stoi(readAttribute(elem, "y"));
 	} catch (std::invalid_argument& e) {
 		std::cerr << "Invalid x or y specified for obstacle, skipping.\n";
+	}
+	
+	
+	if (_board.valid_location(x,y)) {
+		std:cerr << "Invalid location given.\n";
+		return;
 	}
 
 	Thing* obst;
@@ -299,7 +314,10 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 	out << movement << std::endl;
 	//std::cout << _board(x,y)->is_movable() << "\n";
 	
-	REQUIRE(_board.valid_location(x,y), "Not a valid location.");
+	if (! _board.valid_location(x,y)) {
+		std::cerr << "Not a valid location. Skipping movement.\n";
+		return;
+	}
 	
 	// calculate total weight
 	unsigned int x_next = x;
@@ -309,17 +327,24 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 	int total_weight = 0;
 	// while not out of board and not an empty spot
 
-	// TODO Check the specs: it says "stop beweging en geef foutmelding wanneer nog niet over de volledige afstand verschoven."
-	// Should we quit the game?? Perhaps we should ask this on 12/4.
-
 	while (_board.valid_location(x_next, y_next) && _board(x_next, y_next) != nullptr) {
-		REQUIRE(_board(x_next, y_next)->get_weight() != -1, "Can't move infinite weight (like a wall)");
+		if (_board(x_next, y_next)->get_weight() == -1) {
+			std::cerr << "Can't move infinite weight (like a wall), skipping this movement.\n";
+			return;
+		}
 		total_weight += _board(x_next, y_next)->get_weight();
 		doDirection(movement.get_dir(), x_next, y_next);
 	}
 	
-	REQUIRE(_board.valid_location(x_next, y_next) && _board(x_next, y_next) == nullptr, "Player (and perhaps other things) have no place to go.");
-	REQUIRE(total_weight <= movement.get_player()->get_maximum_weight(), "Player tries to move too much weight.");
+	if (_board.valid_location(x_next, y_next) and _board(x_next, y_next) != nullptr) {
+		std::cerr << "Player (and perhaps other things) have no place to go. Skipping this movement.\n";
+		return;
+	}
+		
+	if (total_weight > movement.get_player()->get_maximum_weight()) {
+		std::cerr << "Player tries to move too much weight. Skipping this movement.\n";
+		return;
+	}
 	
 	// move all things, we work backwards
 	unsigned int x_new = x_next;

@@ -36,7 +36,7 @@ public:
 	Thing*& operator()(unsigned int x, unsigned int y);
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
 	
-	bool valid_location(unsigned int x, unsigned int y);
+	bool valid_location(int x, int y);
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling valid_location");
 
 	friend std::ostream& operator<< (std::ostream& out, Board& board);

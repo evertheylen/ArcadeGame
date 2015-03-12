@@ -5,8 +5,6 @@
 #define _Movement
 
 enum Direction {up, left, down, right, no_dir};
-//TODO Somehow we should get this into some kind of class perhaps, so we can do propInit and some other contracts?
-// Evert: I'm not a fan...
 
 Direction toDirection(std::string dir_s);
 

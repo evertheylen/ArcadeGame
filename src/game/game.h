@@ -45,7 +45,7 @@ public:
 
 private:
 	Board _board;
-	std::list<Movement> _movements;		// TODO Misschien zit de fout met de properlyInit van movements hier? En moet dit Movement& worden?
+	std::list<Movement> _movements;
 	Playermap _players;
 	Game* _initCheck;
 

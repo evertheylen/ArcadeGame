@@ -113,7 +113,6 @@ void Movement::set_dir(Direction dir) {
 }
 
 Player* Movement::get_player() const {
-	//TODO Fix this? When we require this, we get an error that movement wasnt initialized when we do a move in doMove.
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_player");
 	Player* result = _player;
 	return result;
