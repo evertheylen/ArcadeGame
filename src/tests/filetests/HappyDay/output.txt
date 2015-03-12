@@ -1,13 +1,13 @@
-About to do all 6 movements.
+About to do all 4 movements.
 XXXXXXXXXX
 X        X
 X        X
 X        X
 X   @    X
-X  #     X
+X      o X
 X        X
-X    #   X
-X    #   X
+X        X
+X        X
 XXXXXXXXXX
 
 Starting now:
@@ -19,79 +19,51 @@ X        X
 X        X
 X   @    X
 X        X
-X  #     X
-X        X
-X    #   X
-X    #   X
-XXXXXXXXXX
-
-Speler Chip zal volgende beweging nog uitvoeren:
-OMHOOG
-
-XXXXXXXXXX
-X        X
-X   @    X
-X        X
-X        X
-X  #     X
-X        X
-X    #   X
-X    #   X
-XXXXXXXXXX
-
-Speler Chip zal volgende beweging nog uitvoeren:
-LINKS
-
-XXXXXXXXXX
-X        X
-X  @     X
-X        X
-X        X
-X  #     X
-X        X
-X    #   X
-X    #   X
-XXXXXXXXXX
-
-Speler Chip zal volgende beweging nog uitvoeren:
-OMHOOG
-
-XXXXXXXXXX
-X  @     X
+X      o X
 X        X
 X        X
 X        X
-X  #     X
-X        X
-X    #   X
-X    #   X
-XXXXXXXXXX
-
-Speler Chip zal volgende beweging nog uitvoeren:
-LINKS
-
-XXXXXXXXXX
-X @      X
-X        X
-X        X
-X        X
-X  #     X
-X        X
-X    #   X
-X    #   X
 XXXXXXXXXX
 
 Speler Chip zal volgende beweging nog uitvoeren:
 RECHTS
 
 XXXXXXXXXX
-X  @     X
+X        X
+X        X
+X    @   X
+X        X
+X      o X
 X        X
 X        X
 X        X
-X  #     X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
 X        X
-X    #   X
-X    #   X
+X        X
+X        X
+X    @   X
+X      o X
+X        X
+X        X
+X        X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+LINKS
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X   @    X
+X      o X
+X        X
+X        X
+X        X
 XXXXXXXXXX
 

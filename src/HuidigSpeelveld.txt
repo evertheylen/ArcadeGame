@@ -1,3 +1,14 @@
+XXXXXXXXXX
+X  @     X
+X        X
+X        X
+X        X
+X  o     X
+X   o    X
+X    o   X
+X    o   X
+XXXXXXXXXX
+
 Het huidige speelveld is Level 1:
 Eigenschappen van dit veld:
 -Breedte 10

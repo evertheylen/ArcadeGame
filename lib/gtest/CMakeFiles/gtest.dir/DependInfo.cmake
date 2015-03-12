@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/lib/gtest/src/gtest-all.cc" "/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/lib/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+  "/Bestanden/School/SE/ArcadeGame/lib/gtest/src/gtest-all.cc" "/Bestanden/School/SE/ArcadeGame/lib/gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

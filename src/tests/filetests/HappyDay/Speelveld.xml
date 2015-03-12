@@ -6,13 +6,7 @@
     <SPELER x="4" y="5">
         <NAAM>Chip</NAAM>
     </SPELER>
-    <OBSTAKEL beweegbaar="true" x="5" y="1">
-        <TYPE>ton</TYPE>
-    </OBSTAKEL>
-    <OBSTAKEL beweegbaar="true" x="5" y="2">
-        <TYPE>ton</TYPE>
-    </OBSTAKEL>
-    <OBSTAKEL beweegbaar="true" x="3" y="4">
+    <OBSTAKEL beweegbaar="true" x="7" y="4">
         <TYPE>ton</TYPE>
     </OBSTAKEL>
     <OBSTAKEL beweegbaar="false" x="0" y="0">

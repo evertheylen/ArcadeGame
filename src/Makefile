@@ -12,9 +12,6 @@ CXXFLAGS =	-g -std=c++11 -Wall -Wextra -fstack-protector-all -I$(INCL)
 # All .cpp files not in src itself
 OBJS =		$(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))
 
-# SRCS =		TicTacToe.cpp \
-# 			TicTacToeMain.cpp \
-# 			TicTacToeTests.cpp
 TARGET =	ArcadeMain ArcadeTests
 
 #--- primary target
@@ -61,7 +58,6 @@ cleann:
 	find . -name '*.d' -delete
 	find . -name '*~'  -delete
 	rm -f $(TARGET)
-	rm -f testOutput/file*.txt testOutput/happyDayOut.txt  testOutput/noWinnerOut.txt
 
 	
 # .PHONY: cleantests
@@ -76,7 +72,7 @@ cleann:
 test:
 	python3 tests/generate_filetests.py
 	make clean
-	rm ArcadeTests
+	rm -f ArcadeTests
 	make ArcadeTests
 	./ArcadeTests
 

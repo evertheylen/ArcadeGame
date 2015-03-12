@@ -1,0 +1,17 @@
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X       @X
+XXXXXXXXXX
+
+Het huidige speelveld is Level 1:
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+Speler Chip bevindt zich in dit speelveld op positie (8,1).

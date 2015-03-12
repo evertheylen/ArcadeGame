@@ -63,16 +63,13 @@ protected:
 
 
 // Literal copy-paste
-//#include "tests/filetests.tests"
+#include "tests/filetests.tests"
 
 
 TEST_F(ArcadeGameTest, GTestTest) {
 	EXPECT_TRUE(true);
 }
 
-//TEST_F(ArcadeGameTest, ) {
-	// Set up tests
-//}
 
 
 int main(int argc, char **argv) {

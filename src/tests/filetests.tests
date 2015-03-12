@@ -1,5 +1,6 @@
-TEST_F(ArcadeGameTest, HappyDay_bol ) {
-	#define Base std::string("tests/filetests/HappyDay_bol/")
+
+TEST_F(ArcadeGameTest, WalkAgainstWall ) {
+	#define Base std::string("tests/filetests/WalkAgainstWall/")
 
 	TiXmlDocument doc_board, doc_moves;
 
@@ -12,6 +13,10 @@ TEST_F(ArcadeGameTest, HappyDay_bol ) {
 	
 	std::ofstream output_file;
 	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
 	output_file.open(Base+"output.txt");
 	g.doAllMoves(output_file);
 	output_file.close();
@@ -20,14 +25,127 @@ TEST_F(ArcadeGameTest, HappyDay_bol ) {
 	g.writeBoard(output_file);
 	output_file.close();
 	
-	output_file.open(Base+"ResterendeBewegingen.txt");
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
 	g.writeMovements(output_file);
 	output_file.close();
 	
 	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
-	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen.txt", Base+"_ResterendeBewegingen.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
 	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
 }
+
+
+TEST_F(ArcadeGameTest, TooMuchWeight ) {
+	#define Base std::string("tests/filetests/TooMuchWeight/")
+
+	TiXmlDocument doc_board, doc_moves;
+
+	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
+	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
+
+	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	
+	Game g = Game(doc_board, doc_moves);
+	
+	std::ofstream output_file;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"output.txt");
+	g.doAllMoves(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g.writeBoard(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
+TEST_F(ArcadeGameTest, VeryHappyDay ) {
+	#define Base std::string("tests/filetests/VeryHappyDay/")
+
+	TiXmlDocument doc_board, doc_moves;
+
+	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
+	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
+
+	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	
+	Game g = Game(doc_board, doc_moves);
+	
+	std::ofstream output_file;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"output.txt");
+	g.doAllMoves(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g.writeBoard(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
+TEST_F(ArcadeGameTest, WalkOutOfBoard ) {
+	#define Base std::string("tests/filetests/WalkOutOfBoard/")
+
+	TiXmlDocument doc_board, doc_moves;
+
+	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
+	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
+
+	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	
+	Game g = Game(doc_board, doc_moves);
+	
+	std::ofstream output_file;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"output.txt");
+	g.doAllMoves(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g.writeBoard(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
 
 TEST_F(ArcadeGameTest, HappyDay ) {
 	#define Base std::string("tests/filetests/HappyDay/")
@@ -43,6 +161,10 @@ TEST_F(ArcadeGameTest, HappyDay ) {
 	
 	std::ofstream output_file;
 	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
 	output_file.open(Base+"output.txt");
 	g.doAllMoves(output_file);
 	output_file.close();
@@ -51,12 +173,87 @@ TEST_F(ArcadeGameTest, HappyDay ) {
 	g.writeBoard(output_file);
 	output_file.close();
 	
-	output_file.open(Base+"ResterendeBewegingen.txt");
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
 	g.writeMovements(output_file);
 	output_file.close();
 	
 	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
-	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen.txt", Base+"_ResterendeBewegingen.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
+TEST_F(ArcadeGameTest, PushBarrel ) {
+	#define Base std::string("tests/filetests/PushBarrel/")
+
+	TiXmlDocument doc_board, doc_moves;
+
+	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
+	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
+
+	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	
+	Game g = Game(doc_board, doc_moves);
+	
+	std::ofstream output_file;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"output.txt");
+	g.doAllMoves(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g.writeBoard(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
+TEST_F(ArcadeGameTest, PushBarrelAgainstWall ) {
+	#define Base std::string("tests/filetests/PushBarrelAgainstWall/")
+
+	TiXmlDocument doc_board, doc_moves;
+
+	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
+	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
+
+	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	
+	Game g = Game(doc_board, doc_moves);
+	
+	std::ofstream output_file;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"output.txt");
+	g.doAllMoves(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g.writeBoard(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
 	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
 }
 

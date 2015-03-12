@@ -48,7 +48,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	TiXmlElement* current_el = root->FirstChildElement();
 	std::string boardname;
 	_players = Playermap();
-
+	
 	int x, y;
 	try {
 		x = std::stoi(readElement(root, "BREEDTE"));
@@ -70,23 +70,12 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 		if (current_el->ValueTStr() == "NAAM") {
 			boardname = readElement(current_el);
 			_board.set_name(boardname);
-		} else {
-			if (current_el->ValueTStr() == "SPELER") {
-				parsePlayer(current_el);
-			} else {
-				if (current_el->ValueTStr() == "OBSTAKEL") {
-					parseObstacle(current_el);
-				} else {
-					if (current_el->ValueTStr() != "BREEDTE"
-							&& current_el->ValueTStr() != "LENGTE") {
-						std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
-						/*ss << "Error: tag " << current_el->Value() << " not defined.\n";
-						std::string str = ss.str();
-						ss.str("");
-						REQUIRE(false, str.c_str());*/
-					}
-				}
-			}
+		} else if (current_el->ValueTStr() == "SPELER") {
+			parsePlayer(current_el);
+		} else if (current_el->ValueTStr() == "OBSTAKEL") {
+			parseObstacle(current_el);
+		} else if (current_el->ValueTStr() != "BREEDTE" && current_el->ValueTStr() != "LENGTE") {
+			std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
 		}
 		current_el = current_el->NextSiblingElement();
 	}
@@ -148,93 +137,118 @@ bool Game::reqElement(TiXmlElement* elem, const char* tag) {
 }
 
 void Game::parsePlayer(TiXmlElement* elem) {
-	TiXmlElement* current_el = elem->FirstChildElement();
-	std::string name;
-	REQUIRE(reqElement(elem, "NAAM"), "Player must have a name specified.");
-	while (current_el != NULL) {
-		if (current_el->ValueTStr() == "NAAM") {
-			name = readElement(current_el);
-		} else {
-			std::cerr << "Error: Tag " << current_el->Value() << " not defined.\n";
-		}
-
-		current_el = current_el->NextSiblingElement();
-	}
-	unsigned int x, y;
 	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		std::cerr << "Invalid x or y specified for player, skipping.\n";
+		TiXmlElement* current_el = elem->FirstChildElement();
+		if (elem == NULL) {
+			std::cerr << "Error while parsing obstacle, no first child. Skipping.\n";
+			return;
+		}
+		std::string name;
+		if (!reqElement(elem, "NAAM")) {
+			std::cerr << "Player must have a name specified. Skipping.\n";
+			return;
+		}
+		
+		while (current_el != NULL) {
+			if (current_el->ValueTStr() == "NAAM") {
+				name = readElement(current_el);
+			} else {
+				std::cerr << "Error: Tag " << current_el->Value() << " not defined.\n";
+			}
+
+			current_el = current_el->NextSiblingElement();
+		}
+		
+		int x, y;
+		try {
+			x = std::stoi(readAttribute(elem, "x"));
+			y = std::stoi(readAttribute(elem, "y"));
+		} catch (std::invalid_argument& e) {
+			std::cerr << "Invalid x or y specified for player, skipping.\n";
+			return;
+		}
+		
+		if (! _board.valid_location(x,y)) {
+			std::cerr << "Invalid location given.\n";
+			return;
+		}
+		
+		Player* player = new Player(name, x, y);
+		_players[name] = player;
+
+		// Put on board
+		// TODO Check consistency of playing board!
+
+		_board(x, y) = player;
+
+		//std::cout << _players[name].get_name() << std::endl;
+	} catch (ParseError& e) {
+		std::cerr << "Error while parsing player. Skipping.\n";
 		return;
 	}
-	
-	if (! _board.valid_location(x,y)) {
-		std::cerr << "Invalid location given.\n";
-		return;
-	}
-	
-	Player* player = new Player(name, x, y);
-	_players[name] = player;
-
-	// Put on board
-	// TODO Check consistency of playing board!
-
-	_board(x, y) = player;
-
-	//std::cout << _players[name].get_name() << std::endl;
 }
 
 void Game::parseObstacle(TiXmlElement* elem) {
-	TiXmlElement* current_el = elem->FirstChildElement();
-	std::string type;
-	if (!reqElement(elem, "TYPE")) {
-		std::cerr << "Obstacle must have a type specified.\n";
-		return;
-	}
-	while (current_el != NULL) {
-		if (current_el->ValueTStr() == "TYPE") {
-			type = readElement(current_el);
-		} else {
-			std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
-		}
-
-		current_el = current_el->NextSiblingElement();
-	}
-	
-	unsigned int x,y;
 	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		std::cerr << "Invalid x or y specified for obstacle, skipping.\n";
-	}
-	
-	
-	if (! _board.valid_location(x,y)) {
-		std::cerr << "Invalid location given.\n";
-		return;
-	}
+		TiXmlElement* current_el = elem->FirstChildElement();
+		if (elem == NULL) {
+			std::cerr << "Error while parsing obstacle, no first child. Skipping.\n";
+			return;
+		}
+		
+		std::string type;
+		if (!reqElement(elem, "TYPE")) {
+			std::cerr << "Obstacle must have a type specified.\n";
+			return;
+		}
+		
+		while (current_el != NULL) {
+			if (current_el->ValueTStr() == "TYPE") {
+				type = readElement(current_el);
+			} else {
+				std::cerr << "Error: tag " << current_el->Value() << " not defined.\n";
+			}
 
-	Thing* obst;
-	if (type == "ton") {
-		if (readAttribute(elem, "beweegbaar") != "true") {
-			std::cerr << "Error: A barrel must be declared movable.\n";
-		} else {
-			obst = new Barrel(x, y);
-			// Put on board
-			_board(x, y) = obst;
+			current_el = current_el->NextSiblingElement();
 		}
-	} else if (type == "muur") {
-		if (readAttribute(elem, "beweegbaar") != "false") {
-			std::cerr << "Error: A wall may not be declared movable.\n";
-		} else {
-			obst = new Wall(x, y);
-			// Put on board
-			_board(x, y) = obst;
+		
+		int x,y;
+		try {
+			x = std::stoi(readAttribute(elem, "x"));
+			y = std::stoi(readAttribute(elem, "y"));
+		} catch (std::invalid_argument& e) {
+			std::cerr << "Invalid x or y specified for obstacle, skipping.\n";
+			return;
 		}
-	} else {
-		std::cerr << "Error: Type " << type << " is not defined as an obstacle.\n";
+		
+		if (! _board.valid_location(x,y)) {
+			std::cerr << "Invalid location given. Skipping.\n";
+			return;
+		}
+
+		Thing* obst;
+		if (type == "ton") {
+			if (readAttribute(elem, "beweegbaar") != "true") {
+				std::cerr << "Error: A barrel must be declared movable.\n";
+			} else {
+				obst = new Barrel(x, y);
+				// Put on board
+				_board(x, y) = obst;
+			}
+		} else if (type == "muur") {
+			if (readAttribute(elem, "beweegbaar") != "false") {
+				std::cerr << "Error: A wall may not be declared movable.\n";
+			} else {
+				obst = new Wall(x, y);
+				// Put on board
+				_board(x, y) = obst;
+			}
+		} else {
+			std::cerr << "Error: Type " << type << " is not defined as an obstacle.\n";
+		}
+	} catch (ParseError& e) {
+		std::cerr << "Error while parsing obstacle. Skipping.\n";
+		return;
 	}
 	
 	//std::cout << _board(x,y)->is_movable() << "\n";
@@ -257,29 +271,39 @@ void Game::forceLowerCase(TiXmlElement* elem) {
 }
 
 std::string Game::readElement(TiXmlElement* elem, const char* tag) {
-	TiXmlElement* e = elem->FirstChildElement(tag);
-	if (e == NULL) {
-		std::cerr << "Error: Tag not defined.";
+	if (elem == NULL) {
+		//std::cerr << "Error: Tag not defined.";
+		throw(ParseError());
 	}
+	TiXmlElement* e = elem->FirstChildElement(tag);
+	if (elem == NULL) throw(ParseError());
 	TiXmlNode* node = e->FirstChild();
+	if (node == NULL) throw(ParseError());
 	TiXmlText* text = node->ToText();
 	return text->Value();
 }
 
 std::string Game::readElement(TiXmlElement* elem) {
 	if (elem == NULL) {
-		std::cerr << "Error: Tag not defined.";
+		//std::cerr << "Error: Tag not defined.";
+		throw(ParseError());
 	}
 	TiXmlNode* node = elem->FirstChild();
+	if (node == NULL) throw(ParseError());
 	TiXmlText* text = node->ToText();
 	return text->Value();
 }
 
 std::string Game::readAttribute(TiXmlElement* elem, const char* tag) {
+	if (elem == NULL) {
+		throw(ParseError());
+	}
 	return std::string(elem->Attribute(tag));
 }
 
 void Game::writeBoard(std::ostream& stream) {
+	stream << _board << "\n";
+
 	/*Het huidige speelveld is Level 1:
 	Eigenschappen van dit veld:
 	-Breedte 10
@@ -354,7 +378,12 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 		doDirection(movement.get_dir(), x_next, y_next);
 	}
 	
-	if (_board.valid_location(x_next, y_next) and _board(x_next, y_next) != nullptr) {
+	if (! _board.valid_location(x_next, y_next)) {
+		std::cerr << "Out of board. Skipping this movement.\n";
+		return;
+	}
+	
+	if (_board(x_next, y_next) != nullptr) {
 		std::cerr << "Player (and perhaps other things) have no place to go. Skipping this movement.\n";
 		return;
 	}

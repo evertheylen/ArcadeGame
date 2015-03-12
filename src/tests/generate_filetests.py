@@ -4,7 +4,7 @@ import os
 # only call from src!
 f = open('tests/filetests.tests', 'w')
 
-text = """\
+text = """
 TEST_F(ArcadeGameTest, {0} ) {{
 	#define Base std::string("tests/filetests/{0}/")
 
@@ -19,6 +19,10 @@ TEST_F(ArcadeGameTest, {0} ) {{
 	
 	std::ofstream output_file;
 	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g.writeMovements(output_file);
+	output_file.close();
+	
 	output_file.open(Base+"output.txt");
 	g.doAllMoves(output_file);
 	output_file.close();
@@ -27,16 +31,16 @@ TEST_F(ArcadeGameTest, {0} ) {{
 	g.writeBoard(output_file);
 	output_file.close();
 	
-	output_file.open(Base+"ResterendeBewegingen.txt");
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
 	g.writeMovements(output_file);
 	output_file.close();
 	
 	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
-	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen.txt", Base+"_ResterendeBewegingen.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
 	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
 }}
 
-\
 """
 
 for root, dirs, files in os.walk("./tests/filetests"):

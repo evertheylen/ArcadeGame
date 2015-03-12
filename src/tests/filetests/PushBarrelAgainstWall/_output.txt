@@ -1,0 +1,153 @@
+About to do all 10 movements.
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+X        X
+X        X
+X        X
+XXXXXXXXXX
+
+Starting now:
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+X        X
+X        X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+X        X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMHOOG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X        X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMHOOG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X        X
+X        X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X        X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+XXXXXXXXXX
+
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+
+XXXXXXXXXX
+X        X
+X        X
+X        X
+X        X
+X        X
+X        X
+X   @    X
+X   o    X
+XXXXXXXXXX
+

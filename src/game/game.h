@@ -11,6 +11,12 @@
 #ifndef _Game
 #define _Game
 
+class ParseError: std::exception {
+	const char* what()throw() {
+		return "Error while parsing the xml file.";
+	}
+};
+
 class Game {
 public:
 	typedef std::map<std::string, Player*> Playermap;
