@@ -34,6 +34,19 @@ ArcadeTests: $(OBJS) ArcadeTests.o
 
 
 #--- non-file targets
+.PHONY: depend
+depend:
+	cd ../lib;\
+	cd tinyxml;\
+	$(CXX)  $(CXXFLAGS) -c *.cpp;\
+	cd ..;\
+	cd gtest;\
+	rm CMakeCache.txt;\
+	cmake CMakeLists.txt;\
+	make;\
+	mv libgtest.a lib/libgtest.a;\
+	mv libgtest_main.a lib/libgtest_main.a;
+
 .PHONY: clean
 clean:
 	find . -name '*.o' -delete

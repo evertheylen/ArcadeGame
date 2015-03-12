@@ -1,5 +1,5 @@
-TEST_F(ArcadeGameTest, HappyDay ) {
-	#define Base std::string("tests/filetests/HappyDay/")
+TEST_F(ArcadeGameTest, HappyDay_bol ) {
+	#define Base std::string("tests/filetests/HappyDay_bol/")
 
 	TiXmlDocument doc_board, doc_moves;
 
@@ -29,8 +29,8 @@ TEST_F(ArcadeGameTest, HappyDay ) {
 	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
 }
 
-TEST_F(ArcadeGameTest, HappyDay_bol ) {
-	#define Base std::string("tests/filetests/HappyDay_bol/")
+TEST_F(ArcadeGameTest, HappyDay ) {
+	#define Base std::string("tests/filetests/HappyDay/")
 
 	TiXmlDocument doc_board, doc_moves;
 
