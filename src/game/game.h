@@ -25,16 +25,17 @@ public:
 	void writeMovements(std::ostream& stream);
 	// REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");
 
-
+	std::list<Movement>& get_movements();
+	// REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");
 
 	void doMove(Movement& movement, std::ostream& out);
 	// REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
-	// REQUIRE(!_movements.empty(), "Movements was empty, can't be done");
+	// REQUIRE(!get_movements().empty(), "Movements was empty, can't be done");
 	// ENSURE(x_original != x || y_original != y, "Movement not completed, location stayed the same");
 
 	void doAllMoves(std::ostream& out);
 	// REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
-	// ENSURE(_movements.empty(), "Not all movements are executed");
+	// ENSURE(get_movements().empty(), "Not all movements are executed");
 
 	bool properlyInitialized() const;
 

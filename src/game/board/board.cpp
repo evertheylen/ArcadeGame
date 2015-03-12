@@ -32,7 +32,7 @@ Board::~Board() {
 unsigned int Board::get_height() const {
 	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_height");+
 	unsigned int result = _height;
-	ENSURE(result == _height && result > 0, "Board has incorrect height or height is not returned correctly");
+	ENSURE(result > 0, "Board has incorrect height or height is not returned correctly");
 	return result;
 }
 
@@ -49,20 +49,19 @@ void Board::set_width(unsigned int x) {
 const std::string& Board::get_name() const {
 	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_name");
 	const std::string& result = _name;
-	ENSURE(result == _name, "Name not returned when calling get_name");
 	return result;
 }
 
 void Board::set_name(std::string& name) {
 	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling set_name");
 	_name = name;
-	ENSURE(_name == name, "name not set correctly when calling set_name");
+	ENSURE(get_name() == name, "name not set correctly when calling set_name");
 }
 
 unsigned int Board::get_width() const {
 	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_width");
 	unsigned int result = _width;
-	ENSURE(result == _width && result > 0, "Board has incorrect width or width is not returned correctly");
+	ENSURE(result > 0, "Board has incorrect width or width is not returned correctly");
 	return result;
 }
 

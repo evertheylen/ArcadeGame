@@ -30,23 +30,21 @@ public:
 
 	Direction get_dir() const;
 	// REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_dir");
-	// ENSURE(result == _dir, "Wrong result when executing get_dir");
 
 	std::string get_dir_name() const;
 	// REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_dir_name");
 
 	void set_dir(Direction dir);
 	// REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_dir");
-	// ENSURE(_dir == dir, "Direction not set correctly");
+	// ENSURE(get_dir() == dir, "Direction not set correctly");
 
 	Player* get_player() const;
 	// REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_player");
-	// ENSURE(result == _player, "Wrong result when executing get_player");
 
 	// When setting to other player, take care of memory leaks.
 	void set_player(Player* player);
 	// REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
-	// ENSURE(_player == player && player->properlyInitialized(), "Player not set correctly");
+	// ENSURE(get_player() == player && player->properlyInitialized(), "Player not set correctly");
 
 	friend std::ostream& operator<< (std::ostream &out, Movement& move);
 	// REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator <<");

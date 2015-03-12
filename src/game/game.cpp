@@ -14,6 +14,10 @@
 #include "board/wall.h"
 #include "movement/movement.h"
 
+std::list<Movement>& Game::get_movements() {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");
+	return _movements;
+}
 
 Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc) {
 	
@@ -278,7 +282,7 @@ void Game::writeMovements(std::ostream& stream) {
 
 void Game::doMove(Movement& movement, std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
-	REQUIRE(!_movements.empty(), "Movements was empty, can't be done");
+	REQUIRE(!get_movements().empty(), "Movements was empty, can't be done");
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	unsigned int x_original = x;
@@ -337,5 +341,5 @@ void Game::doAllMoves(std::ostream& out) {
 		out << _board << "\n";
 	}
 
-	ENSURE(_movements.empty(), "Not all movements were executed.");
+	ENSURE(get_movements().empty(), "Not all movements were executed.");
 }

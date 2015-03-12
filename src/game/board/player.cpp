@@ -16,14 +16,13 @@ Player::Player(std::string name, unsigned int x, unsigned int y):
 const std::string& Player::get_name() const {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling get_name");
 	const std::string& result = _name;
-	ENSURE(result == _name, "Name was not returned correctly");
 	return result;
 }
 
 void Player::set_name(const std::string& name) {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling set_name");
 	_name = name;
-	ENSURE(_name == name && name != "", "If you name your player "" you will get in trouble mate");
+	ENSURE(get_name() == name && name != "", "If you name your player "" you will get in trouble mate");
 }
 
 std::ostream& Player::print(std::ostream& out){
@@ -35,14 +34,13 @@ std::ostream& Player::print(std::ostream& out){
 int Player::get_maximum_weight() {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling get_maximum_weight");
 	int result = _maximum_weight;
-	ENSURE(result == _maximum_weight, "Maximum_weight returned incorrectly");
 	return result;
 }
 
 void Player::set_maximum_weight(int max) {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling set_maximum_weight");
 	_maximum_weight = max;
-	ENSURE(_maximum_weight == max, "Maximum_weight wasn't correctly set!");
+	ENSURE(get_maximum_weight() == max, "Maximum_weight wasn't correctly set!");
 }
 
 char Player::to_char() {

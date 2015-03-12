@@ -16,21 +16,20 @@ public:
 
 	unsigned int get_height() const;
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_height");
-	// ENSURE(result == _height && result > 0, "Board has incorrect height or height is not returned correctly");
+	// ENSURE(result > 0, "Board has incorrect height or height is not returned correctly");
 
 	//void set_height(unsigned int y);
 
 	const std::string& get_name() const;
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_name");
-	// ENSURE(result == _name, "Name not returned when calling get_name");
 
 	void set_name(std::string& name);
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling set_name");
-	// ENSURE(_name == name, "name not set correctly when calling set_name");
+	// ENSURE(get_name() == name, "name not set correctly when calling set_name");
 
 	unsigned int get_width() const;
 	// REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_width");
-	// ENSURE(result == _width && result > 0, "Board has incorrect width or width is not returned correctly");
+	// ENSURE(result > 0, "Board has incorrect width or width is not returned correctly");
 
 	//void set_width(unsigned int x);
 

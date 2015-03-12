@@ -89,7 +89,6 @@ void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y) {
 Direction Movement::get_dir() const {
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_dir");
 	Direction result = _dir;
-	ENSURE(result == _dir, "Wrong result when executing get_dir");
 	return result;
 }
 
@@ -110,21 +109,20 @@ std::string Movement::get_dir_name() const {
 void Movement::set_dir(Direction dir) {
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_dir");
 	_dir = dir;
-	ENSURE(_dir == dir, "Direction not set correctly");
+	ENSURE(get_dir() == dir, "Direction not set correctly");
 }
 
 Player* Movement::get_player() const {
 	//TODO Fix this? When we require this, we get an error that movement wasnt initialized when we do a move in doMove.
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_player");
 	Player* result = _player;
-	ENSURE(result == _player, "Wrong result when executing get_player");
 	return result;
 }
 
 void Movement::set_player(Player* player) {
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
 	_player = player;
-	ENSURE(_player == player && player->properlyInitialized(), "Player not set correctly");
+	ENSURE(get_player() == player && player->properlyInitialized(), "Player not set correctly");
 }
 
 std::ostream& operator<< (std::ostream &out, Movement& move){

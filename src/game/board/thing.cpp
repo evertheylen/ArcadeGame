@@ -25,40 +25,39 @@ bool Thing::is_movable() const {
 int Thing::get_weight() const {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_weight");
 	int result = _weight;
-	ENSURE(result == _weight && result >= -1, "Incorrect weight or no weight at all returned");
 	return result;
 }
 
 void Thing::set_weight(int weight) {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_weight");
 	_weight = weight;
-	ENSURE(_weight == weight && weight >= -1, "Incorrect weight specified");
+	ENSURE(get_weight() == weight && weight >= -1, "Incorrect weight specified");
 }
 
 unsigned int Thing::get_x() const {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_x");
 	unsigned int result = _x;
-	ENSURE(result == _x && _x >= 0, "Incorrect x coordinate returned");
+	ENSURE(result >= 0, "Incorrect x coordinate returned");
 	return result;
 }
 
 void Thing::set_x(unsigned int x) {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_x");
 	_x = x;
-	ENSURE(_x == x && x >= 0, "Incorrect x specified");
+	ENSURE(get_x() == x && x >= 0, "Incorrect x specified");
 }
 
 unsigned int Thing::get_y() const {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_y");
 	unsigned int result = _y;
-	ENSURE(result == _y && _y >= 0, "Incorrect y coordinate returned");
+	ENSURE(result >= 0, "Incorrect y coordinate returned");
 	return result;
 }
 
 void Thing::set_y(unsigned int y) {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_y");
 	_y = y;
-	ENSURE(_y == y && y >= 0, "Incorrect y specified");
+	ENSURE(get_y() == y && y >= 0, "Incorrect y specified");
 }
 
 /*void Thing::print(){
