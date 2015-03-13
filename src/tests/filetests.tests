@@ -14,6 +14,8 @@ TEST_F(ArcadeGameTest, BadInit_NonExistingPlayer ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -52,6 +54,8 @@ TEST_F(ArcadeGameTest, WalkAgainstWall ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -92,6 +96,8 @@ TEST_F(ArcadeGameTest, TooMuchWeight ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -130,6 +136,8 @@ TEST_F(ArcadeGameTest, VeryHappyDay ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -170,6 +178,8 @@ TEST_F(ArcadeGameTest, BadInit_WrongPlace ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -208,6 +218,8 @@ TEST_F(ArcadeGameTest, WalkOutOfBoard ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -248,6 +260,8 @@ TEST_F(ArcadeGameTest, BadInit_DuplObstacles ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -286,6 +300,8 @@ TEST_F(ArcadeGameTest, BadInit_DuplPlayers ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -326,6 +342,8 @@ TEST_F(ArcadeGameTest, HappyDay ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -364,6 +382,8 @@ TEST_F(ArcadeGameTest, PushBarrel ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -404,6 +424,8 @@ TEST_F(ArcadeGameTest, PushBarrelAgainstWall ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -442,6 +464,8 @@ TEST_F(ArcadeGameTest, BadInit_WrongDirection ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -482,6 +506,8 @@ TEST_F(ArcadeGameTest, MultiPlayer ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -520,6 +546,8 @@ TEST_F(ArcadeGameTest, PushBarrelOutOfBoard ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	
@@ -560,6 +588,8 @@ TEST_F(ArcadeGameTest, BadInit_BadObstacleSetting ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -599,6 +629,8 @@ TEST_F(ArcadeGameTest, BadInit_DuplBoth ) {
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
@@ -637,6 +669,8 @@ TEST_F(ArcadeGameTest, BadInit_Board ) {
 	new_cout.open(Base+"output.txt");
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
+	
+	ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
 	

@@ -1,4 +1,2 @@
 Error: Invalid board dimensions.
-About to do all 0 movements.
-
-Done.
+Something went wrong while parsing the xml files.

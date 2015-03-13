@@ -42,9 +42,9 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 	try {
 	// ---- Board ----
 	TiXmlElement* root = board_doc.FirstChildElement();
-	REQUIRE(root != NULL, "Failed to load board file: No root element.");
+	if (root == NULL) throw(ParseError());
 	// Warning, for some mysterious reason, root->Value() == "VELD" will always fail, even if it should definitly pass.
-	REQUIRE(root->ValueTStr() == "VELD", "Failed to load board file: Wrong root element tag.");
+	if(root->ValueTStr() != "VELD") throw(ParseError());
 	
 	TiXmlElement* current_el = root->FirstChildElement();
 	std::string boardname;
@@ -55,12 +55,15 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 		x = std::stoi(readElement(root, "BREEDTE"));
 		y = std::stoi(readElement(root, "LENGTE"));
 	} catch (std::invalid_argument& e) {
-		REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
+		throw(ParseError());
+		//REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
 	}
 	
 	if (x<1 || y<1) {
 		out << "Error: Invalid board dimensions.\n";
-		return;
+		// TODO What to do here? can't return some bool to inform caller, can't REQUIRE either...
+		// ParseError seems a bit weird here...
+		throw(ParseError());
 	}
 	
 	_board = Board(x, y);
@@ -118,7 +121,7 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 
 			//std::cout << _movements.back().get_dir() << "\n";
 		} else {
-			out << "Error: Error: tag " << current_el->Value() << " not defined.\n";
+			out << "Error: tag " << current_el->Value() << " not defined.\n";
 		}
 		current_el = current_el->NextSiblingElement();
 	}
@@ -128,7 +131,10 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 	
 	} catch (ParseError& e) {
 		out << "Something went wrong while parsing the xml files.\n";
-		exit(1);
+		// WTF...
+		_initCheck = 0;
+		return;  // caller: check properlyInitialized() !
+		// TODO: exit? throw?
 	}
 }
 

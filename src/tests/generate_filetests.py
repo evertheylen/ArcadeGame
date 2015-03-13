@@ -20,6 +20,8 @@ TEST_F(ArcadeGameTest, {0} ) {{
 	
 	Game g = Game(doc_board, doc_moves, new_cout);
 	
+	ASSERT_TRUE(g.properlyInitialized());
+	
 	std::ofstream output_file;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
