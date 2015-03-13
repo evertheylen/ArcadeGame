@@ -406,15 +406,20 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 	doReverseDirection(movement.get_dir(), x_new, y_new);
 	while (x_next != x || y_next != y) {
 		Thing* temp = _board(x_new, y_new);
-		_board(x_new, y_new) = _board(x_next, y_next);
+		_board(x_new, y_new) = nullptr; //_board(x_next, y_next);
+		
 		_board(x_next, y_next) = temp;
+		if (_board(x_next, y_next) != nullptr) {
+			_board(x_next, y_next)->set_x(x_next);
+			_board(x_next, y_next)->set_y(y_next);
+		}
 		x_next = x_new;
 		y_next = y_new;
 		doReverseDirection(movement.get_dir(), x_new, y_new);
 	}
-	doDirection(movement.get_dir(), x, y);
-	movement.get_player()->set_x(x);
-	movement.get_player()->set_y(y);
+ 	doDirection(movement.get_dir(), x, y);
+// 	movement.get_player()->set_x(x);
+// 	movement.get_player()->set_y(y);
 	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");
 }
 
@@ -424,10 +429,10 @@ void Game::doAllMoves(std::ostream& out) {
 	//out << _board << "\nStarting now:\n";
 	
 	while (! _movements.empty()) {
+// 		out << _board << "\n";
 		popMove(out);
-		//out << _board << "\n";
 	}
-	
+// 	out << _board << "\n";
 	out << "Done.\n";
 
 	ENSURE(get_movements().empty(), "Not all movements were executed.");

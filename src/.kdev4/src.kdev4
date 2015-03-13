@@ -16,7 +16,7 @@ Name=Main
 Type=Native Application
 
 [Launch][Launch Configuration 0][Data]
-Arguments=Speelveld1.0.xml Bewegingen1.0.xml
+Arguments=Speelveld.xml Bewegingen.xml
 Debugger Shell=
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x02\x00\x00\x00\x14\x00A\x00r\x00c\x00a\x00d\x00e\x00G\x00a\x00m\x00e\x00\x00\x00\x14\x00A\x00r\x00c\x00a\x00d\x00e\x00M\x00a\x00i\x00n)
 Dependency Action=Build

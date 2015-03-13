@@ -1,3 +1,5 @@
-About to do all 4 movements.
+Error: Player already exists. Skipping.
+Error: Specified location of player not empty. Skipping.
+About to do all 1 movements.
 
 Done.

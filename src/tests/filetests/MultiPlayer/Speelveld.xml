@@ -3,13 +3,13 @@
     <NAAM>Level 1</NAAM>
     <LENGTE>10</LENGTE>
     <BREEDTE>10</BREEDTE>
-    <SPELER x="3" y="5">
+    <SPELER x="3" y="6">
         <NAAM>Chip</NAAM>
     </SPELER>
-	<SPELER x="7" y="5">
+	<SPELER x="7" y="6">
         <NAAM>Munk</NAAM>
     </SPELER>
-    <OBSTAKEL beweegbaar="true" x="5" y="5">
+    <OBSTAKEL beweegbaar="true" x="5" y="6">
         <TYPE>ton</TYPE>
     </OBSTAKEL>
     <OBSTAKEL beweegbaar="false" x="0" y="0">

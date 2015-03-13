@@ -1,3 +1,5 @@
-About to do all 4 movements.
+Error: Specified location of obstacle not empty. Skipping.
+Error: Specified location of obstacle not empty. Skipping.
+About to do all 1 movements.
 
 Done.

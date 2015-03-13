@@ -1,3 +1,8 @@
-About to do all 4 movements.
+Error: Invalid location given. Skipping player.
+Error: Invalid location given. Skipping obstacle.
+Error: Invalid location given. Skipping obstacle.
+Error: Invalid location given. Skipping obstacle.
+Error: Invalid player specified, skipping movement in movement file.
+About to do all 0 movements.
 
 Done.
