@@ -5,7 +5,7 @@ import os
 f = open('tests/filetests.tests', 'w')
 
 text = """
-TEST_F(ArcadeGameTest, {0} ) {{
+TEST(ArcadeGameTest, {0} ) {{
 	#define Base std::string("tests/filetests/{0}/")
 
 	TiXmlDocument doc_board, doc_moves;
@@ -13,7 +13,7 @@ TEST_F(ArcadeGameTest, {0} ) {{
 	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
 	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
 
-	EXPECT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	ASSERT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
 	
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");

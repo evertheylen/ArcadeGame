@@ -8,7 +8,7 @@
 
 class Board {
 public:
-	Board(unsigned int x = 0, unsigned int y = 0);
+	Board(unsigned int x = 0, unsigned int y = 0, std::string name = std::string("No name"));
 	// REQUIRE(x >= 0 && y >= 0, "incorrect height or width");
 	// ENSURE(properlyInitialized(), "constructor must end ...");
 

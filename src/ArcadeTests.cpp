@@ -7,6 +7,18 @@
 #include <fstream>
 #include <sys/stat.h>
 
+// http://stackoverflow.com/questions/11826554/standard-no-op-output-stream
+class NullBuffer : public std::streambuf {
+	public: int overflow(int c) { return c; }
+};
+
+class NullStream : public std::ostream { 
+	public: NullStream(): std::ostream(&m_sb) {}
+	private: NullBuffer m_sb;
+} null; // used when a ostream is needed
+
+
+
 bool DirectoryExists(const char *dirname) {
 	struct stat st;
 	return stat(dirname, &st) == 0;
@@ -49,24 +61,32 @@ bool fileCompare(std::string leftFileName, std::string rightFileName) {
 
 // ----[ Game ]-------------------------------------
 
-class ArcadeGameTest: public ::testing::Test {
-protected:
-	friend class Game;
-	
-	virtual void SetUp() {}
-	
-	virtual void TearDown() {}
-	
-	// No default constructor for game, sooo
-	//Game game;
-};
+// class ArcadeGameTest: public ::testing::Test {
+// protected:
+// 	friend class Game;
+// 	
+// 	virtual void SetUp() {}
+// 	
+// 	virtual void TearDown() {}
+// 	
+// 	// No default constructor for game, sooo
+// 	//Game game;
+// };
 
 
 // Literal copy-paste
 #include "tests/filetests.tests"
 
+#include "tests/Thing.cc"
+#include "tests/Obstacle.cc"
+#include "tests/Wall.cc"
+#include "tests/Barrel.cc"
+#include "tests/Player.cc"
+#include "tests/Game.cc"
+#include "tests/Board.cc"
+#include "tests/Movement.cc"
 
-TEST_F(ArcadeGameTest, GTestTest) {
+TEST(ArcadeGameTest, GTestTest) {
 	EXPECT_TRUE(true);
 }
 

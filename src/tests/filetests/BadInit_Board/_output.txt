@@ -1,4 +1,0 @@
-Error: Invalid board dimensions.
-About to do all 0 movements.
-
-Done.

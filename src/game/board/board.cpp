@@ -4,8 +4,8 @@
 #include <iostream>
 #include "../../DesignByContract.h"
 
-Board::Board(unsigned int width, unsigned int height):
-	_width(width), _height(height),
+Board::Board(unsigned int width, unsigned int height, std::string name):
+	_width(width), _height(height), _name(name),
 	_data(std::vector<std::vector<Thing*>>(width, std::vector<Thing*>(height, nullptr)))
 	{
 	REQUIRE(width >= 0 && height >= 0, "incorrect height or width");
@@ -51,7 +51,7 @@ Board& Board::operator=(const Board& that) {
 }
 
 unsigned int Board::get_height() const {
-	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_height");+
+	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_height");
 	unsigned int result = _height;
 	ENSURE(result > 0, "Board has incorrect height or height is not returned correctly");
 	return result;
@@ -68,36 +68,37 @@ void Board::set_width(unsigned int x) {
 }*/
 
 const std::string& Board::get_name() const {
-	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_name");
+	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_name");
 	const std::string& result = _name;
 	return result;
 }
 
 void Board::set_name(std::string& name) {
-	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling set_name");
+	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling set_name");
 	_name = name;
 	ENSURE(get_name() == name, "name not set correctly when calling set_name");
 }
 
 unsigned int Board::get_width() const {
-	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_width");
+	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_width");
 	unsigned int result = _width;
 	ENSURE(result > 0, "Board has incorrect width or width is not returned correctly");
 	return result;
 }
 
 Thing*& Board::operator()(unsigned int x, unsigned int y) {
-	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
+	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
+	REQUIRE(valid_location(x,y), "Not a valid location given to operator()");
 	return _data.at(x).at(y);
 }
 
 bool Board::valid_location(int x, int y) {
-	//REQUIRE(properlyInitialized(), "Board wasn't initialized when calling valid_location");
+	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling valid_location");
 	return 0<=x && x<_width && 0<=y && y<_height;
 }
 
 std::ostream& operator<< (std::ostream &out, Board& board) {
-	//REQUIRE(board.properlyInitialized(), "Board wasn't initialized when calling oeprator <<");
+	REQUIRE(board.properlyInitialized(), "Board wasn't initialized when calling oeprator <<");
 	for (int j=board.get_height()-1; j>=0; --j) {
 		// print row
 		for (int i=0; i<board.get_width(); ++i) {
