@@ -70,10 +70,8 @@ private:
 	std::string readAttribute(TiXmlElement* elem, const char* tag);
 
 	void parsePlayer(TiXmlElement* elem, std::ostream& out);
-	// REQUIRE(reqElement(elem, "NAAM",, "Player must have a name specified.");
 
 	void parseObstacle(TiXmlElement* elem, std::ostream& out);
-	// REQUIRE(reqElement(elem, "TYPE"), "Obstacle must have a type specified.");
 
 	bool reqElement(TiXmlElement* elem, const char* tag);
 

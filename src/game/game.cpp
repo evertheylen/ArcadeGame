@@ -68,8 +68,6 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 	
 	_board = Board(x, y);
 
-	//TODO Test if all necessary elements are specified in the xml file. Else error! I think this is done for the most part???
-
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "NAAM") {
 			boardname = readElement(current_el);
@@ -118,8 +116,6 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 			}
 			
 			_movements.push_back(Movement(dir, _players[player_name]));
-
-			//std::cout << _movements.back().get_dir() << "\n";
 		} else {
 			out << "Error: tag " << current_el->Value() << " not defined.\n";
 		}
@@ -280,7 +276,6 @@ void Game::parseObstacle(TiXmlElement* elem, std::ostream& out) {
 		return;
 	}
 	
-	//std::cout << _board(x,y)->is_movable() << "\n";
 }
 
 std::string Game::readElement(TiXmlElement* elem, const char* tag) {
@@ -354,7 +349,6 @@ void Game::popMove(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popMove");
 	REQUIRE(!_movements.empty(), "Movements was empty, can't be popped");
 	unsigned int original_size = _movements.size();
-	//out << "popped\n";
 	doMove(_movements.front(), out);
 	_movements.pop_front();
 	ENSURE(_movements.size() == original_size - 1, "Movement was not popped");

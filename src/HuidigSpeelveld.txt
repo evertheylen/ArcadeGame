@@ -1,10 +1,10 @@
 XXXXXXXXXX
 X        X
-X     @  X
-X @ooo   X
 X        X
 X        X
-X        X
+X    o   X
+X   @    X
+X  @     X
 X        X
 X        X
 XXXXXXXXXX
@@ -14,8 +14,6 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Speler Chip bevindt zich in dit speelveld op positie (2,6).
-Er bevindt zich een ton op positie (3,6).
-Er bevindt zich een ton op positie (4,6).
-Er bevindt zich een ton op positie (5,6).
-Speler Munk bevindt zich in dit speelveld op positie (6,7).
+Speler Chip bevindt zich in dit speelveld op positie (3,3).
+Speler Munk bevindt zich in dit speelveld op positie (4,4).
+Er bevindt zich een ton op positie (5,5).
