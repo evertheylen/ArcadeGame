@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: game/board/obstacle.h Source File</title>
+<title>Arcade Game: src/game/board/obstacle.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_37c6514aeece95293041e34c0f2e0784.html">game</a></li><li class="navelem"><a class="el" href="dir_5a230201e1fb27bf31266ca1e440ccc6.html">board</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="dir_6a2eed2fb90f3588aceadeb670a67c51.html">board</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -99,22 +99,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_obstacle.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_obstacle.html">Obstacle</a>: <span class="keyword">public</span> <a class="code" href="class_thing.html">Thing</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_obstacle.html#aba366c218c8cdb528af666a561d98909">Obstacle</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> weight);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">// REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp; weight &gt;= -1, &quot;Incorrect constructor parameters given for obstacle&quot;);</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// ENSURE(properlyInitialized(), &quot;constructor must end...&quot;);</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// copy constructor</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_obstacle.html#aba366c218c8cdb528af666a561d98909">Obstacle</a>(<span class="keyword">const</span> <a class="code" href="class_obstacle.html">Obstacle</a>&amp; that);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">// ENSURE(properlyInitialized(), &quot;Copy constructor must end...&quot;);</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// copy assignment</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_obstacle.html">Obstacle</a>&amp; <a class="code" href="class_obstacle.html#ad1bc1cece41247b25716d194fef88109">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_obstacle.html">Obstacle</a>&amp; that);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// ENSURE(properlyInitialized(), &quot;Copy by assignment must end...&quot;);</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_obstacle.html#aba366c218c8cdb528af666a561d98909">Obstacle</a>(<span class="keyword">const</span> <a class="code" href="class_obstacle.html">Obstacle</a>&amp; that);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_obstacle.html">Obstacle</a>&amp; <a class="code" href="class_obstacle.html#ad1bc1cece41247b25716d194fef88109">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_obstacle.html">Obstacle</a>&amp; that);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> std::ostream&amp; <a class="code" href="class_obstacle.html#a3ae4974cf51c52a21b106080154ad8ad">print</a>(std::ostream&amp; out);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Obstacle wasn&#39;t initialized when calling print&quot;);</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">char</span> <a class="code" href="class_obstacle.html#af83d3bb39ec0a4ae9fe86198dcff801e">to_char</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Obstacle wasn&#39;t initialized when calling to_char&quot;);</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // _Obstacle</span></div>
@@ -123,12 +111,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_obstacle_html_af83d3bb39ec0a4ae9fe86198dcff801e"><div class="ttname"><a href="class_obstacle.html#af83d3bb39ec0a4ae9fe86198dcff801e">Obstacle::to_char</a></div><div class="ttdeci">virtual char to_char()</div><div class="ttdef"><b>Definition:</b> obstacle.cpp:33</div></div>
 <div class="ttc" id="class_thing_html"><div class="ttname"><a href="class_thing.html">Thing</a></div><div class="ttdef"><b>Definition:</b> thing.h:6</div></div>
 <div class="ttc" id="class_obstacle_html_aba366c218c8cdb528af666a561d98909"><div class="ttname"><a href="class_obstacle.html#aba366c218c8cdb528af666a561d98909">Obstacle::Obstacle</a></div><div class="ttdeci">Obstacle(unsigned int x, unsigned int y, int weight)</div><div class="ttdef"><b>Definition:</b> obstacle.cpp:4</div></div>
-<div class="ttc" id="class_obstacle_html_ad1bc1cece41247b25716d194fef88109"><div class="ttname"><a href="class_obstacle.html#ad1bc1cece41247b25716d194fef88109">Obstacle::operator=</a></div><div class="ttdeci">Obstacle &amp; operator=(const Obstacle &amp;that)</div><div class="ttdef"><b>Definition:</b> obstacle.cpp:20</div></div>
+<div class="ttc" id="class_obstacle_html_ad1bc1cece41247b25716d194fef88109"><div class="ttname"><a href="class_obstacle.html#ad1bc1cece41247b25716d194fef88109">Obstacle::operator=</a></div><div class="ttdeci">Obstacle &amp; operator=(const Obstacle &amp;that)</div><div class="ttdoc">copy assignment </div><div class="ttdef"><b>Definition:</b> obstacle.cpp:20</div></div>
 <div class="ttc" id="class_obstacle_html"><div class="ttname"><a href="class_obstacle.html">Obstacle</a></div><div class="ttdef"><b>Definition:</b> obstacle.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 16 2015 19:31:57 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

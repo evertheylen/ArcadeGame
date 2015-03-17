@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['require',['REQUIRE',['../_design_by_contract_8h.html#aeb774672b46dbe80afc14e0d1970f017',1,'DesignByContract.h']]]
+  ['ensure',['ENSURE',['../_design_by_contract_8h.html#ab8da60ea2bcdd55183cc29d8526e6857',1,'DesignByContract.h']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['game',['Game',['../class_game.html',1,'Game'],['../class_arcade_game_test.html#aa2fab026580d6f14280c2ffb8063a314',1,'ArcadeGameTest::Game()'],['../class_game.html#ade38ffceecd9a0567c62a3f1d763693c',1,'Game::Game(const Game &amp;that)'],['../class_game.html#ac63089d01a0ec61d366809950fb7e628',1,'Game::Game(TiXmlDocument &amp;board_doc, TiXmlDocument &amp;moves_doc, std::ostream &amp;out)']]],
+  ['game',['Game',['../class_game.html',1,'Game'],['../class_example_game.html#aa2fab026580d6f14280c2ffb8063a314',1,'ExampleGame::Game()'],['../class_game.html#ade38ffceecd9a0567c62a3f1d763693c',1,'Game::Game(const Game &amp;that)'],['../class_game.html#ac63089d01a0ec61d366809950fb7e628',1,'Game::Game(TiXmlDocument &amp;board_doc, TiXmlDocument &amp;moves_doc, std::ostream &amp;out)'],['../class_example_game.html#a8fa3c922e35da14c27bd9cb6126b22c4',1,'ExampleGame::game()']]],
+  ['game_2ecc',['Game.cc',['../_game_8cc.html',1,'']]],
   ['game_2ecpp',['game.cpp',['../game_8cpp.html',1,'']]],
   ['game_2eh',['game.h',['../game_8h.html',1,'']]],
   ['generate_5ffiletests',['generate_filetests',['../namespacegenerate__filetests.html',1,'']]],

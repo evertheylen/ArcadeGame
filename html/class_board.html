@@ -97,13 +97,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a02b4d027a571b88d8149ac3b886808b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a02b4d027a571b88d8149ac3b886808b2">Board</a> (unsigned int x=0, unsigned int y=0)</td></tr>
-<tr class="separator:a02b4d027a571b88d8149ac3b886808b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c348cdb4f3c65c83c56e7006eefdf70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a8c348cdb4f3c65c83c56e7006eefdf70">Board</a> (unsigned int x=0, unsigned int y=0, std::string name=std::string(&quot;No name&quot;))</td></tr>
+<tr class="separator:a8c348cdb4f3c65c83c56e7006eefdf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af73f45730119a1fd8f6670f53f959e68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a> ()</td></tr>
 <tr class="separator:af73f45730119a1fd8f6670f53f959e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5113e1c1562a48df2ae57387134c4e92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a5113e1c1562a48df2ae57387134c4e92">Board</a> (const <a class="el" href="class_board.html">Board</a> &amp;that)</td></tr>
+<tr class="memdesc:a5113e1c1562a48df2ae57387134c4e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="#a5113e1c1562a48df2ae57387134c4e92">More...</a><br/></td></tr>
 <tr class="separator:a5113e1c1562a48df2ae57387134c4e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaca321caea90c96811f055eef6a6d846"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_board.html">Board</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#aaca321caea90c96811f055eef6a6d846">operator=</a> (const <a class="el" href="class_board.html">Board</a> &amp;that)</td></tr>
+<tr class="memdesc:aaca321caea90c96811f055eef6a6d846"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy assignment  <a href="#aaca321caea90c96811f055eef6a6d846">More...</a><br/></td></tr>
 <tr class="separator:aaca321caea90c96811f055eef6a6d846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad90925aef433926bfcd4109449d80910"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#ad90925aef433926bfcd4109449d80910">get_height</a> () const </td></tr>
 <tr class="separator:ad90925aef433926bfcd4109449d80910"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +128,7 @@ Friends</h2></td></tr>
 <tr class="separator:a4ad05cc23dac18ece951bb93630299ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a02b4d027a571b88d8149ac3b886808b2"></a>
+<a class="anchor" id="a8c348cdb4f3c65c83c56e7006eefdf70"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -140,7 +142,13 @@ Friends</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>y</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em> = <code>std::string(&quot;No&#160;name&quot;)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -164,6 +172,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "incorrect height or width"); ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -181,6 +190,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>copy constructor </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -196,6 +207,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -211,6 +223,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_height"); ENSURE(result &gt; 0, "Board has incorrect height or height is not returned correctly"); void set_height(unsigned int y); </p>
 
 </div>
 </div>
@@ -226,6 +239,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling set_name"); ENSURE(<a class="el" href="class_board.html#a459645cafb07a41b021171195384c94b">get_name()</a> == name, "name not set correctly when calling set_name"); </p>
 
 </div>
 </div>
@@ -252,6 +266,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_width"); ENSURE(result &gt; 0, "Board has incorrect width or width is not returned correctly"); void set_width(unsigned int x); </p>
 
 </div>
 </div>
@@ -269,6 +284,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>copy assignment </p>
+<p>ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+
 </div>
 </div>
 <a class="anchor" id="ae3d8c5f6d2cd378bb5c60081d75f84b9"></a>
@@ -283,6 +301,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling operator &lt;&lt;"); </p>
 
 </div>
 </div>
@@ -299,6 +318,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_name"); </p>
 
 </div>
 </div>
@@ -325,6 +345,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling operator()"); </p>
 
 </div>
 </div>
@@ -360,17 +381,18 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling valid_location"); </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>game/board/<a class="el" href="board_8h_source.html">board.h</a></li>
-<li>game/board/<a class="el" href="board_8cpp.html">board.cpp</a></li>
+<li>src/game/board/<a class="el" href="board_8h_source.html">board.h</a></li>
+<li>src/game/board/<a class="el" href="board_8cpp.html">board.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 16 2015 19:31:57 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['arcadegametest',['ArcadeGameTest',['../class_arcade_game_test.html',1,'']]]
+  ['barrel',['Barrel',['../class_barrel.html',1,'']]],
+  ['board',['Board',['../class_board.html',1,'']]]
 ];

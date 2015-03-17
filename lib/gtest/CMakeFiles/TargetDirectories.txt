@@ -1,2 +1,2 @@
-/Bestanden/School/SE/ArcadeGame/lib/gtest/CMakeFiles/gtest.dir
-/Bestanden/School/SE/ArcadeGame/lib/gtest/CMakeFiles/gtest_main.dir
+/home/stijn/Documents/1Ba Informatica/Project Software Engineering/Arcade Game/ArcadeGame/lib/gtest/CMakeFiles/gtest.dir
+/home/stijn/Documents/1Ba Informatica/Project Software Engineering/Arcade Game/ArcadeGame/lib/gtest/CMakeFiles/gtest_main.dir

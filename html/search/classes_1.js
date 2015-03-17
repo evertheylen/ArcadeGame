@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['barrel',['Barrel',['../class_barrel.html',1,'']]],
-  ['board',['Board',['../class_board.html',1,'']]]
+  ['exampleboard',['ExampleBoard',['../class_example_board.html',1,'']]],
+  ['examplegame',['ExampleGame',['../class_example_game.html',1,'']]]
 ];

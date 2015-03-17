@@ -24,34 +24,34 @@ public:
 
 	//! copy constructor
 	Game(const Game& that);
-	/** ENSURE(properlyInitialized(), "Copy constructor must end...");*/
+	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/
 
 	//! copy assignment
 	Game& operator=(const Game& that);
-	/** ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
+	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
 
 	Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out);
-	/** ENSURE(properlyInitialized(), "constructor must end ...");*/
+	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	void writeBoard(std::ostream& stream);
-	/** REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeBoard");*/
+	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeBoard");*/
 
 	void writeMovements(std::ostream& stream);
-	/** REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");*/
+	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");*/
 	std::list<Movement>& get_movements();
-	/** REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");*/
+	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");*/
 
 	void popMove(std::ostream& out);
-	/** REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
+	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
 	 	REQUIRE(!get_movements().empty(), "Movements was empty, can't be done");
 		ENSURE(_movements.size() == original_size - 1, "Movement was not popped");*/
 	
 	void doMove(Movement& movement, std::ostream& out);
-	/** REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
+	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
 		ENSURE(x_original != x || y_original != y, "Movement not completed, location stayed the same");*/
 
 	void doAllMoves(std::ostream& out);
-	/** REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
+	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
 		ENSURE(get_movements().empty(), "Not all movements are executed");*/
 
 	bool properlyInitialized() const;

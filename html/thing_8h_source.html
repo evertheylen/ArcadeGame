@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: game/board/thing.h Source File</title>
+<title>Arcade Game: src/game/board/thing.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_37c6514aeece95293041e34c0f2e0784.html">game</a></li><li class="navelem"><a class="el" href="dir_5a230201e1fb27bf31266ca1e440ccc6.html">board</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_1699be727a800b1d059c6f7f2b91d2ee.html">game</a></li><li class="navelem"><a class="el" href="dir_6a2eed2fb90f3588aceadeb670a67c51.html">board</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -98,57 +98,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_thing.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_thing.html">Thing</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_thing.html#a39968586a8e98dfef67c72ca54e00a43">Thing</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">// ENSURE(properlyInitialized(), &quot;constructor must end...&quot;);</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_thing.html#a39968586a8e98dfef67c72ca54e00a43">Thing</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> weight);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// ENSURE(properlyInitialized(), &quot;constructor must end...&quot;);</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// copy constructor</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_thing.html#a39968586a8e98dfef67c72ca54e00a43">Thing</a>(<span class="keyword">const</span> <a class="code" href="class_thing.html">Thing</a>&amp; that);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">//ENSURE(properlyInitialized(), &quot;Copy constructor must end...&quot;);</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// copy assignment</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_thing.html">Thing</a>&amp; <a class="code" href="class_thing.html#a782647fb68a138cbe33a1ccddc744f2e">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_thing.html">Thing</a>&amp; that);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">//ENSURE(properlyInitialized(), &quot;Copy by assignment must end...&quot;);</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_thing.html#a39968586a8e98dfef67c72ca54e00a43">Thing</a>(<span class="keyword">const</span> <a class="code" href="class_thing.html">Thing</a>&amp; that);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_thing.html">Thing</a>&amp; <a class="code" href="class_thing.html#a782647fb68a138cbe33a1ccddc744f2e">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_thing.html">Thing</a>&amp; that);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_thing.html#ad3bd118d5f708920b1f7181637073129">is_movable</a>() <span class="keyword">const</span>;  <span class="comment">// _weight &gt;= 0 (-1 means infinity)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling is_movable&quot;);</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_thing.html#a1f64e8d62954f5b0d18375f29d194f36">get_weight</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling get_weight&quot;);</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="class_thing.html#a1f64e8d62954f5b0d18375f29d194f36">get_weight</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_thing.html#a86e0a81d09f33c38d384a5cb941006cc">set_weight</a>(<span class="keywordtype">int</span> weight);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling set_weight&quot;);</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// ENSURE(get_weight() == weight &amp;&amp; weight &gt;= -1, &quot;Incorrect weight specified&quot;);</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_thing.html#a8426609164464cb33d6e3c9309767142">get_x</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling get_x&quot;);</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// ENSURE(result &gt;= 0, &quot;Incorrect x coordinate returned&quot;);</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_thing.html#a1d6049698f8e7d1c2e02917ad73f5e7f">set_x</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling set_x&quot;);</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// ENSURE(get_x() == x &amp;&amp; x &gt;= 0, &quot;Incorrect x specified&quot;);</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_thing.html#aa45e4afe2ab8945d3c4d611d28ca9792">get_y</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling get_y&quot;);</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// ENSURE(result &gt;= 0, &quot;Incorrect y coordinate returned&quot;);</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_thing.html#ae2b75642572ad7fde4fcadff04264c2b">set_y</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling set_y&quot;);</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// ENSURE(get_y() == y &amp;&amp; y &gt;= 0, &quot;Incorrect y specified&quot;);</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">//void move(unsigned int x, unsigned int y);</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling set_x&quot;);</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_thing.html#a3f817e7a00d51580001cc4611a4073f3">operator&lt;&lt; </a>(std::ostream &amp;out, <a class="code" href="class_thing.html">Thing</a> &amp;thing);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling operator &lt;&lt;&quot;);</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> std::ostream&amp; <a class="code" href="class_thing.html#a2bcf34705c2e034a75183d42146bd91d">print</a>(std::ostream &amp;out);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling print&quot;);</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">char</span> <a class="code" href="class_thing.html#a8abd38f3556655a0ec59354963d704c9">to_char</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// REQUIRE(properlyInitialized(), &quot;Thing wasn&#39;t initialized when calling to_char&quot;);</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_thing.html#ae44e33098d58016a72b652530de0ca7f">   60</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_thing.html#ae44e33098d58016a72b652530de0ca7f">~Thing</a>() {}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized</a> () <span class="keyword">const</span>;</div>
@@ -162,7 +124,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // _Thing</span></div>
 <div class="ttc" id="class_thing_html_a1f64e8d62954f5b0d18375f29d194f36"><div class="ttname"><a href="class_thing.html#a1f64e8d62954f5b0d18375f29d194f36">Thing::get_weight</a></div><div class="ttdeci">int get_weight() const </div><div class="ttdef"><b>Definition:</b> thing.cpp:44</div></div>
-<div class="ttc" id="class_thing_html_a782647fb68a138cbe33a1ccddc744f2e"><div class="ttname"><a href="class_thing.html#a782647fb68a138cbe33a1ccddc744f2e">Thing::operator=</a></div><div class="ttdeci">Thing &amp; operator=(const Thing &amp;that)</div><div class="ttdef"><b>Definition:</b> thing.cpp:26</div></div>
+<div class="ttc" id="class_thing_html_a782647fb68a138cbe33a1ccddc744f2e"><div class="ttname"><a href="class_thing.html#a782647fb68a138cbe33a1ccddc744f2e">Thing::operator=</a></div><div class="ttdeci">Thing &amp; operator=(const Thing &amp;that)</div><div class="ttdoc">copy assignment </div><div class="ttdef"><b>Definition:</b> thing.cpp:26</div></div>
 <div class="ttc" id="class_thing_html_a43f39cf82967ae5d2f800119e8dfd61b"><div class="ttname"><a href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">Thing::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized() const </div><div class="ttdef"><b>Definition:</b> thing.cpp:35</div></div>
 <div class="ttc" id="class_thing_html_a8abd38f3556655a0ec59354963d704c9"><div class="ttname"><a href="class_thing.html#a8abd38f3556655a0ec59354963d704c9">Thing::to_char</a></div><div class="ttdeci">virtual char to_char()</div><div class="ttdef"><b>Definition:</b> thing.cpp:98</div></div>
 <div class="ttc" id="class_thing_html_a86e0a81d09f33c38d384a5cb941006cc"><div class="ttname"><a href="class_thing.html#a86e0a81d09f33c38d384a5cb941006cc">Thing::set_weight</a></div><div class="ttdeci">void set_weight(int weight)</div><div class="ttdef"><b>Definition:</b> thing.cpp:50</div></div>
@@ -183,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 16 2015 19:31:57 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

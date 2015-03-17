@@ -98,8 +98,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6c1795f9fe44d5272967d25451a79d74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_movement.html#a6c1795f9fe44d5272967d25451a79d74">Movement</a> (const <a class="el" href="class_movement.html">Movement</a> &amp;that)</td></tr>
+<tr class="memdesc:a6c1795f9fe44d5272967d25451a79d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="#a6c1795f9fe44d5272967d25451a79d74">More...</a><br/></td></tr>
 <tr class="separator:a6c1795f9fe44d5272967d25451a79d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af59c34e73579f41364f7f9ce5bc9e525"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_movement.html">Movement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_movement.html#af59c34e73579f41364f7f9ce5bc9e525">operator=</a> (const <a class="el" href="class_movement.html">Movement</a> &amp;that)</td></tr>
+<tr class="memdesc:af59c34e73579f41364f7f9ce5bc9e525"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy assignment  <a href="#af59c34e73579f41364f7f9ce5bc9e525">More...</a><br/></td></tr>
 <tr class="separator:af59c34e73579f41364f7f9ce5bc9e525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f079a58450be4cdb11c5c93dd50802e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_movement.html#a8f079a58450be4cdb11c5c93dd50802e">Movement</a> (<a class="el" href="movement_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> dir, <a class="el" href="class_player.html">Player</a> *player)</td></tr>
 <tr class="separator:a8f079a58450be4cdb11c5c93dd50802e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +116,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af8cceab3a1e35cee08dfedb5b46d2993"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_movement.html#af8cceab3a1e35cee08dfedb5b46d2993">get_player</a> () const </td></tr>
 <tr class="separator:af8cceab3a1e35cee08dfedb5b46d2993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f506356a465b771057677454ea7b8a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_movement.html#a4f506356a465b771057677454ea7b8a5">set_player</a> (<a class="el" href="class_player.html">Player</a> *player)</td></tr>
+<tr class="memdesc:a4f506356a465b771057677454ea7b8a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">When setting to other player, take care of memory leaks.  <a href="#a4f506356a465b771057677454ea7b8a5">More...</a><br/></td></tr>
 <tr class="separator:a4f506356a465b771057677454ea7b8a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d752a0f7f4951939d5878e6c90b2c9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized</a> () const </td></tr>
 <tr class="separator:a4d752a0f7f4951939d5878e6c90b2c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,6 +140,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>copy constructor </p>
 
 </div>
 </div>
@@ -163,6 +168,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -189,6 +195,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -205,6 +212,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -220,6 +228,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_dir"); </p>
 
 </div>
 </div>
@@ -235,6 +244,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling set_dir"); ENSURE(<a class="el" href="class_movement.html#a95bafd88c1a2503d61bed4fa293f8f78">get_dir()</a> == dir, "Direction not set correctly"); </p>
 
 </div>
 </div>
@@ -252,6 +262,9 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>copy assignment </p>
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+
 </div>
 </div>
 <a class="anchor" id="a4d752a0f7f4951939d5878e6c90b2c9b"></a>
@@ -266,6 +279,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator &lt;&lt;"); </p>
 
 </div>
 </div>
@@ -282,6 +296,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_dir_name"); </p>
 
 </div>
 </div>
@@ -298,6 +313,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>When setting to other player, take care of memory leaks. </p>
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_player"); </p>
 
 </div>
 </div>
@@ -333,17 +351,18 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling set_player"); ENSURE(<a class="el" href="class_movement.html#af8cceab3a1e35cee08dfedb5b46d2993">get_player()</a> == player &amp;&amp; player-&gt;<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Player not set correctly"); </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>game/movement/<a class="el" href="movement_8h_source.html">movement.h</a></li>
-<li>game/movement/<a class="el" href="movement_8cpp.html">movement.cpp</a></li>
+<li>src/game/movement/<a class="el" href="movement_8h_source.html">movement.h</a></li>
+<li>src/game/movement/<a class="el" href="movement_8cpp.html">movement.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Mar 16 2015 19:31:57 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
