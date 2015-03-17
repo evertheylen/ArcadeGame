@@ -142,6 +142,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy constructor </p>
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
 
 </div>
 </div>
@@ -168,7 +169,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -212,7 +213,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "constructor must end ..."); </p>
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_dir"); </p>
 
 </div>
 </div>
@@ -228,7 +229,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_dir"); </p>
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_dir_name"); </p>
 
 </div>
 </div>
@@ -244,7 +245,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling set_dir"); ENSURE(<a class="el" href="class_movement.html#a95bafd88c1a2503d61bed4fa293f8f78">get_dir()</a> == dir, "Direction not set correctly"); </p>
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_player"); </p>
 
 </div>
 </div>
@@ -263,7 +264,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy assignment </p>
-<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+<p>ENSURE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -279,7 +280,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator &lt;&lt;"); </p>
 
 </div>
 </div>
@@ -296,7 +296,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_dir_name"); </p>
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling set_dir"); ENSURE(<a class="el" href="class_movement.html#a95bafd88c1a2503d61bed4fa293f8f78">get_dir()</a> == dir, "Direction not set correctly"); </p>
 
 </div>
 </div>
@@ -315,7 +315,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>When setting to other player, take care of memory leaks. </p>
-<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling get_player"); </p>
+<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling set_player"); ENSURE(<a class="el" href="class_movement.html#af8cceab3a1e35cee08dfedb5b46d2993">get_player()</a> == player &amp;&amp; player-&gt;<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Player not set correctly"); </p>
 
 </div>
 </div>
@@ -351,7 +351,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Movement wasn't initialized when calling set_player"); ENSURE(<a class="el" href="class_movement.html#af8cceab3a1e35cee08dfedb5b46d2993">get_player()</a> == player &amp;&amp; player-&gt;<a class="el" href="class_movement.html#a4d752a0f7f4951939d5878e6c90b2c9b">properlyInitialized()</a>, "Player not set correctly"); </p>
+<p>REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator &lt;&lt;"); </p>
 
 </div>
 </div>
@@ -362,7 +362,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:41:18 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

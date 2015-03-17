@@ -185,6 +185,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy constructor </p>
+<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
 
 </div>
 </div>
@@ -217,7 +218,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
+<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "Incorrect arguments for constructor of player."); ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "constructor must end..."); </p>
 
 </div>
 </div>
@@ -241,7 +242,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling to_char"); </p>
 
 </div>
 </div>
@@ -258,7 +258,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling print"); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling get_maximum_weight"); </p>
 
 </div>
 </div>
@@ -274,7 +274,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "Incorrect arguments for constructor of player."); ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "constructor must end..."); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling get_name"); </p>
 
 </div>
 </div>
@@ -293,7 +293,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy assignment </p>
-<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -318,7 +318,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling set_name"); ENSURE(<a class="el" href="class_player.html#a9a39d27f0a92cb93d1813efb1fe68f28">get_name()</a> == name &amp;&amp; name != "", "If you name your player "" you will get in trouble mate"); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling print"); </p>
 
 <p>Reimplemented from <a class="el" href="class_thing.html#a2bcf34705c2e034a75183d42146bd91d">Thing</a>.</p>
 
@@ -337,7 +337,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling get_maximum_weight"); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling set_maximum_weight"); ENSURE(<a class="el" href="class_player.html#a7e836989ea510c845d2e79cc7c52ac5c">get_maximum_weight()</a> == max, "Maximum_weight wasn't correctly set!"); </p>
 
 </div>
 </div>
@@ -354,7 +354,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling get_name"); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling set_name"); ENSURE(<a class="el" href="class_player.html#a9a39d27f0a92cb93d1813efb1fe68f28">get_name()</a> == name &amp;&amp; name != "", "If you name your player "" you will get in trouble mate"); </p>
 
 </div>
 </div>
@@ -378,7 +378,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling set_maximum_weight"); ENSURE(<a class="el" href="class_player.html#a7e836989ea510c845d2e79cc7c52ac5c">get_maximum_weight()</a> == max, "Maximum_weight wasn't correctly set!"); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Player wasn't initialized when calling to_char"); </p>
 
 <p>Reimplemented from <a class="el" href="class_thing.html#a8abd38f3556655a0ec59354963d704c9">Thing</a>.</p>
 
@@ -391,7 +391,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:41:18 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

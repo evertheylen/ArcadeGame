@@ -170,6 +170,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy constructor </p>
+<p>ENSURE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Copy constructor must end..."); </p>
 
 </div>
 </div>
@@ -202,7 +203,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
+<p>ENSURE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -220,7 +221,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling doMove"); ENSURE(x_original != x || y_original != y, "Movement not completed, location stayed the same"); </p>
+<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling doAllMoves"); ENSURE(<a class="el" href="class_game.html#a705c189324045d42ffc3678e3e2fd3ba">get_movements()</a>.empty(), "Not all movements are executed"); </p>
 
 </div>
 </div>
@@ -247,7 +248,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling doMove"); REQUIRE(!get_movements().empty(), "Movements was empty, can't be done"); ENSURE(_movements.size() == original_size - 1, "Movement was not popped"); </p>
+<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling doMove"); ENSURE(x_original != x || y_original != y, "Movement not completed, location stayed the same"); </p>
 
 </div>
 </div>
@@ -263,7 +264,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling writeMovements"); </p>
+<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling get_movements"); </p>
 
 </div>
 </div>
@@ -282,7 +283,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy assignment </p>
-<p>ENSURE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+<p>ENSURE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -299,7 +300,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling get_movements"); </p>
+<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling doMove"); REQUIRE(!get_movements().empty(), "Movements was empty, can't be done"); ENSURE(_movements.size() == original_size - 1, "Movement was not popped"); </p>
 
 </div>
 </div>
@@ -315,7 +316,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling doAllMoves"); ENSURE(<a class="el" href="class_game.html#a705c189324045d42ffc3678e3e2fd3ba">get_movements()</a>.empty(), "Not all movements are executed"); </p>
 
 </div>
 </div>
@@ -332,7 +332,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "constructor must end ..."); </p>
+<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling writeBoard"); </p>
 
 </div>
 </div>
@@ -349,7 +349,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling writeBoard"); </p>
+<p>REQUIRE(<a class="el" href="class_game.html#a2320d5e8890bb19cacbf47bf12c4966a">properlyInitialized()</a>, "Game wasn't initialized when calling writeMovements"); </p>
 
 </div>
 </div>
@@ -360,7 +360,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:41:18 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

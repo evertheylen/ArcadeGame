@@ -185,6 +185,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy constructor </p>
+<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
 
 </div>
 </div>
@@ -211,7 +212,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
+<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "Incorrect arguments specified for constructor of wall"); ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "constructor must end..."); </p>
 
 </div>
 </div>
@@ -231,7 +232,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy assignment </p>
-<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+<p>ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -256,7 +257,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "Incorrect arguments specified for constructor of wall"); ENSURE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "constructor must end..."); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Wall wasn't initialized when calling print"); </p>
 
 <p>Reimplemented from <a class="el" href="class_obstacle.html#a3ae4974cf51c52a21b106080154ad8ad">Obstacle</a>.</p>
 
@@ -282,7 +283,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Wall wasn't initialized when calling print"); </p>
+<p>REQUIRE(<a class="el" href="class_thing.html#a43f39cf82967ae5d2f800119e8dfd61b">properlyInitialized()</a>, "Wall wasn't initialized when calling to_char"); </p>
 
 <p>Reimplemented from <a class="el" href="class_obstacle.html#af83d3bb39ec0a4ae9fe86198dcff801e">Obstacle</a>.</p>
 
@@ -295,7 +296,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:41:18 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

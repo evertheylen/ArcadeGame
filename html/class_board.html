@@ -157,6 +157,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "incorrect height or width"); ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -172,7 +173,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(x &gt;= 0 &amp;&amp; y &gt;= 0, "incorrect height or width"); ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "constructor must end ..."); </p>
 
 </div>
 </div>
@@ -191,6 +191,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy constructor </p>
+<p>ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Copy constructor must end..."); </p>
 
 </div>
 </div>
@@ -207,7 +208,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_height"); ENSURE(result &gt; 0, "Board has incorrect height or height is not returned correctly"); </p>
 
 </div>
 </div>
@@ -223,7 +224,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_height"); ENSURE(result &gt; 0, "Board has incorrect height or height is not returned correctly"); void set_height(unsigned int y); </p>
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_name"); </p>
 
 </div>
 </div>
@@ -239,7 +240,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling set_name"); ENSURE(<a class="el" href="class_board.html#a459645cafb07a41b021171195384c94b">get_name()</a> == name, "name not set correctly when calling set_name"); </p>
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling set_name"); ENSURE(<a class="el" href="class_board.html#a459645cafb07a41b021171195384c94b">get_name()</a> == name, "name not set correctly when calling set_name"); REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_width"); ENSURE(result &gt; 0, "Board has incorrect width or width is not returned correctly"); </p>
 
 </div>
 </div>
@@ -266,7 +267,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_width"); ENSURE(result &gt; 0, "Board has incorrect width or width is not returned correctly"); void set_width(unsigned int x); </p>
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling operator()"); </p>
 
 </div>
 </div>
@@ -285,7 +286,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>copy assignment </p>
-<p>ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Copy constructor must end..."); </p>
+<p>ENSURE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Copy by assignment must end..."); </p>
 
 </div>
 </div>
@@ -301,7 +302,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling operator &lt;&lt;"); </p>
 
 </div>
 </div>
@@ -318,7 +318,6 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling get_name"); </p>
 
 </div>
 </div>
@@ -345,7 +344,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling operator()"); </p>
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling valid_location"); </p>
 
 </div>
 </div>
@@ -381,7 +380,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling valid_location"); </p>
+<p>REQUIRE(<a class="el" href="class_board.html#ae3d8c5f6d2cd378bb5c60081d75f84b9">properlyInitialized()</a>, "Board wasn't initialized when calling operator &lt;&lt;"); </p>
 
 </div>
 </div>
@@ -392,7 +391,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 17 2015 18:33:53 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 17 2015 18:41:18 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
