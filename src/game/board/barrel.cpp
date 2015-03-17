@@ -26,7 +26,7 @@ Barrel& Barrel::operator=(const Barrel& that) {
 
 std::ostream& Barrel::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling print");
-	out << "Er bevindt zich een ton op positie ";
+	out << "Er bevindt zich een ton op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 

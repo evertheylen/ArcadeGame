@@ -1,0 +1,18 @@
+XXXXXXXXXX
+X        X
+X     @  X
+X        X
+X        X
+X        X
+X  o     X
+X        X
+X        X
+XXXXXXXXXX
+
+Het huidige speelveld is Level 1:
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+Er bevindt zich een ton op positie (3,3).
+Speler Munk bevindt zich in dit speelveld op positie (6,7).

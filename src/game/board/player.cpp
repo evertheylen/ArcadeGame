@@ -41,12 +41,12 @@ const std::string& Player::get_name() const {
 void Player::set_name(const std::string& name) {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling set_name");
 	_name = name;
-	ENSURE(get_name() == name && name != "", "If you name your player "" you will get in trouble mate");
+	ENSURE(get_name() == name, "name wasn't correctly set!");
 }
 
 std::ostream& Player::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling print");
-	out << "Speler " << _name << " bevindt zich in dit speelveld op positie ";
+	out << "Speler " << get_name() << " bevindt zich in dit speelveld op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 

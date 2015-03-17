@@ -18,12 +18,12 @@ bool Board::properlyInitialized() const {
 }
 
 Board::~Board() {
-	for (std::vector<std::vector<Thing*>>::iterator i = _data.begin(); i != _data.end(); ++i) {
-		for (std::vector<Thing*>::iterator j = i->begin(); j != i->end(); ++j) {
+	for (auto i: _data) {
+		for (auto j: i) {
 			//std::cout << " ? deleting " << *j << std::endl;
-			if (*j != nullptr) {
+			if (j != nullptr) {
 				//std::cout << "   deleted " << **j << std::endl;
-				delete(*j);
+				delete(j);
 			}
 		}
 	}
@@ -34,7 +34,7 @@ Board::Board(const Board& that):
 	_name(that._name),
 	_width(that._width),
 	_height(that._height),
-	_data(that._data) {
+	_data(that._data.size()) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }

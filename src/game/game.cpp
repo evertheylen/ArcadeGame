@@ -61,8 +61,6 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 	
 	if (x<1 || y<1) {
 		out << "Error: Invalid board dimensions.\n";
-		// TODO What to do here? can't return some bool to inform caller, can't REQUIRE either...
-		// ParseError seems a bit weird here...
 		throw(ParseError());
 	}
 	
@@ -324,11 +322,11 @@ void Game::writeBoard(std::ostream& stream) {
 			<< "-Breedte " << _board.get_width() << "\n"
 			<< "-Lengte " << _board.get_height() << "\n\n";
 
-	// Find player.
+	// Find all movable Things.
 	for (unsigned int i = 0; i != _board.get_width(); i++) {
 		for (unsigned int j = 0; j != _board.get_height(); j++) {
-			if (_board(i,j) != NULL && _board(i,j)->is_movable() == true) {
-				stream << *_board(i,j) << "(" << i << "," << j <<").\n";
+			if (_board(i,j) != nullptr && _board(i,j)->is_movable()) {
+				stream << *_board(i,j) << "\n";
 			}
 		}
 	}

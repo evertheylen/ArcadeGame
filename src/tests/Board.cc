@@ -22,15 +22,15 @@ protected:
 };
 
 TEST_F(ExampleBoard, Getters) {
-	EXPECT_TRUE(board->get_height() == 15);
-	EXPECT_TRUE(board->get_width() == 10);
-	EXPECT_TRUE(board->get_name() == "Mario vs Luigi");
+	EXPECT_EQ(board->get_height(), 15);
+	EXPECT_EQ(board->get_width(), 10);
+	EXPECT_EQ(board->get_name(), "Mario vs Luigi");
 }
 
 TEST_F(ExampleBoard, Setters) {
 	std::string newname = std::string("Mario vs Bowser");
 	board->set_name(newname);
-	EXPECT_TRUE(board->get_name() == "Mario vs Bowser");
+	EXPECT_EQ(board->get_name(), "Mario vs Bowser");
 }
 
 TEST_F(ExampleBoard, ValidLocation) {
@@ -49,11 +49,10 @@ TEST_F(ExampleBoard, ValidLocation) {
 }
 
 TEST_F(ExampleBoard, GetLocation) {
-	EXPECT_TRUE((*board)(4,7)->get_x() == 4);
-	EXPECT_TRUE((*board)(4,7)->get_y() == 7);
-	EXPECT_TRUE((*board)(5,5)->get_x() == 5);
-	EXPECT_TRUE((*board)(5,5)->get_y() == 5);
+	EXPECT_EQ((*board)(4,7)->get_x(), 4);
+	EXPECT_EQ((*board)(4,7)->get_y(), 7);
+	EXPECT_EQ((*board)(5,5)->get_x(), 5);
+	EXPECT_EQ((*board)(5,5)->get_y(), 5);
 	
 	EXPECT_DEATH((*board)(50,4)->get_x() == 4, "");
 }
-

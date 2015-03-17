@@ -68,7 +68,7 @@ protected:
 TEST_F(ExampleGame, popMove) {
 	int original_size = game->get_movements().size();
 	game->popMove(null);
-	EXPECT_TRUE(game->get_movements().size() == original_size-1);
+	EXPECT_EQ(game->get_movements().size(), original_size-1);
 }
 
 
@@ -78,7 +78,7 @@ TEST_F(ExampleGame, popMoveEmpty) {
 	game->popMove(null); // 1 move left
 	game->popMove(null); // 0 moves left
 	game->popMove(null); // 0 moves left
-	EXPECT_DEATH(game->popMove(null), "ArcadeTests: game/game.cpp:350: Assertion `Movements was empty, can't be popped' failed.\n");
+	EXPECT_DEATH(game->popMove(null), "");
 }
 
 
@@ -98,4 +98,62 @@ TEST_F(ExampleGame, doAllMoves) {
 	EXPECT_TRUE(game->get_movements().empty());
 }
 
+/*
+TEST_F(ExampleGame, CopyConstructor) {
+	Game game2 = *game;
+	ASSERT_TRUE(game2.properlyInitialized());
+}
+*/
 
+/*
+TEST_F(ExampleGame, CopyAssignment) {
+	#define Base std::string("tests/filetests_alt/ExampleGame2/")
+
+	TiXmlDocument doc_board, doc_moves;
+
+	bool board_loaded = doc_board.LoadFile((Base + "Speelveld.xml").c_str());
+	bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
+
+	ASSERT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
+	
+	Game game2 = Game(doc_board, doc_moves, null);
+	
+	ASSERT_TRUE(game2.properlyInitialized());
+	
+	// Write current files
+	
+	std::ofstream output_file;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	game2.writeMovements(output_file);
+	output_file.close();
+	
+	game2.doAllMoves(null);
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	game2.writeBoard(output_file);
+	output_file.close();
+	
+	// Compare with original ExampleGame, should be false (different game!)
+	EXPECT_FALSE(fileCompare(Base+"HuidigSpeelveld.txt", "tests/filetests_alt/ExampleGame/_HuidigSpeelveld.txt"));
+	EXPECT_FALSE(fileCompare(Base+"ResterendeBewegingen_begin.txt", "tests/filetests_alt/ExampleGame/_ResterendeBeweginen.txt"));
+	
+	// Now copy
+	game2 = *game;
+	
+	// Write new files
+	output_file.open(Base+"ResterendeBewegingen_begin_copied.txt");
+	game2.writeMovements(output_file);
+	output_file.close();
+	
+	game2.doAllMoves(null);
+	
+	output_file.open(Base+"HuidigSpeelveld_copied.txt");
+	game2.writeBoard(output_file);
+	output_file.close();
+	
+	// Check again, they should be equal now
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld_copied.txt", "tests/filetests_alt/ExampleGame/_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin_copied.txt", "tests/filetests_alt/ExampleGame/_ResterendeBeweginen.txt"));
+}
+*/

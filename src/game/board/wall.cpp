@@ -26,6 +26,7 @@ Wall& Wall::operator=(const Wall& that) {
 
 std::ostream& Wall::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Wall wasn't initialized when calling print");
+	out << "Wall\n";
 	return out;
 }
 

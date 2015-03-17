@@ -41,6 +41,7 @@ depend:
 	rm CMakeCache.txt;\
 	cmake CMakeLists.txt;\
 	make;\
+	mkdir lib;\
 	mv libgtest.a lib/libgtest.a;\
 	mv libgtest_main.a lib/libgtest_main.a;
 
