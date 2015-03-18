@@ -93,27 +93,224 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="obstacle_8h_source.html">../game/board/obstacle.h</a>&quot;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adf319120193f6f445939642920412ad7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#adf319120193f6f445939642920412ad7">TEST</a> (SomeGroup, SomeName)</td></tr>
-<tr class="separator:adf319120193f6f445939642920412ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dcdbba070a35f2897c49363ed0ef51f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#a4dcdbba070a35f2897c49363ed0ef51f">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, NotProperlyInitialized)</td></tr>
+<tr class="separator:a4dcdbba070a35f2897c49363ed0ef51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42aaab1862e82059f5b1fab045832465"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#a42aaab1862e82059f5b1fab045832465">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, Init)</td></tr>
+<tr class="separator:a42aaab1862e82059f5b1fab045832465"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a542c54ebd8d9051c89a4116671fcc771"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#a542c54ebd8d9051c89a4116671fcc771">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, NotMovable)</td></tr>
+<tr class="separator:a542c54ebd8d9051c89a4116671fcc771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7aa7f6271d8c3a35a507dc8bd975124"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#ae7aa7f6271d8c3a35a507dc8bd975124">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, Movable)</td></tr>
+<tr class="separator:ae7aa7f6271d8c3a35a507dc8bd975124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a4cce1166dd21400f9d3d5fd20a70d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#a48a4cce1166dd21400f9d3d5fd20a70d">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, Print)</td></tr>
+<tr class="separator:a48a4cce1166dd21400f9d3d5fd20a70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919d2ab38840b4d8b046b9e46a309b41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#a919d2ab38840b4d8b046b9e46a309b41">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, ToChar)</td></tr>
+<tr class="separator:a919d2ab38840b4d8b046b9e46a309b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6055c11ca2a54938f3aec39339ed91a8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#a6055c11ca2a54938f3aec39339ed91a8">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, CopyConstructor)</td></tr>
+<tr class="separator:a6055c11ca2a54938f3aec39339ed91a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7033845c6dccb767dbc19551b2018ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_obstacle_8cc.html#ae7033845c6dccb767dbc19551b2018ee">TEST</a> (<a class="el" href="class_obstacle.html">Obstacle</a>, CopyAssignment)</td></tr>
+<tr class="separator:ae7033845c6dccb767dbc19551b2018ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="adf319120193f6f445939642920412ad7"></a>
+<a class="anchor" id="a4dcdbba070a35f2897c49363ed0ef51f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">TEST </td>
           <td>(</td>
-          <td class="paramtype">SomeGroup&#160;</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SomeName&#160;</td>
+          <td class="paramtype">NotProperlyInitialized&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a42aaab1862e82059f5b1fab045832465"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Init&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a542c54ebd8d9051c89a4116671fcc771"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">NotMovable&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae7aa7f6271d8c3a35a507dc8bd975124"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Movable&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a48a4cce1166dd21400f9d3d5fd20a70d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Print&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a919d2ab38840b4d8b046b9e46a309b41"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ToChar&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6055c11ca2a54938f3aec39339ed91a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CopyConstructor&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae7033845c6dccb767dbc19551b2018ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_obstacle.html">Obstacle</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CopyAssignment&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -129,7 +326,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 17 2015 18:41:18 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 18 2015 12:41:55 for Arcade Game by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

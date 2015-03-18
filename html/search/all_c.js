@@ -1,7 +1,7 @@
 var searchData=
 [
   ['parseerror',['ParseError',['../class_parse_error.html',1,'']]],
-  ['player',['Player',['../class_player.html',1,'Player'],['../class_player.html#a4b94fa072ff3ba2944cc38f8745b288c',1,'Player::Player(const Player &amp;that)'],['../class_player.html#a2268e20b3a1ba2c5b91a2eaa2bb30986',1,'Player::Player(std::string name=&quot;noname&quot;, unsigned int x=0, unsigned int y=0)']]],
+  ['player',['Player',['../class_player.html',1,'Player'],['../class_player.html#a4b94fa072ff3ba2944cc38f8745b288c',1,'Player::Player(const Player &amp;that)'],['../class_player.html#a2268e20b3a1ba2c5b91a2eaa2bb30986',1,'Player::Player(std::string name=&quot;noname&quot;, unsigned int x=0, unsigned int y=0)'],['../class_example_move.html#acf6538e31b73f8394d3981f959dbbcb7',1,'ExampleMove::player()']]],
   ['player_2ecc',['Player.cc',['../_player_8cc.html',1,'']]],
   ['player_2ecpp',['player.cpp',['../player_8cpp.html',1,'']]],
   ['player_2eh',['player.h',['../player_8h.html',1,'']]],

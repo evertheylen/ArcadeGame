@@ -7,5 +7,5 @@ var searchData=
   ['set_5fweight',['set_weight',['../class_thing.html#a86e0a81d09f33c38d384a5cb941006cc',1,'Thing']]],
   ['set_5fx',['set_x',['../class_thing.html#a1d6049698f8e7d1c2e02917ad73f5e7f',1,'Thing']]],
   ['set_5fy',['set_y',['../class_thing.html#ae2b75642572ad7fde4fcadff04264c2b',1,'Thing']]],
-  ['setup',['SetUp',['../class_example_board.html#aa7fd92235585766568aac6aea8042bf8',1,'ExampleBoard::SetUp()'],['../class_example_game.html#a6f98d1dfb488ad94adcdfb07345708b4',1,'ExampleGame::SetUp()']]]
+  ['setup',['SetUp',['../class_example_board.html#aa7fd92235585766568aac6aea8042bf8',1,'ExampleBoard::SetUp()'],['../class_example_game.html#a6f98d1dfb488ad94adcdfb07345708b4',1,'ExampleGame::SetUp()'],['../class_example_move.html#a5c98998fd29573c7d0276585196b8ef8',1,'ExampleMove::SetUp()']]]
 ];
