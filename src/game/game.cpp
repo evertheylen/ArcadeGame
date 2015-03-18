@@ -18,8 +18,8 @@
 // copy constructor
 Game::Game(const Game& that):
 	_board(that._board),
-	_movements(that._movements),
-	_players(that._players) {
+	_movements(),
+	_players() {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -27,7 +27,7 @@ Game::Game(const Game& that):
 // copy assignment
 Game& Game::operator=(const Game& that) {
 	_board = that._board;
-	_movements = that._movements;
+	_movements = std::list<Movement>();
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
@@ -125,10 +125,8 @@ Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out
 	
 	} catch (ParseError& e) {
 		out << "Something went wrong while parsing the xml files.\n";
-		// WTF...
 		_initCheck = 0;
 		return;  // caller: check properlyInitialized() !
-		// TODO: exit? throw?
 	}
 }
 
@@ -195,7 +193,6 @@ void Game::parsePlayer(TiXmlElement* elem, std::ostream& out) {
 		_players[name] = player;
 
 		// Put on board
-		// TODO Check consistency of playing board!
 
 		_board(x, y) = player;
 

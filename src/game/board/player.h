@@ -23,7 +23,7 @@ public:
 
 	void set_name(const std::string& name);
 	/**< REQUIRE(properlyInitialized(), "Player wasn't initialized when calling set_name");
-		ENSURE(get_name() == name && name != "", "If you name your player "" you will get in trouble mate");*/
+		ENSURE(get_name() == name, "name wasn't correctly set!");*/
 
 	std::ostream& print(std::ostream& out);
 	/**< REQUIRE(properlyInitialized(), "Player wasn't initialized when calling print");*/

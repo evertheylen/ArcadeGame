@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <VELD>
-    <NAAM>Level 1</NAAM>
-    <LENGTE>10</LENGTE>
-    <BREEDTE>10</BREEDTE>
+    <NAAM>Mario's World</NAAM>
+    <LENGTE>20</LENGTE>
+    <BREEDTE>86</BREEDTE>
     <SPELER x="6" y="7">
-        <NAAM>Munk</NAAM>
+        <NAAM>Mario</NAAM>
     </SPELER>
     <OBSTAKEL beweegbaar="true" x="3" y="3">
         <TYPE>ton</TYPE>

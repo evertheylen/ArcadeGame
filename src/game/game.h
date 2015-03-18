@@ -38,6 +38,7 @@ public:
 
 	void writeMovements(std::ostream& stream);
 	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");*/
+
 	std::list<Movement>& get_movements();
 	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");*/
 

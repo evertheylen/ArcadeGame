@@ -7,7 +7,7 @@
 class Obstacle: public Thing {
 public:
 	Obstacle(unsigned int x, unsigned int y, int weight);
-	/**< REQUIRE(x >= 0 && y >= 0 && weight >= -1, "Incorrect constructor parameters given for obstacle");
+	/**< REQUIRE(x >= 0 && y >= 0, "Incorrect constructor parameters given for obstacle");
 		ENSURE(properlyInitialized(), "constructor must end...");*/
 
 	//! copy constructor

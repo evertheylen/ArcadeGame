@@ -50,7 +50,7 @@ int Thing::get_weight() const {
 void Thing::set_weight(int weight) {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_weight");
 	_weight = weight;
-	ENSURE(get_weight() == weight && weight >= -1, "Incorrect weight specified");
+	ENSURE(get_weight() == weight, "Incorrect weight specified");
 }
 
 unsigned int Thing::get_x() const {

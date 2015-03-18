@@ -27,7 +27,7 @@ public:
 
 	void set_weight(int weight);
 	/**< REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_weight");
-		ENSURE(get_weight() == weight && weight >= -1, "Incorrect weight specified");*/
+		ENSURE(get_weight() == weight, "Incorrect weight specified");*/
 	
 	unsigned int get_x() const;
 	/**< REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_x");

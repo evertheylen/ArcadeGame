@@ -8,17 +8,19 @@
 
 class Board {
 public:
-	Board(unsigned int x = 0, unsigned int y = 0, std::string name = std::string("No name"));
-	/**< REQUIRE(x >= 0 && y >= 0, "incorrect height or width");
+	Board(unsigned int width = 1, unsigned int height = 1, std::string name = std::string("No name"));
+	/**< REQUIRE(width > 0 && height > 0, "incorrect height or width");
 	 	ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	~Board();
 
 	//! copy constructor
+	//! will empty the _data of this
 	Board(const Board& that);
 	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/
 
 	//! copy assignment
+	//! will empty the _data of this
 	Board& operator=(const Board& that);
 	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
 
@@ -32,8 +34,8 @@ public:
 	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_name");*/
 
 	void set_name(std::string& name);
-	/** REQUIRE(properlyInitialized(), "Board wasn't initialized when calling set_name");
-		ENSURE(get_name() == name, "name not set correctly when calling set_name");*/
+	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling set_name");
+		 ENSURE(get_name() == name, "name not set correctly when calling set_name");*/
 
 	unsigned int get_width() const;
 	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling get_width");
@@ -42,7 +44,8 @@ public:
 	// void set_width(unsigned int x);
 
 	Thing*& operator()(unsigned int x, unsigned int y);
-	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");*/
+	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
+	 	 REQUIRE(valid_location(x,y), "Not a valid location given to operator()"); */
 	
 	bool valid_location(int x, int y);
 	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling valid_location");*/

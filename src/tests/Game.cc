@@ -98,15 +98,17 @@ TEST_F(ExampleGame, doAllMoves) {
 	EXPECT_TRUE(game->get_movements().empty());
 }
 
-/*
+
 TEST_F(ExampleGame, CopyConstructor) {
 	Game game2 = *game;
 	ASSERT_TRUE(game2.properlyInitialized());
 }
-*/
 
-/*
+
 TEST_F(ExampleGame, CopyAssignment) {
+	// When assigning by copy, only the width, height and name of the other
+	// Game (or underlying board) are copied. The rest is simply emptied.
+
 	#define Base std::string("tests/filetests_alt/ExampleGame2/")
 
 	TiXmlDocument doc_board, doc_moves;
@@ -128,16 +130,14 @@ TEST_F(ExampleGame, CopyAssignment) {
 	game2.writeMovements(output_file);
 	output_file.close();
 	
-	game2.doAllMoves(null);
-	
 	output_file.open(Base+"HuidigSpeelveld.txt");
 	game2.writeBoard(output_file);
 	output_file.close();
 	
-	// Compare with original ExampleGame, should be false (different game!)
-	EXPECT_FALSE(fileCompare(Base+"HuidigSpeelveld.txt", "tests/filetests_alt/ExampleGame/_HuidigSpeelveld.txt"));
-	EXPECT_FALSE(fileCompare(Base+"ResterendeBewegingen_begin.txt", "tests/filetests_alt/ExampleGame/_ResterendeBeweginen.txt"));
-	
+	// Compare with selfmade files, should be equal.
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+
 	// Now copy
 	game2 = *game;
 	
@@ -146,14 +146,12 @@ TEST_F(ExampleGame, CopyAssignment) {
 	game2.writeMovements(output_file);
 	output_file.close();
 	
-	game2.doAllMoves(null);
-	
 	output_file.open(Base+"HuidigSpeelveld_copied.txt");
 	game2.writeBoard(output_file);
 	output_file.close();
-	
-	// Check again, they should be equal now
-	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld_copied.txt", "tests/filetests_alt/ExampleGame/_HuidigSpeelveld.txt"));
-	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin_copied.txt", "tests/filetests_alt/ExampleGame/_ResterendeBeweginen.txt"));
+
+	// Check again, movements should be empty, and board should be empty too, but have the same dimensions
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin_copied.txt", Base+"_ResterendeBewegingen_begin_copied.txt"));
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld_copied.txt", Base+"_HuidigSpeelveld_copied.txt"));
 }
-*/
+

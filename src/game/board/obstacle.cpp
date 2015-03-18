@@ -4,7 +4,7 @@
 Obstacle::Obstacle(unsigned int x, unsigned int y, int weight):
 	Thing(x,y,weight)
 	{
-	REQUIRE(x >= 0 && y >= 0 && weight >= -1, "Incorrect constructor parameters given for obstacle");
+	REQUIRE(x >= 0 && y >= 0, "Incorrect constructor parameters given for obstacle");
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end...");
 }

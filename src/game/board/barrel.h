@@ -7,7 +7,7 @@ class Barrel: public Obstacle {
 public:
 	Barrel(unsigned int x, unsigned int y);
 	/**< REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of barrel");
-		ENSURE(properlyInitialized(), "constructor must end...");*/
+ 		ENSURE(properlyInitialized(), "constructor must end...");*/
 
 	//! copy constructor
 	Barrel(const Barrel& that);

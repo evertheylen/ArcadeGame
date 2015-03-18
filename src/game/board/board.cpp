@@ -8,7 +8,7 @@ Board::Board(unsigned int width, unsigned int height, std::string name):
 	_width(width), _height(height), _name(name),
 	_data(std::vector<std::vector<Thing*>>(width, std::vector<Thing*>(height, nullptr)))
 	{
-	REQUIRE(width >= 0 && height >= 0, "incorrect height or width");
+	REQUIRE(width > 0 && height > 0, "incorrect height or width");
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end ...");
 }
@@ -34,17 +34,18 @@ Board::Board(const Board& that):
 	_name(that._name),
 	_width(that._width),
 	_height(that._height),
-	_data(that._data.size()) {
+	_data(_width, std::vector<Thing*>(_height, nullptr)) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
+
 
 // copy assignment
 Board& Board::operator=(const Board& that) {
 	_name = that._name;
 	_width = that._width;
 	_height = that._height;
-	_data = that._data;
+	_data = std::vector<std::vector<Thing*>>(_width, std::vector<Thing*>(_height, nullptr));
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
@@ -98,7 +99,7 @@ bool Board::valid_location(int x, int y) {
 }
 
 std::ostream& operator<< (std::ostream &out, Board& board) {
-	REQUIRE(board.properlyInitialized(), "Board wasn't initialized when calling oeprator <<");
+	REQUIRE(board.properlyInitialized(), "Board wasn't initialized when calling operator <<");
 	for (int j=board.get_height()-1; j>=0; --j) {
 		// print row
 		for (int i=0; i<board.get_width(); ++i) {
