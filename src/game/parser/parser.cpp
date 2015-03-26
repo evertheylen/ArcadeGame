@@ -4,19 +4,30 @@
  *  Created on: 26 Mar 2015
  *      Author: stijn & evert
  */
-
-#include "parser.h"
 #include <iostream>
+#include "parser.h"
+
+NullableStream::NullableStream() {
+	_out = nullptr;
+}
+
+void NullableStream::set_out(std::ostream* out) {
+	_out = out;
+}
+
+Parser::Parser() {
+	out.set_out(nullptr);
+}
 
 std::string Parser::readElement(TiXmlElement* elem, const char* tag) {
-	if (elem == nullptr) {
+	if (elem == NULL) {
 		//out << "Error: Error: Tag not defined.";
 		throw(ParseError());
 	}
 	TiXmlElement* e = elem->FirstChildElement(tag);
-	if (elem == nullptr) throw(ParseError());
+	if (elem == NULL) throw(ParseError());
 	TiXmlNode* node = e->FirstChild();
-	if (node == nullptr) throw(ParseError());
+	if (node == NULL) throw(ParseError());
 	TiXmlText* text = node->ToText();
 	return text->Value();
 }
@@ -39,6 +50,8 @@ std::string Parser::readAttribute(TiXmlElement* elem, const char* tag) {
 	return std::string(elem->Attribute(tag));
 }
 
+
+
 bool Parser::reqElement(TiXmlElement* elem, const char* tag) {
 	TiXmlElement* e = elem->FirstChildElement(tag);
 	if (e == nullptr) {
@@ -47,15 +60,13 @@ bool Parser::reqElement(TiXmlElement* elem, const char* tag) {
 	return true;
 }
 
-Parser::Parser(): _out(nullptr) {}
-
-void Parser::print(std::string msg) {
-	if (_out != nullptr) {
-		_out << "Something went wrong while parsing: " << msg << "\n";
+/*void Parser::print(std::string msg) {
+	if (out.get_out() != nullptr) {
+		out << "Something went wrong while parsing: " << msg << "\n";
 	}
 }
 
-void Parser::set_out(std::ostream* out) {
-	_out = out;
-}
+void Parser::set_out(std::ostream* new_out) {
+	out = new_out;
+}*/
 

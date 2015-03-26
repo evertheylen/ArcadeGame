@@ -7,10 +7,15 @@
 
 #include "../../../lib/tinyxml/tinyxml.h"
 #include "../board/player.h"
+#include "../board/board.h"
+#include "parser.h"
+#include "../game.h"
 
 #ifndef _Player_parser
 #define _Player_parser
 
-Player parse_player(TiXmlElement& elem);
-
+class Player_parser: public Parser {
+public:
+	Player parse_player(TiXmlElement& elem, Game::Playermap& _players, Board& _board);
+};
 #endif /* _Player_parser */

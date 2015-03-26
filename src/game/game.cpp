@@ -47,14 +47,7 @@ bool Game::properlyInitialized() const {
 	return _initCheck == this;
 }
 
-/*bool Game::reqElement(TiXmlElement* elem, const char* tag) {
-	TiXmlElement* e = elem->FirstChildElement(tag);
-	if (e == NULL) {
-		return false;
-	}
-	return true;
-}
-
+/*
 void Game::parsePlayer(TiXmlElement* elem, std::ostream& out) {
 	try {
 		TiXmlElement* current_el = elem->FirstChildElement();
@@ -184,37 +177,6 @@ void Game::parseObstacle(TiXmlElement* elem, std::ostream& out) {
 		return;
 	}
 	
-}
-
-std::string Game::readElement(TiXmlElement* elem, const char* tag) {
-	if (elem == NULL) {
-		//out << "Error: Error: Tag not defined.";
-		throw(ParseError());
-	}
-	TiXmlElement* e = elem->FirstChildElement(tag);
-	if (elem == NULL) throw(ParseError());
-	TiXmlNode* node = e->FirstChild();
-	if (node == NULL) throw(ParseError());
-	TiXmlText* text = node->ToText();
-	return text->Value();
-}
-
-std::string Game::readElement(TiXmlElement* elem) {
-	if (elem == NULL) {
-		//out << "Error: Error: Tag not defined.";
-		throw(ParseError());
-	}
-	TiXmlNode* node = elem->FirstChild();
-	if (node == NULL) throw(ParseError());
-	TiXmlText* text = node->ToText();
-	return text->Value();
-}
-
-std::string Game::readAttribute(TiXmlElement* elem, const char* tag) {
-	if (elem == NULL) {
-		throw(ParseError());
-	}
-	return std::string(elem->Attribute(tag));
 }*/
 
 void Game::writeBoard(std::ostream& stream) {

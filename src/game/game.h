@@ -11,12 +11,6 @@
 #ifndef _Game
 #define _Game
 
-class ParseError: std::exception {
-	const char* what()throw() {
-		return "Error while parsing the xml file.";
-	}
-};
-
 class Game {
 public:
 	typedef std::map<std::string, Player*> Playermap;
@@ -63,18 +57,9 @@ private:
 	Playermap _players;
 	Game* _initCheck;
 
-	//std::string readElement(TiXmlElement* elem, const char* tag);
-
-	//std::string readElement(TiXmlElement* elem);
-
-	//std::string readAttribute(TiXmlElement* elem, const char* tag);
-
 	//void parsePlayer(TiXmlElement* elem, std::ostream& out);
 
 	//void parseObstacle(TiXmlElement* elem, std::ostream& out);
-
-	//bool reqElement(TiXmlElement* elem, const char* tag);
-
 
 };
 

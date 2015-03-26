@@ -8,8 +8,9 @@
 #include "board_parser.h"
 #include "../board/board.h"
 #include <iostream>
+#include <string>
 
-Board Board_parser::parse_board(TiXmlElement& board_elem) {
+Board Board_parser::parse_board(TiXmlElement& board_elem, Game::Playermap& _players) {
 	// ---- Board ----
 	TiXmlElement* root = board_elem.FirstChildElement();
 	if (root == NULL) throw(ParseError());
@@ -18,7 +19,7 @@ Board Board_parser::parse_board(TiXmlElement& board_elem) {
 
 	TiXmlElement* current_el = root->FirstChildElement();
 	std::string boardname;
-	//_players = Playermap();
+	_players = Game::Playermap();
 
 	int x, y;
 	try {
@@ -47,7 +48,7 @@ Board Board_parser::parse_board(TiXmlElement& board_elem) {
 			//parseObstacle(current_el, out);
 		} else if (current_el->ValueTStr() != "BREEDTE" && current_el->ValueTStr() != "LENGTE") {
 			std::string s = current_el->Value();
-			print(s + " not defined.");
+			//print(s + " not defined.");
 		}
 		current_el = current_el->NextSiblingElement();
 	}

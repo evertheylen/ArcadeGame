@@ -16,10 +16,17 @@
 
 class NullableStream {
 public:
-	void set_out();
+	NullableStream();
+	void set_out(std::ostream* out);
 
 private:
 	std::ostream* _out;
+};
+
+class ParseError: std::exception {
+	const char* what()throw() {
+		return "Error while parsing the xml file.";
+	}
 };
 
 class Parser {
@@ -40,7 +47,7 @@ protected:
 	std::string readAttribute(TiXmlElement* elem, const char* tag);
 
 	bool reqElement(TiXmlElement* elem, const char* tag);
-}
+};
 
 
 

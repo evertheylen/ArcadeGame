@@ -7,6 +7,7 @@
 
 #include "../../../lib/tinyxml/tinyxml.h"
 #include "../board/board.h"
+#include "../game.h"
 #include "parser.h"
 #include "player_parser.h"
 #include "obstacle_parser.h"
@@ -16,7 +17,7 @@
 
 class Board_parser: public Parser {
 public:
-	Board parse_board(TiXmlElement& board_elem);
+	Board parse_board(TiXmlElement& board_elem, Game::Playermap& _players);
 };
 
 #endif /* _Board_parser */
