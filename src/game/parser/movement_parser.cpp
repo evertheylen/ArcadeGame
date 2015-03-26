@@ -28,7 +28,7 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement& move_elem, Gam
 				if (current_el_2->ValueTStr() != "SPELERNAAM"
 						&& current_el_2->ValueTStr() != "RICHTING") {
 					std::string s = current_el->Value();
-					print(s + " not defined.");
+					//print(s + " not defined.");
 				}
 				current_el_2 = current_el_2->NextSiblingElement();
 			}
@@ -37,13 +37,13 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement& move_elem, Gam
 
 			Direction dir = toDirection(dir_s);
 			if (dir == Direction::no_dir) {
-				print("Invalid direction specified, skipping movement in movement file.");
+				//print("Invalid direction specified, skipping movement in movement file.");
 				current_el = current_el->NextSiblingElement();
 				continue;
 			}
 
 			if (_players.find(player_name) == _players.end()) {
-				print("Invalid player specified, skipping movement in movement file.");
+				//print("Invalid player specified, skipping movement in movement file.");
 				current_el = current_el->NextSiblingElement();
 				continue;
 			}
@@ -51,7 +51,7 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement& move_elem, Gam
 			_movements.push_back(Movement(dir, _players[player_name]));
 		} else {
 			std::string s = current_el->Value();
-			print(s + " not defined.");
+			//print(s + " not defined.");
 		}
 		current_el = current_el->NextSiblingElement();
 	}

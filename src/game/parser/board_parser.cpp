@@ -12,6 +12,10 @@
 
 Board Board_parser::parse_board(TiXmlElement& board_elem, Game::Playermap& _players) {
 	// ---- Board ----
+
+	Player_parser pp;
+	Obstacle_parser op;
+
 	TiXmlElement* root = board_elem.FirstChildElement();
 	if (root == NULL) throw(ParseError());
 	// Warning, for some mysterious reason, root->Value() == "VELD" will always fail, even if it should definitly pass.
@@ -43,7 +47,7 @@ Board Board_parser::parse_board(TiXmlElement& board_elem, Game::Playermap& _play
 			boardname = readElement(current_el);
 			board.set_name(boardname);
 		} else if (current_el->ValueTStr() == "SPELER") {
-			//parsePlayer(current_el, out);
+			pp.parse_player(*current_el, _players, board);
 		} else if (current_el->ValueTStr() == "OBSTAKEL") {
 			//parseObstacle(current_el, out);
 		} else if (current_el->ValueTStr() != "BREEDTE" && current_el->ValueTStr() != "LENGTE") {

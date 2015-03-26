@@ -8,15 +8,13 @@
 
 
 Player Player_parser::parse_player(TiXmlElement& elem, Game::Playermap& _players, Board& _board) {
-	TiXmlElement& root = elem;
-	TiXmlElement* first_child = root.FirstChildElement();
-	TiXmlElement* current_el = first_child->FirstChildElement();
-	/*if (first_child == NULL) {
+	TiXmlElement* current_el = elem.FirstChildElement();
+	/*if (elem == NULL) {
 		out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
 		return;
 	} TODO fix the out operator overloading and the return of no players??*/
 	std::string name;
-	/*if (!reqElement(first_child, "NAAM")) {
+	/*if (!reqElement(elem, "NAAM")) {
 		out << "Error: Player must have a name specified. Skipping.\n";
 		return;
 	} TODO Same here. */
@@ -33,8 +31,8 @@ Player Player_parser::parse_player(TiXmlElement& elem, Game::Playermap& _players
 
 	int x, y;
 	try {
-		x = std::stoi(readAttribute(first_child, "x"));
-		y = std::stoi(readAttribute(first_child, "y"));
+		x = std::stoi(readAttribute(&elem, "x"));
+		y = std::stoi(readAttribute(&elem, "y"));
 	} catch (std::invalid_argument& e) {
 		//out << "Error: Invalid x or y specified for player, skipping.\n";
 		//return;
