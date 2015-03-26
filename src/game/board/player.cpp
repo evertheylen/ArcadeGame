@@ -64,5 +64,5 @@ void Player::set_maximum_weight(int max) {
 
 char Player::to_char() {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling to_char");
-	return '@';
+	return 'Y';
 }

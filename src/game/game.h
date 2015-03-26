@@ -63,17 +63,17 @@ private:
 	Playermap _players;
 	Game* _initCheck;
 
-	std::string readElement(TiXmlElement* elem, const char* tag);
+	//std::string readElement(TiXmlElement* elem, const char* tag);
 
-	std::string readElement(TiXmlElement* elem);
+	//std::string readElement(TiXmlElement* elem);
 
-	std::string readAttribute(TiXmlElement* elem, const char* tag);
+	//std::string readAttribute(TiXmlElement* elem, const char* tag);
 
-	void parsePlayer(TiXmlElement* elem, std::ostream& out);
+	//void parsePlayer(TiXmlElement* elem, std::ostream& out);
 
-	void parseObstacle(TiXmlElement* elem, std::ostream& out);
+	//void parseObstacle(TiXmlElement* elem, std::ostream& out);
 
-	bool reqElement(TiXmlElement* elem, const char* tag);
+	//bool reqElement(TiXmlElement* elem, const char* tag);
 
 
 };

@@ -32,5 +32,5 @@ std::ostream& Wall::print(std::ostream& out){
 
 char Wall::to_char() {
 	REQUIRE(properlyInitialized(), "Wall wasn't initialized when calling print");
-	return 'X';
+	return '#';
 }
