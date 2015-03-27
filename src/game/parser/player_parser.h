@@ -16,6 +16,6 @@
 
 class Player_parser: public Parser {
 public:
-	Player parse_player(TiXmlElement& elem, Game::Playermap& _players, Board& _board);
+	Player parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
 };
 #endif /* _Player_parser */

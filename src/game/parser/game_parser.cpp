@@ -13,13 +13,15 @@
 
 #include <list>
 
-Game Game_parser::parse_game(TiXmlElement& board_elem, TiXmlElement& move_elem) {
-	Game::Playermap _players;
+Game Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream) {
+	Game::Playermap players;
 	Board_parser bp;
-	Board board = bp.parse_board(board_elem, _players);
+	//Board board = bp.parse_board(board_elem, players);
 
 	Movement_parser mp;
-	std::list<Movement> moves = mp.parse_movement(move_elem, _players);
+	//std::list<Movement> moves = mp.parse_movement(move_elem, players);
+
+	Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
 }
 
 

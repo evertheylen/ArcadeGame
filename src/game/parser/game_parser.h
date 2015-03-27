@@ -9,13 +9,14 @@
 #include "../game.h"
 #include "parser.h"
 #include "board_parser.h"
+#include <iostream>
 
 #ifndef _game_parser
 #define _game_parser
 
 class Game_parser: public Parser {
 public:
-	Game parse_game(TiXmlElement& board_elem, TiXmlElement& move_elem);
+	Game parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream);
 };
 
 #endif /* _game_parser */

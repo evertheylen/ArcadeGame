@@ -15,7 +15,7 @@
 
 class Obstacle_parser: public Parser {
 public:
-	Obstacle parse_obstacle(TiXmlElement& elem, Board& _board);
+	Obstacle parse_obstacle(TiXmlElement* elem, Board& _board);
 };
 
 #endif /* _Obstacle_parser */

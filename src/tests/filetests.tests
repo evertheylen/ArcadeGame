@@ -12,7 +12,8 @@ TEST(ArcadeGameTest, BadInit_NonExistingPlayer ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -53,7 +54,8 @@ TEST(ArcadeGameTest, PushBarrelAgainstWall ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -94,7 +96,8 @@ TEST(ArcadeGameTest, PushBarrelOutOfBoard ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -135,7 +138,8 @@ TEST(ArcadeGameTest, WalkAgainstWall ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -176,7 +180,8 @@ TEST(ArcadeGameTest, BadInit_DuplObstacles ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -217,7 +222,8 @@ TEST(ArcadeGameTest, BadInit_DuplPlayers ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -258,7 +264,8 @@ TEST(ArcadeGameTest, PushBarrel ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -299,7 +306,8 @@ TEST(ArcadeGameTest, BadInit_WrongDirection ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -340,7 +348,8 @@ TEST(ArcadeGameTest, HappyDay ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -381,7 +390,8 @@ TEST(ArcadeGameTest, BadInit_BadObstacleSetting ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -422,7 +432,8 @@ TEST(ArcadeGameTest, MultiPlayer ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -463,7 +474,8 @@ TEST(ArcadeGameTest, TooMuchWeight ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -504,7 +516,8 @@ TEST(ArcadeGameTest, BadInit_WrongPlace ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -545,7 +558,8 @@ TEST(ArcadeGameTest, WalkOutOfBoard ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -586,7 +600,8 @@ TEST(ArcadeGameTest, BadInit_DuplBoth ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	
@@ -627,7 +642,8 @@ TEST(ArcadeGameTest, VeryHappyDay ) {
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
 	
-	Game g = Game(doc_board, doc_moves, new_cout);
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	ASSERT_TRUE(g.properlyInitialized());
 	

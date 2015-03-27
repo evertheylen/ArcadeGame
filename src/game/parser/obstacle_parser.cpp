@@ -9,15 +9,15 @@
 #include "../board/barrel.h"
 #include "../board/wall.h"
 
-Obstacle Obstacle_parser::parse_obstacle(TiXmlElement& elem, Board& _board) {
-	TiXmlElement* current_el = elem.FirstChildElement();
+Obstacle Obstacle_parser::parse_obstacle(TiXmlElement* elem, Board& _board) {
+	TiXmlElement* current_el = elem->FirstChildElement();
 	if (&elem == NULL) {
 		//out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
 		//return;
 	}
 
 	std::string type;
-	if (!reqElement(&elem, "TYPE")) {
+	if (!reqElement(elem, "TYPE")) {
 		//out << "Error: Obstacle must have a type specified.\n";
 		//return;
 	}
@@ -53,7 +53,7 @@ Obstacle Obstacle_parser::parse_obstacle(TiXmlElement& elem, Board& _board) {
 
 	Thing* obst;
 	if (type == "ton") {
-		if (readAttribute(&elem, "beweegbaar") != "true") {
+		if (readAttribute(elem, "beweegbaar") != "true") {
 			//out << "Error: Error: A barrel must be declared movable.\n";
 		} else {
 			obst = new Barrel(x, y);
@@ -61,7 +61,7 @@ Obstacle Obstacle_parser::parse_obstacle(TiXmlElement& elem, Board& _board) {
 			_board(x, y) = obst;
 		}
 	} else if (type == "muur") {
-		if (readAttribute(&elem, "beweegbaar") != "false") {
+		if (readAttribute(elem, "beweegbaar") != "false") {
 			//out << "Error: Error: A wall may not be declared movable.\n";
 		} else {
 			obst = new Wall(x, y);

@@ -1,5 +1,6 @@
 
 #include "../game/game.h"
+#include "../game/parser/game_parser.h"
 #include <iostream>
 
 
@@ -20,8 +21,9 @@ TEST(ArcadeGameTest, BadInit_Board) {
 	
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt");
-	
-	Game g = Game(doc_board, doc_moves, new_cout);
+
+	Game_parser gp;
+	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), new_cout);
 	
 	EXPECT_FALSE(g.properlyInitialized());
 	
@@ -50,8 +52,11 @@ protected:
 		bool moves_loaded = doc_moves.LoadFile((Base + "Bewegingen.xml").c_str());
 
 		ASSERT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
-		
-		game = new Game(doc_board, doc_moves, null);
+
+		Game_parser gp;
+		Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
+		//game = new Game(doc_board, doc_moves, null);
+		game = &g;
 		
 		ASSERT_TRUE(game->properlyInitialized());
 	}
@@ -118,7 +123,10 @@ TEST_F(ExampleGame, CopyAssignment) {
 
 	ASSERT_TRUE(board_loaded && moves_loaded) << "Failed to load xml files.";
 	
-	Game game2 = Game(doc_board, doc_moves, null);
+	//Game game2 = Game(doc_board, doc_moves, null);
+
+	Game_parser gp;
+	Game game2 = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), null);
 	
 	ASSERT_TRUE(game2.properlyInitialized());
 	

@@ -10,25 +10,22 @@
 #include <iostream>
 #include <string>
 
-Board Board_parser::parse_board(TiXmlElement& board_elem, Game::Playermap& _players) {
+Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players) {
 	// ---- Board ----
 
 	Player_parser pp;
 	Obstacle_parser op;
 
-	TiXmlElement* root = board_elem.FirstChildElement();
-	if (root == NULL) throw(ParseError());
-	// Warning, for some mysterious reason, root->Value() == "VELD" will always fail, even if it should definitly pass.
-	if(root->ValueTStr() != "VELD") throw(ParseError());
+	if (board_elem == NULL) throw(ParseError());
 
-	TiXmlElement* current_el = root->FirstChildElement();
+	TiXmlElement* current_el = board_elem->FirstChildElement();
 	std::string boardname;
 	_players = Game::Playermap();
 
 	int x, y;
 	try {
-		x = std::stoi(readElement(root, "BREEDTE"));
-		y = std::stoi(readElement(root, "LENGTE"));
+		x = std::stoi(readElement(board_elem, "BREEDTE"));
+		y = std::stoi(readElement(board_elem, "LENGTE"));
 	} catch (std::invalid_argument& e) {
 		throw(ParseError());
 		//REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
@@ -47,7 +44,7 @@ Board Board_parser::parse_board(TiXmlElement& board_elem, Game::Playermap& _play
 			boardname = readElement(current_el);
 			board.set_name(boardname);
 		} else if (current_el->ValueTStr() == "SPELER") {
-			pp.parse_player(*current_el, _players, board);
+			pp.parse_player(current_el, _players, board);
 		} else if (current_el->ValueTStr() == "OBSTAKEL") {
 			//parseObstacle(current_el, out);
 		} else if (current_el->ValueTStr() != "BREEDTE" && current_el->ValueTStr() != "LENGTE") {

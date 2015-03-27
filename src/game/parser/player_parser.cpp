@@ -7,8 +7,8 @@
 #include "player_parser.h"
 
 
-Player Player_parser::parse_player(TiXmlElement& elem, Game::Playermap& _players, Board& _board) {
-	TiXmlElement* current_el = elem.FirstChildElement();
+Player Player_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
+	TiXmlElement* current_el = elem->FirstChildElement();
 	/*if (elem == NULL) {
 		out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
 		return;
@@ -31,8 +31,8 @@ Player Player_parser::parse_player(TiXmlElement& elem, Game::Playermap& _players
 
 	int x, y;
 	try {
-		x = std::stoi(readAttribute(&elem, "x"));
-		y = std::stoi(readAttribute(&elem, "y"));
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
 	} catch (std::invalid_argument& e) {
 		//out << "Error: Invalid x or y specified for player, skipping.\n";
 		//return;

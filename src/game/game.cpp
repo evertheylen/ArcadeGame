@@ -38,7 +38,10 @@ std::list<Movement>& Game::get_movements() {
 	return _movements;
 }
 
-Game::Game(TiXmlDocument& board_doc, TiXmlDocument& moves_doc, std::ostream& out) {
+Game::Game(Board board, std::list<Movement> movements, Playermap& players, std::ostream& out):
+	_board(board),
+	_movements(movements),
+	_players(players){
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Constructor of Game did not end properly.");
 }
