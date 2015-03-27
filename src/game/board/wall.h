@@ -1,9 +1,9 @@
-#include "obstacle.h"
+#include "thing.h"
 
 #ifndef _Wall
 #define _Wall
 
-class Wall: public Obstacle {
+class Wall: public Thing {
 public:
 	//! copy constructor
 	Wall(const Wall& that);

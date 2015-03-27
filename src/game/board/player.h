@@ -1,10 +1,10 @@
-#include "thing.h"
+#include "movable_thing.h"
 #include <string>
 
 #ifndef _Player
 #define _Player
 
-class Player: public Thing {
+class Player: public Movable_thing {
 public:
 	//! copy constructor
 	Player(const Player& that);

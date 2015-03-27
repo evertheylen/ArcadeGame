@@ -1,11 +1,10 @@
 #include "player.h"
-#include "thing.h"
 #include "../../DesignByContract.h"
 #include <iostream>
 
 // copy constructor
 Player::Player(const Player& that):
-	Thing(that),
+	Movable_thing(that),
 	_name(that._name),
 	_maximum_weight(that._maximum_weight) {
 	_initCheck = this;
@@ -23,7 +22,7 @@ Player& Player::operator=(const Player& that) {
 }
 
 Player::Player(std::string name, unsigned int x, unsigned int y):
-	Thing(x,y,0),
+	Movable_thing(x,y,0),
 	_name(name),
 	_maximum_weight(1000)  // 1 ton
 	{

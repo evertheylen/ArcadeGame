@@ -1,9 +1,9 @@
-#include "obstacle.h"
+#include "movable_thing.h"
 
 #ifndef _Barrel
 #define _Barrel
 
-class Barrel: public Obstacle {
+class Barrel: public Movable_thing {
 public:
 	Barrel(unsigned int x, unsigned int y);
 	/**< REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of barrel");
