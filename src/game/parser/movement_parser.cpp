@@ -33,8 +33,8 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement* move_elem, Gam
 			}
 			std::string player_name = readElement(current_el, "SPELERNAAM");
 			std::string dir_s = readElement(current_el, "RICHTING");
-			std::cout << dir_s << std::endl;
-			std::cout << player_name << std::endl;
+			//std::cout << dir_s << std::endl;
+			//std::cout << player_name << std::endl;
 			Direction dir = toDirection(dir_s);
 			if (dir == Direction::no_dir) {
 				//print("Invalid direction specified, skipping movement in movement file.");

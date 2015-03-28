@@ -59,6 +59,7 @@ Player Player_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players
 	// Put on board
 
 	_board(x, y) = player;
+	return *player;
 }
 
 
