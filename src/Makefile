@@ -7,7 +7,7 @@ TLIBS =		-lgtest -lgtest_main
 # include all .o files in lib/tinyxml
 TINYXMLLIBS = 	$(shell find ../lib/tinyxml -name '*.o')
 
-CXXFLAGS =	-g -std=c++11 -Wall -Wextra -fstack-protector-all -I$(INCL) 
+CXXFLAGS =	-g -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all -I$(INCL) 
 
 # All .cpp files not in src itself
 OBJS =		$(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))
@@ -21,13 +21,16 @@ all: $(TARGET)
 
 #--- compiler targets
 ArcadeMain: $(OBJS) ArcadeMain.o
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeMain.o $(TINYXMLLIBS)
+	@echo " --> Compiling $@"
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeMain.o $(TINYXMLLIBS)
 
 ArcadeTests: $(OBJS) ArcadeTests.o
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread
+	@echo " --> Compiling $@"
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread
 
 %.o: %.cpp %.h
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	@echo " --> Compiling $@"
+	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 
 #--- non-file targets

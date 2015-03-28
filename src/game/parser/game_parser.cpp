@@ -22,6 +22,7 @@ Game Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, 
 	//std::list<Movement> moves = mp.parse_movement(move_elem, players);
 
 	Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
+	return g;
 }
 
 
