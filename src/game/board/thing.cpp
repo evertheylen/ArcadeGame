@@ -6,8 +6,8 @@ Thing::Thing() {
 	ENSURE(properlyInitialized(), "constructor must end...");
 }
 
-Thing::Thing(unsigned int x, unsigned int y, int weight):
-	_x(x), _y(y), _weight(weight)
+Thing::Thing(unsigned int x, unsigned int y, int weight, int height, int importance):
+	_x(x), _y(y), _weight(weight), _height(height), _importance(importance)
 	{
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end...");
@@ -17,7 +17,9 @@ Thing::Thing(unsigned int x, unsigned int y, int weight):
 Thing::Thing(const Thing& that):
 	_x(that._x),
 	_y(that._y),
-	_weight(that._weight) {
+	_weight(that._weight),
+	_height(that._height),
+	_importance(that._importance) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -27,6 +29,8 @@ Thing& Thing::operator=(const Thing& that) {
 	_x = that._x;
 	_y = that._y;
 	_weight = that._weight;
+	_height = that._height;
+	_importance = that._importance;
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
@@ -82,6 +86,22 @@ void Thing::set_y(unsigned int y) {
 /*void Thing::print(){
 	std::cout << "Thing" << std::endl;
 }*/
+
+void Thing::onEnter(MovableThing* other) {
+	// do nothing!
+}
+
+void Thing::onLeave(MovableThing* other) {
+	// do nothing!
+}
+
+void Thing::kill() {
+	// do nothing!
+}
+
+bool Thing::is_alive() {
+	return true;
+}
 
 std::ostream& Thing::print(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling print");

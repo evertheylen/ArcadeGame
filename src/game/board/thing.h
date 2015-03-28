@@ -2,13 +2,15 @@
 #define _Thing
 
 #include <iostream>
+//#include "movable_thing.h"
+class MovableThing;
 
 class Thing {
 public:
 	Thing();
 	/**< ENSURE(properlyInitialized(), "constructor must end...");*/
 
-	Thing(unsigned int x, unsigned int y, int weight);
+	Thing(unsigned int x, unsigned int y, int weight, int height, int importance);
 	/**< ENSURE(properlyInitialized(), "constructor must end...");*/
 
 	//! copy constructor
@@ -47,7 +49,15 @@ public:
 
 	/* void move(unsigned int x, unsigned int y);
 		REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_x");*/
-
+	
+	virtual void onEnter(MovableThing* other);
+	
+	virtual void onLeave(MovableThing* other);
+	
+	virtual void kill();
+	
+	virtual bool is_alive();
+	
 	friend std::ostream& operator<< (std::ostream &out, Thing &thing);
 	/**< REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling operator <<");*/
 
@@ -64,8 +74,9 @@ public:
 protected:
 	unsigned int _x, _y;
 	int _weight;
+	int _height;
+	int _importance;  // while printing
 	Thing* _initCheck;
-
 };
 
 #endif // _Thing

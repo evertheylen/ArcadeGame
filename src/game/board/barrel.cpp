@@ -2,7 +2,7 @@
 #include "../../DesignByContract.h"
 
 Barrel::Barrel(unsigned int x, unsigned int y):
-	Movable_thing(x,y,1000)
+	MovableThing(x, y, BARREL_WEIGHT, BARREL_HEIGHT, BARREL_SOLIDNESS, BARREL_IMPORTANCE)
 	{
 	REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of barrel");
 	_initCheck = this;
@@ -11,14 +11,14 @@ Barrel::Barrel(unsigned int x, unsigned int y):
 
 // copy constructor
 Barrel::Barrel(const Barrel& that):
-	Movable_thing(that) {
+	MovableThing(that) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
 
 // copy assignment
 Barrel& Barrel::operator=(const Barrel& that) {
-	Thing::operator=(that);
+	MovableThing::operator=(that);
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;

@@ -1,5 +1,4 @@
 
-#include "../game/board/obstacle.h"
 #include <sstream>
 
 TEST(Obstacle, NotProperlyInitialized) {

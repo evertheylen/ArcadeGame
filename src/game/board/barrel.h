@@ -3,8 +3,15 @@
 #ifndef _Barrel
 #define _Barrel
 
-class Barrel: public Movable_thing {
+class Barrel: public MovableThing {
 public:
+	// Constants
+	static const int  BARREL_WEIGHT = 1000;
+	static const int  BARREL_HEIGHT = 100;  // also see WATER_HEIGHT
+	static const bool BARREL_SOLIDNESS = true;
+	static const int  BARREL_IMPORTANCE = 700;
+	
+	
 	Barrel(unsigned int x, unsigned int y);
 	/**< REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of barrel");
  		ENSURE(properlyInitialized(), "constructor must end...");*/

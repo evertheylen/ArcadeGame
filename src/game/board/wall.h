@@ -5,6 +5,11 @@
 
 class Wall: public Thing {
 public:
+	static const int WALL_WEIGHT = 10000;
+	static const int WALL_HEIGHT = 200;
+	static const int WALL_IMPORTANCE = 1500;
+	
+	
 	//! copy constructor
 	Wall(const Wall& that);
 	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/

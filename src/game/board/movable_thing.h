@@ -5,16 +5,25 @@
  *      Author: stijn & evert
  */
 
+#ifndef _MovableThing
+#define _MovableThing
+
 #include "thing.h"
 
-#ifndef _Movable_thing
-#define _Movable_thing
-
-class Movable_thing: public Thing {
+class MovableThing: public Thing {
 public:
-	Movable_thing(unsigned int x, unsigned int y, int weight);
+	MovableThing(unsigned int x, unsigned int y, int weight, int height, int importance, bool solid);
+	
+	// TODO copy ctor, copy assign
+	
+	virtual char to_char();
+	
+	bool is_solid();
+	
+private:
+	bool _solid;
 };
 
 
 
-#endif /* _Movable_thing */
+#endif /* _MovableThing */

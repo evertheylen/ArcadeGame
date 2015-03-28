@@ -14,7 +14,6 @@ Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _play
 	// ---- Board ----
 
 	Player_parser pp;
-	Obstacle_parser op;
 
 	if (board_elem == NULL) throw(ParseError());
 

@@ -10,7 +10,6 @@
 #include "../game.h"
 #include "parser.h"
 #include "player_parser.h"
-#include "obstacle_parser.h"
 
 #ifndef _Board_parser
 #define _Board_parser

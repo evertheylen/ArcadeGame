@@ -2,29 +2,28 @@
 #include "../../DesignByContract.h"
 #include <iostream>
 
+//TODO finish copy ctor, assign
+
 // copy constructor
 Player::Player(const Player& that):
-	Movable_thing(that),
-	_name(that._name),
-	_maximum_weight(that._maximum_weight) {
+	LivingThing(that),
+	_name(that._name) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
 
 // copy assignment
 Player& Player::operator=(const Player& that) {
-	Thing::operator=(that);
+	LivingThing::operator=(that);
 	_name = that._name;
-	_maximum_weight = that._maximum_weight;
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
 }
 
 Player::Player(std::string name, unsigned int x, unsigned int y):
-	Movable_thing(x,y,0),
-	_name(name),
-	_maximum_weight(1000)  // 1 ton
+	LivingThing(x, y, PLAYER_WEIGHT, PLAYER_HEIGHT, PLAYER_IMPORTANCE, PLAYER_MAXIMUM_WEIGHT),
+	_name(name)
 	{
 	REQUIRE(x >= 0 && y >= 0, "Incorrect arguments for constructor of player.");
 	_initCheck = this;
@@ -43,25 +42,23 @@ void Player::set_name(const std::string& name) {
 	ENSURE(get_name() == name, "name wasn't correctly set!");
 }
 
-std::ostream& Player::print(std::ostream& out){
+std::ostream& Player::print(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling print");
 	out << "Speler " << get_name() << " bevindt zich in dit speelveld op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 
-int Player::get_maximum_weight() {
-	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling get_maximum_weight");
-	int result = _maximum_weight;
-	return result;
-}
-
-void Player::set_maximum_weight(int max) {
-	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling set_maximum_weight");
-	_maximum_weight = max;
-	ENSURE(get_maximum_weight() == max, "Maximum_weight wasn't correctly set!");
-}
 
 char Player::to_char() {
 	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling to_char");
 	return 'Y';
 }
+
+void Player::onEnter(MovableThing* other) {
+	std::cout << "player entered by " << other->to_char() << "\n";
+}
+
+void Player::onLeave(MovableThing* other) {
+	std::cout << "player left by " << other->to_char() << "\n";
+}
+

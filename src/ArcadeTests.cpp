@@ -3,6 +3,8 @@
 
 #include "game/game.h"
 
+#include "game/parser/game_parser.h"
+
 #include <iostream>
 #include <fstream>
 #include <sys/stat.h>
