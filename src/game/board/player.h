@@ -44,11 +44,13 @@ public:
 	
 	void onLeave(MovableThing* other);
 	
+	void end_game();
+	
 	~Player() {}
 
 private:
 	std::string _name;
-
+	
 };
 
 #endif // _Player

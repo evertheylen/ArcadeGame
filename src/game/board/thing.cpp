@@ -1,3 +1,4 @@
+#include "movable_thing.h"
 #include "thing.h"
 #include "../../DesignByContract.h"
 
@@ -81,6 +82,12 @@ void Thing::set_y(unsigned int y) {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_y");
 	_y = y;
 	ENSURE(get_y() == y && y >= 0, "Incorrect y specified");
+}
+
+int Thing::get_height() const {
+	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling get_weight");
+	int result = _height;
+	return result;
 }
 
 /*void Thing::print(){

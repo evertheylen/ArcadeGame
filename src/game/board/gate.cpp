@@ -9,7 +9,7 @@
 #include "../../DesignByContract.h"
 
 Gate::Gate(unsigned int x, unsigned int y):
-	Thing(x,y,GATE_WEIGHT, GATE_HEIGHT,GATE_IMPORTANCE)  // inf weight
+	Thing(x,y,GATE_WEIGHT, GATE_HEIGHT,GATE_IMPORTANCE)
 	{
 	REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of wall");
 	_initCheck = this;

@@ -10,7 +10,7 @@
 #include "../../DesignByContract.h"
 
 Button::Button(unsigned int x, unsigned int y, Gate* gate):
-	Thing(x,y,BUTTON_WEIGHT,BUTTON_HEIGHT,BUTTON_IMPORTANCE),  // inf weight
+	Thing(x,y,BUTTON_WEIGHT,BUTTON_HEIGHT,BUTTON_IMPORTANCE),
 	_gate(gate)
 	{
 	REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of wall");

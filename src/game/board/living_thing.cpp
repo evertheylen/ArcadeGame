@@ -3,8 +3,7 @@
 
 
 LivingThing::LivingThing(unsigned int x, unsigned int y, int weight, int height, int importance, int maximum_weight):
-	MovableThing(x, y, weight, height, importance, LIVINGTHING_SOLIDNESS), _maximum_weight(maximum_weight),
-	_alive(true)
+	MovableThing(x, y, weight, height, importance, LIVINGTHING_SOLIDNESS), _maximum_weight(maximum_weight)
 	{
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end...");
@@ -14,14 +13,13 @@ LivingThing::LivingThing(unsigned int x, unsigned int y, int weight, int height,
 
 
 void LivingThing::kill() {
-	_alive = false;
+	Life::kill();
 	_importance = -1;
 }
 
 char LivingThing::to_char() {
 	return 'L';
 }
-
 
 int LivingThing::get_maximum_weight() {
 	REQUIRE(properlyInitialized(), "LivingThing wasn't initialized when calling get_maximum_weight");
@@ -33,8 +31,4 @@ void LivingThing::set_maximum_weight(int max) {
 	REQUIRE(properlyInitialized(), "LivingThing wasn't initialized when calling set_maximum_weight");
 	_maximum_weight = max;
 	ENSURE(get_maximum_weight() == max, "Maximum_weight wasn't correctly set!");
-}
-
-bool LivingThing::is_alive() {
-	return _alive;
 }

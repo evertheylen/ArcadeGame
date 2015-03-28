@@ -2,7 +2,8 @@
 #define _Thing
 
 #include <iostream>
-//#include "movable_thing.h"
+
+
 class MovableThing;
 
 class Thing {
@@ -49,6 +50,8 @@ public:
 
 	/* void move(unsigned int x, unsigned int y);
 		REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling set_x");*/
+	
+	int get_height() const;
 	
 	virtual void onEnter(MovableThing* other);
 	

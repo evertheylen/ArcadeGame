@@ -26,3 +26,7 @@ bool MovableThing::is_solid() {
 	// TODO contract zever
 	return _solid;
 }
+
+void MovableThing::end_game() {
+	// do nothing
+}

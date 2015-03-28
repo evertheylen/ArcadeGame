@@ -62,3 +62,7 @@ void Player::onLeave(MovableThing* other) {
 	std::cout << "player left by " << other->to_char() << "\n";
 }
 
+void Player::end_game() {
+	std::cout << "Game should end!\n"; // TODO end the game
+}
+

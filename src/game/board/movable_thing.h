@@ -20,6 +20,8 @@ public:
 	
 	bool is_solid();
 	
+	virtual void end_game(); // may end the game (only player)
+	
 private:
 	bool _solid;
 };

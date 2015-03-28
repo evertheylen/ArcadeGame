@@ -40,12 +40,55 @@ unsigned int Spot::get_y() {
 	return result;
 }
 
-void Spot::add_stuff(Thing* thing) {
-	_stuff.push_back(thing);
-}
-
 bool Spot::properlyInitialized() {
 	return _initCheck == this;
 }
 
+int Spot::get_height() {
+	int total = 0;
+	for (auto t: _stuff) {
+		total += t->get_height();
+	}
+	return total;
+}
+
+MovableThing* Spot::get_upper() {
+	return _upper;
+}
+
+void Spot::add_stuff(Thing* thing) {
+	_stuff.push_back(thing);
+}
+
+bool Spot::add_upper(MovableThing* thing) {
+	REQUIRE(_upper == nullptr, "_upper is occupied");
+	
+	for (auto t: _stuff) {
+		t->onEnter(thing);
+		if (! thing->is_alive()) {
+			// TODO delete?
+			break;
+		}
+	}
+	
+	if (get_height() < 0) {
+		// fallthrough
+		add_stuff(thing);
+		return true;
+	} else {
+		_upper = thing;
+		return false;
+	}
+	return false;
+}
+
+void Spot::del_upper() {
+	if (_upper != nullptr) {
+		for (auto t: _stuff) {
+			t->onLeave(_upper);
+		}
+		
+		_upper = nullptr;
+	}
+}
 

@@ -1,9 +1,10 @@
 #include "movable_thing.h"
+#include "life.h"
 
 #ifndef _LivingThing
 #define _LivingThing
 
-class LivingThing: public MovableThing {
+class LivingThing: public MovableThing, public Life {  // Multiple inheritance FTW
 public:
 	static const bool LIVINGTHING_SOLIDNESS = true;
 
@@ -15,13 +16,10 @@ public:
 	
 	virtual char to_char();
 	
-	bool is_alive();
-	
 	int get_maximum_weight();
 	void set_maximum_weight(int max);
 	
 protected:
-	bool _alive;
 	int _maximum_weight;
 };
 

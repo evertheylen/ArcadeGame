@@ -2,7 +2,7 @@
 #include "../../DesignByContract.h"
 
 Wall::Wall(unsigned int x, unsigned int y):
-	Thing(x,y,WALL_WEIGHT,WALL_HEIGHT,WALL_IMPORTANCE)  // inf weight
+	Thing(x,y,WALL_WEIGHT,WALL_HEIGHT,WALL_IMPORTANCE)
 	{
 	REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of wall");
 	_initCheck = this;
