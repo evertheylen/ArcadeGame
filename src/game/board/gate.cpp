@@ -39,7 +39,8 @@ std::ostream& Gate::print(std::ostream& out){
 
 char Gate::to_char() {
 	REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling print");
-	return '.';
+	if (_height != 0) return '.';
+	else return ' ';
 }
 
 void Gate::set_height(int height) {
