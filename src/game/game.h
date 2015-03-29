@@ -24,7 +24,7 @@ public:
 	Game& operator=(const Game& that);
 	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
 
-	Game(Board board, std::list<Movement> movements, Playermap& players, std::ostream& out);
+	Game(Board& board, std::list<Movement>& movements, Playermap& players, std::ostream& out);
 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	void writeBoard(std::ostream& stream);

@@ -107,6 +107,7 @@ std::string Movement::get_dir_name() const {
 		case right:
 			return "RECHTS";
 	}
+	return "error";
 }
 
 void Movement::set_dir(Direction dir) {

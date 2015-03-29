@@ -14,24 +14,24 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement* move_elem, Gam
 	// ---- Movements ----
 	std::list<Movement> _movements;
 	REQUIRE(move_elem != NULL, "Failed to load movements file: No root element.");
-	REQUIRE(move_elem->ValueTStr() == "BEWEGINGEN", "Failed to load movements file: Wrong root element tag.");
+	REQUIRE(move_elem->ValueTStr() == "BEWEGINGEN" || move_elem->ValueTStr() == "ACTIES", "Failed to load movements file: Wrong root element tag.");
 
 	TiXmlElement* current_el = move_elem->FirstChildElement();
 
 	current_el = move_elem->FirstChildElement();
 	TiXmlElement* current_el_2;
 	while (current_el != NULL) {
-		if (current_el->ValueTStr() == "BEWEGING") {
+		if (current_el->ValueTStr() == "BEWEGING" || current_el->ValueTStr() == "AANVAL") {
 			current_el_2 = current_el->FirstChildElement();
 			while (current_el_2 != NULL) {
-				if (current_el_2->ValueTStr() != "SPELERNAAM"
+				if (current_el_2->ValueTStr() != "ID"
 						&& current_el_2->ValueTStr() != "RICHTING") {
 					std::string s = current_el->Value();
 					//print(s + " not defined.");
 				}
 				current_el_2 = current_el_2->NextSiblingElement();
 			}
-			std::string player_name = readElement(current_el, "SPELERNAAM");
+			std::string player_name = readElement(current_el, "ID");
 			std::string dir_s = readElement(current_el, "RICHTING");
 			//std::cout << dir_s << std::endl;
 			//std::cout << player_name << std::endl;

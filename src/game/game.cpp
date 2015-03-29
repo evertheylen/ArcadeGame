@@ -38,7 +38,7 @@ std::list<Movement>& Game::get_movements() {
 	return _movements;
 }
 
-Game::Game(Board board, std::list<Movement> movements, Playermap& players, std::ostream& out):
+Game::Game(Board& board, std::list<Movement>& movements, Playermap& players, std::ostream& out):
 	_board(board),
 	_movements(movements),
 	_players(players){
