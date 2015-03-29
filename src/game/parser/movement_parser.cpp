@@ -47,8 +47,11 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement* move_elem, Gam
 				current_el = current_el->NextSiblingElement();
 				continue;
 			}
-
-			_movements.push_back(Movement(dir, _players[player_name]));
+			if (current_el->ValueTStr() == "BEWEGING") {
+				_movements.push_back(Movement(dir, _players[player_name]));
+			} else {
+				// TODO Push on attack, TODO Make attack class;
+			}
 		} else {
 			std::string s = current_el->Value();
 			//print(s + " not defined.");

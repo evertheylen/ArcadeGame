@@ -13,7 +13,8 @@
 Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players) {
 	// ---- Board ----
 
-	Player_parser pp;
+	Living_thing_parser lp;
+	Thing_parser tp;
 
 	if (board_elem == NULL) throw(ParseError());
 
@@ -43,9 +44,16 @@ Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _play
 			boardname = readElement(current_el);
 			board.set_name(boardname);
 		} else if (current_el->ValueTStr() == "SPELER") {
-			pp.parse_player(current_el, _players, board);
-		} else if (current_el->ValueTStr() == "OBSTAKEL") {
-			//parseObstacle(current_el, out);
+			lp.parse_player(current_el, _players, board);
+		} else if (current_el->ValueTStr() == "MONSTER") {
+			lp.parse_monster(current_el, _players, board);
+		} else if (current_el->ValueTStr() == "MUUR" || current_el->ValueTStr() == "TON" || current_el->ValueTStr() == "WATER") {
+			tp.parse_thing(current_el, board);
+			// THESE OBJECTS ALL HAVE THE SAME REQS: x, y, and movable.
+		} else if (current_el->ValueTStr() == "KNOP" || current_el->ValueTStr() == "POORT") {
+
+		} else if (current_el->ValueTStr() == "DOEL" || current_el->ValueTStr() == "VALSTRIK") {
+
 		} else if (current_el->ValueTStr() != "BREEDTE" && current_el->ValueTStr() != "LENGTE") {
 			std::string s = current_el->Value();
 			//print(s + " not defined.");

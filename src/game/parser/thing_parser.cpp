@@ -15,16 +15,17 @@
 #include "thing_parser.h"
 #include "../board/barrel.h"
 #include "../board/wall.h"
+#include "../board/water.h"
 
-Thing Thing_parser::parse_thing(TiXmlElement& elem, Board& _board) {
-	TiXmlElement* current_el = elem.FirstChildElement();
+Thing Thing_parser::parse_thing(TiXmlElement* elem, Board& _board) {
+	TiXmlElement* current_el = elem->FirstChildElement();
 	if (&elem == NULL) {
 		//out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
 		//return;
 	}
 
 	std::string type;
-	if (!reqElement(&elem, "TYPE")) {
+	if (!reqElement(elem, "TYPE")) {
 		//out << "Error: Obstacle must have a type specified.\n";
 		//return;
 	}
@@ -40,13 +41,13 @@ Thing Thing_parser::parse_thing(TiXmlElement& elem, Board& _board) {
 	}
 
 	int x,y;
-	/*try {
-		x = std::stoi(readAttribute(&elem, "x"));
-		y = std::stoi(readAttribute(&elem, "y"));
-	} catch (std::invalid_argument& e) {
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
 		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
 		//return;
-	}*/
+	}*/ // TODO FIX THE ERRORS PLS
 
 	if (! _board.valid_location(x,y)) {
 		//out << "Error: Invalid location given. Skipping obstacle.\n";
@@ -60,7 +61,7 @@ Thing Thing_parser::parse_thing(TiXmlElement& elem, Board& _board) {
 
 	Thing* obst;
 	if (type == "ton") {
-		if (readAttribute(&elem, "beweegbaar") != "true") {
+		if (readAttribute(elem, "beweegbaar") != "true") {
 			//out << "Error: Error: A barrel must be declared movable.\n";
 		} else {
 			obst = new Barrel(x, y);
@@ -68,10 +69,19 @@ Thing Thing_parser::parse_thing(TiXmlElement& elem, Board& _board) {
 			_board(x, y) = obst;
 		}
 	} else if (type == "muur") {
-		if (readAttribute(&elem, "beweegbaar") != "false") {
+		if (readAttribute(elem, "beweegbaar") != "false") {
 			//out << "Error: Error: A wall may not be declared movable.\n";
 		} else {
 			obst = new Wall(x, y);
+			// Put on board
+			_board(x, y) = obst;
+		}
+	}
+	else if (type == "water") {
+		if (readAttribute(elem, "beweegbaar") != "false") {
+			//out << "Error: Error: A wall may not be declared movable.\n";
+		} else {
+			obst = new Water(x, y);
 			// Put on board
 			_board(x, y) = obst;
 		}

@@ -15,7 +15,7 @@
 
 class Thing_parser: public Parser {
 public:
-	Thing parse_thing(TiXmlElement& elem, Board& _board);
+	Thing parse_thing(TiXmlElement* elem, Board& _board);
 };
 
 #endif /* _Thing_parser */

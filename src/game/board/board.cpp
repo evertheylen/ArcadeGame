@@ -35,11 +35,6 @@ Board::Board(const Board& that):
 	_width(that._width),
 	_height(that._height),
 	_data(_width, std::vector<Thing*>(_height, nullptr)) {
-	for (int i = 0; i != that._data.size(); i++) {
-		for (int j = 0; j !=  that._data.at(i).size(); j++) {
-			_data.at(i).at(j) = that._data.at(i).at(j);
-		}
-	}
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -51,11 +46,6 @@ Board& Board::operator=(const Board& that) {
 	_width = that._width;
 	_height = that._height;
 	_data = std::vector<std::vector<Thing*>>(_width, std::vector<Thing*>(_height, nullptr));
-	for (int i = 0; i != that._data.size(); i++) {
-		for (int j = 0; j !=  that._data.at(i).size(); j++) {
-			_data.at(i).at(j) = that._data.at(i).at(j);
-		}
-	}
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;

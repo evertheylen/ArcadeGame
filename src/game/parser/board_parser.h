@@ -9,7 +9,8 @@
 #include "../board/board.h"
 #include "../game.h"
 #include "parser.h"
-#include "player_parser.h"
+#include "living_thing_parser.h"
+#include "thing_parser.h"
 
 #ifndef _Board_parser
 #define _Board_parser
