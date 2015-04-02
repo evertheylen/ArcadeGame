@@ -25,13 +25,13 @@
 
 class Thing_parser: public Parser {
 public:
-	Wall parse_wall(TiXmlElement* elem, Board& _board);
-	Barrel parse_barrel(TiXmlElement* elem, Board& _board);
-	Water parse_water(TiXmlElement* elem, Board& _board);
-	Button parse_button(TiXmlElement* elem, Board& _board);
-	Goal parse_goal(TiXmlElement* elem, Board& _board);
-	Boobytrap parse_boobytrap(TiXmlElement* elem, Board& _board);
-	Gate parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates);
+	Thing* parse_wall(TiXmlElement* elem, Board& _board);
+	MovableThing* parse_barrel(TiXmlElement* elem, Board& _board);
+	Thing* parse_water(TiXmlElement* elem, Board& _board);
+	Thing* parse_button(TiXmlElement* elem, Board& _board, Game::Gatemap _gates);
+	Thing* parse_goal(TiXmlElement* elem, Board& _board);
+	Thing* parse_boobytrap(TiXmlElement* elem, Board& _board);
+	Thing* parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates);
 };
 
 #endif /* _Thing_parser */

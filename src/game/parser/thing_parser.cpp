@@ -27,7 +27,7 @@
 #include <string>
 
 
-Wall Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
+Thing* Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -60,10 +60,10 @@ Wall Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	} else {
 			//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *wall;
+	return wall;
 }
 
-Barrel Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
+MovableThing* Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -95,10 +95,10 @@ Barrel Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *barrel;
+	return barrel;
 }
 
-Water Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
+Thing* Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -130,10 +130,10 @@ Water Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *water;
+	return water;
 }
 
-Button Thing_parser::parse_button(TiXmlElement* elem, Board& _board) {
+Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatemap _gates) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -156,14 +156,18 @@ Button Thing_parser::parse_button(TiXmlElement* elem, Board& _board) {
 	Button* button;
 	if (elem->ValueTStr() == "KNOP") {
 		std::string id = readAttribute(elem, "id");
+		if (_gates.find(id) == _gates.end()) {
+			//TODO ERRRRREUR
+		}
+		button = new Button(x, y , _gates[id]);
 		//button = new Button()
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *button;
+	return button;
 }
 
-Goal Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
+Thing* Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -189,10 +193,10 @@ Goal Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *goal;
+	return goal;
 }
 
-Boobytrap Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
+Thing* Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -218,10 +222,10 @@ Boobytrap Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *boobytrap;
+	return boobytrap;
 }
 
-Gate Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
+Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -258,6 +262,6 @@ Gate Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& 
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-	return *gate;
+	return gate;
 }
 

@@ -17,7 +17,7 @@
 
 class Living_thing_parser: public Parser {
 public:
-	Player parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
-	Monster parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
+	LivingThing* parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
+	LivingThing* parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
 };
 #endif /* _Player_parser */

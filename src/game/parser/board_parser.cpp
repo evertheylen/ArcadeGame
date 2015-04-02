@@ -52,26 +52,26 @@ Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _play
 	while (current_el != NULL) {
 		// TODO alles pointers, zie ook zever met gates enzo
 		//      LivingThing parser
-		std::string tagname = current_el->ValueTStr();
+		std::string tagname = current_el->Value();
 		if (tagname == "NAAM") {
 			boardname = readElement(current_el);
 			board.set_name(boardname);
 		} else if (tagname == "SPELER") {
-			Player player = lp.parse_player(current_el, _players, board);
+			LivingThing* player = lp.parse_player(current_el, _players, board);
 		} else if (tagname == "MONSTER") {
-			Monster monster = lp.parse_monster(current_el, _players, board);
+			LivingThing* monster = lp.parse_monster(current_el, _players, board);
 		} else if (tagname == "MUUR") {
-			Wall wall = tp.parse_wall(current_el, board);
+			Thing* wall = tp.parse_wall(current_el, board);
 		} else if (tagname == "TON") {
-			Barrel barrel = tp.parse_barrel(current_el, board);
+			MovableThing* barrel = tp.parse_barrel(current_el, board);
 		} else if (tagname == "WATER") {
-			Water water = tp.parse_water(current_el, board);
+			Thing* water = tp.parse_water(current_el, board);
 		} else if (tagname == "POORT") {
-			Gate gate = tp.parse_gate(current_el, board, _gates);
+			Thing* gate = tp.parse_gate(current_el, board, _gates);
 		} else if (tagname == "DOEL") {
-			Goal goal = tp.parse_goal(current_el, board);
+			Thing* goal = tp.parse_goal(current_el, board);
 		} else if (tagname == "VALSTRIK") {
-			Boobytrap boobytrap = tp.parse_boobytrap(current_el, board);
+			Thing* boobytrap = tp.parse_boobytrap(current_el, board);
 		} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 			std::string s = current_el->Value();
 			//print(s + " not defined.");
@@ -83,7 +83,7 @@ Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _play
 
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "KNOP") {
-			Button button = tp.parse_button(current_el, board);
+			Thing* button = tp.parse_button(current_el, board, _gates);
 		}
 		current_el = current_el->NextSiblingElement();
 	}

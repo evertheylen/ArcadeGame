@@ -7,7 +7,7 @@
 #include "living_thing_parser.h"
 
 
-Player Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
+LivingThing* Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	/*if (elem == NULL) {
 		out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
@@ -59,10 +59,10 @@ Player Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playermap& _p
 	// Put on board
 
 	//_board(x, y) = player;
-	return *player;
+	return player;
 }
 
-Monster Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
+LivingThing* Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	/*if (elem == NULL) {
 		out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
@@ -114,7 +114,7 @@ Monster Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Playermap& 
 	// Put on board
 
 	//_board(x, y) = monster;
-	return *monster;
+	return monster;
 }
 
 
