@@ -1,6 +1,8 @@
 #include "../../lib/tinyxml/tinyxml.h"
 #include "movement/movement.h"
 #include "board/board.h"
+#include "board/living_thing.h"
+#include "board/gate.h"
 
 #include <iostream>
 #include <vector>
@@ -13,8 +15,9 @@
 
 class Game {
 public:
-	typedef std::map<std::string, Player*> Playermap;
-	typedef std::pair<std::string, Player*> Playerpair;
+	typedef std::map<std::string, LivingThing*> Playermap;
+	typedef std::pair<std::string, LivingThing*> Playerpair;
+	typedef std::map<std::string, Gate*> Gatemap;
 
 	//! copy constructor
 	Game(const Game& that);

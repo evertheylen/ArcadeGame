@@ -7,10 +7,20 @@
 
 #include "board_parser.h"
 #include "../board/board.h"
+#include "../board/barrel.h"
+#include "../board/wall.h"
+#include "../board/water.h"
+#include "../board/button.h"
+#include "../board/gate.h"
+#include "../board/goal.h"
+#include "../board/thing.h"
+#include "../board/movable_thing.h"
+#include "../board/living_thing.h"
+#include "../board/boobytrap.h"
 #include <iostream>
 #include <string>
 
-Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players) {
+Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates) {
 	// ---- Board ----
 
 	Living_thing_parser lp;
@@ -40,25 +50,43 @@ Board Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _play
 	Board board(x, y);
 
 	while (current_el != NULL) {
-		if (current_el->ValueTStr() == "NAAM") {
+		// TODO alles pointers, zie ook zever met gates enzo
+		//      LivingThing parser
+		std::string tagname = current_el->ValueTStr();
+		if (tagname == "NAAM") {
 			boardname = readElement(current_el);
 			board.set_name(boardname);
-		} else if (current_el->ValueTStr() == "SPELER") {
-			lp.parse_player(current_el, _players, board);
-		} else if (current_el->ValueTStr() == "MONSTER") {
-			lp.parse_monster(current_el, _players, board);
-		} else if (current_el->ValueTStr() == "MUUR" || current_el->ValueTStr() == "TON" || current_el->ValueTStr() == "WATER") {
-			tp.parse_thing(current_el, board);
-			// THESE OBJECTS ALL HAVE THE SAME REQS: x, y, and movable.
-		} else if (current_el->ValueTStr() == "KNOP" || current_el->ValueTStr() == "POORT") {
-
-		} else if (current_el->ValueTStr() == "DOEL" || current_el->ValueTStr() == "VALSTRIK") {
-
-		} else if (current_el->ValueTStr() != "BREEDTE" && current_el->ValueTStr() != "LENGTE") {
+		} else if (tagname == "SPELER") {
+			Player player = lp.parse_player(current_el, _players, board);
+		} else if (tagname == "MONSTER") {
+			Monster monster = lp.parse_monster(current_el, _players, board);
+		} else if (tagname == "MUUR") {
+			Wall wall = tp.parse_wall(current_el, board);
+		} else if (tagname == "TON") {
+			Barrel barrel = tp.parse_barrel(current_el, board);
+		} else if (tagname == "WATER") {
+			Water water = tp.parse_water(current_el, board);
+		} else if (tagname == "POORT") {
+			Gate gate = tp.parse_gate(current_el, board, _gates);
+		} else if (tagname == "DOEL") {
+			Goal goal = tp.parse_goal(current_el, board);
+		} else if (tagname == "VALSTRIK") {
+			Boobytrap boobytrap = tp.parse_boobytrap(current_el, board);
+		} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 			std::string s = current_el->Value();
 			//print(s + " not defined.");
 		}
 		current_el = current_el->NextSiblingElement();
 	}
+
+	current_el = board_elem->FirstChildElement();
+
+	while (current_el != NULL) {
+		if (current_el->ValueTStr() == "KNOP") {
+			Button button = tp.parse_button(current_el, board);
+		}
+		current_el = current_el->NextSiblingElement();
+	}
+
 	return board;
 }

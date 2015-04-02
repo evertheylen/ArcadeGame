@@ -1,5 +1,5 @@
 #include <string>
-#include "../board/player.h"
+#include "../board/living_thing.h"
 
 #ifndef _Movement
 #define _Movement
@@ -22,10 +22,10 @@ public:
 	Movement& operator=(const Movement& that);
 	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
 	
-	Movement(Direction dir, Player* player);
+	Movement(Direction dir, LivingThing* player);
 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 	
-	Movement(std::string dir_s, Player* player);
+	Movement(std::string dir_s, LivingThing* player);
 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	Direction get_dir() const;
@@ -38,11 +38,11 @@ public:
 	/**< REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_dir");
 		ENSURE(get_dir() == dir, "Direction not set correctly");*/
 
-	Player* get_player() const;
+	LivingThing* get_player() const;
 	/**< REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_player");*/
 
 	//! When setting to other player, take care of memory leaks.
-	void set_player(Player* player);
+	void set_player(LivingThing* player);
 	/**< REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
 		ENSURE(get_player() == player && player->properlyInitialized(), "Player not set correctly");*/
 
@@ -53,7 +53,7 @@ public:
 
 private:
 	Direction _dir;
-	Player* _player;
+	LivingThing* _player;
 	Movement* _initCheck;
 };
 

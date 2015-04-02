@@ -16,30 +16,18 @@
 #include "../board/barrel.h"
 #include "../board/wall.h"
 #include "../board/water.h"
+#include "../board/button.h"
+#include "../board/gate.h"
+#include "../board/goal.h"
+#include "../board/thing.h"
+#include "../board/movable_thing.h"
+#include "../board/living_thing.h"
+#include "../board/boobytrap.h"
+#include "../game.h"
+#include <string>
 
-Thing Thing_parser::parse_thing(TiXmlElement* elem, Board& _board) {
-	TiXmlElement* current_el = elem->FirstChildElement();
-	if (&elem == NULL) {
-		//out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
-		//return;
-	}
 
-	std::string type;
-	if (!reqElement(elem, "TYPE")) {
-		//out << "Error: Obstacle must have a type specified.\n";
-		//return;
-	}
-
-	while (current_el != NULL) {
-		if (current_el->ValueTStr() == "TYPE") {
-			type = readElement(current_el);
-		} else {
-			//out << "Error: Error: tag " << current_el->Value() << " not defined.\n";
-		}
-
-		current_el = current_el->NextSiblingElement();
-	}
-
+Wall Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	//try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -59,38 +47,217 @@ Thing Thing_parser::parse_thing(TiXmlElement* elem, Board& _board) {
 		//return;
 	}
 
-	Thing* obst;
-	if (type == "ton") {
+	Wall* wall;
+
+	if (elem->ValueTStr() == "MUUR") {
+		if (readAttribute(elem, "beweegbaar") != "false") {
+			//out << "Error: Error: A wall may not be declared movable.\n";
+		} else {
+			wall = new Wall(x, y);
+			// Put on board
+			//_board(x, y) = obst;
+		}
+	} else {
+			//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
+	}
+	return *wall;
+}
+
+Barrel Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
+	int x,y;
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
+		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
+		//return;
+	}*/ // TODO FIX THE ERRORS PLS
+
+	if (! _board.valid_location(x,y)) {
+		//out << "Error: Invalid location given. Skipping obstacle.\n";
+		//return;
+	}
+
+	if (_board(x,y) != nullptr) {
+		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
+		//return;
+	}
+
+	Barrel* barrel;
+	if (elem->ValueTStr() == "TON") {
 		if (readAttribute(elem, "beweegbaar") != "true") {
 			//out << "Error: Error: A barrel must be declared movable.\n";
 		} else {
-			obst = new Barrel(x, y);
+			barrel = new Barrel(x, y);
 			// Put on board
-			_board(x, y) = obst;
-		}
-	} else if (type == "muur") {
-		if (readAttribute(elem, "beweegbaar") != "false") {
-			//out << "Error: Error: A wall may not be declared movable.\n";
-		} else {
-			obst = new Wall(x, y);
-			// Put on board
-			_board(x, y) = obst;
-		}
-	}
-	else if (type == "water") {
-		if (readAttribute(elem, "beweegbaar") != "false") {
-			//out << "Error: Error: A wall may not be declared movable.\n";
-		} else {
-			obst = new Water(x, y);
-			// Put on board
-			_board(x, y) = obst;
+			//_board(x, y) = obst;
 		}
 	} else {
 		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
 	}
-
-	return *obst;
+	return *barrel;
 }
 
+Water Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
+	int x,y;
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
+		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
+		//return;
+	}*/ // TODO FIX THE ERRORS PLS
 
+	if (! _board.valid_location(x,y)) {
+		//out << "Error: Invalid location given. Skipping obstacle.\n";
+		//return;
+	}
+
+	if (_board(x,y) != nullptr) {
+		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
+		//return;
+	}
+
+	Water* water;
+	if (elem->ValueTStr() == "WATER") {
+		if (readAttribute(elem, "beweegbaar") != "false") {
+			//out << "Error: Error: A wall may not be declared movable.\n";
+		} else {
+			water = new Water(x, y);
+			// Put on board
+			//_board(x, y) = obst;
+		}
+	} else {
+		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
+	}
+	return *water;
+}
+
+Button Thing_parser::parse_button(TiXmlElement* elem, Board& _board) {
+	int x,y;
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
+		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
+		//return;
+	}*/ // TODO FIX THE ERRORS PLS
+
+	if (! _board.valid_location(x,y)) {
+		//out << "Error: Invalid location given. Skipping obstacle.\n";
+		//return;
+	}
+
+	if (_board(x,y) != nullptr) {
+		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
+		//return;
+	}
+
+	Button* button;
+	if (elem->ValueTStr() == "KNOP") {
+		std::string id = readAttribute(elem, "id");
+		//button = new Button()
+	} else {
+		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
+	}
+	return *button;
+}
+
+Goal Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
+	int x,y;
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
+		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
+		//return;
+	}*/ // TODO FIX THE ERRORS PLS
+
+	if (! _board.valid_location(x,y)) {
+		//out << "Error: Invalid location given. Skipping obstacle.\n";
+		//return;
+	}
+
+	if (_board(x,y) != nullptr) {
+		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
+		//return;
+	}
+
+	Goal* goal;
+	if (elem->ValueTStr() == "DOEL") {
+		goal = new Goal(x, y);
+	} else {
+		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
+	}
+	return *goal;
+}
+
+Boobytrap Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
+	int x,y;
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
+		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
+		//return;
+	}*/ // TODO FIX THE ERRORS PLS
+
+	if (! _board.valid_location(x,y)) {
+		//out << "Error: Invalid location given. Skipping obstacle.\n";
+		//return;
+	}
+
+	if (_board(x,y) != nullptr) {
+		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
+		//return;
+	}
+
+	Boobytrap* boobytrap;
+	if (elem->ValueTStr() == "VALSTRIK") {
+		boobytrap = new Boobytrap(x, y);
+	} else {
+		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
+	}
+	return *boobytrap;
+}
+
+Gate Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
+	int x,y;
+	//try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	/*} catch (std::invalid_argument& e) {
+		out << "Error: Invalid x or y specified for obstacle, skipping.\n";
+		//return;
+	}*/ // TODO FIX THE ERRORS PLS
+
+	if (! _board.valid_location(x,y)) {
+		//out << "Error: Invalid location given. Skipping obstacle.\n";
+		//return;
+	}
+
+	if (_board(x,y) != nullptr) {
+		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
+		//return;
+	}
+
+	Gate* gate;
+	if (elem->ValueTStr() == "POORT") {
+		if (readAttribute(elem, "beweegbaar") != "false") {
+			//out << "Error: Error: A wall may not be declared movable.\n";
+		} else if (elem->FirstChildElement("ID") != NULL) {
+			std::string name = elem->FirstChildElement("ID")->Value();
+			gate = new Gate(x,y);
+			_gates[name] = gate;
+
+			// TODO Fix the copy problem with gatemap and playermap!!!!
+
+		} else {
+			// ERRROOOOOOOOOR TODO
+		}
+	} else {
+		//out << "Error: Error: Type " << type << " is not defined as an obstacle.\n";
+	}
+	return *gate;
+}
 

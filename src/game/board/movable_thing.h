@@ -14,7 +14,13 @@ class MovableThing: public Thing {
 public:
 	MovableThing(unsigned int x, unsigned int y, int weight, int height, int importance, bool solid);
 	
-	// TODO copy ctor, copy assign
+	//! copy constructor
+	MovableThing(const MovableThing& that);
+	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/
+
+	//! copy assignment
+	MovableThing& operator=(const MovableThing& that);
+	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
 	
 	virtual char to_char();
 	

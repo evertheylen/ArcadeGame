@@ -44,7 +44,7 @@ std::string Parser::readElement(TiXmlElement* elem) {
 }
 
 std::string Parser::readAttribute(TiXmlElement* elem, const char* tag) {
-	if (elem == nullptr) {
+	if (elem == nullptr || elem->Attribute(tag) == nullptr) {
 		throw(ParseError());
 	}
 	return std::string(elem->Attribute(tag));

@@ -16,7 +16,23 @@ MovableThing::MovableThing(unsigned int x, unsigned int y, int weight, int heigh
 	ENSURE(properlyInitialized(), "constructor must end...");
 }
 
-// TODO copy ctor, copy assign
+// copy constructor
+MovableThing::MovableThing(const MovableThing& that):
+	_solid(that._solid),
+	Thing(that) {
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+
+// copy assignment
+MovableThing& MovableThing::operator=(const MovableThing& that) {
+	_solid = that._solid;
+	Thing::operator=(that);
+	_initCheck = this;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
 
 char MovableThing::to_char() {
 	return 'M';

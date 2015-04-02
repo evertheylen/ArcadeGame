@@ -37,14 +37,14 @@ Movement& Movement::operator=(const Movement& that) {
 	return *this;
 }
 
-Movement::Movement(Direction dir, Player* player):
+Movement::Movement(Direction dir, LivingThing* player):
 	_dir(dir), _player(player) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end ...");
 }
 
 
-Movement::Movement(std::string dir_s, Player* player):
+Movement::Movement(std::string dir_s, LivingThing* player):
 	_player(player) {
 	_dir = toDirection(dir_s);
 	_initCheck = this;
@@ -116,13 +116,13 @@ void Movement::set_dir(Direction dir) {
 	ENSURE(get_dir() == dir, "Direction not set correctly");
 }
 
-Player* Movement::get_player() const {
+LivingThing* Movement::get_player() const {
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_player");
-	Player* result = _player;
+	LivingThing* result = _player;
 	return result;
 }
 
-void Movement::set_player(Player* player) {
+void Movement::set_player(LivingThing* player) {
 	REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling set_player");
 	_player = player;
 	ENSURE(get_player() == player && player->properlyInitialized(), "Player not set correctly");

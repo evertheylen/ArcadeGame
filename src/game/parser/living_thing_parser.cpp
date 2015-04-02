@@ -58,7 +58,7 @@ Player Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playermap& _p
 
 	// Put on board
 
-	_board(x, y) = player;
+	//_board(x, y) = player;
 	return *player;
 }
 
@@ -109,11 +109,11 @@ Monster Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Playermap& 
 	}
 
 	Monster* monster = new Monster(name, x, y);
-	//_players[name] = monster;
+	_players[name] = monster;
 
 	// Put on board
 
-	_board(x, y) = monster;
+	//_board(x, y) = monster;
 	return *monster;
 }
 

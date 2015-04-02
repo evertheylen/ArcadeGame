@@ -16,8 +16,9 @@
 
 Game Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream) {
 	Game::Playermap players;
+	Game::Gatemap gates;
 	Board_parser bp;
-	Board board = bp.parse_board(board_elem, players);
+	Board board = bp.parse_board(board_elem, players, gates);
 	Movement_parser mp;
 	std::list<Movement> moves = mp.parse_movement(move_elem, players);
 
