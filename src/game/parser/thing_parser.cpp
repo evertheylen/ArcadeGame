@@ -42,11 +42,6 @@ Thing* Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 		//return;
 	}
 
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
-		//return;
-	}
-
 	Wall* wall;
 
 	if (elem->ValueTStr() == "MUUR") {
@@ -75,11 +70,6 @@ MovableThing* Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 
 	if (! _board.valid_location(x,y)) {
 		//out << "Error: Invalid location given. Skipping obstacle.\n";
-		//return;
-	}
-
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
 		//return;
 	}
 
@@ -113,11 +103,6 @@ Thing* Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
 		//return;
 	}
 
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
-		//return;
-	}
-
 	Water* water;
 	if (elem->ValueTStr() == "WATER") {
 		if (readAttribute(elem, "beweegbaar") != "false") {
@@ -145,11 +130,6 @@ Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatem
 
 	if (! _board.valid_location(x,y)) {
 		//out << "Error: Invalid location given. Skipping obstacle.\n";
-		//return;
-	}
-
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
 		//return;
 	}
 
@@ -182,11 +162,6 @@ Thing* Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 		//return;
 	}
 
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
-		//return;
-	}
-
 	Goal* goal;
 	if (elem->ValueTStr() == "DOEL") {
 		goal = new Goal(x, y);
@@ -211,11 +186,6 @@ Thing* Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
 		//return;
 	}
 
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
-		//return;
-	}
-
 	Boobytrap* boobytrap;
 	if (elem->ValueTStr() == "VALSTRIK") {
 		boobytrap = new Boobytrap(x, y);
@@ -237,11 +207,6 @@ Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap
 
 	if (! _board.valid_location(x,y)) {
 		//out << "Error: Invalid location given. Skipping obstacle.\n";
-		//return;
-	}
-
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of obstacle not empty. Skipping.\n";
 		//return;
 	}
 

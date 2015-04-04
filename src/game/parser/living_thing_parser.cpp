@@ -43,11 +43,6 @@ LivingThing* Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playerm
 		//return;
 	}
 
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of player not empty. Skipping.\n";
-		//return;
-	}
-
 	if (_players.find(name) != _players.end()) {
 		//out << "Error: Player already exists. Skipping.\n";
 		//return;
@@ -95,11 +90,6 @@ LivingThing* Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Player
 
 	if (! _board.valid_location(x,y)) {
 		//out << "Error: Invalid location given. Skipping player.\n";
-		//return;
-	}
-
-	if (_board(x,y) != nullptr) {
-		//out << "Error: Specified location of player not empty. Skipping.\n";
 		//return;
 	}
 
