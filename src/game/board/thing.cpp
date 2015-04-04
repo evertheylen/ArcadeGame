@@ -126,3 +126,7 @@ char Thing::to_char() {
 	REQUIRE(properlyInitialized(), "Thing wasn't initialized when calling to_char");
 	return 'T';
 }
+
+int Thing::get_importance() const {
+	return _importance;
+}

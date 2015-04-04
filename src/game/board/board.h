@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include "thing.h"
+#include "spot.h"
 #include <iostream>
 
 #ifndef _Board
@@ -43,7 +44,7 @@ public:
 
 	// void set_width(unsigned int x);
 
-	Thing*& operator()(unsigned int x, unsigned int y);
+	Spot* operator()(unsigned int x, unsigned int y);
 	/**< REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
 	 	 REQUIRE(valid_location(x,y), "Not a valid location given to operator()"); */
 	
@@ -58,7 +59,7 @@ public:
 private:
 	std::string _name;
 	unsigned int _width, _height;
-	std::vector<std::vector<Thing*>> _data;
+	std::vector<std::vector<Spot*>> _data;
 	Board* _initCheck;
 };
 

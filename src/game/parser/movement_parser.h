@@ -17,7 +17,7 @@
 
 class Movement_parser: public Parser {
 public:
-	std::list<Movement> parse_movement(TiXmlElement* move_elem, Game::Playermap& _players);
+	std::list<Movement>* parse_movement(TiXmlElement* move_elem, Game::Playermap& _players);
 };
 
 #endif /* _Movement_parser */

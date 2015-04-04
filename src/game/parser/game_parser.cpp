@@ -14,21 +14,24 @@
 
 #include <list>
 
-Game Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream) {
+Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream) {
 	Game::Playermap players;
 	Game::Gatemap gates;
 	Board_parser bp;
-	Board board = bp.parse_board(board_elem, players, gates);
 	Movement_parser mp;
-	std::list<Movement> moves = mp.parse_movement(move_elem, players);
 
+	Board board = *bp.parse_board(board_elem, players, gates);
+	std::cout << "SSSSSSSSSSSEEEEEEEG FAULT\n";
+	std::list<Movement> moves = *mp.parse_movement(move_elem, players);
+
+	std::cout << board << std::endl;
 	/*for (int i = 0; i != moves.size(); i++) {
 		std::cout << moves.front().get_dir_name() << std::endl;
 		moves.pop_front();
 	}*/
 	//Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
-	Game g(board, moves, players, output_stream);
-	return g;
+	Game* gp = new Game(board, moves, players, output_stream);
+	return gp;
 }
 
 

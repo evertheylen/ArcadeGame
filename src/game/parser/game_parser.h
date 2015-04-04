@@ -16,7 +16,7 @@
 
 class Game_parser: public Parser {
 public:
-	Game parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream);
+	Game* parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream);
 };
 
 #endif /* _game_parser */

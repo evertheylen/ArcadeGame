@@ -10,9 +10,9 @@
 #include "../../DesignByContract.h"
 
 
-std::list<Movement> Movement_parser::parse_movement(TiXmlElement* move_elem, Game::Playermap& _players) {
+std::list<Movement>* Movement_parser::parse_movement(TiXmlElement* move_elem, Game::Playermap& _players) {
 	// ---- Movements ----
-	std::list<Movement> _movements;
+	std::list<Movement>* mp = new std::list<Movement>;
 	REQUIRE(move_elem != NULL, "Failed to load movements file: No root element.");
 	REQUIRE(move_elem->ValueTStr() == "BEWEGINGEN" || move_elem->ValueTStr() == "ACTIES", "Failed to load movements file: Wrong root element tag.");
 
@@ -48,7 +48,7 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement* move_elem, Gam
 				continue;
 			}
 			if (current_el->ValueTStr() == "BEWEGING") {
-				_movements.push_back(Movement(dir, _players[player_name]));
+				mp->push_back(Movement(dir, _players[player_name]));
 			} else {
 				// TODO Push on attack, TODO Make attack class;
 			}
@@ -58,7 +58,7 @@ std::list<Movement> Movement_parser::parse_movement(TiXmlElement* move_elem, Gam
 		}
 		current_el = current_el->NextSiblingElement();
 	}
-	return _movements;
+	return mp;
 }
 
 

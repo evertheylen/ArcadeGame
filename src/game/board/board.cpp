@@ -6,9 +6,16 @@
 
 Board::Board(unsigned int width, unsigned int height, std::string name):
 	_width(width), _height(height), _name(name),
-	_data(std::vector<std::vector<Thing*>>(width, std::vector<Thing*>(height, nullptr)))
+	_data(std::vector<std::vector<Spot*>>(width, std::vector<Spot*>(height, nullptr)))
 	{
 	REQUIRE(width > 0 && height > 0, "incorrect height or width");
+
+	for (unsigned int i = 0; i < _data.size(); i++) {
+		for (unsigned int j = 0; j < _data.at(i).size(); j++) {
+			_data.at(i).at(j) = new Spot(i,j);
+		}
+	}
+
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "constructor must end ...");
 }
@@ -34,7 +41,7 @@ Board::Board(const Board& that):
 	_name(that._name),
 	_width(that._width),
 	_height(that._height),
-	_data(_width, std::vector<Thing*>(_height, nullptr)) {
+	_data(_width, std::vector<Spot*>(_height, nullptr)) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -45,7 +52,7 @@ Board& Board::operator=(const Board& that) {
 	_name = that._name;
 	_width = that._width;
 	_height = that._height;
-	_data = std::vector<std::vector<Thing*>>(_width, std::vector<Thing*>(_height, nullptr));
+	_data = std::vector<std::vector<Spot*>>(_width, std::vector<Spot*>(_height, nullptr));
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
@@ -87,9 +94,10 @@ unsigned int Board::get_width() const {
 	return result;
 }
 
-Thing*& Board::operator()(unsigned int x, unsigned int y) {
+Spot* Board::operator()(unsigned int x, unsigned int y) {
 	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
 	REQUIRE(valid_location(x,y), "Not a valid location given to operator()");
+	std::cout << "data: " << *_data.at(x).at(y);
 	return _data.at(x).at(y);
 }
 
@@ -100,6 +108,7 @@ bool Board::valid_location(int x, int y) {
 
 std::ostream& operator<< (std::ostream &out, Board& board) {
 	REQUIRE(board.properlyInitialized(), "Board wasn't initialized when calling operator <<");
+	std::cout << board.get_height() << board.get_width() << std::endl;
 	for (int j=board.get_height()-1; j>=0; --j) {
 		// print row
 		for (int i=0; i<board.get_width(); ++i) {

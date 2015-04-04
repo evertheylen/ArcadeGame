@@ -68,7 +68,7 @@ void Game::writeBoard(std::ostream& stream) {
 	// Find all movable Things.
 	for (unsigned int i = 0; i != _board.get_width(); i++) {
 		for (unsigned int j = 0; j != _board.get_height(); j++) {
-			if (_board(i,j) != nullptr && _board(i,j)->is_movable()) {
+			if (_board(i,j) != nullptr && _board(i,j)->get_height() <= 100) {
 				stream << *_board(i,j) << "\n";
 			}
 		}
@@ -96,7 +96,7 @@ void Game::popMove(std::ostream& out) {
 }
 
 void Game::doMove(Movement& movement, std::ostream& out) {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
+/*	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	unsigned int x_original = x;
@@ -161,11 +161,11 @@ void Game::doMove(Movement& movement, std::ostream& out) {
  	doDirection(movement.get_dir(), x, y);
 // 	movement.get_player()->set_x(x);
 // 	movement.get_player()->set_y(y);
-	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");
+	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");*/
 }
 
 void Game::doAllMoves(std::ostream& out) {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
+	/*REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
 	out << "About to do all " << _movements.size() << " movements.\n\n";
 	//out << _board << "\nStarting now:\n";
 	
@@ -176,5 +176,5 @@ void Game::doAllMoves(std::ostream& out) {
 // 	out << _board << "\n";
 	out << "Done.\n";
 
-	ENSURE(get_movements().empty(), "Not all movements were executed.");
+	ENSURE(get_movements().empty(), "Not all movements were executed.");*/
 }

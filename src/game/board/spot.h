@@ -33,14 +33,18 @@ public:
 	
 	MovableThing* get_upper();
 
+	// tgeen dater onder zit
 	void add_stuff(Thing* thing);
 	
-	// == fallthrough
+	// die movablething enzo, returned true als het fallthroughed naar lower level.
 	bool add_upper(MovableThing* thing);
+	/**< REQUIRE(_upper == nullptr, "_upper is occupied"); */
 	
 	void del_upper();
 	
 	char to_char();
+
+	friend std::ostream& operator<<(std::ostream& stream, Spot& spot);
 
 	bool properlyInitialized();
 
@@ -49,6 +53,8 @@ private:
 	unsigned int _y;
 	Spot* _initCheck;
 	
+	Thing* most_important_thing();
+
 	MovableThing* _upper;
 	std::vector<Thing*> _stuff; // finally.
 };

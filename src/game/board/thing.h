@@ -53,6 +53,8 @@ public:
 	
 	int get_height() const;
 	
+	int get_importance() const;
+
 	virtual void onEnter(MovableThing* other);
 	
 	virtual void onLeave(MovableThing* other);

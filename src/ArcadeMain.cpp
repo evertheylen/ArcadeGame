@@ -40,7 +40,7 @@ int main(int argc, char const* argv[]) {
 	}
 
 	Game_parser gp;
-	Game g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
+	Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
 	
 	//Game g = Game(doc_board, doc_moves, std::cout);
 	

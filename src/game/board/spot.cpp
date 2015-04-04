@@ -31,13 +31,11 @@ Spot& Spot::operator=(const Spot& that) {
 }
 
 unsigned int Spot::get_x() {
-	unsigned int result = _x;
-	return result;
+	return _x;
 }
 
 unsigned int Spot::get_y() {
-	unsigned int result = _y;
-	return result;
+	return _y;
 }
 
 bool Spot::properlyInitialized() {
@@ -66,8 +64,8 @@ bool Spot::add_upper(MovableThing* thing) {
 	for (auto t: _stuff) {
 		t->onEnter(thing);
 		if (! thing->is_alive()) {
-			// TODO delete?
-			break;
+			delete thing;
+			return false;
 		}
 	}
 	
@@ -88,7 +86,41 @@ void Spot::del_upper() {
 			t->onLeave(_upper);
 		}
 		
+		// thing wordt niet gedeleted, want add_upper of een andere collision (bv kill) zorgt hier voor.
 		_upper = nullptr;
 	}
+}
+
+std::ostream& operator<<(std::ostream& stream, Spot& spot) {
+	Thing* most_imp_thing = spot.most_important_thing();
+	if (most_imp_thing != nullptr) {
+		stream << *most_imp_thing;
+	}
+	return stream;
+}
+
+Thing* Spot::most_important_thing() {
+	int max = 0;
+	Thing* th = nullptr;
+	if (_upper != nullptr && _upper->get_importance() > 0) {
+		max = _upper->get_importance();
+		th = _upper;
+	}
+
+	for (auto t: _stuff) {
+		if (t != nullptr && max < t->get_importance()) {
+			max = t->get_importance();
+			th = t;
+		}
+	}
+	return th;
+}
+
+char Spot::to_char() {
+	Thing* most_imp_thing = most_important_thing();
+	if (most_imp_thing != nullptr) {
+		return most_imp_thing->to_char();
+	}
+	return ' ';
 }
 

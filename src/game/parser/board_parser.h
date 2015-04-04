@@ -17,7 +17,7 @@
 
 class Board_parser: public Parser {
 public:
-	Board parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates);
+	Board* parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates);
 };
 
 #endif /* _Board_parser */
