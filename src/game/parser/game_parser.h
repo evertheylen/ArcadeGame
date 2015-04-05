@@ -16,6 +16,10 @@
 
 class Game_parser: public Parser {
 public:
+	Game_parser(std::ostream* stream, std::string filename);
+	
+	Game_parser() = default;
+	
 	Game* parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream);
 };
 

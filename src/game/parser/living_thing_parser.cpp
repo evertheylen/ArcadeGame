@@ -7,25 +7,22 @@
 #include "living_thing_parser.h"
 
 
+Living_thing_parser::Living_thing_parser(std::ostream* stream, std::string filename): 
+		Parser(stream, filename) {}
+
 LivingThing* Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
-	/*if (elem == NULL) {
-		out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
-		return;
-	} TODO fix the out operator overloading and the return of no players??*/
+	if (elem == nullptr) fatal("Elem was null", elem);
 	std::string name;
-	/*if (!reqElement(elem, "NAAM")) {
-		out << "Error: Player must have a name specified. Skipping.\n";
-		return;
-	} TODO Same here. */
+	if (!reqElement(elem, "NAAM")) fatal("Player has no name specified", elem);
 
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "NAAM") {
 			name = readElement(current_el);
 		} else {
 			//out << "Error: Error: Tag " << current_el->Value() << " not defined.\n";
+			log(std::string("tag ") + current_el->Value() + " not defined");
 		}
-
 		current_el = current_el->NextSiblingElement();
 	}
 
@@ -34,48 +31,36 @@ LivingThing* Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playerm
 		x = std::stoi(readAttribute(elem, "x"));
 		y = std::stoi(readAttribute(elem, "y"));
 	} catch (std::invalid_argument& e) {
-		//out << "Error: Invalid x or y specified for player, skipping.\n";
-		//return;
+		fatal("Invalid x or y specified for player", elem);
 	}
 
 	if (! _board.valid_location(x,y)) {
-		//out << "Error: Invalid location given. Skipping player.\n";
-		//return;
+		fatal("Invalid location for player", elem);
 	}
 
 	if (_players.find(name) != _players.end()) {
-		//out << "Error: Player already exists. Skipping.\n";
-		//return;
+		fatal(std::string("Player with name \'") + name + "\' already exists", elem);
 	}
 
 	Player* player = new Player(name, x, y);
 	_players[name] = player;
 
-	// Put on board
-
-	//_board(x, y) = player;
 	return player;
 }
 
 LivingThing* Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
-	/*if (elem == NULL) {
-		out << "Error: Error while parsing obstacle, no first child. Skipping.\n";
-		return;
-	} TODO fix the out operator overloading and the return of no players??*/
+	if (elem == nullptr) fatal("Elem was null", elem);
 	std::string name;
-	/*if (!reqElement(elem, "NAAM")) {
-		out << "Error: Player must have a name specified. Skipping.\n";
-		return;
-	} TODO Same here. */
+	if (!reqElement(elem, "ID")) fatal("Monster has no ID specified", elem);
 
 	while (current_el != NULL) {
 		if (current_el->ValueTStr() == "ID") {
 			name = readElement(current_el);
 		} else {
 			//out << "Error: Error: Tag " << current_el->Value() << " not defined.\n";
+			log(std::string("tag ") + current_el->Value() + " not defined");
 		}
-
 		current_el = current_el->NextSiblingElement();
 	}
 
@@ -84,26 +69,20 @@ LivingThing* Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Player
 		x = std::stoi(readAttribute(elem, "x"));
 		y = std::stoi(readAttribute(elem, "y"));
 	} catch (std::invalid_argument& e) {
-		//out << "Error: Invalid x or y specified for player, skipping.\n";
-		//return;
+		fatal("Invalid x or y specified for monster", elem);
 	}
 
 	if (! _board.valid_location(x,y)) {
-		//out << "Error: Invalid location given. Skipping player.\n";
-		//return;
+		fatal("Invalid location for monster", elem);
 	}
 
 	if (_players.find(name) != _players.end()) {
-		//out << "Error: Player already exists. Skipping.\n";
-		//return;
+		fatal(std::string("Monster with name \'") + name + "\' already exists", elem);
 	}
 
 	Monster* monster = new Monster(name, x, y);
 	_players[name] = monster;
 
-	// Put on board
-
-	//_board(x, y) = monster;
 	return monster;
 }
 

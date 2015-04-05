@@ -17,6 +17,10 @@
 
 class Board_parser: public Parser {
 public:
+	Board_parser(std::ostream* stream, std::string filename);
+	
+	Board_parser() = default;
+	
 	Board* parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates);
 };
 

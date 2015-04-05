@@ -19,12 +19,18 @@
 #include "../board/living_thing.h"
 #include "../board/boobytrap.h"
 #include "../game.h"
+#include <iostream>
+#include <string>
 
 #ifndef _Thing_parser
 #define _Thing_parser
 
 class Thing_parser: public Parser {
 public:
+	Thing_parser(std::ostream* stream, std::string filename);
+
+	Thing_parser() = default;
+	
 	Thing* parse_wall(TiXmlElement* elem, Board& _board);
 	MovableThing* parse_barrel(TiXmlElement* elem, Board& _board);
 	Thing* parse_water(TiXmlElement* elem, Board& _board);

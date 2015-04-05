@@ -9,9 +9,12 @@
 #include <string>
 #include "../../DesignByContract.h"
 
+Movement_parser::Movement_parser(std::ostream* stream, std::string filename):
+		Parser(stream, filename) {}
+
 
 std::list<Movement>* Movement_parser::parse_movement(TiXmlElement* move_elem, Game::Playermap& _players) {
-	// ---- Movements ----
+	// NOTE hier heb ik de nieuwe log() en fatal() nog niet gebruikt, omdat deze toch sterk zal moeten herschreven worden
 	std::list<Movement>* mp = new std::list<Movement>;
 	REQUIRE(move_elem != NULL, "Failed to load movements file: No root element.");
 	REQUIRE(move_elem->ValueTStr() == "BEWEGINGEN" || move_elem->ValueTStr() == "ACTIES", "Failed to load movements file: Wrong root element tag.");

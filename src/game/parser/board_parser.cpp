@@ -20,9 +20,10 @@
 #include <iostream>
 #include <string>
 
-Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates) {
-	// ---- Board ----
+Board_parser::Board_parser(std::ostream* stream, std::string filename):
+		Parser(stream, filename) {}
 
+Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates) {
 	Living_thing_parser lp;
 	Thing_parser tp;
 
@@ -44,9 +45,8 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		fatal("Invalid board dimensions", board_elem);
 	}
 
-	//_board = Board(x, y);
 	Board* bp;
-	bp =  new Board(x, y);
+	bp = new Board(x, y);
 
 	while (current_el != NULL) {
 		try {
@@ -105,6 +105,10 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		} catch (ParseError& e) {
 			log(e.what(), board_elem);
 		}
+		
+		if (current_el == nullptr) {
+			std::cerr << "WTF";
+		}
 		current_el = current_el->NextSiblingElement();
 	}
 
@@ -125,7 +129,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		}
 		current_el = current_el->NextSiblingElement();
 	}
-
+	
 	std::cout << *bp << std::endl;
 
 	return bp;

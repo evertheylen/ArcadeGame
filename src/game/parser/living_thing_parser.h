@@ -17,6 +17,10 @@
 
 class Living_thing_parser: public Parser {
 public:
+	Living_thing_parser(std::ostream* stream, std::string filename);
+	
+	Living_thing_parser() = default;
+
 	LivingThing* parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
 	LivingThing* parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
 };

@@ -17,6 +17,10 @@
 
 class Movement_parser: public Parser {
 public:
+	Movement_parser(std::ostream* stream, std::string filename);
+	
+	Movement_parser() = default;
+
 	std::list<Movement>* parse_movement(TiXmlElement* move_elem, Game::Playermap& _players);
 };
 
