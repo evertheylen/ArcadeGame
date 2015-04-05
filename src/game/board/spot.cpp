@@ -8,7 +8,8 @@
 #include "spot.h"
 #include "../../DesignByContract.h"
 
-Spot::Spot(unsigned int x, unsigned int y): _x(x), _y(y) {
+Spot::Spot(unsigned int x, unsigned int y): 
+		_x(x), _y(y), _upper(nullptr), _stuff(0) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Constructor must end...");
 }
@@ -16,7 +17,9 @@ Spot::Spot(unsigned int x, unsigned int y): _x(x), _y(y) {
 // copy constructor
 Spot::Spot(const Spot& that):
 	_x(that._x),
-	_y(that._y) {
+	_y(that._y),
+	_upper(that._upper),
+	_stuff(that._stuff) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -25,6 +28,8 @@ Spot::Spot(const Spot& that):
 Spot& Spot::operator=(const Spot& that) {
 	_x = that._x;
 	_y = that._y;
+	_upper = that._upper;
+	_stuff = that._stuff;
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;

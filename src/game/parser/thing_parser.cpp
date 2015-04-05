@@ -125,6 +125,9 @@ Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatem
 	Button* button;
 	if (elem->ValueTStr() == "KNOP") {
 		std::string id = readAttribute(elem, "id");
+		for (auto s: _gates) {
+			std::cout << "  " << s.first << ": " << s.second << "\n";
+		}
 		if (_gates.find(id) == _gates.end()) {
 			fatal("Could not couple the button to the right gate.");
 		}
@@ -133,6 +136,41 @@ Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatem
 		fatal("Button must be KNOP", elem);
 	}
 	return button;
+}
+
+
+Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
+	int x,y;
+	try {
+		x = std::stoi(readAttribute(elem, "x"));
+		y = std::stoi(readAttribute(elem, "y"));
+	} catch (std::invalid_argument& e) {
+		fatal("Invalid x or y for gate", elem);
+	}
+
+	if (! _board.valid_location(x,y)) {
+		fatal("Invalid location on board for gate", elem);
+	}
+
+	Gate* gate;
+	if (elem->ValueTStr() == "POORT") {
+		if (readAttribute(elem, "beweegbaar") != "false")
+			fatal("Gate may not be movable", elem);
+		if (elem->FirstChildElement("ID") == nullptr)
+			fatal("Tag ID not found", elem);
+		if (std::string(elem->FirstChildElement("ID")->GetText()) == "")
+			fatal("Name of gate cannot be empty", elem);
+			
+		std::string name = elem->FirstChildElement("ID")->GetText();
+		std::cout << "  name is " << name << "\n";
+		gate = new Gate(x,y);
+		_gates[name] = gate;
+
+		// TODO Fix the copy problem with gatemap and playermap!!!
+	} else {
+		fatal("Gate must be POORT", elem);
+	}
+	return gate;
 }
 
 Thing* Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
@@ -179,37 +217,3 @@ Thing* Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
 	}
 	return boobytrap;
 }
-
-Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for gate", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for gate", elem);
-	}
-
-	Gate* gate;
-	if (elem->ValueTStr() == "POORT") {
-		if (readAttribute(elem, "beweegbaar") != "false") {
-			fatal("Gate may not be movable", elem);
-		} else if (elem->FirstChildElement("ID") != NULL) {
-			std::string name = elem->FirstChildElement("ID")->Value();
-			gate = new Gate(x,y);
-			_gates[name] = gate;
-
-			// TODO Fix the copy problem with gatemap and playermap!!!!
-
-		} else {
-			log(std::string("tag ") + elem->Value() + " is not defined.", elem);
-		}
-	} else {
-		fatal("Gate must be POORT", elem);
-	}
-	return gate;
-}
-

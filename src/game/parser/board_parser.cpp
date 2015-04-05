@@ -33,8 +33,6 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	std::string boardname;
 	_players = Game::Playermap();
 	
-	log("parse_board is running 1", board_elem);
-	
 	int x, y;
 	try {
 		x = std::stoi(readElement(board_elem, "BREEDTE"));
@@ -47,13 +45,10 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		fatal("Invalid board dimensions", board_elem);
 	}
 	
-	log("parse_board is running 2", board_elem);
-	
 	Board* bp;
 	bp = new Board(x, y);
 
 	while (current_el != NULL) {
-		log("Parse board before while loop execution", current_el);
 		try {
 			// TODO alles pointers, zie ook zever met gates enzo
 			//      LivingThing parser
@@ -96,16 +91,16 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 				} else if (tagname == "VALSTRIK") {
 					thing = tp.parse_boobytrap(current_el, (*bp));
 				}
-
+				
 				unsigned int x = thing->get_x();
 				unsigned int y = thing->get_y();
-
-				(*bp)(x,y)->add_stuff(thing);
-
+				
+				auto whatever = (*bp)(x,y);
+				whatever->add_stuff(thing);
+				
 			} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 				std::string s = current_el->Value();
 				// TODO log or fatal?
-				log(s+" is not a valid element", board_elem);
 			}
 		} catch (ParseError& e) {
 			log(e.what(), board_elem);
@@ -115,9 +110,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 			std::cerr << "WTF";
 		}
 		current_el = current_el->NextSiblingElement();
-		log("   ... closing while", current_el);
 	}
-	
 	
 	current_el = board_elem->FirstChildElement();
 	

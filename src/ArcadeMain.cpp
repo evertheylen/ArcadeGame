@@ -42,6 +42,8 @@ int main(int argc, char const* argv[]) {
 	Game_parser gp(&std::cerr, std::string(argv[1]));
 	Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 	
+	std::cout << "Parsers are done!!!\n";
+	
 	//Game g = Game(doc_board, doc_moves, std::cout);
 	
 	if (argc == 4) {

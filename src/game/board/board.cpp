@@ -97,7 +97,11 @@ unsigned int Board::get_width() const {
 Spot* Board::operator()(unsigned int x, unsigned int y) {
 	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
 	REQUIRE(valid_location(x,y), "Not a valid location given to operator()");
-	std::cout << " <data: " << *_data.at(x).at(y) << ">\n";
+	auto s = _data.at(x).at(y);
+	// TODO 
+	if (s == nullptr) {
+		std::cout << " !! operator( , ) in board gave nullptr\n";
+	}
 	return _data.at(x).at(y);
 }
 
@@ -108,7 +112,6 @@ bool Board::valid_location(int x, int y) {
 
 std::ostream& operator<< (std::ostream &out, Board& board) {
 	REQUIRE(board.properlyInitialized(), "Board wasn't initialized when calling operator <<");
-	std::cout << board.get_height() << board.get_width() << std::endl;
 	for (int j=board.get_height()-1; j>=0; --j) {
 		// print row
 		for (int i=0; i<board.get_width(); ++i) {

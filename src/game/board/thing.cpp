@@ -116,7 +116,7 @@ std::ostream& Thing::print(std::ostream& out) {
 	return out;
 }
 
-std::ostream& operator<< (std::ostream &out, Thing &thing){
+std::ostream& operator<< (std::ostream &out, Thing &thing) {
 	REQUIRE(thing.properlyInitialized(), "Thing wasn't initialized when calling operator <<");
 	thing.print(out);
 	return out;

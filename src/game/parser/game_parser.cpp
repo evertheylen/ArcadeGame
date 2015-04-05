@@ -26,13 +26,10 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	Board_parser bp(_out, _filename);
 	Movement_parser mp(_out, "not unknown");  // TODO second filename!!
 	
-	std::cout << "Got here\n";
-	
 	Board* board = bp.parse_board(board_elem, players, gates);
-	std::cout << "SSSSSSSSSSSEEEEEEEG FAULT\n";
 	std::list<Movement> moves = *mp.parse_movement(move_elem, players);
 
-	std::cout << *board << std::endl;
+	//std::cout << *board << std::endl;
 	/*for (int i = 0; i != moves.size(); i++) {
 		std::cout << moves.front().get_dir_name() << std::endl;
 		moves.pop_front();

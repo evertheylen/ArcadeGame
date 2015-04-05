@@ -50,7 +50,7 @@ std::ostream& Monster::print(std::ostream& out) {
 
 char Monster::to_char() {
 	REQUIRE(properlyInitialized(), "Monster wasn't initialized when calling to_char");
-	return 'Y';
+	return '@';
 }
 
 void Monster::onEnter(MovableThing* other) {

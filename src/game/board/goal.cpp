@@ -32,7 +32,7 @@ std::ostream& Goal::print(std::ostream& out){
 
 char Goal::to_char() {
 	REQUIRE(properlyInitialized(), "Goal wasn't initialized when calling print");
-	return '#';
+	return 'X';
 }
 
 void Goal::onEnter(MovableThing* other) {
