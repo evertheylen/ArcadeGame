@@ -26,7 +26,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	Living_thing_parser lp;
 	Thing_parser tp;
 
-	if (board_elem == NULL) throw(ParseError());
+	if (board_elem == NULL) fatal("Board was null", board_elem);
 
 	TiXmlElement* current_el = board_elem->FirstChildElement();
 	std::string boardname;
@@ -37,12 +37,11 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		x = std::stoi(readElement(board_elem, "BREEDTE"));
 		y = std::stoi(readElement(board_elem, "LENGTE"));
 	} catch (std::invalid_argument& e) {
-		throw(ParseError());
-		//REQUIRE(false, "Invalid BREEDTE or LENGTE in board file.");
+		fatal("Invalid BREEDTE or LENGTE in board file.", board_elem);
 	}
 
 	if (x<1 || y<1) {
-		throw(ParseError());	//TODO Inside function out << "Error: Invalid board dimensions.\n";
+		fatal("Invalid board dimensions", board_elem);
 	}
 
 	//_board = Board(x, y);
@@ -50,70 +49,79 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	bp =  new Board(x, y);
 
 	while (current_el != NULL) {
-		// TODO alles pointers, zie ook zever met gates enzo
-		//      LivingThing parser
-		std::string tagname = current_el->Value();
+		try {
+			// TODO alles pointers, zie ook zever met gates enzo
+			//      LivingThing parser
+			std::string tagname = current_el->Value();
 
-		if (tagname == "NAAM") {
-			boardname = readElement(current_el);
-			(*bp).set_name(boardname);
-		} else if (tagname == "SPELER" || tagname == "MONSTER") {
-			LivingThing* liv_thing;
-			if (tagname == "SPELER") {
-				liv_thing = lp.parse_player(current_el, _players, (*bp));
-			} else if (tagname == "MONSTER") {
-				liv_thing = lp.parse_monster(current_el, _players, (*bp));
+			if (tagname == "NAAM") {
+				boardname = readElement(current_el);
+				(*bp).set_name(boardname);
+			} else if (tagname == "SPELER" || tagname == "MONSTER") {
+				LivingThing* liv_thing;
+				if (tagname == "SPELER") {
+					liv_thing = lp.parse_player(current_el, _players, (*bp));
+				} else if (tagname == "MONSTER") {
+					liv_thing = lp.parse_monster(current_el, _players, (*bp));
+				}
+
+				unsigned int x = liv_thing->get_x();
+				unsigned int y = liv_thing->get_y();
+
+				(*bp)(x,y)->add_upper(liv_thing);
+
+			} else if (tagname == "TON") {
+				MovableThing* mov_thing = tp.parse_barrel(current_el, (*bp));
+
+				unsigned int x = mov_thing->get_x();
+				unsigned int y = mov_thing->get_y();
+
+				(*bp)(x,y)->add_upper(mov_thing);	// TODO Testcase! Add water after barrel and see the magic happen.
+
+			} else if (tagname == "MUUR" || tagname == "WATER" || tagname == "POORT" || tagname == "DOEL" || tagname == "VALSTRIK") {
+				Thing* thing;
+				if (tagname == "MUUR") {
+					thing = tp.parse_wall(current_el, (*bp));
+				}  else if (tagname == "WATER") {
+					thing = tp.parse_water(current_el, (*bp));
+				} else if (tagname == "POORT") {
+					thing = tp.parse_gate(current_el, (*bp), _gates);
+				} else if (tagname == "DOEL") {
+					thing = tp.parse_goal(current_el, (*bp));
+				} else if (tagname == "VALSTRIK") {
+					thing = tp.parse_boobytrap(current_el, (*bp));
+				}
+
+				unsigned int x = thing->get_x();
+				unsigned int y = thing->get_y();
+
+				(*bp)(x,y)->add_stuff(thing);
+
+			} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
+				std::string s = current_el->Value();
+				// TODO log or fatal?
+				log(s+" is not a valid element", board_elem);
 			}
-
-			unsigned int x = liv_thing->get_x();
-			unsigned int y = liv_thing->get_y();
-
-			(*bp)(x,y)->add_upper(liv_thing);
-
-		} else if (tagname == "TON") {
-			MovableThing* mov_thing = tp.parse_barrel(current_el, (*bp));
-
-			unsigned int x = mov_thing->get_x();
-			unsigned int y = mov_thing->get_y();
-
-			(*bp)(x,y)->add_upper(mov_thing);	// TODO Testcase! Add water after barrel and see the magic happen.
-
-		} else if (tagname == "MUUR" || tagname == "WATER" || tagname == "POORT" || tagname == "DOEL" || tagname == "VALSTRIK") {
-			Thing* thing;
-			if (tagname == "MUUR") {
-				thing = tp.parse_wall(current_el, (*bp));
-			}  else if (tagname == "WATER") {
-				thing = tp.parse_water(current_el, (*bp));
-			} else if (tagname == "POORT") {
-				thing = tp.parse_gate(current_el, (*bp), _gates);
-			} else if (tagname == "DOEL") {
-				thing = tp.parse_goal(current_el, (*bp));
-			} else if (tagname == "VALSTRIK") {
-				thing = tp.parse_boobytrap(current_el, (*bp));
-			}
-
-			unsigned int x = thing->get_x();
-			unsigned int y = thing->get_y();
-
-			(*bp)(x,y)->add_stuff(thing);
-
-		} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
-			std::string s = current_el->Value();
-			//print(s + " not defined.");
+		} catch (ParseError& e) {
+			log(e.what(), board_elem);
 		}
 		current_el = current_el->NextSiblingElement();
 	}
 
 	current_el = board_elem->FirstChildElement();
-
+	
 	while (current_el != NULL) {
-		if (current_el->ValueTStr() == "KNOP") {					// TODO Fix that buttons work.
-			Thing* thing = tp.parse_button(current_el, (*bp), _gates);
+		try {
+			if (current_el->ValueTStr() == "KNOP") {  // TODO Fix that buttons work.
+				Thing* thing = tp.parse_button(current_el, (*bp), _gates);
 
-			unsigned int x = thing->get_x();
-			unsigned int y = thing->get_y();
+				unsigned int x = thing->get_x();
+				unsigned int y = thing->get_y();
 
-			(*bp)(x,y)->add_stuff(thing);
+				(*bp)(x,y)->add_stuff(thing);
+			}
+		} catch (ParseError& e) {
+			log(e.what(), board_elem);
 		}
 		current_el = current_el->NextSiblingElement();
 	}
