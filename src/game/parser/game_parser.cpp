@@ -19,11 +19,12 @@
 Game_parser::Game_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream) {
+Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem) {
+	log("Game parser started", board_elem);
 	Game::Playermap players;
 	Game::Gatemap gates;
-	Board_parser bp;
-	Movement_parser mp;
+	Board_parser bp(_out, _filename);
+	Movement_parser mp(_out, "not unknown");  // TODO second filename!!
 	
 	std::cout << "Got here\n";
 	
@@ -37,7 +38,7 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem,
 		moves.pop_front();
 	}*/
 	//Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
-	Game* gp = new Game(*board, moves, players, output_stream);
+	Game* gp = new Game(*board, moves, players);
 	return gp;
 }
 

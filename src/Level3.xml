@@ -19,11 +19,13 @@
     <MUUR beweegbaar="false" x="2" y="9"/>
     <MUUR beweegbaar="false" x="3" y="9"/>
     <MUUR beweegbaar="false" x="4" y="9"/>
-    <MUUR beweegbaar="false" x="5" y="9"/>
     <MUUR beweegbaar="false" x="6" y="9"/>
     <MUUR beweegbaar="false" x="7" y="9"/>
     <MUUR beweegbaar="false" x="8" y="9"/>
     <MUUR beweegbaar="false" x="9" y="9"/>
+	
+	<MUUR beweegbaar="false" x="15" y="9"/>
+	
     <MUUR beweegbaar="false" x="0" y="8"/>
     <MONSTER x="2" y="8">
         <ID>
@@ -31,19 +33,20 @@
         </ID>
     </MONSTER>
     <MUUR beweegbaar="false" x="4" y="8"/>
-    <DOEL x="5" y="8"/>
+    <DOEL x="6" y="8"/>
     <MUUR beweegbaar="false" x="6" y="8"/>
     <KNOP id="gate1" x="8" y="8"/>
     <MUUR beweegbaar="false" x="9" y="8"/>
     <MUUR beweegbaar="false" x="0" y="7"/>
     <TON beweegbaar="true" x="2" y="7"/>
     <MUUR beweegbaar="false" x="4" y="7"/>
-    <POORT beweegbaar="false" x="5" y="7">
+    <POORT beweegbaar="false" x="4" y="7">
         <ID>
             gate1
         </ID>
     </POORT>
-    <MUUR beweegbaar="false" x="6" y="7"/>
+	
+    <MUUR beweegbaar="false" x="4" y="7"/>
     <MUUR beweegbaar="false" x="9" y="7"/>
     <MUUR beweegbaar="false" x="0" y="6"/>
     <MUUR beweegbaar="false" x="2" y="6"/>
@@ -52,7 +55,7 @@
     <MUUR beweegbaar="false" x="0" y="5"/>
     <MUUR beweegbaar="false" x="2" y="5"/>
     <MUUR beweegbaar="false" x="4" y="5"/>
-    <MUUR beweegbaar="false" x="5" y="5"/>
+    <MUUR beweegbaar="false" x="8" y="5"/>
     <MUUR beweegbaar="false" x="7" y="5"/>
     <MUUR beweegbaar="false" x="9" y="5"/>
     <MUUR beweegbaar="false" x="0" y="4"/>

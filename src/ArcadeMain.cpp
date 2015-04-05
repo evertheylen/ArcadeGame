@@ -39,8 +39,8 @@ int main(int argc, char const* argv[]) {
 		return 1;
 	}
 
-	Game_parser gp;
-	Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement(), std::cout);
+	Game_parser gp(&std::cerr, std::string(argv[1]));
+	Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 	
 	//Game g = Game(doc_board, doc_moves, std::cout);
 	
@@ -54,7 +54,6 @@ int main(int argc, char const* argv[]) {
 			g.doAllMoves(std::cout);
 			std::cout << "\n\n---------------------------------\n\n";
 			g.writeBoard(std::cout);
-			
 		} else {
 			std::cout << "Couldn't recognize mode '" << argv[3] << "'.\n";
 		}

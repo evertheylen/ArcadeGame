@@ -24,15 +24,17 @@ Board_parser::Board_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
 Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates) {
-	Living_thing_parser lp;
-	Thing_parser tp;
+	Living_thing_parser lp(_out, _filename);
+	Thing_parser tp(_out, _filename);
 
 	if (board_elem == NULL) fatal("Board was null", board_elem);
 
 	TiXmlElement* current_el = board_elem->FirstChildElement();
 	std::string boardname;
 	_players = Game::Playermap();
-
+	
+	log("parse_board is running 1", board_elem);
+	
 	int x, y;
 	try {
 		x = std::stoi(readElement(board_elem, "BREEDTE"));
@@ -44,11 +46,14 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	if (x<1 || y<1) {
 		fatal("Invalid board dimensions", board_elem);
 	}
-
+	
+	log("parse_board is running 2", board_elem);
+	
 	Board* bp;
 	bp = new Board(x, y);
 
 	while (current_el != NULL) {
+		log("Parse board before while loop execution", current_el);
 		try {
 			// TODO alles pointers, zie ook zever met gates enzo
 			//      LivingThing parser
@@ -110,8 +115,10 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 			std::cerr << "WTF";
 		}
 		current_el = current_el->NextSiblingElement();
+		log("   ... closing while", current_el);
 	}
-
+	
+	
 	current_el = board_elem->FirstChildElement();
 	
 	while (current_el != NULL) {

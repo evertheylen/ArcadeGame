@@ -75,6 +75,6 @@ void Parser::fatal(std::string msg, TiXmlBase* el) {
 void Parser::log(std::string msg, TiXmlBase* el) {
 	if (_out != nullptr) {
 		format_message(msg, el);
-		*_out << msg;
+		*_out << msg << "\n";
 	}
 }

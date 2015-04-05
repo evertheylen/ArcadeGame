@@ -97,7 +97,7 @@ unsigned int Board::get_width() const {
 Spot* Board::operator()(unsigned int x, unsigned int y) {
 	REQUIRE(properlyInitialized(), "Board wasn't initialized when calling operator()");
 	REQUIRE(valid_location(x,y), "Not a valid location given to operator()");
-	std::cout << "data: " << *_data.at(x).at(y);
+	std::cout << " <data: " << *_data.at(x).at(y) << ">\n";
 	return _data.at(x).at(y);
 }
 

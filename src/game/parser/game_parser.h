@@ -20,7 +20,7 @@ public:
 	
 	Game_parser() = default;
 	
-	Game* parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem, std::ostream& output_stream);
+	Game* parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem);
 };
 
 #endif /* _game_parser */
