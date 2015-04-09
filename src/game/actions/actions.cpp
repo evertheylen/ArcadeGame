@@ -144,6 +144,7 @@ void Movement::set_player(LivingThing* mover) {
 }
 */
 
+
 void Movement::print(std::ostream &out) {
 	REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator <<");
 	// Speler spelernaam zal volgende beweging nog uitvoeren
