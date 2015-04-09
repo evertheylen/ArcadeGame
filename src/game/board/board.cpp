@@ -42,6 +42,12 @@ Board::Board(const Board& that):
 	_width(that._width),
 	_height(that._height),
 	_data(_width, std::vector<Spot*>(_height, nullptr)) {
+	for (unsigned int i = 0; i < _width; i++) {
+		for (unsigned int j = 0; j < _height; j++) {
+			Spot sp = *that._data.at(i).at(j);
+			_data.at(i).at(j) = new Spot(sp);
+		}
+	}
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -53,6 +59,12 @@ Board& Board::operator=(const Board& that) {
 	_width = that._width;
 	_height = that._height;
 	_data = std::vector<std::vector<Spot*>>(_width, std::vector<Spot*>(_height, nullptr));
+	for (unsigned int i = 0; i < _width; i++) {
+		for (unsigned int j = 0; j < _height; j++) {
+			Spot sp = *that._data.at(i).at(j);
+			_data.at(i).at(j) = new Spot(sp);
+		}
+	}
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;

@@ -125,9 +125,9 @@ Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatem
 	Button* button;
 	if (elem->ValueTStr() == "KNOP") {
 		std::string id = readAttribute(elem, "id");
-		for (auto s: _gates) {
+		/*for (auto s: _gates) {
 			std::cout << "  " << s.first << ": " << s.second << "\n";
-		}
+		}*/
 		if (_gates.find(id) == _gates.end()) {
 			fatal("Could not couple the button to the right gate.");
 		}
@@ -162,7 +162,7 @@ Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap
 			fatal("Name of gate cannot be empty", elem);
 			
 		std::string name = elem->FirstChildElement("ID")->GetText();
-		std::cout << "  name is " << name << "\n";
+		//std::cout << "  name is " << name << "\n";
 		gate = new Gate(x,y);
 		_gates[name] = gate;
 
