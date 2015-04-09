@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VELD>
+    <NAAM>
+        Fancy Level
+    </NAAM>
+    <SPELER x="9" y="2">
+        <NAAM>
+            Mario
+        </NAAM>
+    </SPELER>
+	<SPELER x="11" y="2">
+        <NAAM>
+            Luigi
+        </NAAM>
+    </SPELER>
+	
+	<DOEL x="17" y="17"/>
+	
+	<SPELER x="17" y="17">
+        <NAAM>
+            Peach
+        </NAAM>
+    </SPELER>
+    <BREEDTE>
+        20
+    </BREEDTE>
+    <LENGTE>
+        20
+    </LENGTE>
+	<MUUR beweegbaar="false" x="0" y="0"/>
+	<MUUR beweegbaar="false" x="0" y="1"/>
+	<MUUR beweegbaar="false" x="0" y="2"/>
+	<MUUR beweegbaar="false" x="0" y="3"/>
+	<MUUR beweegbaar="false" x="0" y="4"/>
+	<MUUR beweegbaar="false" x="0" y="5"/>
+	<MUUR beweegbaar="false" x="0" y="6"/>
+	<MUUR beweegbaar="false" x="0" y="7"/>
+	<MUUR beweegbaar="false" x="0" y="8"/>
+	<MUUR beweegbaar="false" x="0" y="9"/>
+	<MUUR beweegbaar="false" x="0" y="10"/>
+	<MUUR beweegbaar="false" x="0" y="11"/>
+	<MUUR beweegbaar="false" x="0" y="12"/>
+	<MUUR beweegbaar="false" x="0" y="13"/>
+	<MUUR beweegbaar="false" x="0" y="14"/>
+	<MUUR beweegbaar="false" x="0" y="15"/>
+	<MUUR beweegbaar="false" x="0" y="16"/>
+	<MUUR beweegbaar="false" x="0" y="17"/>
+	<MUUR beweegbaar="false" x="0" y="18"/>
+	<MUUR beweegbaar="false" x="0" y="19"/>
+	
+	<MUUR beweegbaar="false" x="19" y="0"/>
+	<MUUR beweegbaar="false" x="19" y="1"/>
+	<MUUR beweegbaar="false" x="19" y="2"/>
+	<MUUR beweegbaar="false" x="19" y="3"/>
+	<MUUR beweegbaar="false" x="19" y="4"/>
+	<MUUR beweegbaar="false" x="19" y="5"/>
+	<MUUR beweegbaar="false" x="19" y="6"/>
+	<MUUR beweegbaar="false" x="19" y="7"/>
+	<MUUR beweegbaar="false" x="19" y="8"/>
+	<MUUR beweegbaar="false" x="19" y="9"/>
+	<MUUR beweegbaar="false" x="19" y="10"/>
+	<MUUR beweegbaar="false" x="19" y="11"/>
+	<MUUR beweegbaar="false" x="19" y="12"/>
+	<MUUR beweegbaar="false" x="19" y="13"/>
+	<MUUR beweegbaar="false" x="19" y="14"/>
+	<MUUR beweegbaar="false" x="19" y="15"/>
+	<MUUR beweegbaar="false" x="19" y="16"/>
+	<MUUR beweegbaar="false" x="19" y="17"/>
+	<MUUR beweegbaar="false" x="19" y="18"/>
+	<MUUR beweegbaar="false" x="19" y="19"/>
+	
+	<MUUR beweegbaar="false" x="1" y="0"/>
+	<MUUR beweegbaar="false" x="1" y="19"/>
+	<MUUR beweegbaar="false" x="2" y="0"/>
+	<MUUR beweegbaar="false" x="2" y="19"/>
+	<MUUR beweegbaar="false" x="3" y="0"/>
+	<MUUR beweegbaar="false" x="3" y="19"/>
+	<MUUR beweegbaar="false" x="4" y="0"/>
+	<MUUR beweegbaar="false" x="4" y="19"/>
+	<MUUR beweegbaar="false" x="5" y="0"/>
+	<MUUR beweegbaar="false" x="5" y="19"/>
+	<MUUR beweegbaar="false" x="6" y="0"/>
+	<MUUR beweegbaar="false" x="6" y="19"/>
+	<MUUR beweegbaar="false" x="7" y="0"/>
+	<MUUR beweegbaar="false" x="7" y="19"/>
+	<MUUR beweegbaar="false" x="8" y="0"/>
+	<MUUR beweegbaar="false" x="8" y="19"/>
+	<MUUR beweegbaar="false" x="9" y="0"/>
+	<MUUR beweegbaar="false" x="9" y="19"/>
+	<MUUR beweegbaar="false" x="10" y="0"/>
+	<MUUR beweegbaar="false" x="10" y="19"/>
+	<MUUR beweegbaar="false" x="11" y="0"/>
+	<MUUR beweegbaar="false" x="11" y="19"/>
+	<MUUR beweegbaar="false" x="12" y="0"/>
+	<MUUR beweegbaar="false" x="12" y="19"/>
+	<MUUR beweegbaar="false" x="13" y="0"/>
+	<MUUR beweegbaar="false" x="13" y="19"/>
+	<MUUR beweegbaar="false" x="14" y="0"/>
+	<MUUR beweegbaar="false" x="14" y="19"/>
+	<MUUR beweegbaar="false" x="15" y="0"/>
+	<MUUR beweegbaar="false" x="15" y="19"/>
+	<MUUR beweegbaar="false" x="16" y="0"/>
+	<MUUR beweegbaar="false" x="16" y="19"/>
+	<MUUR beweegbaar="false" x="17" y="0"/>
+	<MUUR beweegbaar="false" x="17" y="19"/>
+	<MUUR beweegbaar="false" x="18" y="0"/>
+	<MUUR beweegbaar="false" x="18" y="19"/>
+	
+	<TON beweegbaar="true" x="7" y="7"/>
+	<TON beweegbaar="true" x="9" y="5"/>
+	
+	<WATER beweegbaar="false" x="18" y="14"/>
+	<WATER beweegbaar="false" x="18" y="15"/>
+	<WATER beweegbaar="false" x="17" y="14"/>
+	<WATER beweegbaar="false" x="17" y="15"/>
+	<WATER beweegbaar="false" x="16" y="14"/>
+	<WATER beweegbaar="false" x="16" y="15"/>
+	<WATER beweegbaar="false" x="15" y="14"/>
+	<WATER beweegbaar="false" x="15" y="15"/>
+	
+	<TON beweegbaar="true" x="17" y="14"/>
+	<TON beweegbaar="true" x="17" y="14"/>
+	
+	<TON beweegbaar="true" x="17" y="15"/>
+	
+	<WATER beweegbaar="false" x="10" y="14"/>
+	<WATER beweegbaar="false" x="10" y="15"/>
+	<WATER beweegbaar="false" x="10" y="14"/>
+	<WATER beweegbaar="false" x="10" y="15"/>
+	
+	<TON beweegbaar="true" x="10" y="15"/>
+	
+	<TON beweegbaar="true" x="10" y="14"/>
+	<TON beweegbaar="true" x="10" y="14"/>
+	
+	<MONSTER x="12" y="8">
+        <ID>
+            Wario
+        </ID>
+    </MONSTER>
+	
+	<MONSTER x="13" y="8">
+        <ID>
+            Bowser
+        </ID>
+    </MONSTER>
+	
+	<MONSTER x="14" y="8">
+        <ID>
+            Goomba
+        </ID>
+    </MONSTER>
+</VELD>

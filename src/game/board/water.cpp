@@ -27,13 +27,24 @@ Water& Water::operator=(const Water& that) {
 
 std::ostream& Water::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Water wasn't initialized when calling print");
-	out << "Water\n";
+	out << "Er bevindt zich water op positie (" << get_x() << "," << get_y() << ").";
 	return out;
+}
+
+int Water::get_importance() const {
+// 	return WATER_IMPORTANCE;
+	if (! _filled)
+		return WATER_IMPORTANCE;
+	else
+		return 0;
 }
 
 char Water::to_char() {
 	REQUIRE(properlyInitialized(), "Water wasn't initialized when calling print");
-	return '~';
+	if (! _filled)
+		return '~';
+	else
+		return ' ';
 }
 
 void Water::onEnter(MovableThing* other) {

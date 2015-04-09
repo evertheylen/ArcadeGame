@@ -7,7 +7,7 @@ TLIBS =		-lgtest -lgtest_main
 # include all .o files in lib/tinyxml
 TINYXMLLIBS = 	$(shell find ../lib/tinyxml -name '*.o')
 
-CXXFLAGS =	-g -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all -I$(INCL) 
+CXXFLAGS =	-g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all -I$(INCL) 
 
 # All .cpp files not in src itself
 OBJS =		$(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))

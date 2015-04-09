@@ -8,8 +8,9 @@
 #include "gate.h"
 #include "../../DesignByContract.h"
 
-Gate::Gate(unsigned int x, unsigned int y):
-	Thing(x,y,GATE_WEIGHT, GATE_HEIGHT,GATE_IMPORTANCE)
+Gate::Gate(unsigned int x, unsigned int y, std::string ID):
+	Thing(x,y,GATE_WEIGHT, GATE_HEIGHT,GATE_IMPORTANCE),
+	_ID(ID)
 	{
 	REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of wall");
 	_initCheck = this;
@@ -18,7 +19,8 @@ Gate::Gate(unsigned int x, unsigned int y):
 
 // copy constructor
 Gate::Gate(const Gate& that):
-	Thing(that) {
+	Thing(that),
+	_ID(that._ID) {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -26,6 +28,7 @@ Gate::Gate(const Gate& that):
 // copy assignment
 Gate& Gate::operator=(const Gate& that) {
 	Thing::operator=(that);
+	_ID = that._ID;
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
@@ -33,7 +36,7 @@ Gate& Gate::operator=(const Gate& that) {
 
 std::ostream& Gate::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling print");
-	out << "Gate\n";
+	out << "Er bevindt zich een poort (met id " << get_ID() << ") op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 
@@ -47,6 +50,8 @@ void Gate::set_height(int height) {
 	_height = height;
 }
 
-
+std::string Gate::get_ID() {
+	return _ID;
+}
 
 

@@ -53,3 +53,7 @@ void LivingThing::set_maximum_weight(int max) {
 	_maximum_weight = max;
 	ENSURE(get_maximum_weight() == max, "Maximum_weight wasn't correctly set!");
 }
+
+std::string LivingThing::get_typename() {
+	return "LivingThing";
+}

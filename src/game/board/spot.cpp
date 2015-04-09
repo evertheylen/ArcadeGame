@@ -7,6 +7,7 @@
 
 #include "spot.h"
 #include "../../DesignByContract.h"
+#include <iostream>
 
 Spot::Spot(unsigned int x, unsigned int y): 
 		_x(x), _y(y), _upper(nullptr), _stuff(0) {
@@ -96,12 +97,22 @@ void Spot::del_upper() {
 	}
 }
 
-std::ostream& operator<<(std::ostream& stream, Spot& spot) {
-	Thing* most_imp_thing = spot.most_important_thing();
-	if (most_imp_thing != nullptr) {
-		stream << *most_imp_thing;
+void Spot::writeThings(std::ostream& stream) {
+	Thing* most_imp_thing = most_important_thing();
+	if (_upper != nullptr) {  // cannot be a wall
+		stream << *_upper << "\n";
 	}
-	return stream;
+	
+	for (auto t: _stuff) {
+		if (t == nullptr) {
+			std::cerr << "[!!::..::!!]  This Spot contains a nullptr! WTF!! Fix me!!\n";
+			continue;
+		}
+		// Do not print walls
+		if (t->get_height() <= 100) {
+			stream << *t << "\n";
+		}
+	}
 }
 
 Thing* Spot::most_important_thing() {
@@ -113,7 +124,13 @@ Thing* Spot::most_important_thing() {
 	}
 
 	for (auto t: _stuff) {
-		if (t != nullptr && max < t->get_importance()) {
+		// t should never be a nullptr!
+		// TODO remove if everything works
+		if (t == nullptr) {
+			std::cerr << "[!!::..::!!]  This Spot contains a nullptr! WTF!! Fix me!!\n";
+			continue;
+		}
+		if (max < t->get_importance()) {
 			max = t->get_importance();
 			th = t;
 		}

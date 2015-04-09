@@ -30,6 +30,8 @@ public:
 	char to_char();
 	/**< REQUIRE(properlyInitialized(), "Water wasn't initialized when calling to_char");*/
 	
+	int get_importance() const;
+	
 	void onEnter(MovableThing* other);
 	
 private:

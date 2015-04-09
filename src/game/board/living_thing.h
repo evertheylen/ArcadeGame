@@ -27,6 +27,8 @@ public:
 	void set_maximum_weight(int max);
 	
 	std::string get_name();
+	
+	virtual std::string get_typename();
 
 protected:
 	int _maximum_weight;

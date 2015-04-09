@@ -7,7 +7,7 @@
 class Goal: public Thing {
 public:
 	static const int GOAL_WEIGHT = 10000;
-	static const int GOAL_HEIGHT = 200;
+	static const int GOAL_HEIGHT = 0;
 	static const int GOAL_IMPORTANCE = 1500;
 	
 	

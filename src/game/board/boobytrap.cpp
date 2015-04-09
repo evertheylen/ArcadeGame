@@ -26,7 +26,7 @@ Boobytrap& Boobytrap::operator=(const Boobytrap& that) {
 
 std::ostream& Boobytrap::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Boobytrap wasn't initialized when calling print");
-	out << "Boobytrap\n";
+	out << "Er bevindt zich een valstrik op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 

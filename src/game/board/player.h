@@ -9,9 +9,9 @@
 class Player: public LivingThing {
 public:
 	// Constants
-	static const int  PLAYER_WEIGHT = 0;
+	static const int  PLAYER_WEIGHT = 500;
 	static const int  PLAYER_HEIGHT = 0;
-	static const int  PLAYER_IMPORTANCE = 1000;
+	static const int  PLAYER_IMPORTANCE = 9001;
 	static const int  PLAYER_MAXIMUM_WEIGHT = Barrel::BARREL_WEIGHT;
 	
 	
@@ -39,6 +39,8 @@ public:
 	
 	char to_char();
 	/**< REQUIRE(properlyInitialized(), "Player wasn't initialized when calling to_char");*/
+	
+	std::string get_typename();
 	
 	void onEnter(MovableThing* other);
 	

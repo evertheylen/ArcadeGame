@@ -16,4 +16,5 @@
     </LENGTE>
     <MUUR beweegbaar="false" x="5" y="0"/>
 	<MUUR beweegbaar="false" x="6" y="0"/>
+	<WATER beweegbaar="false" x="7" y="7"/>
 </VELD>

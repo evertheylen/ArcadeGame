@@ -46,6 +46,8 @@ public:
 	char to_char();
 	/**< REQUIRE(properlyInitialized(), "Monster wasn't initialized when calling to_char");*/
 	
+	std::string get_typename();
+	
 	void onEnter(MovableThing* other);
 	
 	void onLeave(MovableThing* other);

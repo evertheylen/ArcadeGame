@@ -13,12 +13,12 @@
 #include "../DesignByContract.h"
 #include "board/barrel.h"
 #include "board/wall.h"
-#include "movement/movement.h"
+#include "action/action.h"
 
 // copy constructor
 Game::Game(const Game& that):
 	_board(that._board),
-	_movements(),
+	_actions(),
 	_players() {
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
@@ -27,20 +27,20 @@ Game::Game(const Game& that):
 // copy assignment
 Game& Game::operator=(const Game& that) {
 	_board = that._board;
-	_movements = std::list<Movement>();
+	_actions = std::list<Movement>();
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
 }
 
-std::list<Movement>& Game::get_movements() {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_movements");
-	return _movements;
+std::list<Movement>& Game::get_actions() {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_actions");
+	return _actions;
 }
 
-Game::Game(Board& board, std::list<Movement>& movements, Playermap& players):
+Game::Game(Board* board, std::list< Movement >& actions, Game::Playermap& players):
 	_board(board),
-	_movements(movements),
+	_actions(actions),
 	_players(players){
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Constructor of Game did not end properly.");
@@ -51,7 +51,7 @@ bool Game::properlyInitialized() const {
 }
 
 void Game::writeBoard(std::ostream& stream) {
-	stream << _board << "\n";
+	stream << *_board << "\n";
 
 	/*Het huidige speelveld is Level 1:
 	Eigenschappen van dit veld:
@@ -60,51 +60,49 @@ void Game::writeBoard(std::ostream& stream) {
 
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeBoard");
 
-	stream << "Het huidige speelveld is " << _board.get_name() << ":\n"
+	stream << "Het huidige speelveld is " << _board->get_name() << ":\n"
 			<< "Eigenschappen van dit veld:\n"
-			<< "-Breedte " << _board.get_width() << "\n"
-			<< "-Lengte " << _board.get_height() << "\n\n";
+			<< "-Breedte " << _board->get_width() << "\n"
+			<< "-Lengte " << _board->get_height() << "\n\n";
 
-	// Find all movable Things.
-	for (unsigned int i = 0; i != _board.get_width(); i++) {
-		for (unsigned int j = 0; j != _board.get_height(); j++) {
-			if (_board(i,j) != nullptr && _board(i,j)->get_height() <= 100) {
-				stream << *_board(i,j) << "\n";
-			}
+	// Find all the stuff that isn't a wall
+	for (unsigned int i = 0; i != _board->get_width(); i++) {
+		for (unsigned int j = 0; j != _board->get_height(); j++) {
+			(*_board)(i,j)->writeThings(stream);
 		}
 	}
 }
 
-void Game::writeMovements(std::ostream& stream) {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeMovements");
-	if (_movements.empty()) {
-		stream << "geen bewegingen\n";
+void Game::writeActions(std::ostream& stream) {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeActions");
+	if (_actions.empty()) {
+		stream << "geen acties\n";
 		return;
 	}
-	for (auto i: _movements) {
+	for (auto i: _actions) {
 		stream << i << std::endl;
 	}
 }
 
-void Game::popMove(std::ostream& out) {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popMove");
-	REQUIRE(!_movements.empty(), "Movements was empty, can't be popped");
-	unsigned int original_size = _movements.size();
-	doMove(_movements.front(), out);
-	_movements.pop_front();
-	ENSURE(_movements.size() == original_size - 1, "Movement was not popped");
+void Game::popAction(std::ostream& out) {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popAction");
+	REQUIRE(!_actions.empty(), "Actions was empty, can't be popped");
+	unsigned int original_size = _actions.size();
+	doMove(_actions.front(), out);
+	_actions.pop_front();
+	ENSURE(_actions.size() == original_size - 1, "Action was not popped");
 }
 
-void Game::doMove(Movement& movement, std::ostream& out) {
+void Game::doAction(Action& action, std::ostream& out) {
 /*	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
 	unsigned int x = movement.get_player()->get_x();
 	unsigned int y = movement.get_player()->get_y();
 	unsigned int x_original = x;
 	unsigned int y_original = y;
 	//out << movement << std::endl;
-	//std::cout << _board(x,y)->is_movable() << "\n";
+	//std::cout << (*_board)(x,y)->is_movable() << "\n";
 	
-	if (! _board.valid_location(x,y)) {
+	if (! _board->valid_location(x,y)) {
 		out << "Error: Not a valid location. Skipping movement.\n";
 		return;
 	}
@@ -117,21 +115,21 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 	int total_weight = 0;
 	// while not out of board and not an empty spot
 
-	while (_board.valid_location(x_next, y_next) && _board(x_next, y_next) != nullptr) {
-		if (_board(x_next, y_next)->get_weight() == -1) {
+	while (_board->valid_location(x_next, y_next) && (*_board)(x_next, y_next) != nullptr) {
+		if ((*_board)(x_next, y_next)->get_weight() == -1) {
 			out << "Error: Can't move infinite weight (like a wall), skipping this movement.\n";
 			return;
 		}
-		total_weight += _board(x_next, y_next)->get_weight();
+		total_weight += (*_board)(x_next, y_next)->get_weight();
 		doDirection(movement.get_dir(), x_next, y_next);
 	}
 	
-	if (! _board.valid_location(x_next, y_next)) {
+	if (! _board->valid_location(x_next, y_next)) {
 		out << "Error: Out of board. Skipping this movement.\n";
 		return;
 	}
 	
-	if (_board(x_next, y_next) != nullptr) {
+	if ((*_board)(x_next, y_next) != nullptr) {
 		out << "Error: Player (and perhaps other things) have no place to go. Skipping this movement.\n";
 		return;
 	}
@@ -146,13 +144,13 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 	unsigned int y_new = y_next;
 	doReverseDirection(movement.get_dir(), x_new, y_new);
 	while (x_next != x || y_next != y) {
-		Thing* temp = _board(x_new, y_new);
-		_board(x_new, y_new) = nullptr; //_board(x_next, y_next);
+		Thing* temp = (*_board)(x_new, y_new);
+		(*_board)(x_new, y_new) = nullptr; //(*_board)(x_next, y_next);
 		
-		_board(x_next, y_next) = temp;
-		if (_board(x_next, y_next) != nullptr) {
-			_board(x_next, y_next)->set_x(x_next);
-			_board(x_next, y_next)->set_y(y_next);
+		(*_board)(x_next, y_next) = temp;
+		if ((*_board)(x_next, y_next) != nullptr) {
+			(*_board)(x_next, y_next)->set_x(x_next);
+			(*_board)(x_next, y_next)->set_y(y_next);
 		}
 		x_next = x_new;
 		y_next = y_new;
@@ -164,17 +162,17 @@ void Game::doMove(Movement& movement, std::ostream& out) {
 	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");*/
 }
 
-void Game::doAllMoves(std::ostream& out) {
+void Game::doAllActions(std::ostream& out) {
 	/*REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
-	out << "About to do all " << _movements.size() << " movements.\n\n";
+	out << "About to do all " << _actions.size() << " actions.\n\n";
 	//out << _board << "\nStarting now:\n";
 	
-	while (! _movements.empty()) {
+	while (! _actions.empty()) {
 // 		out << _board << "\n";
 		popMove(out);
 	}
 // 	out << _board << "\n";
 	out << "Done.\n";
 
-	ENSURE(get_movements().empty(), "Not all movements were executed.");*/
+	ENSURE(get_actions().empty(), "Not all actions were executed.");*/
 }

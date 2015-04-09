@@ -44,7 +44,7 @@ public:
 	
 	char to_char();
 
-	friend std::ostream& operator<<(std::ostream& stream, Spot& spot);
+	void writeThings(std::ostream& stream);
 
 	bool properlyInitialized();
 

@@ -44,13 +44,17 @@ void Monster::set_name(const std::string& name) {
 
 std::ostream& Monster::print(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Monster wasn't initialized when calling print");
-	out << "Speler " << get_name() << " bevindt zich in dit speelveld op positie (" << get_x() << "," << get_y() << ").";
+	out << "Er bevindt zich een monster op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 
 char Monster::to_char() {
 	REQUIRE(properlyInitialized(), "Monster wasn't initialized when calling to_char");
 	return '@';
+}
+
+std::string Monster::get_typename() {
+	return "Monster";
 }
 
 void Monster::onEnter(MovableThing* other) {

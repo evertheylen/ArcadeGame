@@ -26,7 +26,7 @@ Goal& Goal::operator=(const Goal& that) {
 
 std::ostream& Goal::print(std::ostream& out){
 	REQUIRE(properlyInitialized(), "Goal wasn't initialized when calling print");
-	out << "Goal\n";
+	out << "Er bevindt zich een doel op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 

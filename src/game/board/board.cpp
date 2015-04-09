@@ -37,6 +37,7 @@ Board::~Board() {
 }
 
 // copy constructor
+// DO NOT USE
 Board::Board(const Board& that):
 	_name(that._name),
 	_width(that._width),
@@ -53,7 +54,8 @@ Board::Board(const Board& that):
 }
 
 
-// copy assignment
+// copy assignment 
+// DO NOT USE
 Board& Board::operator=(const Board& that) {
 	_name = that._name;
 	_width = that._width;

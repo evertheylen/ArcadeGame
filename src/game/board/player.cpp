@@ -54,6 +54,11 @@ char Player::to_char() {
 	return 'Y';
 }
 
+std::string Player::get_typename() {
+	return "Player";
+}
+
+
 void Player::onEnter(MovableThing* other) {
 	std::cout << "player entered by " << other->to_char() << "\n";
 }

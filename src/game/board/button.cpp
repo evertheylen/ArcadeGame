@@ -35,9 +35,9 @@ Button& Button::operator=(const Button& that) {
 	return *this;
 }
 
-std::ostream& Button::print(std::ostream& out){
+std::ostream& Button::print(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Button wasn't initialized when calling print");
-	out << "Button\n";
+	out << "Er bevindt zich een knop (gelinkt aan poort " << _gate->get_ID() << ") op positie (" << get_x() << "," << get_y() << ").";
 	return out;
 }
 
