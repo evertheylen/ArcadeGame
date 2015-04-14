@@ -1,5 +1,5 @@
 #include "../../lib/tinyxml/tinyxml.h"
-#include "action/action.h"
+#include "actions/actions.h"
 #include "board/board.h"
 #include "board/living_thing.h"
 #include "board/gate.h"

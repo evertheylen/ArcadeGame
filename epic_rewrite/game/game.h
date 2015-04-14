@@ -7,12 +7,12 @@
 
 class Game {
 private:
-	EventManager em;
+	//EventManager em;
 
 public:
-	Game(EventManager _em);
+	//Game();
 	
-	void event_log(std::string s);
+	//void event_log(std::string s);
 	
 	void main_loop();
 };

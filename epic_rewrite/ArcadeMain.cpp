@@ -7,7 +7,8 @@
 int main() {
 	std::cout << "Test\n";
 	
-	Game g(EventManager(std::cout));
+	//Game g(EventManager(std::cout));
+	Game g;
 	
 	g.main_loop();
 }

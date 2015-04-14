@@ -1,3 +1,5 @@
+/*
+
 #include "eventmanager.h"
 #include "../game/game.h"
 #include "event.h"
@@ -36,13 +38,14 @@ void EventManager::log(std::string s) {
 	logstream << "[" << state << "] " << s << "\n";
 }
 
-void EventManager::push(Event* e) {
+void EventManager::push(Event& e) {
 	#ifdef __GNUG__
-		state = std::string("handling ") + type_name(*e);
+		state = std::string("handling ") + type_name(e);
 	#else
 		state = std::string("handling ") + typeid(e).name();
 	#endif
 	
-	e->handle(g);
+	e.handle(g);
 }
 
+*/

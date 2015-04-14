@@ -1,4 +1,4 @@
-
+/*
 #include <iostream>
 #include <string>
 
@@ -19,10 +19,11 @@ public:
 	
 	EventManager(std::ostream& _logstream);
 
-	void push(Event* e);
+	void push(Event& e);
 	
 	void log(std::string s);
 };
 
 
 #endif
+*/

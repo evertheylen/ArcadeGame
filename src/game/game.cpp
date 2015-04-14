@@ -13,7 +13,7 @@
 #include "../DesignByContract.h"
 #include "board/barrel.h"
 #include "board/wall.h"
-#include "action/action.h"
+#include "actions/actions.h"
 
 // copy constructor
 Game::Game(const Game& that):
