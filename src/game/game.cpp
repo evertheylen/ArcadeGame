@@ -13,7 +13,7 @@
 #include "../DesignByContract.h"
 #include "board/barrel.h"
 #include "board/wall.h"
-#include "action/action.h"
+#include "actions/actions.h"
 
 // copy constructor
 Game::Game(const Game& that):
@@ -27,18 +27,18 @@ Game::Game(const Game& that):
 // copy assignment
 Game& Game::operator=(const Game& that) {
 	_board = that._board;
-	_actions = std::list<Movement>();
+	_actions = std::list<Action>();
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
 	return *this;
 }
 
-std::list<Movement>& Game::get_actions() {
+std::list<Action>& Game::get_actions() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_actions");
 	return _actions;
 }
 
-Game::Game(Board* board, std::list< Movement >& actions, Game::Playermap& players):
+Game::Game(Board* board, std::list< Action >& actions, Game::Playermap& players):
 	_board(board),
 	_actions(actions),
 	_players(players){
@@ -79,8 +79,13 @@ void Game::writeActions(std::ostream& stream) {
 		stream << "geen acties\n";
 		return;
 	}
-	for (auto i: _actions) {
+	/*for (auto i: _actions) {
 		stream << i << std::endl;
+	}*/ // Modified because actions is pure virtual and no object of class Action can be created.
+	std::list<Action> actions = _actions;
+	for (unsigned int i = 0; i < _actions.size(); i++) {
+		stream << actions.front() << std::endl;
+		actions.pop_front();
 	}
 }
 
@@ -88,7 +93,7 @@ void Game::popAction(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popAction");
 	REQUIRE(!_actions.empty(), "Actions was empty, can't be popped");
 	unsigned int original_size = _actions.size();
-	doMove(_actions.front(), out);
+	doAction(_actions.front(), out);
 	_actions.pop_front();
 	ENSURE(_actions.size() == original_size - 1, "Action was not popped");
 }

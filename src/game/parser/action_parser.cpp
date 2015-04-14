@@ -13,7 +13,7 @@ Action_parser::Action_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
 
-std::list<Action>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Playermap& _players) {
+std::list<Action>* Action_parser::parse_actions(TiXmlElement* move_elem, Game::Playermap& _players) {
 	// NOTE hier heb ik de nieuwe log() en fatal() nog niet gebruikt, omdat deze toch sterk zal moeten herschreven worden
 	std::list<Action>* mp = new std::list<Action>;
 	if(move_elem == nullptr) fatal("Failed to load actions file: No root element.");
@@ -51,9 +51,9 @@ std::list<Action>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Pl
 				continue;
 			}
 			if (current_el->ValueTStr() == "BEWEGING") {
-				mp->push_back(Action(dir, _players[player_name]));
-			} else {
-				// TODO Push on attack, TODO Make attack class;
+				mp->push_back(Movement(dir, _players[player_name]));
+			} else if (current_el->ValueTStr() == "AANVAL") {
+				mp->push_back(Attack(dir, _players[player_name]));
 			}
 		} else {
 			std::string s = current_el->Value();

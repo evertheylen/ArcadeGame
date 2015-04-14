@@ -17,11 +17,11 @@ class Action {
 public:
 	Action(Direction dir);
 
-	virtual bool doAction(Board* b) = 0;
+	virtual bool doAction(Board* b); //= 0;
 	
 	friend std::ostream& operator<<(std::ostream& out, Action& a);
 	
-	virtual void print(std::ostream& out) = 0;
+	virtual void print(std::ostream& out); // = 0;
 	
 	Direction get_dir() const;
 	/**< REQUIRE(properlyInitialized(), "Movement wasn't initialized when calling get_dir");*/
@@ -81,11 +81,11 @@ private:
 class Attack: public Action {
 public:
 	
-	Attack(Direction dir, Player* player);
+	Attack(Direction dir, LivingThing* player);
 	
-	Attack(std::string dir_s, Player* player);
+	Attack(std::string dir_s, LivingThing* player);
 	
-	Player* get_player();
+	LivingThing* get_player();
 	
 	void print(std::ostream& out);
 	
@@ -94,7 +94,7 @@ public:
 	//TODO properlyInitialized vinden we leuk!
 
 private:
-	Player* _player;
+	LivingThing* _player;
 };
 
 #endif // _Actions

@@ -23,7 +23,7 @@ void doDirection(Direction dir, unsigned int& x, unsigned int& y) {
 		case right:
 			x++;
 			return;
-	}player
+	}
 }
 
 void doReverseDirection(Direction dir, unsigned int& x, unsigned int& y) {
@@ -64,8 +64,9 @@ Direction toDirection(std::string dir_s) {
 Action::Action(Direction dir):
 	_dir(dir) {}
 
-operator<<(std::ostream& out, Action& a) {
+std::ostream& operator<<(std::ostream& out, Action& a) {
 	a.print(out);
+	return out;
 }
 
 Direction Action::get_dir() const {
@@ -105,7 +106,7 @@ Movement::Movement(const Movement& that):
 
 // copy assignment
 Movement& Movement::operator=(const Movement& that) {
-	Action=(that);
+	Action::operator=(that);
 	_mover = that._mover;
 	_initCheck = this;
 	ENSURE(properlyInitialized(), "Copy by assignment must end...");
@@ -146,7 +147,7 @@ void Movement::set_player(LivingThing* mover) {
 
 
 void Movement::print(std::ostream &out) {
-	REQUIRE(move.properlyInitialized(), "Movement wasn't initialized when calling operator <<");
+	REQUIRE(this->properlyInitialized(), "Movement wasn't initialized when calling operator <<");
 	// Speler spelernaam zal volgende beweging nog uitvoeren
 	// Monster monsternaam zal volgende beweging nog uitvoeren
 	out << get_mover()->get_typename() << " " << get_mover()->get_name() << " zal volgende beweging nog uitvoeren:\n"
@@ -157,10 +158,10 @@ void Movement::print(std::ostream &out) {
 // Attack stuff
 ///////////////////////////////////
 
-Attack::Attack(Direction dir, Player* player): 
+Attack::Attack(Direction dir, LivingThing* player):
 		Action(dir), _player(player) {}
 
 
-Attack::Attack(std::string dir_s, Player* player):
+Attack::Attack(std::string dir_s, LivingThing* player):
 		Action(toDirection(dir_s)), _player(player) {}
 
