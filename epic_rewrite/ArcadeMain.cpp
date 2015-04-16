@@ -3,12 +3,15 @@
 
 #include "game/game.h"
 #include "events/eventmanager.h"
+#include "UI/UI.h"
 
 int main() {	
 	//Game g(EventManager(std::cout));
 	Game g;
 	
 	g.main_loop();
+
+	UI user_interface;
 }
 
 
