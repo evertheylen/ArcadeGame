@@ -1,6 +1,6 @@
 
-#ifndef _Physics
-#define _Physics
+#ifndef _H_Physics
+#define _H_Physics
 
 class Physics {
 public:

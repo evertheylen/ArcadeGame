@@ -1,6 +1,6 @@
 
-#ifndef _Life
-#define _Life
+#ifndef _H_Life
+#define _H_Life
 
 class Life {
 public:

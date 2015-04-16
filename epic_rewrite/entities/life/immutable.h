@@ -1,8 +1,8 @@
 
 #include "life.h"
 
-#ifndef _Immutable
-#define _Immutable
+#ifndef _H_Immutable
+#define _H_Immutable
 
 class Immutable: public virtual Life {
 public:

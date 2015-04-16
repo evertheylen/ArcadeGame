@@ -1,8 +1,8 @@
 
 #include "ia.h"
 
-#ifndef _Lethal
-#define _Lethal
+#ifndef _H_Lethal
+#define _H_Lethal
 
 class Lethal: public virtual Interactive {
 	// Kills whatever touches it on an IACollision

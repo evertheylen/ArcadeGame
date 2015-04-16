@@ -4,8 +4,8 @@
 #include "physics/physics.h"
 #include "printer/printer.h"
 
-#ifndef _Entity
-#define _Entity
+#ifndef _H_Entity
+#define _H_Entity
 
 // If you don't like multiple inheritance, you should stop reading right now and find some other
 // project you like. I'm serious. Also, if you don't like virtuals or RTTI in general, consider

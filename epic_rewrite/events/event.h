@@ -2,8 +2,8 @@
 #include <iostream>
 
 
-#ifndef _Event
-#define _Event
+#ifndef _H_Event
+#define _H_Event
 
 class Game;
 

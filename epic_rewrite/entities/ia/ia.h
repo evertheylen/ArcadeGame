@@ -1,6 +1,6 @@
 
-#ifndef _Interactive
-#define _Interactive
+#ifndef _H_Interactive
+#define _H_Interactive
 
 class Interactive {
 public:

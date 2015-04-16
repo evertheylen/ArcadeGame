@@ -2,8 +2,8 @@
 #include <iostream>
 #include <string>
 
-#ifndef _EventManager
-#define _EventManager
+#ifndef _H_EventManager
+#define _H_EventManager
 
 class Game;
 class Event;

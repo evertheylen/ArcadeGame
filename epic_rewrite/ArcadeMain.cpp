@@ -4,9 +4,7 @@
 #include "game/game.h"
 #include "events/eventmanager.h"
 
-int main() {
-	std::cout << "Test\n";
-	
+int main() {	
 	//Game g(EventManager(std::cout));
 	Game g;
 	

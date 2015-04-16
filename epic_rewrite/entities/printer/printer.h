@@ -1,6 +1,6 @@
 
-#ifndef _Printer
-#define _Printer
+#ifndef _H_Printer
+#define _H_Printer
 
 class Printer {
 public:

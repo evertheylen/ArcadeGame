@@ -6,10 +6,10 @@
 #include "printer/simpleprint.h"
 #include "ia/lethal.h"
 
-#ifndef _Water
-#define _Water
+#ifndef _H_Water
+#define _H_Water
 
-class Water: public Immutable, public Container, public SimplePrint, public Lethal, public Entity {
+class Water: public Immutable, public Container, public SimplePrint, public Entity {
 public:
 	Water();
 };

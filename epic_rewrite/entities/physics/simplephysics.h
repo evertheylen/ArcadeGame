@@ -1,8 +1,8 @@
 
 #include "physics.h"
 
-#ifndef _SimplePhysics
-#define _SimplePhysics
+#ifndef _H_SimplePhysics
+#define _H_SimplePhysics
 
 class SimplePhysics: public virtual Physics {
 public:

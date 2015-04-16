@@ -1,6 +1,6 @@
 
-#ifndef _Game
-#define _Game
+#ifndef _H_Game
+#define _H_Game
 
 #include <iostream>
 #include "../events/eventmanager.h"

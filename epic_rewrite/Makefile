@@ -1,15 +1,22 @@
 
 INCLUDES = $(shell find . -type d -exec echo "-I {}" \;)
 
+CXX        = clang++
 CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)  $(shell find . -type d -exec echo "-I {}" \;)
 #CXXFLAGS   = -O3 -std=c++14
 
 OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))
 SHELL      = /bin/bash
-TARGETS    = ArcadeMain ArcadeTests
+TARGETS    = dispatch ArcadeMain ArcadeTests
 
 .PHONY: all
 all: $(TARGETS)
+
+.PHONY: dispatch
+dispatch:
+	@echo -e "\033[1;38;2;0;255;180;48;2;0;0;0m --> Creating Dispatchers \033[0m"
+	@python3 ./events/dispatch/precompile.py ./events/dispatch/dispatchers.toml
+
 
 ArcadeMain: $(OBJS) ArcadeMain.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"

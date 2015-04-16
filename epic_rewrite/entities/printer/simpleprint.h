@@ -1,8 +1,8 @@
 
 #include "printer.h"
 
-#ifndef _Simpleprint
-#define _Simpleprint
+#ifndef _H_Simpleprint
+#define _H_Simpleprint
 
 class SimplePrint: public virtual Printer {
 public:
