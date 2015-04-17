@@ -6,7 +6,7 @@
  */
 
 #include "../../lib/tinyxml/tinyxml.h"
-#include <fstream>
+#include <string>
 #include <iostream>
 #include "../game/game.h"
 
@@ -18,15 +18,15 @@ public:
 
 	UI();
 
-	void input_board(TiXmlDocument& board_doc);
-	void input_actions(TiXmlDocument& action_doc);
+	//void input_board(TiXmlDocument& board_doc); Overbodig, wordt enkel gebruikt vanuit constructor.
+	//void input_actions(TiXmlDocument& action_doc);
 
 	void do_action(int amount = 1);
 
-	void write_board(std::fstream& out);
-	void write_actions(std::fstream& out);
+	void write_board(std::string file, Game& g);
+	void write_actions(std::string file, Game& g);
 
-	void show(std::ostream& out = std::cout);
+	void show(std::ostream& out);
 
 	void help();
 
