@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -r --color=AUTO -n --include \*.cpp --include \*.h TODO .

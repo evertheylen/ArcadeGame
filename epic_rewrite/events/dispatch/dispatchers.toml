@@ -14,12 +14,13 @@ header="""
 #include <../collisionhandler.h>
 #include <../ia_enterhandler.h>
 #include <../ia_leavehandler.h>
+#include <../killhandler.h>
 
 """
 
 cppheader="""
 
-// Empty
+// no specific cpp header.
 
 """
 
@@ -55,4 +56,16 @@ cppheader="""
 	
 	rules = [
 		["Entity*", "Entity*"]
+	]
+
+[KillDispatch]
+	inherits = "Dispatcher"
+	returns = "void"
+	args = ["Entity*"]
+	handler = "KillHandler"
+	funcname = "onKill"
+	
+	rules = [
+		["Player*"],
+		["Entity*"],
 	]

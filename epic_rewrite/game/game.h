@@ -18,6 +18,7 @@ private:
 	CollisionManager collide;
 	IA_EnterManager enter;
 	IA_LeaveManager leave;
+	KillManager kill;
 
 public:
 

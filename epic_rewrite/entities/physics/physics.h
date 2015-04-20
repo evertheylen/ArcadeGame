@@ -8,9 +8,6 @@ public:
 	
 	virtual int get_height() = 0;
 	virtual int get_weight() = 0;
-	
-	virtual unsigned int get_x() = 0;
-	virtual unsigned int get_y() = 0;
 
 	virtual ~Physics() {}
 };

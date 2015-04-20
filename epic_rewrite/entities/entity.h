@@ -17,7 +17,16 @@ class Entity: public virtual Interactive, public virtual Life, public virtual Ph
 public:
 	virtual void __polymorphic__() {}
 	
+	Entity(unsigned int _x, unsigned int _y);
+	
+	unsigned int get_x();
+	unsigned int get_y();
+	
 	virtual ~Entity() {}
+	
+	// x and y can be both getted and setted, so it's better to make them public anyways.
+	unsigned int x;
+	unsigned int y;
 };
 
 #endif

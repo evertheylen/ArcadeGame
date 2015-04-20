@@ -2,6 +2,7 @@
 #include "../events/managers.h"
 #include "../entities/entity.h"
 #include "../entities/water.h"
+#include "../entities/player.h"
 
 #include <iostream>
 #include <typeinfo>
@@ -14,7 +15,7 @@ void Game::event_log(std::string s) {
 */
 
 Game::Game():
-		collide(this), enter(this), leave(this) {}
+		collide(this), enter(this), leave(this), kill(this) {}
 
 
 void Game::main_loop() {
@@ -24,7 +25,7 @@ void Game::main_loop() {
 	Entity* f;
 	
 	e = new Water(3,2);
-	f = new Water(2,3);
+	f = new Player(4,5);
 	
 	std::cout << e->to_char() << "\n";
 
@@ -32,20 +33,11 @@ void Game::main_loop() {
 		std::cout << "It's water!\n";
 	}
 	
-	/*if (Container* c = dynamic_cast<Container*>(e)) {
-		std::cout << "It's a container!\n";
-	}*/		// TODO Ik kan momenteel niet checken op container omdat container geen aparte klasse meer is...
-			// Water is echter het enige dat een container kan zijn dus is da ni een beetje overbodig om dan een aparte klasse te maken?
+	int a = collide(e,f);
+	std::cout << a << "\n";
 	
-	collide(e,f);
-
-	/*
-	auto e = Collision<Entity, Entity>(a,b);
-	em.push(e);
-	
-	auto f = Collision<Water, Entity>(w, b);
-	em.push(f);
-	*/
+	kill(e);
+	kill(f);
 	
 	delete e;
 	delete f;

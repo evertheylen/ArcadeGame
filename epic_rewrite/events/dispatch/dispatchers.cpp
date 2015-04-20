@@ -14,8 +14,9 @@
 #include <../collisionhandler.h>
 #include <../ia_enterhandler.h>
 #include <../ia_leavehandler.h>
+#include <../killhandler.h>
 
-// Empty
+// no specific cpp header.
 
 
 // CollisionDispatch
@@ -46,18 +47,27 @@ int CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
 
 
-// IA_EnterDispatch
+// KillDispatch
 
-int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+int KillDispatch::getRule(Entity* __Entity0) {
+    // Rule 0
+    Player* __r0_Player0 = dynamic_cast<Player*>(__Entity0);
+    if (__r0_Player0 != nullptr) {
+        return 0;
+    }
+
 
     return -1;
 }
     
-void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+void KillDispatch::doRule(int rulenum, Entity* __Entity0) {
     switch(rulenum) {
 
+        case 0:
+            return onKill(dynamic_cast<Player*>(__Entity0));
+
         default:
-            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+            return onKill(dynamic_cast<Entity*>(__Entity0));
     }
 }
 
@@ -76,6 +86,24 @@ void IA_LeaveDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
         default:
             return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+    }
+}
+
+
+
+
+// IA_EnterDispatch
+
+int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+
+    return -1;
+}
+    
+void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+    switch(rulenum) {
+
+        default:
+            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 

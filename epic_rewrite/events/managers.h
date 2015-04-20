@@ -21,4 +21,6 @@ typedef Manager<IA_EnterDispatch> IA_EnterManager;
 
 typedef Manager<IA_LeaveDispatch> IA_LeaveManager;
 
+typedef Manager<KillDispatch> KillManager;
+
 #endif
