@@ -8,6 +8,6 @@
 #include "player.h"
 
 Player::Player():
-		SimplePhysics(0, 500), LifePrinter('Y', '0') {}
+		SimplePhysics(0, 500), Alive(1), LifePrinter('Y', '0') {}
 
 

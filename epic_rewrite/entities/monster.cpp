@@ -8,6 +8,6 @@
 #include "monster.h"
 
 Monster::Monster():
-		SimplePhysics(0, 500), LifePrinter('@', '0') {}
+		SimplePhysics(0, 500), Alive(1), LifePrinter('@', '0') {}
 
 
