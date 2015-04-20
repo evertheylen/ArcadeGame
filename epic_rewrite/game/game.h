@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include "../events/eventmanager.h"
+
 #include "entities/entity.h"
 #include "entities/gate.h"
 

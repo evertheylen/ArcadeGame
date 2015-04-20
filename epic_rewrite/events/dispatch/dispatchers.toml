@@ -10,6 +10,7 @@ header="""
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+#include <../collisionhandler.h>
 
 """
 
@@ -23,7 +24,8 @@ cppheader="""
 	inherits = "Dispatcher"
 	returns = "int"
 	args = ["Entity*", "Entity*"]
-	funcname = "5; // onCollision"
+	handler = "CollisionHandler"
+	funcname = "onCollision"
 	
 	rules = [
 		["Water*", "Entity*"],  # Highest priority

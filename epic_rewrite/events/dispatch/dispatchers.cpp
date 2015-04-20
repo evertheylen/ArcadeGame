@@ -10,6 +10,7 @@
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+#include <../collisionhandler.h>
 
 // Empty
 
@@ -32,10 +33,10 @@ int CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
     switch(rulenum) {
 
         case 0:
-            return 5; // onCollision(dynamic_cast<Water*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+            return onCollision(dynamic_cast<Water*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
 
         default:
-            return 5; // onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+            return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 

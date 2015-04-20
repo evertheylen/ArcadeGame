@@ -1,5 +1,5 @@
 #include "game.h"
-#include "../events/event.h"
+#include "../events/collisionmanager.h"
 #include "../entities/entity.h"
 #include "../entities/water.h"
 
@@ -25,10 +25,10 @@ void Game::main_loop() {
 	// Currently example code.
 	
 	Entity* e;
+	Entity* f;
 	
-	if (5==5) {
-		e = new Water(3,2);
-	}
+	e = new Water(3,2);
+	f = new Water(2,3);
 	
 	std::cout << e->to_char() << "\n";
 
@@ -41,6 +41,9 @@ void Game::main_loop() {
 	}*/		// TODO Ik kan momenteel niet checken op container omdat container geen aparte klasse meer is...
 			// Water is echter het enige dat een container kan zijn dus is da ni een beetje overbodig om dan een aparte klasse te maken?
 	
+	CollisionManager m(this);
+	m(e,f);
+
 	/*
 	auto e = Collision<Entity, Entity>(a,b);
 	em.push(e);
@@ -50,5 +53,6 @@ void Game::main_loop() {
 	*/
 	
 	delete e;
+	delete f;
 }
 

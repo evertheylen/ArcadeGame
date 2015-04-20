@@ -11,13 +11,15 @@
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+#include <../collisionhandler.h>
 
 
-class CollisionDispatch: public Dispatcher<int, Entity*, Entity*> {
+class CollisionDispatch: public Dispatcher<int, Entity*, Entity*>, public CollisionHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     
     int doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+
 };
 
 

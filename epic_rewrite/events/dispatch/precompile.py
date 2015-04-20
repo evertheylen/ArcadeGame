@@ -4,11 +4,12 @@ import sys
 import toml
 
 hbase = """
-class {name}: public {data[inherits]}<{data[returns]}, {arg_types}> {{
+class {name}: public {data[inherits]}<{data[returns]}, {arg_types}>, public {data[handler]} {{
 public:
     int getRule({parsed_args});
     
     {data[returns]} doRule(int rulenum, {parsed_args});
+
 }};
 
 

@@ -2,7 +2,6 @@
 #include <functional>
 
 #include "game/game.h"
-#include "events/eventmanager.h"
 #include "UI/UI.h"
 
 int main() {	

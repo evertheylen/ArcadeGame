@@ -1,10 +1,12 @@
 
+
 #ifndef _H_dispatch_base
 #define _H_dispatch_base
 
 template <typename ReturnT, typename... ArgBaseType>
 class Dispatcher {
 public:
+	
 	virtual ReturnT operator()(ArgBaseType... args) {
 		return doRule(getRule(args...), args...);
 	}
@@ -24,9 +26,9 @@ public:
 		int inverse_priority = this->getRule(arg2, arg1);
 		
 		if (normal_priority <= inverse_priority) {
-			this->doRule(normal_priority, arg1, arg2);
+			return this->doRule(normal_priority, arg1, arg2);
 		} else {
-			this->doRule(inverse_priority, arg2, arg1);
+			return this->doRule(inverse_priority, arg2, arg1);
 		}
 	}
 };
