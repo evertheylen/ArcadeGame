@@ -1,13 +1,8 @@
 
-#include "collisionmanager.h"
+#include "collisionhandler.h"
 #include "game.h"
 #include <iostream>
 
-// Handler
-
-void CollisionHandler::setGame(Game* _g) {
-	game = _g;
-}
 
 int CollisionHandler::onCollision(Entity* e, Entity* f) {
 	std::cout << "Entity collision\n";

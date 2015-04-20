@@ -1,18 +1,10 @@
 #include "game.h"
-#include "../events/collisionmanager.h"
+#include "../events/managers.h"
 #include "../entities/entity.h"
 #include "../entities/water.h"
 
 #include <iostream>
 #include <typeinfo>
-
-/*
-Game::Game(EventManager _em):
-		em(_em) {
-	em.set_game(this);
-}
-*/
-
 
 
 /*
@@ -21,7 +13,9 @@ void Game::event_log(std::string s) {
 }
 */
 
-//Game::Game() {}	//TODO REMOVE THIS SON OF A BITCH == this is temporary code, don't forget to remove it once it isn't necessary anymore.
+Game::Game():
+		collide(this), enter(this), leave(this) {}
+
 
 void Game::main_loop() {
 	// Currently example code.
@@ -43,8 +37,7 @@ void Game::main_loop() {
 	}*/		// TODO Ik kan momenteel niet checken op container omdat container geen aparte klasse meer is...
 			// Water is echter het enige dat een container kan zijn dus is da ni een beetje overbodig om dan een aparte klasse te maken?
 	
-	CollisionManager m(this);
-	m(e,f);
+	collide(e,f);
 
 	/*
 	auto e = Collision<Entity, Entity>(a,b);

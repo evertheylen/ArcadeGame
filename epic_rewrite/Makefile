@@ -1,7 +1,7 @@
 
 INCLUDES = $(shell find . -type d -exec echo "-I {}" \;)
 
-CXX        = clang++
+CXX        = g++
 CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)  $(shell find . -type d -exec echo "-I {}" \;)
 #CXXFLAGS   = -O3 -std=c++14
 

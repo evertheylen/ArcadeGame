@@ -10,15 +10,19 @@
 
 #include "entities/entity.h"
 #include "entities/gate.h"
-#include "../actions/actions.h"
+#include "events/managers.h"
+
 
 class Game {
 private:
-	//EventManager em;
+	CollisionManager collide;
+	IA_EnterManager enter;
+	IA_LeaveManager leave;
 
 public:
 
-// 	Game();
+ 	Game();
+	
 // 	//void event_log(std::string s);
 // 	typedef std::map<std::string, Entity*> Playermap;
 // 	typedef std::pair<std::string, Entity*> Playerpair;

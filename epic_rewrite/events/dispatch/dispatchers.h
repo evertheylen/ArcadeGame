@@ -11,14 +11,37 @@
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+
 #include <../collisionhandler.h>
+#include <../ia_enterhandler.h>
+#include <../ia_leavehandler.h>
 
 
-class CollisionDispatch: public Dispatcher<int, Entity*, Entity*>, public CollisionHandler {
+class CollisionDispatch: public SymmetricDoubleDispatcher<int, Entity*, Entity*>, public CollisionHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     
     int doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+
+};
+
+
+
+class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
+public:
+    int getRule(Entity* __Entity0, Entity* __Entity1);
+    
+    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+
+};
+
+
+
+class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
+public:
+    int getRule(Entity* __Entity0, Entity* __Entity1);
+    
+    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
 
 };
 

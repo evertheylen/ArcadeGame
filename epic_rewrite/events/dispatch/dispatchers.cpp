@@ -10,7 +10,10 @@
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+
 #include <../collisionhandler.h>
+#include <../ia_enterhandler.h>
+#include <../ia_leavehandler.h>
 
 // Empty
 
@@ -37,6 +40,42 @@ int CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
         default:
             return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+    }
+}
+
+
+
+
+// IA_EnterDispatch
+
+int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+
+    return -1;
+}
+    
+void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+    switch(rulenum) {
+
+        default:
+            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+    }
+}
+
+
+
+
+// IA_LeaveDispatch
+
+int IA_LeaveDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+
+    return -1;
+}
+    
+void IA_LeaveDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+    switch(rulenum) {
+
+        default:
+            return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 

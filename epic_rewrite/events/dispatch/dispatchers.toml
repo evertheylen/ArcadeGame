@@ -10,7 +10,10 @@ header="""
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+
 #include <../collisionhandler.h>
+#include <../ia_enterhandler.h>
+#include <../ia_leavehandler.h>
 
 """
 
@@ -21,7 +24,7 @@ cppheader="""
 """
 
 [CollisionDispatch]
-	inherits = "Dispatcher"
+	inherits = "SymmetricDoubleDispatcher"
 	returns = "int"
 	args = ["Entity*", "Entity*"]
 	handler = "CollisionHandler"
@@ -30,4 +33,26 @@ cppheader="""
 	rules = [
 		["Water*", "Entity*"],  # Highest priority
 		["Entity*", "Entity*"], # Default (lowest priority)
+	]
+
+[IA_EnterDispatch]
+	inherits = "Dispatcher"
+	returns = "void"
+	args = ["Entity*", "Entity*"]
+	handler = "IA_EnterHandler"
+	funcname = "onEnter"
+	
+	rules = [
+		["Entity*", "Entity*"]
+	]
+
+[IA_LeaveDispatch]
+	inherits = "Dispatcher"
+	returns = "void"
+	args = ["Entity*", "Entity*"]
+	handler = "IA_LeaveHandler"
+	funcname = "onLeave"
+	
+	rules = [
+		["Entity*", "Entity*"]
 	]
