@@ -5,7 +5,7 @@
  *      Author: stijn
  */
 
-#include "entity.h"
+#include "actor.h"
 
 #include "life/alive.h"
 #include "physics/simplephysics.h"
@@ -15,7 +15,7 @@
 #ifndef _H_Player
 #define _H_Player
 
-class Player: public None, public Alive, public SimplePhysics, public LifePrinter, public Entity {
+class Player: public Actor {
 public:
 	Player(unsigned int x, unsigned y);
 };
