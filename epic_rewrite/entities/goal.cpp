@@ -7,7 +7,6 @@
 
 #include "goal.h"
 
-Goal::Goal():
-		SimplePrint('X') {}
+Goal::Goal(unsigned int x, unsigned y): SimplePrint('X'), Small(x, y) {}
 
 

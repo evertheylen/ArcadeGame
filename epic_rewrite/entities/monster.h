@@ -17,7 +17,7 @@
 
 class Monster: public None, public Alive, public SimplePhysics, public LifePrinter, public Entity {
 public:
-	Monster();
+	Monster(unsigned int x, unsigned y);
 };
 
 #endif

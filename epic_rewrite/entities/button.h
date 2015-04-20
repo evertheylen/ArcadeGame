@@ -18,10 +18,10 @@
 
 class Button: public None, public Immutable, public Small, public SimplePrint, public Entity {
 public:
-	Button(Gate* g);		//TODO IA Die ervoor zorgt dat een poort opent! voorlopig nog NONE.
+	Button(unsigned int x, unsigned y, Gate* _g);		//TODO IA Die ervoor zorgt dat een poort opent! voorlopig nog NONE.
 
 private:
-	Gate* _g;
+	Gate* g;
 };
 
 #endif

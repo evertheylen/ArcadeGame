@@ -18,7 +18,7 @@
 
 class Barrel: public None, public Immutable, public SimplePhysics, public SimplePrint, public Entity {
 public:
-	Barrel();
+	Barrel(unsigned int x, unsigned int y);
 };
 
 #endif

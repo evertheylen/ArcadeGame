@@ -8,8 +8,8 @@
 
 #include "barrel.h"
 
-Barrel::Barrel():
-		SimplePhysics(100, 1000), SimplePrint('O') {}
+Barrel::Barrel(unsigned int x, unsigned y):
+		SimplePhysics(100, 1000, x, y), SimplePrint('O') {}
 
 
 

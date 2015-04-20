@@ -7,7 +7,7 @@
 
 #include "player.h"
 
-Player::Player():
-		SimplePhysics(0, 500), Alive(1), LifePrinter('Y', '0') {}
+Player::Player(unsigned int x, unsigned y):
+		SimplePhysics(0, 500, x, y), Alive(1), LifePrinter('Y', '0') {}
 
 

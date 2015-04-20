@@ -17,7 +17,7 @@
 
 class Gate: public None, public Immutable, public Small, public SimplePrint, public Entity {
 public:
-	Gate();		//TODO PHYSICS EN PRINTER AANPASSEN ZODAT ZE CORRECT WERKEN!
+	Gate(unsigned int x, unsigned y);		//TODO PHYSICS EN PRINTER AANPASSEN ZODAT ZE CORRECT WERKEN!
 };
 
 #endif

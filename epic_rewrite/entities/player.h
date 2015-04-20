@@ -17,7 +17,7 @@
 
 class Player: public None, public Alive, public SimplePhysics, public LifePrinter, public Entity {
 public:
-	Player();
+	Player(unsigned int x, unsigned y);
 };
 
 #endif

@@ -7,7 +7,7 @@
 
 #include "wall.h"
 
-Wall::Wall():
-		SimplePhysics(200, 10000), SimplePrint('#') {}
+Wall::Wall(unsigned int x, unsigned y):
+		SimplePhysics(200, 10000, x, y), SimplePrint('#') {}
 
 

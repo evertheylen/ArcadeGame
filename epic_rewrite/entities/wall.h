@@ -17,7 +17,7 @@
 
 class Wall: public None, public Immutable, public SimplePhysics, public SimplePrint, public Entity {
 public:
-	Wall();
+	Wall(unsigned int x, unsigned y);
 };
 
 #endif

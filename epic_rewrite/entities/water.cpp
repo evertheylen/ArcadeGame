@@ -1,6 +1,6 @@
 
 #include "water.h"
 
-Water::Water():
-		SimplePhysics(-100, 0), SimplePrint('~'), contained(nullptr) {}
+Water::Water(unsigned int x, unsigned y):
+		SimplePhysics(-100, 0, x, y), SimplePrint('~'), contained(nullptr) {}
 

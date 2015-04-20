@@ -17,7 +17,7 @@
 
 class Goal: public None, public Immutable, public Small, public SimplePrint, public Entity {
 public:
-	Goal();
+	Goal(unsigned int x, unsigned y);
 };
 
 #endif

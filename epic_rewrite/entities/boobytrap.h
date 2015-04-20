@@ -17,7 +17,7 @@
 
 class Boobytrap: public None, public Alive, public Small, public SimplePrint, public Entity {
 public:
-	Boobytrap();		//TODO Voorlopig is IA == none, dit moet worden dat het bij een collision 1 keer lethal is en dan zelf gedestruct wordt!
+	Boobytrap(unsigned int x, unsigned y);		//TODO Voorlopig is IA == none, dit moet worden dat het bij een collision 1 keer lethal is en dan zelf gedestruct wordt!
 	// Ik heb dit simpleprint ipv lifeprint gemaakt omdat boobytrap altijd onzichtbaar is!
 };
 

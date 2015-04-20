@@ -7,6 +7,6 @@
 
 #include "button.h"
 
-Button::Button(Gate* g): SimplePrint('.'), _g(g) {}
+Button::Button(unsigned int x, unsigned y, Gate* _g): SimplePrint('.'), g(_g), Small(x, y) {}
 
 

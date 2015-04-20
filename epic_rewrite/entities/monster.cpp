@@ -7,7 +7,7 @@
 
 #include "monster.h"
 
-Monster::Monster():
-		SimplePhysics(0, 500), Alive(1), LifePrinter('@', '0') {}
+Monster::Monster(unsigned int x, unsigned y):
+		SimplePhysics(0, 500, x, y), Alive(1), LifePrinter('@', '0') {}
 
 

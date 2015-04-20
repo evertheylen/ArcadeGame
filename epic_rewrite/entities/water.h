@@ -11,7 +11,7 @@
 
 class Water: public Lethal, public Immutable, public SimplePhysics, public SimplePrint, public Entity {
 public:
-	Water();
+	Water(unsigned int x, unsigned y);
 
 	Entity* contained;	//TODO Make a printer based on what is in contained.
 };

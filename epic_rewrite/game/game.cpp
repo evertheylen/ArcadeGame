@@ -2,7 +2,6 @@
 #include "../events/event.h"
 #include "../entities/entity.h"
 #include "../entities/water.h"
-#include "../entities/physics/container.h"
 
 #include <iostream>
 #include <typeinfo>
@@ -28,7 +27,7 @@ void Game::main_loop() {
 	Entity* e;
 	
 	if (5==5) {
-		e = new Water;
+		e = new Water(3,2);
 	}
 	
 	std::cout << e->to_char() << "\n";
@@ -37,9 +36,10 @@ void Game::main_loop() {
 		std::cout << "It's water!\n";
 	}
 	
-	if (Container* c = dynamic_cast<Container*>(e)) {
+	/*if (Container* c = dynamic_cast<Container*>(e)) {
 		std::cout << "It's a container!\n";
-	}
+	}*/		// TODO Ik kan momenteel niet checken op container omdat container geen aparte klasse meer is...
+			// Water is echter het enige dat een container kan zijn dus is da ni een beetje overbodig om dan een aparte klasse te maken?
 	
 	/*
 	auto e = Collision<Entity, Entity>(a,b);

@@ -7,6 +7,6 @@
 
 #include "gate.h"
 
-Gate::Gate(): SimplePrint('='){}
+Gate::Gate(unsigned int x, unsigned y): SimplePrint('='), Small(x, y){}
 
 
