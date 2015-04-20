@@ -3,15 +3,18 @@
 #define _H_Game
 
 #include <iostream>
+#include <string>
+#include <map>
 #include "../events/eventmanager.h"
+#include "entities/entity.h"
+#include "entities/gate.h"
 
 class Game {
 private:
 	//EventManager em;
 
 public:
-	//Game();
-	
+	// Game();
 	//void event_log(std::string s);
 	
 	void main_loop();
