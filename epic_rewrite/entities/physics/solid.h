@@ -7,7 +7,7 @@
 class Solid: public virtual Physics {
 public:
 	
-	SimplePhysics(int _height, int _weight);
+	Solid(int _height, int _weight);
 	
 	int get_height();
 	int get_weight();

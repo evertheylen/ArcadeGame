@@ -7,7 +7,7 @@
 
 #include "monster.h"
 
-Monster::Monster(unsigned int x, unsigned y):
-		Actor(x,y, '@') {}
+Monster::Monster(unsigned int x, unsigned y, std::string _name):
+		Actor(x,y,'@', _name) {}
 
 

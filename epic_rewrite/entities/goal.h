@@ -15,9 +15,11 @@
 #ifndef _H_Goal
 #define _H_Goal
 
-class Goal: public None, public Immutable, public Small, public SimplePrint, public Entity {
+class Goal: public Immutable, public Small, public SimplePrint, public Entity {
 public:
 	Goal(unsigned int x, unsigned y);
+	
+	// spec: InterActive
 };
 
 #endif

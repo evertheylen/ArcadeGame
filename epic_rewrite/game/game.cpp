@@ -25,7 +25,7 @@ void Game::main_loop() {
 	Entity* f;
 	
 	e = new Water(3,2);
-	f = new Player(4,5);
+	f = new Player(4,5,"Mario");
 	
 	std::cout << e->to_char() << "\n";
 

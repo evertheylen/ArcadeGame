@@ -7,7 +7,7 @@
 
 #include "player.h"
 
-Player::Player(unsigned int x, unsigned y):
-		Actor(x,y, 'Y') {}
+Player::Player(unsigned int x, unsigned y, std::string _name):
+		Actor(x,y,'Y',_name) {}
 
 

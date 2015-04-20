@@ -14,6 +14,7 @@ public:
 	Alive(int lives);
 
 	bool is_alive();
+	
 	void kill();
 
 private:

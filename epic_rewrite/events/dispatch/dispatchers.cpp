@@ -19,28 +19,18 @@
 // no specific cpp header.
 
 
-// CollisionDispatch
+// IA_EnterDispatch
 
-int CollisionDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
-    // Rule 0
-    Water* __r0_Water0 = dynamic_cast<Water*>(__Entity0);
-    Entity* __r0_Entity1 = dynamic_cast<Entity*>(__Entity1);
-    if (__r0_Water0 != nullptr && __r0_Entity1 != nullptr) {
-        return 0;
-    }
-
+int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
 
     return -1;
 }
     
-int CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
     switch(rulenum) {
 
-        case 0:
-            return onCollision(dynamic_cast<Water*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
-
         default:
-            return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 
@@ -74,6 +64,34 @@ void KillDispatch::doRule(int rulenum, Entity* __Entity0) {
 
 
 
+// CollisionDispatch
+
+int CollisionDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+    // Rule 0
+    Water* __r0_Water0 = dynamic_cast<Water*>(__Entity0);
+    Entity* __r0_Entity1 = dynamic_cast<Entity*>(__Entity1);
+    if (__r0_Water0 != nullptr && __r0_Entity1 != nullptr) {
+        return 0;
+    }
+
+
+    return -1;
+}
+    
+int CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+    switch(rulenum) {
+
+        case 0:
+            return onCollision(dynamic_cast<Water*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+
+        default:
+            return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+    }
+}
+
+
+
+
 // IA_LeaveDispatch
 
 int IA_LeaveDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
@@ -86,24 +104,6 @@ void IA_LeaveDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
         default:
             return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
-    }
-}
-
-
-
-
-// IA_EnterDispatch
-
-int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
-
-    return -1;
-}
-    
-void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
-    switch(rulenum) {
-
-        default:
-            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 

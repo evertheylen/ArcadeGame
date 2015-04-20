@@ -9,7 +9,7 @@
 #include "barrel.h"
 
 Barrel::Barrel(unsigned int x, unsigned y):
-		SimplePhysics(100, 1000, x, y), SimplePrint('O') {}
+		Solid(100, 1000), Entity(x, y), SimplePrint('O') {}
 
 
 

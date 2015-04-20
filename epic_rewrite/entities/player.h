@@ -6,18 +6,14 @@
  */
 
 #include "actor.h"
-
-#include "life/alive.h"
-#include "physics/simplephysics.h"
-#include "printer/lifeprinter.h"
-#include "ia/none.h"
+#include <string>
 
 #ifndef _H_Player
 #define _H_Player
 
 class Player: public Actor {
 public:
-	Player(unsigned int x, unsigned y);
+	Player(unsigned int x, unsigned y, std::string _name);
 };
 
 #endif

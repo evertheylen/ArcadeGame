@@ -7,6 +7,7 @@
 
 #include "boobytrap.h"
 
-Boobytrap::Boobytrap(unsigned int x, unsigned y): Alive(1), SimplePrint(0), Small(x, y) {}
+Boobytrap::Boobytrap(unsigned int x, unsigned y):
+		Alive(1), SimplePrint(0), Entity(x, y) {}
 
 

@@ -10,14 +10,8 @@
 #include <fstream>
 
 UI::UI() {
-	std::cout << "\n\nWelcome to the Wonderful ARCADE GAME of Evert and Stijn!\n\n\nThis interactive User Interface is able to do a few simple things:\n\n";
-	std::cout << "  *  Read an xml-file for the board\t\t[ type read_board <board_file> ]\n\n";
-	std::cout << "  *  Read an xml-file for the actions\t\t[ type read_actions <actions_file> ]\n\n";
-	std::cout << "  *  Simulate one or more of the actions\t[ type simulate <amount of moves> ]\tdefault=1\n\n";
-	std::cout << "  *  Write the current board to a file\t\t[ type write_board <output_file> ]\tdefault=HuidigSpeelveld.txt\n\n";
-	std::cout << "  *  Write the rest of the actions to a file\t[ type write_actions <output_file> ]\tdefault=ResterendeBewegingen.txt\n\n";
-	std::cout << "  *  Print out the simple graphical impression\t[ type show <output_stream> ]\t\tdefault=std::cout\n\n";
-	std::cout << "\n\tIf you ever want to see this documentation again please type --help.\n\n";
+	std::cout << "\nWelcome to the Wonderful ARCADE GAME of Evert and Stijn!";
+	help();
 
 	bool win = false;
 	bool board_loaded = false;
@@ -25,10 +19,10 @@ UI::UI() {
 	bool parsed = false;
 	Game g;
 	//TiXmlDocument doc_board, doc_moves;
-	while (win == false) {
+	while (true) {
 		std::string input;
 		std::getline(std::cin, input);
-		if (input == "--help") {
+		if (input == "help") {
 			help();
 			continue;
 		}
@@ -182,13 +176,13 @@ void UI::do_action(int amount) {
 }
 
 void UI::help() {
-	std::cout << "\n\nThis is the documentation for this User Interface.\n";
-	std::cout << "  *  Read an xml-file for the board\t\t[ type read_board <board_file> ]\n\n";
-	std::cout << "  *  Read an xml-file for the actions\t\t[ type read_actions <actions_file> ]\n\n";
-	std::cout << "  *  Simulate one or more of the actions\t[ type simulate <amount of moves> ]\tdefault=1\n\n";
-	std::cout << "  *  Write the current board to a file\t\t[ type write_board <output_file> ]\tdefault=HuidigSpeelveld.txt\n\n";
-	std::cout << "  *  Write the rest of the actions to a file\t[ type write_actions <output_file> ]\tdefault=ResterendeBewegingen.txt\n\n";
-	std::cout << "  *  Print out the simple graphical impression\t[ type show <output_stream> ]\t\tdefault=std::cout\n\n";
-	std::cout << "\n\tIf you ever want to see this documentation again please type --help.\n\n";
+	std::cout << "\nThis interactive User Interface is able to do a few simple things:\n";
+	std::cout << "  * Read an xml-file for the board\t\t[ read_board <board_file> ]\n";
+	std::cout << "  * Read an xml-file for the actions\t\t[ read_actions <actions_file> ]\n";
+	std::cout << "  * Simulate one or more of the actions\t\t[ simulate <amount of moves> ]\tdefault=1\n";
+	std::cout << "  * Write the current board to a file\t\t[ write_board <output_file> ]\tdefault=HuidigSpeelveld.txt\n";
+	std::cout << "  * Write the rest of the actions to a file\t[ write_actions <output_file> ]\tdefault=ResterendeBewegingen.txt\n";
+	std::cout << "  * Print out the simple graphical impression\t[ show <output_stream> ]\tdefault=std::cout\n";
+	std::cout << "\n\tIf you ever want to see this documentation again please type help.\n";
 }
 

@@ -91,7 +91,7 @@ public:
 	
 	bool doAction(Board* board);
 
-	//TODO properlyInitialized vinden we leuk!
+	// TODO properlyInitialized vinden we leuk!
 
 private:
 	Player* _player;

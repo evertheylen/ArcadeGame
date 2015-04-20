@@ -8,6 +8,6 @@
 #include "wall.h"
 
 Wall::Wall(unsigned int x, unsigned y):
-		SimplePhysics(200, 10000, x, y), SimplePrint('#') {}
+		Solid(200, 10000), Entity(x, y), SimplePrint('#') {}
 
 

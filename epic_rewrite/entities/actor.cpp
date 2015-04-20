@@ -7,8 +7,8 @@
 
 #include "actor.h"
 
-Actor::Actor(unsigned int x, unsigned y, char print):
-		SimplePhysics(0, 500, x, y), Alive(1), LifePrinter(print, '0') {}
+Actor::Actor(unsigned int x, unsigned y, char print, std::string _name):
+		Solid(0, 500), Entity(x, y), Alive(1), LifePrinter(print, 0), name(_name) {}
 
 
 

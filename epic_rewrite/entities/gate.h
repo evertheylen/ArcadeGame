@@ -15,9 +15,19 @@
 #ifndef _H_Gate
 #define _H_Gate
 
-class Gate: public None, public Immutable, public Small, public SimplePrint, public Entity {
+class Gate: public None, public Immutable, public Entity {
 public:
-	Gate(unsigned int x, unsigned y);		//TODO PHYSICS EN PRINTER AANPASSEN ZODAT ZE CORRECT WERKEN!
+	Gate(unsigned int x, unsigned y);
+	
+	// spec: Physics
+	int get_height();
+	int get_weight();
+	
+	// spec: Printer
+	char to_char();
+
+private:
+	bool open;
 };
 
 #endif

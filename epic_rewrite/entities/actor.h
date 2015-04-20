@@ -5,9 +5,11 @@
  *      Author: stijn
  */
 
+#include <string>
+
 #include "ia/none.h"
 #include "life/alive.h"
-#include "physics/simplephysics.h"
+#include "physics/solid.h"
 #include "printer/lifeprinter.h"
 #include "entity.h"
 
@@ -20,9 +22,12 @@
 
 // If you _do_ like MI and RTTI, buckle up, this is going to be quite a ride.
 
-class Actor: public None, public Alive, public SimplePhysics, public LifePrinter, public Entity {
+class Actor: public None, public Alive, public Solid, public LifePrinter, public Entity {
 public:
-	Actor(unsigned int x, unsigned y, char print);
+	Actor(unsigned int x, unsigned y, char print, std::string _name);
+	
+private:
+	std::string name;
 };
 
 #endif
