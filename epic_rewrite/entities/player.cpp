@@ -8,6 +8,6 @@
 #include "player.h"
 
 Player::Player(unsigned int x, unsigned y):
-		SimplePhysics(0, 500, x, y), Alive(1), LifePrinter('Y', '0') {}
+		Actor(x,y, 'Y') {}
 
 

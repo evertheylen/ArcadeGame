@@ -5,7 +5,7 @@
  *      Author: stijn
  */
 
-#include "entity.h"
+#include "actor.h"
 
 #include "life/alive.h"
 #include "physics/simplephysics.h"
@@ -15,7 +15,7 @@
 #ifndef _H_Monster
 #define _H_Monster
 
-class Monster: public None, public Alive, public SimplePhysics, public LifePrinter, public Entity {
+class Monster: public Actor {
 public:
 	Monster(unsigned int x, unsigned y);
 };
