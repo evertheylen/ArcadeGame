@@ -21,7 +21,7 @@ void Game::event_log(std::string s) {
 }
 */
 
-Game::Game() {}	//TODO REMOVE THIS SON OF A BITCH == this is temporary code, don't forget to remove it once it isn't necessary anymore.
+//Game::Game() {}	//TODO REMOVE THIS SON OF A BITCH == this is temporary code, don't forget to remove it once it isn't necessary anymore.
 
 void Game::main_loop() {
 	// Currently example code.
