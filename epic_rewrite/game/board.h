@@ -25,13 +25,17 @@ public:
 	
 	int location_height(unsigned int x, unsigned int y);
 	
-	Entity* leave_location(unsigned int x, unsigned int y);
+	Entity* leave_top_location(unsigned int x, unsigned int y);
 	
 	// returns whether the entity is fallen through (enter_location)
 	bool enter_top_location(Entity* e, unsigned int x, unsigned int y);
 	
 	void enter_location(Entity* e, unsigned int x, unsigned int y);
 	
+	char to_char(unsigned int x, unsigned int y);
+	
+	// For debugging only
+	void print_sideview(unsigned int x, unsigned int y);
 	
 private:
 	int location_size(unsigned int x, unsigned int y);

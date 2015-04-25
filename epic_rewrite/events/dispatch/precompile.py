@@ -18,9 +18,11 @@ public:
 cppbase = """
 // {name}
 
+#include <limits>
+
 int {name}::getRule({parsed_args}) {{
 {getrule_content}
-    return -1;
+    return std::numeric_limits<int>::max();
 }}
     
 {data[returns]} {name}::doRule(int rulenum, {parsed_args}) {{

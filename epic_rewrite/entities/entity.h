@@ -19,9 +19,6 @@ public:
 	
 	Entity(unsigned int _x, unsigned int _y);
 	
-	unsigned int get_x();
-	unsigned int get_y();
-	
 	virtual ~Entity() {}
 	
 	// x and y can be both getted and setted, so it's better to make them public anyways.

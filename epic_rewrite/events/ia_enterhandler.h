@@ -1,5 +1,9 @@
 #include "dispatch/dispatchers.h"
 #include "entity.h"
+#include "goal.h"
+#include "player.h"
+#include "actor.h"
+#include "boobytrap.h"
 
 #include "handler.h"
 
@@ -7,10 +11,14 @@
 #define _H_IA_EnterHandler
 
 class Game;
+class Button;
 
 class IA_EnterHandler: public Handler {
 public:
-	void onEnter(Entity* p, Entity* m);
+	void onEnter(Player* p, Goal* g);
+	void onEnter(Actor* a, Boobytrap* b);
+	void onEnter(Entity* e, Button* b);
+	void onEnter(Entity* e, Entity* f);
 };
 
 

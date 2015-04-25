@@ -6,8 +6,9 @@
  */
 
 #include "monster.h"
+#include "constants.h"
 
 Monster::Monster(unsigned int x, unsigned y, std::string _name):
-		Actor(x,y,'@', _name) {}
+		Actor(x, y, MONSTER_SYMBOL, _name) {}
 
 

@@ -1,5 +1,6 @@
 
 #include "water.h"
+#include "constants.h"
 
 Water::Water(unsigned int x, unsigned y):
 		Entity(x, y), contained(nullptr) {}
@@ -11,9 +12,9 @@ bool Water::is_filled() {
 
 char Water::to_char() {
 	if (contained == nullptr)
-		return '~';
+		return WATER_SYMBOL_EMPTY;
 	else
-		return ' ';
+		return WATER_SYMBOL_FULL;
 }
 
 
@@ -28,6 +29,6 @@ int Water::get_weight() {
 	if (contained == nullptr)
 		return WATER_WEIGHT;
 	else
-		return WATER_WEIGHT+contained->get_weight();
+		return WATER_WEIGHT + contained->get_weight();
 }
 

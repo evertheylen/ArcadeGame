@@ -1,12 +1,16 @@
 
 #include "board.h"
 #include "game.h"
-#include "water.h"
+#include "../entities/water.h"
+#include "../entities/physics/small.h"
+
+#include <iostream>
+#include <algorithm>
 
 Board::Board(unsigned int _width, unsigned int _height, Game* _game):
 		width(_width), height(_height), game(_game),
-		topdata(std::vector<std::vector<Entity*>>(width, std::vector<Entity*>(height, nullptr))),
-		data(std::vector<std::vector<std::vector<Entity*>>>(width, std::vector<std::vector<Entity*>>(height, std::vector<Entity*>(0))))
+		topdata(std::vector<std::vector<Entity*>>(_width, std::vector<Entity*>(_height, nullptr))),
+		data(std::vector<std::vector<std::vector<Entity*>>>(_width, std::vector<std::vector<Entity*>>(_height, std::vector<Entity*>(0))))
 		{}
 
 Entity* Board::get_top(unsigned int x, unsigned int y) {
@@ -52,7 +56,7 @@ Entity* Board::leave_top_location(unsigned int x, unsigned int y) {
 
 // returns whether the entity has fallen through
 bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
-	if (location_height() < 0) {
+	if (location_height(x,y) < 0) {
 		// fallthrough
 		enter_location(e, x, y);
 		return true;
@@ -88,32 +92,85 @@ void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 	// This function is basically the 'physics engine', together with enter_top_location
 	std::vector<Entity*>& loc = data.at(x).at(y); // less typing
 	
-	int current_pos = 0;
-	bool lowest_is_water = false;
+	unsigned int current_pos = 0;
+	Water* lowest_water = nullptr;
 	bool e_is_water = (dynamic_cast<Water*>(e) != nullptr);
 	
-	for (; current_pos < loc.size(); current_pos++) {
-		// More complex condition:
-		Entity* collidor = loc.at(current_pos);
-		if (!e_is_water && (Water* w = dynamic_cast<Water*>(collidor))) {
-			// We're colliding with water!
-			if (w->is_filled()) {
-				break; // it's water, but we shouldn't be here anyway
+	if (!e_is_water) {  // if e is water, just add it to the top by default.
+		for (; current_pos < loc.size(); current_pos++) {
+			Entity* collider = loc.at(current_pos);
+			
+			// When to continue: when the collider is water without being filled
+			
+			if (Water* w = dynamic_cast<Water*>(collider)) {
+				// We're colliding with water!
+				if (w->is_filled()) {
+					break; // it's water, but we shouldn't be here anyway
+				} else {
+					lowest_water = w;
+				}
 			} else {
-				lowest_is_water = true;
+				// If it's not water, it shouldn't keep falling down
+				break;
 			}
-		} else {
-			// If it's not water, it should never collide
-			break;
 		}
 	}
 	
 	// At this point, current_pos should be the location.
 	auto current_it = loc.begin() + current_pos;
 	
-	loc.insert(current_it, e);
+	// Even if water contains it, it may still IA_Enter the object below.
 	
+	// Water never contains Smalls, they should slip in between Waters
+	if (lowest_water != nullptr && !(dynamic_cast<Small*>(e) != nullptr)) {
+		game->collide(lowest_water, e);  // puts e in w, kills e
+		if (current_pos < loc.size()) {
+			game->enter(lowest_water, loc.at(current_pos));
+		}
+	} else {
+		loc.insert(current_it, e);
+		if (current_pos+1 < loc.size()) {
+			game->enter(e, loc.at(current_pos+1));
+		}
+	}
 }
+
+
+char Board::to_char(unsigned int x, unsigned int y) {
+	// 0 means invisibility (not '0')
+	Entity* top_entity = topdata.at(x).at(y);
+	if (top_entity != nullptr) {
+		char topc = top_entity->to_char();
+		if (topc != 0) {
+			return topc;
+		}
+	}
+	
+	char c = 0;
+	std::vector<Entity*> loc = data.at(x).at(y);
+	for (Entity* e: loc) {
+		c = e->to_char();
+		if (c != 0) {
+			return c;
+		}
+	}
+	
+	return ' ';
+}
+
+
+
+void Board::print_sideview(unsigned int x, unsigned int y) {
+	if (topdata.at(x).at(y) != nullptr)
+		std::cout << ">> " << topdata.at(x).at(y)->to_char() << "\n";
+	
+	for (Entity* e: data.at(x).at(y)) {
+		std::cout << ">  " << e->to_char() << "\n";
+	}
+	
+	std::cout << "\n";
+}
+
 
 
 // Private

@@ -6,8 +6,9 @@
  */
 
 #include "player.h"
+#include "constants.h"
 
 Player::Player(unsigned int x, unsigned y, std::string _name):
-		Actor(x,y,'Y',_name) {}
+		Actor(x, y, PLAYER_SYMBOL,_name) {}
 
 

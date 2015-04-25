@@ -6,8 +6,9 @@
  */
 
 #include "wall.h"
+#include "constants.h"
 
 Wall::Wall(unsigned int x, unsigned y):
-		Solid(200, 10000), Entity(x, y), SimplePrint('#') {}
+		Solid(WALL_HEIGHT, WALL_WEIGHT), Entity(x, y), SimplePrint(WALL_SYMBOL) {}
 
 

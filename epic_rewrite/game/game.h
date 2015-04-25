@@ -16,14 +16,17 @@
 
 class Game {
 private:
+	
+	Board board;
+	
+public:
+
+	Game();
+	
 	KillManager kill;
 	CollisionManager collide;
 	IA_EnterManager enter; // enter(top, bottom)
 	IA_LeaveManager leave; // leave(top, bottom)
-
-public:
-
-	Game();
 	
 // 	//void event_log(std::string s);
 // 	typedef std::map<std::string, Entity*> Playermap;
@@ -42,8 +45,6 @@ public:
 // 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	void main_loop();
-	
-	friend class Board;
 };
 
 #endif

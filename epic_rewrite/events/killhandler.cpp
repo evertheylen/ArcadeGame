@@ -9,6 +9,12 @@ void KillHandler::onKill(Entity* e) {
 
 void KillHandler::onKill(Player* p) {
 	p->kill();
-	std::cout << "Player died!\n";
+	std::cout << "Player died! End the game!\n";
+	// TODO End game!
 }
 
+void KillHandler::onKill(Alive* a) {
+	a->kill();
+}
+
+// Immutables don't care

@@ -6,7 +6,9 @@
  */
 
 #include "goal.h"
+#include "constants.h"
 
-Goal::Goal(unsigned int x, unsigned y): SimplePrint('X'), Entity(x, y) {}
+Goal::Goal(unsigned int x, unsigned y):
+		SimplePrint(GOAL_SYMBOL), Entity(x, y) {}
 
 

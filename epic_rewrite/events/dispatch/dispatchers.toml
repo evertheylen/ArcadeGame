@@ -10,6 +10,9 @@ header="""
 #include <dispatch_base.h>
 #include <water.h>
 #include <entity.h>
+#include <button.h>
+#include <goal.h>
+#include <boobytrap.h>
 
 #include <../collisionhandler.h>
 #include <../ia_enterhandler.h>
@@ -26,15 +29,18 @@ cppheader="""
 
 [CollisionDispatch]
 	inherits = "SymmetricDoubleDispatcher"
-	returns = "bool"  # returns if objects really can collide
+	returns = "void"
 	args = ["Entity*", "Entity*"]
 	handler = "CollisionHandler"
 	funcname = "onCollision"
 	
 	rules = [
-		["Water*", "Entity*"],  # Highest priority
-		["Entity*", "Entity*"], # Default (lowest priority) (returns false)
+		["Player*", "Monster*"],  # Highest priority (0)
+		["Water*", "Entity*"],  
+		["Entity*", "Entity*"],  # Default (INT_MAX)
 	]
+
+# IA is always: onWhatever(top, bottom)
 
 [IA_EnterDispatch]
 	inherits = "Dispatcher"
@@ -44,7 +50,10 @@ cppheader="""
 	funcname = "onEnter"
 	
 	rules = [
-		["Entity*", "Entity*"]
+		["Player*", "Goal*"],
+		["Actor*", "Boobytrap*"],
+		["Entity*", "Button*"],
+		["Entity*", "Entity*"],
 	]
 
 [IA_LeaveDispatch]
@@ -55,7 +64,8 @@ cppheader="""
 	funcname = "onLeave"
 	
 	rules = [
-		["Entity*", "Entity*"]
+		["Entity*", "Button*"],
+		["Entity*", "Entity*"],
 	]
 
 [KillDispatch]
@@ -67,5 +77,6 @@ cppheader="""
 	
 	rules = [
 		["Player*"],
+		["Alive*"],
 		["Entity*"],
 	]

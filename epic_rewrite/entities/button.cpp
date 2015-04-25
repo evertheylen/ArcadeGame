@@ -6,8 +6,9 @@
  */
 
 #include "button.h"
+#include "constants.h"
 
 Button::Button(unsigned int x, unsigned y, Gate* _gate):
-		SimplePrint('.'), gate(_gate), Entity(x, y) {}
+		SimplePrint(BUTTON_SYMBOL), gate(_gate), Entity(x, y) {}
 
 

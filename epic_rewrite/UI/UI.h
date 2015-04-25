@@ -10,13 +10,13 @@
 #include <iostream>
 #include "../game/game.h"
 
-#ifndef _UI
-#define _UI
+#ifndef _H_UI
+#define _H_UI
 
 class UI {
 public:
 
-	UI();
+	void run();
 
 	//void input_board(TiXmlDocument& board_doc); Overbodig, wordt enkel gebruikt vanuit constructor.
 	//void input_actions(TiXmlDocument& action_doc);

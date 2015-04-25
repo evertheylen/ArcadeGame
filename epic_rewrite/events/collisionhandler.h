@@ -9,12 +9,14 @@
 #define _H_CollisionHandler
 
 class Game;
+class Water;
 
 // Inherited by CollisionDispatcher
 class CollisionHandler: public Handler {
 public:
-	int onCollision(Player* p, Monster* m);
-	int onCollision(Entity* e, Entity* f);
+	void onCollision(Player* p, Monster* m);
+	void onCollision(Water* w, Entity* e);
+	void onCollision(Entity* e, Entity* f);
 };
 
 

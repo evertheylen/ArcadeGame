@@ -11,9 +11,6 @@
 
 class Water: public Lethal, public Immutable, public Entity {
 public:
-	static const int WATER_HEIGHT = -100;
-	static const int WATER_WEIGHT = 500;
-	
 	Water(unsigned int x, unsigned y);
 	
 	bool is_filled();

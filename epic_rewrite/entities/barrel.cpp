@@ -7,9 +7,10 @@
  */
 
 #include "barrel.h"
+#include "constants.h"
 
 Barrel::Barrel(unsigned int x, unsigned y):
-		Solid(100, 1000), Entity(x, y), SimplePrint('O') {}
+		Solid(BARREL_HEIGHT, BARREL_WEIGHT), Entity(x, y), SimplePrint(BARREL_SYMBOL) {}
 
 
 

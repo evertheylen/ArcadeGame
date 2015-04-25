@@ -25,9 +25,14 @@ public:
 	
 	// spec: Printer
 	char to_char();
+	
+	void open();
+	void close();
+	
+	bool is_open();
 
 private:
-	bool open;
+	bool _open;
 };
 
 #endif

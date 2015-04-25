@@ -6,8 +6,9 @@
  */
 
 #include "boobytrap.h"
+#include "constants.h"
 
 Boobytrap::Boobytrap(unsigned int x, unsigned y):
-		Alive(1), SimplePrint(0), Entity(x, y) {}
+		Alive(BOOBYTRAP_LIVES), SimplePrint(BOOBYTRAP_SYMBOL), Entity(x, y) {}
 
 

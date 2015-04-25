@@ -1,6 +1,7 @@
 #include "dispatch/dispatchers.h"
 #include "entity.h"
 #include "player.h"
+#include "alive.h"
 
 #include "handler.h"
 
@@ -11,8 +12,9 @@ class Game;
 
 class KillHandler: public Handler {
 public:
-	void onKill(Entity* e);
 	void onKill(Player* p);
+	void onKill(Alive* a);
+	void onKill(Entity* e);
 };
 
 

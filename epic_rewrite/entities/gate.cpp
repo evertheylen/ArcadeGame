@@ -6,25 +6,39 @@
  */
 
 #include "gate.h"
+#include "constants.h"
 
 Gate::Gate(unsigned int x, unsigned y):
-		Entity(x, y), open(false) {}
+		Entity(x, y), _open(false) {}
 
 int Gate::get_height() {
-	if (open)
-		return 0;
+	if (_open)
+		return GATE_HEIGHT_OPEN;
 	else
-		return 100;
+		return GATE_HEIGHT_CLOSED;
 }
 
 
 int Gate::get_weight() {
-	return 500;
+	return GATE_WEIGHT;
 }
 
 char Gate::to_char() {
-	if (open)
-		return 0;
+	if (_open)
+		return GATE_SYMBOL_OPEN;
 	else
-		return '=';
+		return GATE_SYMBOL_CLOSED;
 }
+
+void Gate::open() {
+	_open = true;
+}
+
+void Gate::close() {
+	_open = false;
+}
+
+bool Gate::is_open() {
+	return _open;
+}
+

@@ -9,7 +9,7 @@
 //#include "../../src/game/parser/game_parser.h"	TODO FIX THE PARSERS!
 #include <fstream>
 
-UI::UI() {
+void UI::run() {
 	std::cout << "\nWelcome to the Wonderful ARCADE GAME of Evert and Stijn!";
 	help();
 
