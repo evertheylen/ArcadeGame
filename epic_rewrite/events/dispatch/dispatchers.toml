@@ -26,14 +26,14 @@ cppheader="""
 
 [CollisionDispatch]
 	inherits = "SymmetricDoubleDispatcher"
-	returns = "int"
+	returns = "bool"  # returns if objects really can collide
 	args = ["Entity*", "Entity*"]
 	handler = "CollisionHandler"
 	funcname = "onCollision"
 	
 	rules = [
 		["Water*", "Entity*"],  # Highest priority
-		["Entity*", "Entity*"], # Default (lowest priority)
+		["Entity*", "Entity*"], # Default (lowest priority) (returns false)
 	]
 
 [IA_EnterDispatch]

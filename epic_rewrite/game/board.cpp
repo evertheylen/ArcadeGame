@@ -1,6 +1,7 @@
 
 #include "board.h"
 #include "game.h"
+#include "water.h"
 
 Board::Board(unsigned int _width, unsigned int _height, Game* _game):
 		width(_width), height(_height), game(_game),
@@ -31,7 +32,7 @@ int Board::location_height(unsigned int x, unsigned int y) {
 	return height;
 }
 
-Entity* Board::leave_location(unsigned int x, unsigned int y) {
+Entity* Board::leave_top_location(unsigned int x, unsigned int y) {
 	Entity* e = topdata.at(x).at(y);
 	if (e == nullptr) {
 		// nothing to be seen here, move along
@@ -43,6 +44,9 @@ Entity* Board::leave_location(unsigned int x, unsigned int y) {
 		game->leave(e, data.at(x).at(y).at(0));
 	}
 	
+	// Set this top location to nullptr, because we should leave it
+	topdata.at(x).at(y) = nullptr;
+	
 	return e;
 }
 
@@ -51,7 +55,7 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 	if (location_height() < 0) {
 		// fallthrough
 		enter_location(e, x, y);
-		return false;
+		return true;
 	} else {
 		// not a fallthrough, collide if needed
 		Entity* old_e = topdata.at(x).at(y);
@@ -79,10 +83,36 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 	}
 }
 
-void Board::enter_location(Entity * e, unsigned int x, unsigned int y) {
+void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
+	// TODO Interactive
 	// This function is basically the 'physics engine', together with enter_top_location
+	std::vector<Entity*>& loc = data.at(x).at(y); // less typing
+	
 	int current_pos = 0;
-	std::vector<Entity*>& loc = data.at(x).at(y);
+	bool lowest_is_water = false;
+	bool e_is_water = (dynamic_cast<Water*>(e) != nullptr);
+	
+	for (; current_pos < loc.size(); current_pos++) {
+		// More complex condition:
+		Entity* collidor = loc.at(current_pos);
+		if (!e_is_water && (Water* w = dynamic_cast<Water*>(collidor))) {
+			// We're colliding with water!
+			if (w->is_filled()) {
+				break; // it's water, but we shouldn't be here anyway
+			} else {
+				lowest_is_water = true;
+			}
+		} else {
+			// If it's not water, it should never collide
+			break;
+		}
+	}
+	
+	// At this point, current_pos should be the location.
+	auto current_it = loc.begin() + current_pos;
+	
+	loc.insert(current_it, e);
+	
 }
 
 

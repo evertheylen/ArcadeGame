@@ -4,6 +4,11 @@
 Water::Water(unsigned int x, unsigned y):
 		Entity(x, y), contained(nullptr) {}
 
+bool Water::is_filled() {
+	return contained != nullptr;
+}
+
+
 char Water::to_char() {
 	if (contained == nullptr)
 		return '~';
