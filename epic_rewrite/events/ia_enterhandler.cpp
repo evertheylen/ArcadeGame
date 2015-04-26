@@ -20,12 +20,12 @@ void IA_EnterHandler::onEnter(Entity* e, Button* b) {
 
 void IA_EnterHandler::onEnter(Player* p, Goal* g) {
 	// TODO Game should end
-	std::cout << "Game should end!!!!!!!!!!!!\n";
+	std::cout << "Player entered Goal\n";
+	game->ended = true;
 }
 
 void IA_EnterHandler::onEnter(Actor* a, Boobytrap* b) {
 	game->kill(a);
 	game->kill(b);
 }
-
 

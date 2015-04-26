@@ -20,12 +20,13 @@ void Game::event_log(std::string s) {
 
 Game::Game():
 		collide(this), enter(this), leave(this), kill(this),
-		board(10,10,this) {}
+		board(10,10,this), ended(false) {}
 
 
 void Game::main_loop() {
 	// Currently example code.
 	// TODO Check for this->ended
+	
 	
 	Entity* e;
 	Entity* f;
@@ -40,12 +41,8 @@ void Game::main_loop() {
 	}
 	
 	collide(e,f);
-	
 	kill(e);
 	kill(f);
-	
-	delete e;
-	delete f;
 	
 	std::cout << "\n-------------------------------------------------------\n\n";
 	
@@ -60,6 +57,7 @@ void Game::main_loop() {
 	
 	auto ga1 = new Gate(4,1);
 	auto bu1 = new Button(3, 1, ga1);
+	
 	
 	//board = Board(10,10,this);
 	board.enter_location(w1,1,1);

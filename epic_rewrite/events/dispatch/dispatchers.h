@@ -41,7 +41,7 @@ public:
 
 
 
-class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
+class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     
@@ -51,7 +51,7 @@ public:
 
 
 
-class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
+class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     

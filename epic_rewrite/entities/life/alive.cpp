@@ -16,7 +16,7 @@ bool Alive::is_alive() {
 }
 
 void Alive::kill() {
-	_lives --;
+	_lives--;
 }
 
 

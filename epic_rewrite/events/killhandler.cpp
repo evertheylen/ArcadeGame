@@ -1,5 +1,7 @@
 
 #include "killhandler.h"
+#include "game.h"
+
 #include <iostream>
 
 void KillHandler::onKill(Entity* e) {
@@ -10,7 +12,9 @@ void KillHandler::onKill(Entity* e) {
 void KillHandler::onKill(Player* p) {
 	p->kill();
 	std::cout << "Player died! End the game!\n";
-	// TODO End game!
+	if (game->players_alive() <= 0) {
+		game->ended = true;
+	}
 }
 
 void KillHandler::onKill(Alive* a) {

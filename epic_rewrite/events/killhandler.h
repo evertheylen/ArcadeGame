@@ -1,7 +1,7 @@
 #include "dispatch/dispatchers.h"
 #include "entity.h"
 #include "player.h"
-#include "alive.h"
+#include "life/alive.h"
 
 #include "handler.h"
 

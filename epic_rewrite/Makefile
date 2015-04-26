@@ -1,13 +1,24 @@
 
-INCLUDES = $(shell find . -type d -exec echo "-I {}" \;)
+INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I .
 
 CXX        = g++
-CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)  $(shell find . -type d -exec echo "-I {}" \;)
+CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)
 #CXXFLAGS   = -O3 -std=c++14
 
-OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))
+OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp' -not -path './lib/*' -and -not -path './tests/*')))
 SHELL      = /bin/bash
 TARGETS    = dispatch ArcadeMain ArcadeTests
+
+# include all .o files in lib/tinyxml
+TINYXMLLIBS = 	$(shell find ./lib/tinyxml -name '*.o')
+
+# gtest stuff. I don't understand it, I don't know whether I want to understand.
+#--- the location of the test includes; YOU MIGHT NEED TO MODIFY THESE
+TINCL =		./lib/gtest/include
+#--- the location of the test libraries; YOU MIGHT NEED TO MODIFY THESE
+TLIBPATH =	-L../lib/gtest/lib
+TLIBS =		-lgtest -lgtest_main
+
 
 .PHONY: all
 all: $(TARGETS)
@@ -22,13 +33,36 @@ ArcadeMain: $(OBJS) ArcadeMain.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
 	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeMain.o $(TINYXMLLIBS)
 
-# TODO ArcadeTests
+
+ArcadeTests: $(OBJS) ArcadeTests.o generate_filetests
+	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread
+
+
+.PHONY: generate_filetests
+generate_filetests:
+	python3 ./tests/generate_filetests.py
+
 
 %.o: %.cpp %.h
 	@echo -e "\033[1;38;2;0;255;255;48;2;0;0;0m --> Compiling $@ \033[0m"
 	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-	
+.PHONY: depend
+depend:
+	@echo -e "\033[1;38;2;0;255;180;48;2;0;0;0m --> Making depencies \033[0m"
+	cd lib;\
+	cd tinyxml;\
+	$(CXX)  $(CXXFLAGS) -c *.cpp;\
+	cd ..;\
+	cd gtest;\
+	rm CMakeCache.txt;\
+	cmake CMakeLists.txt;\
+	make;\
+	mkdir lib;\
+	mv libgtest.a lib/libgtest.a;\
+	mv libgtest_main.a lib/libgtest_main.a;
+
 .PHONY: echo
 echo:
 	@echo INCLUDES = $(INCLUDES)

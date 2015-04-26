@@ -9,8 +9,8 @@ TINYXMLLIBS = 	$(shell find ../lib/tinyxml -name '*.o')
 
 CXXFLAGS =	-g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all -I$(INCL) 
 
-# All .cpp files not in src itself
-OBJS =		$(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp')))
+# All .cpp files not in src itself, and not in lib
+OBJS =		$(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp' -not -path "./lib/*" )))
 
 TARGET =	ArcadeMain ArcadeTests
 
