@@ -25,6 +25,7 @@ Game::Game():
 
 void Game::main_loop() {
 	// Currently example code.
+	// TODO Check for this->ended
 	
 	Entity* e;
 	Entity* f;
@@ -86,10 +87,65 @@ void Game::main_loop() {
 	
 	auto pl1 = new Player(5,5,"Mario");
 	board.enter_top_location(pl1, 5, 5);
+
+	add_player(pl1);
+	std::cout << "players alive: " << players_alive() << "\n";
 	
 	auto m = new Monster(5,5,"Bowser");
 	board.enter_top_location(m, 5, 5);
 	
+	std::cout << "players alive: " << players_alive() << "\n";
+	
 	std::cout << board.to_char(5, 5) << "\n";
 }
 
+
+Player* Game::get_player(std::string name) {
+	auto p = playermap.find(name);
+	if (p == playermap.end()) {
+		return nullptr;
+	} else {
+		return p->second;
+	}
+}
+
+
+Monster* Game::get_monster(std::string name) {
+	auto m = monstermap.find(name);
+	if (m == monstermap.end()) {
+		return nullptr;
+	} else {
+		return m->second;
+	}
+}
+
+Actor* Game::get_actor(std::string name) {
+	// Players have priority if a player and monster have the same name
+	Player* p = get_player(name);
+	if (p != nullptr) {
+		return p;
+	} else {
+		return get_monster(name);
+	}
+}
+
+
+void Game::add_player(Player* p) {
+	playermap[p->get_name()] = p;
+}
+
+
+void Game::add_monster(Monster* m) {
+	monstermap[m->get_name()] = m;
+}
+
+
+int Game::players_alive() {
+	int alive = 0;
+	for (auto i: playermap) {
+		if (i.second->is_alive()) {
+			alive++;
+		}
+	}
+	return alive;
+}

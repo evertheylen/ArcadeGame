@@ -10,7 +10,15 @@
 
 #include "entities/entity.h"
 #include "entities/gate.h"
+#include "entities/actor.h"
+#include "entities/player.h"
+#include "entities/monster.h"
+
 #include "events/managers.h"
+#include "events/collisionhandler.h"
+#include "events/ia_enterhandler.h"
+#include "events/ia_leavehandler.h"
+#include "events/killhandler.h"
 
 #include "board.h"
 
@@ -18,15 +26,39 @@ class Game {
 private:
 	
 	Board board;
+	std::map<std::string, Player*> playermap;
+	std::map<std::string, Monster*> monstermap;
+	
+	std::map<std::string, Gate*> gatemap;
+	
+	std::vector<Entity*> graveyard;
+	
+	bool ended;
+	
+	friend class CollisionHandler;
+	friend class IA_EnterHandler;
+	friend class IA_LeaveHandler;
+	friend class KillHandler;
+	friend class Board;
 	
 public:
 
 	Game();
 	
-	KillManager kill;
-	CollisionManager collide;
-	IA_EnterManager enter; // enter(top, bottom)
-	IA_LeaveManager leave; // leave(top, bottom)
+	KillManager kill;         // kill(a)
+	CollisionManager collide; // collide(a, b) == collide(b, a)
+	IA_EnterManager enter;    // enter(top, bottom)
+	IA_LeaveManager leave;    // leave(top, bottom)
+	
+	Player* get_player(std::string name);
+	Monster* get_monster(std::string name);
+	Actor* get_actor(std::string name);
+	// Players have priority if a player and monster have the same name
+	
+	void add_player(Player* p);
+	void add_monster(Monster* m);
+	
+	int players_alive();
 	
 // 	//void event_log(std::string s);
 // 	typedef std::map<std::string, Entity*> Playermap;

@@ -21,26 +21,6 @@
 #include <../killhandler.h>
 
 
-class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
-public:
-    int getRule(Entity* __Entity0, Entity* __Entity1);
-    
-    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
-
-};
-
-
-
-class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
-public:
-    int getRule(Entity* __Entity0, Entity* __Entity1);
-    
-    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
-
-};
-
-
-
 class KillDispatch: public Dispatcher<void, Entity*>, public KillHandler {
 public:
     int getRule(Entity* __Entity0);
@@ -51,7 +31,27 @@ public:
 
 
 
+class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
+public:
+    int getRule(Entity* __Entity0, Entity* __Entity1);
+    
+    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+
+};
+
+
+
 class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
+public:
+    int getRule(Entity* __Entity0, Entity* __Entity1);
+    
+    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+
+};
+
+
+
+class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     

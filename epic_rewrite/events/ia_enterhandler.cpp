@@ -12,6 +12,9 @@ void IA_EnterHandler::onEnter(Entity* e, Entity* f) {
 void IA_EnterHandler::onEnter(Entity* e, Button* b) {
 	if (e->get_weight() > BUTTON_ACTIVATE_FROM) {
 		b->gate->open();
+		std::cout << "Gate open!\n";
+	} else {
+		std::cout << "Not opening Gate, not enough weight\n";
 	}
 }
 

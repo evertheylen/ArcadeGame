@@ -73,13 +73,13 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 			// So one has to dissappear. If one of the objects is dead, that one is deleted.
 			// Otherwise, the 'old' entity is deleted.
 			if (! old_e->is_alive()) {
-				delete old_e;
+				game->graveyard.push_back(old_e);
 				topdata.at(x).at(y) = e;
 			} else if (! e->is_alive()) {
-				delete e;
+				game->graveyard.push_back(e);
 			} else {
 				// the old one has to go, sadly.
-				delete old_e;
+				game->graveyard.push_back(old_e);
 				topdata.at(x).at(y) = e;
 			}
 		}
