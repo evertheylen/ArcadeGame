@@ -21,7 +21,7 @@ public:
 	
 	Action_parser() = default;
 
-	std::list<Action>* parse_action(TiXmlElement* move_elem, Game::Playermap& _players);
+	std::list<Action*>* parse_action(TiXmlElement* move_elem, Game::Playermap& _players);
 };
 
 #endif /* _Movement_parser */

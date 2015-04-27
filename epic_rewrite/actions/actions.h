@@ -21,6 +21,8 @@ public:
 	
 	friend std::ostream& operator<<(std::ostream& out, Direction& d);
 	
+	Direction::Dirk get_dir();
+
 	void move_to(unsigned int& x, unsigned int& y);
 	void move_from(unsigned int& x, unsigned int& y);
 	

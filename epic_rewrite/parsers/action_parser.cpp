@@ -6,6 +6,9 @@
  */
 
 #include "action_parser.h"
+#include "../actions/actions.h"
+#include "../actions/move.h"
+#include "../actions/attack.h"
 #include <string>
 #include "../../DesignByContract.h"
 
@@ -13,9 +16,9 @@ Action_parser::Action_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
 
-std::list<Action>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Playermap& _players) {
+std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Playermap& _players) {
 	// NOTE hier heb ik de nieuwe log() en fatal() nog niet gebruikt, omdat deze toch sterk zal moeten herschreven worden
-	std::list<Action>* mp = new std::list<Action>;
+	std::list<Action*>* mp = new std::list<Action*>;
 	if(move_elem == nullptr) fatal("Failed to load actions file: No root element.");
 	if(move_elem->ValueTStr() != "BEWEGINGEN" && move_elem->ValueTStr() != "ACTIES") fatal("Failed to load actions file: Wrong root element tag.");
 
@@ -38,8 +41,8 @@ std::list<Action>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Pl
 			std::string dir_s = readElement(current_el, "RICHTING");
 			//std::cout << dir_s << std::endl;
 			//std::cout << player_name << std::endl;
-			Direction dir = toDirection(dir_s);
-			if (dir == Direction::Dirk::no_dir) {
+			Direction dir (dir_s);
+			if (dir.get_dir() == Direction::Dirk::no_dir) {
 				//print("Invalid direction specified, skipping action in action file.");
 				current_el = current_el->NextSiblingElement();
 				continue;
@@ -51,9 +54,11 @@ std::list<Action>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Pl
 				continue;
 			}
 			if (current_el->ValueTStr() == "BEWEGING") {
-				mp->push_back(Action(dir, _players[player_name]));
-			} else {
-				// TODO Push on attack, TODO Make attack class;
+				Action* ap = new Move(_players[player_name], dir_s);
+				mp->push_back(ap);
+			} else if (current_el->ValueTStr() == "AANVAL") {
+				Action* ap = new Attack(_players[player_name], dir_s);
+				mp->push_back(ap);
 			}
 		} else {
 			std::string s = current_el->Value();

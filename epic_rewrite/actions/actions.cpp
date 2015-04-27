@@ -78,6 +78,9 @@ std::ostream& operator<<(std::ostream& out, Direction& d) {
 	return out;
 }
 
+Direction::Dirk Direction::get_dir() {
+	return dir;
+}
 
 // Action
 
