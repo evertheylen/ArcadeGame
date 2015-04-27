@@ -7,7 +7,7 @@
 
 #include "../../../lib/tinyxml/tinyxml.h"
 #include "../game/board.h"
-#include "../game.h"
+#include "../game/game.h"
 #include "actor_parser.h"
 #include "parser.h"
 #include "entity_parser.h"
