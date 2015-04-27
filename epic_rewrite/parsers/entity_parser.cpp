@@ -16,7 +16,7 @@
 #include "../entities/entity.h"
 #include "../entities/actor.h"
 #include "../entities/boobytrap.h"
-#include "../game.h"
+#include "../game/game.h"
 #include <iostream>
 #include <string>
 #include "entity_parser.h"
@@ -156,8 +156,9 @@ Entity* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatem
 			fatal("Name of gate cannot be empty", elem);
 			
 		std::string name = elem->FirstChildElement("ID")->GetText();
-		//std::cout << "  name is " << name << "\n";
-		gate = new Gate(x,y,name);
+		std::cout << "  name is " << name << "\n";
+		//gate = new Gate(x,y,name);	TODO
+		gate = new Gate(x, y);
 		_gates[name] = gate;
 
 		// TODO Fix the copy problem with gatemap and playermap!!!

@@ -23,7 +23,7 @@
 Board_parser::Board_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates) {
+Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates, Game::Monstermap& _monsters, Game* game) {
 	Actor_parser lp(_out, _filename);
 	Entity_parser tp(_out, _filename);
 
@@ -46,7 +46,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	}
 	
 	Board* bp;
-	bp = new Board(x, y);
+	bp = new Board(x, y, game);
 
 	while (current_el != NULL) {
 		try {
@@ -56,19 +56,19 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 
 			if (tagname == "NAAM") {
 				boardname = readElement(current_el);
-				(*bp).set_name(boardname);
+			//	(*bp).set_name(boardname); TODO
 			} else if (tagname == "SPELER" || tagname == "MONSTER") {
 				Actor* actor;
 				if (tagname == "SPELER") {
 					actor = lp.parse_player(current_el, _players, (*bp));
 				} else if (tagname == "MONSTER") {
-					actor = lp.parse_monster(current_el, _players, (*bp));
+					actor = lp.parse_monster(current_el, _monsters, (*bp));
 				}
 
-				unsigned int x = actor->get_x();
-				unsigned int y = actor->get_y();
+				unsigned int x = actor->x;
+				unsigned int y = actor->y;
 
-				(*bp)(x,y)->add_upper(actor);
+				bp->enter_top_location(actor, x, y);
 
 			} else if (tagname == "MUUR" || tagname == "WATER" || tagname == "POORT" || tagname == "DOEL" || tagname == "VALSTRIK" || tagname == "TON") {
 				Entity* entity;
@@ -84,11 +84,10 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 					entity = tp.parse_boobytrap(current_el, (*bp));
 				}
 				
-				unsigned int x = entity->get_x();
-				unsigned int y = entity->get_y();
+				unsigned int x = entity->x;
+				unsigned int y = entity->y;
 				
-				auto whatever = (*bp)(x,y);
-				whatever->add_stuff(entity);
+				bp->enter_top_location(entity, x, y);
 				
 			} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 				std::string s = current_el->Value();
@@ -111,10 +110,10 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 			if (current_el->ValueTStr() == "KNOP") {  // TODO Fix that buttons work.
 				Entity* entity = tp.parse_button(current_el, (*bp), _gates);
 
-				unsigned int x = entity->get_x();
-				unsigned int y = entity->get_y();
+				unsigned int x = entity->x;
+				unsigned int y = entity->y;
 
-				(*bp)(x,y)->add_stuff(entity);
+				bp->enter_top_location(entity, x, y);
 			}
 		} catch (ParseError& e) {
 			log(e.what(), board_elem);
@@ -122,7 +121,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		current_el = current_el->NextSiblingElement();
 	}
 	
-	std::cout << *bp << std::endl;
+//	std::cout << *bp << std::endl;
 
 	return bp;
 }

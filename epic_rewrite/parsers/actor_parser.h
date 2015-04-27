@@ -23,6 +23,6 @@ public:
 	Actor_parser() = default;
 
 	Actor* parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
-	Actor* parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board);
+	Actor* parse_monster(TiXmlElement* elem, Game::Monstermap& _monsters, Board& _board);
 };
 #endif /* _Actor_parser */

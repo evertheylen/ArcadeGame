@@ -1,6 +1,6 @@
 
-#ifndef _H_Attack
-#define _H_Attack
+#ifndef _H_Move
+#define _H_Move
 
 #include "actions.h"
 

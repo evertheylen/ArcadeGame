@@ -17,7 +17,7 @@
 
 class Gate: public None, public Immutable, public Entity {
 public:
-	Gate(unsigned int x, unsigned y);
+	Gate(unsigned int x, unsigned y);		// TODO Add functionality to link a button
 	
 	// spec: Physics
 	int get_height();

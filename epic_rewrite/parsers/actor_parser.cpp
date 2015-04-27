@@ -42,13 +42,13 @@ Actor* Actor_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players,
 		fatal(std::string("Player with name \'") + name + "\' already exists", elem);
 	}
 
-	Player* player = new Player(name, x, y);
+	Player* player = new Player(x, y, name);
 	_players[name] = player;
 
 	return player;
 }
 
-Actor* Actor_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
+Actor* Actor_parser::parse_monster(TiXmlElement* elem, Game::Monstermap& _monsters, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	if (elem == nullptr) fatal("Elem was null", elem);
 	std::string name;
@@ -76,12 +76,12 @@ Actor* Actor_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players
 		fatal("Invalid location for monster", elem);
 	}
 
-	if (_players.find(name) != _players.end()) {
+	if (_monsters.find(name) != _monsters.end()) {
 		fatal(std::string("Monster with name \'") + name + "\' already exists", elem);
 	}
 
-	Monster* monster = new Monster(name, x, y);
-	_players[name] = monster;
+	Monster* monster = new Monster(x, y, name);
+	_monsters[name] = monster;
 
 	return monster;
 }

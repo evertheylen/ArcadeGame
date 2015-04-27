@@ -9,7 +9,7 @@
 #include "../../../lib/tinyxml/tinyxml.h"
 #include "board_parser.h"
 #include "action_parser.h"
-#include "../game.h"
+#include "../game/game.h"
 #include <string>
 #include <iostream>
 
@@ -21,12 +21,14 @@ Game_parser::Game_parser(std::ostream* stream, std::string filename):
 
 Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem) {
 	log("Game parser started", board_elem);
+	Game* gp = new Game;
 	Game::Playermap players;
+	Game::Monstermap monsters;
 	Game::Gatemap gates;
 	Board_parser bp(_out, _filename);
 	Action_parser ap(_out, "not unknown");  // TODO second filename!!
 	
-	Board* board = bp.parse_board(board_elem, players, gates);
+	Board* board = bp.parse_board(board_elem, players, gates, monsters, gp);
 	std::list<Action*> actions = *ap.parse_action(move_elem, players);
 
 	//std::cout << *board << std::endl;
@@ -36,7 +38,7 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	}*/
 	//Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
 	//Game* gp = new Game(board, moves, players);
-	Game* gp = new Game;
+
 	return gp;
 }
 
