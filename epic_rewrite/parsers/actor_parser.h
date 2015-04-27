@@ -11,7 +11,7 @@
 #include "../entities/monster.h"
 #include "../entities/actor.h"
 #include "parser.h"
-#include "../game.h"
+#include "../game/game.h"
 
 #ifndef _Actor_parser
 #define _Actor_parser

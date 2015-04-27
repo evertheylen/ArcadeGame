@@ -6,7 +6,7 @@
  */
 
 #include "../../../lib/tinyxml/tinyxml.h"
-#include "../game.h"
+#include "../game/game.h"
 #include "parser.h"
 #include "board_parser.h"
 #include <iostream>

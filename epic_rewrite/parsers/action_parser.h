@@ -8,7 +8,7 @@
 #include "../../../lib/tinyxml/tinyxml.h"
 #include "../actions/actions.h"
 #include "parser.h"
-#include "../game.h"
+#include "../game/game.h"
 
 #include <list>
 

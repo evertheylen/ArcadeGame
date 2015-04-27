@@ -24,6 +24,11 @@
 
 class Game {
 public:
+	typedef std::map<std::string, Player*> Playermap;
+	typedef std::map<std::string, Monster*> Monstermap;
+
+	typedef std::map<std::string, Gate*> Gatemap;
+
 	Board board;
 
 	Game();
@@ -63,11 +68,10 @@ public:
 	
 private:
 	
-	std::map<std::string, Player*> playermap;
-	std::map<std::string, Monster*> monstermap;
-	
-	std::map<std::string, Gate*> gatemap;
-	
+	Playermap playermap;
+	Monstermap monstermap;
+	Gatemap gatemap;
+
 	std::vector<Entity*> graveyard;
 	
 	bool ended;

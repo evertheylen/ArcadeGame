@@ -17,7 +17,7 @@
 #include "../entities/entity.h"
 #include "../entities/actor.h"
 #include "../entities/boobytrap.h"
-#include "../game.h"
+#include "../game/game.h"
 #include <iostream>
 #include <string>
 
