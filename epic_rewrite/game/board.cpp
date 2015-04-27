@@ -88,7 +88,6 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 }
 
 void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
-	// TODO Interactive
 	// This function is basically the 'physics engine', together with enter_top_location
 	std::vector<Entity*>& loc = data.at(x).at(y); // less typing
 	
@@ -120,6 +119,8 @@ void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 	auto current_it = loc.begin() + current_pos;
 	
 	// Even if water contains it, it may still IA_Enter the object below.
+	
+	std::cout << "bakbkjdhjfs\n";
 	
 	// Water never contains Smalls, they should slip in between Waters
 	if (lowest_water != nullptr && !(dynamic_cast<Small*>(e) != nullptr)) {

@@ -1,5 +1,6 @@
 #include "game.h"
 #include "../events/managers.h"
+
 #include "../entities/entity.h"
 #include "../entities/water.h"
 #include "../entities/player.h"
@@ -7,6 +8,9 @@
 #include "../entities/barrel.h"
 #include "../entities/button.h"
 #include "../entities/gate.h"
+
+#include "../actions/move.h"
+#include "../actions/attack.h"
 
 #include <iostream>
 #include <typeinfo>
@@ -40,9 +44,13 @@ void Game::main_loop() {
 		std::cout << "It's water!\n";
 	}
 	
+	std::cout << "ended = " << ended << "\n";
 	collide(e,f);
+	std::cout << "ended = " << ended << "\n";
 	kill(e);
+	std::cout << "ended = " << ended << "\n";
 	kill(f);
+	std::cout << "ended = " << ended << "\n";
 	
 	std::cout << "\n-------------------------------------------------------\n\n";
 	
@@ -61,9 +69,13 @@ void Game::main_loop() {
 	
 	//board = Board(10,10,this);
 	board.enter_location(w1,1,1);
+	std::cout << "afte enter\n";
 	board.enter_location(w2,1,1);
+	std::cout << "afte enter\n";
 	board.enter_location(w3,1,1);
+	std::cout << "afte enter\n";
 	board.enter_location(w4,1,1);
+	std::cout << "afte enter\n";
 	board.print_sideview(1,1);
 	std::cout << "\n----------------\n\n";
 	
@@ -95,6 +107,12 @@ void Game::main_loop() {
 	std::cout << "players alive: " << players_alive() << "\n";
 	
 	std::cout << board.to_char(5, 5) << "\n";
+	
+	std::cout << "\n-------------------------------------------------------\n\n";
+	
+	std::string s = "OMHOOG";
+	Move mooove(pl1, s);
+// 	std::cout << mooove.dir << "\n";
 }
 
 

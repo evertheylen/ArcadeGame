@@ -14,6 +14,7 @@ void CollisionHandler::onCollision(Water* w, Entity* e) {
 	std::cout << "Something entered water!\n";
 	std::cout << game << "\n";
 	game->kill(e);
+	std::cout << " (After kill)\n";
 	w->contained = e;
 }
 

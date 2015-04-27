@@ -23,25 +23,8 @@
 #include "board.h"
 
 class Game {
-private:
-	
-	Board board;
-	std::map<std::string, Player*> playermap;
-	std::map<std::string, Monster*> monstermap;
-	
-	std::map<std::string, Gate*> gatemap;
-	
-	std::vector<Entity*> graveyard;
-	
-	bool ended;
-	
-	friend class CollisionHandler;
-	friend class IA_EnterHandler;
-	friend class IA_LeaveHandler;
-	friend class KillHandler;
-	friend class Board;
-	
 public:
+	Board board;
 
 	Game();
 	
@@ -77,6 +60,23 @@ public:
 // 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	void main_loop();
+	
+private:
+	
+	std::map<std::string, Player*> playermap;
+	std::map<std::string, Monster*> monstermap;
+	
+	std::map<std::string, Gate*> gatemap;
+	
+	std::vector<Entity*> graveyard;
+	
+	bool ended;
+	
+	friend class CollisionHandler;
+	friend class IA_EnterHandler;
+	friend class IA_LeaveHandler;
+	friend class KillHandler;
+	friend class Board;
 };
 
 #endif
