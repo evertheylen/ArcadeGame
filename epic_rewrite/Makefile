@@ -71,15 +71,12 @@ echo:
 
 .PHONY: clean
 clean:
-	@find . -name '*.o' -delete
-	@find . -name '*.d' -delete
-	@find . -name '*~'  -delete
+	@find . -name '*.o' -not -path "./lib/*" -delete
+	@find . -name '*.d' -not -path "./lib/*" -delete
+	@find . -name '*~'  -not -path "./lib/*" -delete
 	@echo -e "\033[1;38;2;250;170;0;48;2;0;0;0m --> Cleaned object files \033[0m"
 	
 .PHONY: cleann
-cleann:
-	@find . -name '*.o' -delete
-	@find . -name '*.d' -delete
-	@find . -name '*~'  -delete
+cleann: clean
 	@rm -f $(TARGET)
-	@echo -e "\033[1;38;2;255;170;0;48;2;0;0;0m --> Cleaned object files and executables \033[0m"
+	@echo -e "\033[1;38;2;255;170;0;48;2;0;0;0m --> Cleaned executables \033[0m"
