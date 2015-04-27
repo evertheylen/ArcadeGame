@@ -1,36 +1,30 @@
 /*
- * thing_parser.cpp
+ * Entity_parser.cpp
  *
  *  Created on: 28 Mar 2015
- *      Author: stijn
- */
-
-/*
- * obstacle_parser.cpp
- *
- *  Created on: 26 Mar 2015
  *      Author: stijn & evert
  */
 
-#include "thing_parser.h"
-#include "../board/barrel.h"
-#include "../board/wall.h"
-#include "../board/water.h"
-#include "../board/button.h"
-#include "../board/gate.h"
-#include "../board/goal.h"
-#include "../board/thing.h"
-#include "../board/movable_thing.h"
-#include "../board/living_thing.h"
-#include "../board/boobytrap.h"
+
+#include "../game/board.h"
+#include "../entities/barrel.h"
+#include "../entities/wall.h"
+#include "../entities/water.h"
+#include "../entities/button.h"
+#include "../entities/gate.h"
+#include "../entities/goal.h"
+#include "../entities/entity.h"
+#include "../entities/actor.h"
+#include "../entities/boobytrap.h"
 #include "../game.h"
 #include <iostream>
 #include <string>
+#include "entity_parser.h"
 
-Thing_parser::Thing_parser(std::ostream* stream, std::string filename):
+Entity_parser::Entity_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-Thing* Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
+Entity* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -57,7 +51,7 @@ Thing* Thing_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	return wall;
 }
 
-MovableThing* Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
+Entity* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -83,7 +77,7 @@ MovableThing* Thing_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	return barrel;
 }
 
-Thing* Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
+Entity* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -109,7 +103,7 @@ Thing* Thing_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	return water;
 }
 
-Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatemap _gates) {
+Entity* Entity_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatemap _gates) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -139,7 +133,7 @@ Thing* Thing_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatem
 }
 
 
-Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
+Entity* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -173,7 +167,7 @@ Thing* Thing_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap
 	return gate;
 }
 
-Thing* Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
+Entity* Entity_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -195,7 +189,7 @@ Thing* Thing_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 	return goal;
 }
 
-Thing* Thing_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
+Entity* Entity_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));

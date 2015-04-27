@@ -6,11 +6,11 @@
  */
 
 #include "../../../lib/tinyxml/tinyxml.h"
-#include "../board/board.h"
+#include "../game/board.h"
 #include "../game.h"
+#include "actor_parser.h"
 #include "parser.h"
-#include "living_thing_parser.h"
-#include "thing_parser.h"
+#include "entity_parser.h"
 
 #ifndef _Board_parser
 #define _Board_parser

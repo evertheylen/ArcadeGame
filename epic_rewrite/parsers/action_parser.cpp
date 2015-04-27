@@ -39,7 +39,7 @@ std::list<Action>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Pl
 			//std::cout << dir_s << std::endl;
 			//std::cout << player_name << std::endl;
 			Direction dir = toDirection(dir_s);
-			if (dir == Direction::no_dir) {
+			if (dir == Direction::Dirk::no_dir) {
 				//print("Invalid direction specified, skipping action in action file.");
 				current_el = current_el->NextSiblingElement();
 				continue;

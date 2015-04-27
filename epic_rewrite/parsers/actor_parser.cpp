@@ -4,13 +4,13 @@
  *  Created on: 26 Mar 2015
  *      Author: stijn & evert
  */
-#include "living_thing_parser.h"
+#include "actor_parser.h"
 
 
-Living_thing_parser::Living_thing_parser(std::ostream* stream, std::string filename): 
+Actor_parser::Actor_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-LivingThing* Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
+Actor* Actor_parser::parse_player(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	if (elem == nullptr) fatal("Elem was null", elem);
 	std::string name;
@@ -48,7 +48,7 @@ LivingThing* Living_thing_parser::parse_player(TiXmlElement* elem, Game::Playerm
 	return player;
 }
 
-LivingThing* Living_thing_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
+Actor* Actor_parser::parse_monster(TiXmlElement* elem, Game::Playermap& _players, Board& _board) {
 	TiXmlElement* current_el = elem->FirstChildElement();
 	if (elem == nullptr) fatal("Elem was null", elem);
 	std::string name;
