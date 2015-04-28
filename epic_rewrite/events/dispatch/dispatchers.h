@@ -31,11 +31,11 @@ public:
 
 
 
-class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
+class KillDispatch: public Dispatcher<void, Entity*>, public KillHandler {
 public:
-    int getRule(Entity* __Entity0, Entity* __Entity1);
+    int getRule(Entity* __Entity0);
     
-    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+    void doRule(int rulenum, Entity* __Entity0);
 
 };
 
@@ -51,11 +51,11 @@ public:
 
 
 
-class KillDispatch: public Dispatcher<void, Entity*>, public KillHandler {
+class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
 public:
-    int getRule(Entity* __Entity0);
+    int getRule(Entity* __Entity0, Entity* __Entity1);
     
-    void doRule(int rulenum, Entity* __Entity0);
+    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
 
 };
 

@@ -31,7 +31,7 @@ void Game::main_loop() {
 	// Currently example code.
 	// TODO Check for this->ended
 	
-	
+	/*
 	Entity* e;
 	Entity* f;
 	
@@ -113,6 +113,34 @@ void Game::main_loop() {
 	std::string s = "OMHOOG";
 	Move mooove(pl1, s);
 // 	std::cout << mooove.dir << "\n";
+
+	*/
+	
+	auto ba1 = new Barrel(2,1);
+	auto ba2 = new Barrel(2,2);
+	auto ba3 = new Barrel(2,3);
+	
+	auto ga1 = new Gate(4,1);
+	auto bu1 = new Button(3, 1, ga1);
+	
+	auto pl1 = new Player(5,5,"Mario");
+	auto m = new Monster(5,5,"Bowser");
+	
+	board.enter_top_location(pl1, 0, 2);
+	board.enter_top_location(ba1, 1, 2);
+	board.enter_top_location(m,   2, 2);
+	board.enter_top_location(ba2, 3, 2);
+	board.enter_top_location(ba3, 4, 2);
+	board.enter_location(bu1, 5, 2);
+	
+	std::string s = "RECHTS";
+	Move mooove(pl1, s);
+	
+	std::cout << ga1->is_open() << "\n";
+	
+	mooove.execute(this);
+	
+	std::cout << ga1->is_open() << "\n";
 }
 
 

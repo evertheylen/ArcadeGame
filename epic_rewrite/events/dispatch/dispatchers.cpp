@@ -72,22 +72,20 @@ void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
 
 
-// CollisionDispatch
+// KillDispatch
 
 #include <limits>
 
-int CollisionDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+int KillDispatch::getRule(Entity* __Entity0) {
     // Rule 0
     Player* __r0_Player0 = dynamic_cast<Player*>(__Entity0);
-    Monster* __r0_Monster1 = dynamic_cast<Monster*>(__Entity1);
-    if (__r0_Player0 != nullptr && __r0_Monster1 != nullptr) {
+    if (__r0_Player0 != nullptr) {
         return 0;
     }
 
     // Rule 1
-    Water* __r1_Water0 = dynamic_cast<Water*>(__Entity0);
-    Entity* __r1_Entity1 = dynamic_cast<Entity*>(__Entity1);
-    if (__r1_Water0 != nullptr && __r1_Entity1 != nullptr) {
+    Alive* __r1_Alive0 = dynamic_cast<Alive*>(__Entity0);
+    if (__r1_Alive0 != nullptr) {
         return 1;
     }
 
@@ -95,17 +93,17 @@ int CollisionDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
     return std::numeric_limits<int>::max();
 }
     
-void CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+void KillDispatch::doRule(int rulenum, Entity* __Entity0) {
     switch(rulenum) {
 
         case 0:
-            return onCollision(dynamic_cast<Player*>(__Entity0), dynamic_cast<Monster*>(__Entity1));
+            return onKill(dynamic_cast<Player*>(__Entity0));
 
         case 1:
-            return onCollision(dynamic_cast<Water*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+            return onKill(dynamic_cast<Alive*>(__Entity0));
 
         default:
-            return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+            return onKill(dynamic_cast<Entity*>(__Entity0));
     }
 }
 
@@ -142,20 +140,22 @@ void IA_LeaveDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
 
 
-// KillDispatch
+// CollisionDispatch
 
 #include <limits>
 
-int KillDispatch::getRule(Entity* __Entity0) {
+int CollisionDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
     // Rule 0
     Player* __r0_Player0 = dynamic_cast<Player*>(__Entity0);
-    if (__r0_Player0 != nullptr) {
+    Monster* __r0_Monster1 = dynamic_cast<Monster*>(__Entity1);
+    if (__r0_Player0 != nullptr && __r0_Monster1 != nullptr) {
         return 0;
     }
 
     // Rule 1
-    Alive* __r1_Alive0 = dynamic_cast<Alive*>(__Entity0);
-    if (__r1_Alive0 != nullptr) {
+    Water* __r1_Water0 = dynamic_cast<Water*>(__Entity0);
+    Entity* __r1_Entity1 = dynamic_cast<Entity*>(__Entity1);
+    if (__r1_Water0 != nullptr && __r1_Entity1 != nullptr) {
         return 1;
     }
 
@@ -163,17 +163,17 @@ int KillDispatch::getRule(Entity* __Entity0) {
     return std::numeric_limits<int>::max();
 }
     
-void KillDispatch::doRule(int rulenum, Entity* __Entity0) {
+void CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
     switch(rulenum) {
 
         case 0:
-            return onKill(dynamic_cast<Player*>(__Entity0));
+            return onCollision(dynamic_cast<Player*>(__Entity0), dynamic_cast<Monster*>(__Entity1));
 
         case 1:
-            return onKill(dynamic_cast<Alive*>(__Entity0));
+            return onCollision(dynamic_cast<Water*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
 
         default:
-            return onKill(dynamic_cast<Entity*>(__Entity0));
+            return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest
+# Install script for directory: /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

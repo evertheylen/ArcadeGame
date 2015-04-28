@@ -602,3 +602,71 @@ make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/
 make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
 
 
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec36846828/fast"
+make[1]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec36846828.dir/build.make CMakeFiles/cmTryCompileExec36846828.dir/build
+make[2]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec36846828.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec36846828.dir/CheckIncludeFiles.c.o   -c /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec36846828
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec36846828.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec36846828.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec36846828 -rdynamic 
+make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1771895475/fast"
+make[1]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1771895475.dir/build.make CMakeFiles/cmTryCompileExec1771895475.dir/build
+make[2]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1771895475.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1771895475.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1771895475
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1771895475.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1771895475.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1771895475 -rdynamic -lpthread 
+make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec1956844684/fast"
+make[1]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1956844684.dir/build.make CMakeFiles/cmTryCompileExec1956844684.dir/build
+make[2]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1956844684.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1956844684.dir/CheckIncludeFiles.c.o   -c /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1956844684
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1956844684.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1956844684.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1956844684 -rdynamic 
+make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3696376297/fast"
+make[1]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3696376297.dir/build.make CMakeFiles/cmTryCompileExec3696376297.dir/build
+make[2]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3696376297.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3696376297.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3696376297
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3696376297.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3696376297.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3696376297 -rdynamic -lpthread 
+make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/CMakeTmp'
+
+

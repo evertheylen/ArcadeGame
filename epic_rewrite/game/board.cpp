@@ -56,6 +56,9 @@ Entity* Board::leave_top_location(unsigned int x, unsigned int y) {
 
 // returns whether the entity has fallen through
 bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
+	e->x = x;
+	e->y = y;
+	std::cout << "Tadaa! " << e->to_char() << "\n";
 	if (location_height(x,y) < 0) {
 		// fallthrough
 		enter_location(e, x, y);
@@ -72,10 +75,7 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 			// Two entities can't be on the exact same (top) location at once.
 			// So one has to dissappear. If one of the objects is dead, that one is deleted.
 			// Otherwise, the 'old' entity is deleted.
-			if (! old_e->is_alive()) {
-				game->graveyard.push_back(old_e);
-				topdata.at(x).at(y) = e;
-			} else if (! e->is_alive()) {
+			if (! e->is_alive()) {
 				game->graveyard.push_back(e);
 			} else {
 				// the old one has to go, sadly.
@@ -83,6 +83,12 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 				topdata.at(x).at(y) = e;
 			}
 		}
+		
+		if (location_size(x,y) > 0) {
+			// We IA_Enter the entity below.
+			game->enter(e, data.at(x).at(y).at(0));
+		}
+		
 		return false;
 	}
 }
@@ -90,7 +96,6 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 	// This function is basically the 'physics engine', together with enter_top_location
 	std::vector<Entity*>& loc = data.at(x).at(y); // less typing
-	
 	unsigned int current_pos = 0;
 	Water* lowest_water = nullptr;
 	bool e_is_water = (dynamic_cast<Water*>(e) != nullptr);
@@ -119,8 +124,6 @@ void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 	auto current_it = loc.begin() + current_pos;
 	
 	// Even if water contains it, it may still IA_Enter the object below.
-	
-	std::cout << "bakbkjdhjfs\n";
 	
 	// Water never contains Smalls, they should slip in between Waters
 	if (lowest_water != nullptr && !(dynamic_cast<Small*>(e) != nullptr)) {
