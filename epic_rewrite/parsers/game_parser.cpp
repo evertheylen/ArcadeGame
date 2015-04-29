@@ -29,7 +29,7 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	Action_parser ap(_out, "not unknown");  // TODO second filename!!
 	
 	Board* board = bp.parse_board(board_elem, players, gates, monsters, gp);
-	std::list<Action*> actions = *ap.parse_action(move_elem, players);
+	std::list<Action*>* actions = ap.parse_action(move_elem, players);
 
 	//std::cout << *board << std::endl;
 	/*for (int i = 0; i != moves.size(); i++) {
@@ -37,7 +37,12 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 		moves.pop_front();
 	}*/
 	//Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
-	//Game* gp = new Game(board, moves, players);
+	//gp = new Game(board, actions, players, monsters, gates);
+	//gp->board = *board;
+	//gp->actions = *actions;
+	//gp->monstermap = monsters;
+	//gp->playermap = players;
+	//gp->gatemap = gates;
 
 	return gp;
 }

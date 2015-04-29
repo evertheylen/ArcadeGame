@@ -9,6 +9,7 @@
 #include <string>
 #include <iostream>
 #include "../game/game.h"
+#include "../game/board.h"
 
 #ifndef _H_UI
 #define _H_UI

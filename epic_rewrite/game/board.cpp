@@ -183,3 +183,11 @@ int Board::location_size(unsigned int x, unsigned int y) {
 	return data.at(x).at(y).size();
 }
 
+int Board::get_width() {
+	return width;
+}
+
+int Board::get_height() {
+	return height;
+}
+

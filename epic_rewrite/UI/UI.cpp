@@ -47,6 +47,11 @@ void UI::run() {
 				std::cout << "Parsing and initializing game!\n";
 				parsed = true;
 			}
+			doc_board.LoadFile("Level3.xml");
+			doc_moves.LoadFile("Level3Acties.xml");
+			Game_parser gp(&std::cerr, std::string(board_file));
+			Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
+			parsed = true;
 			continue;
 		}
 
@@ -156,6 +161,12 @@ void UI::write_board(std::string file, Game& g) {
 	std::ofstream output_file;
 	output_file.open(file.c_str());
 	output_file << "Hier verschijnt later het huidige speelveld!\n";
+	for (int i = 0; i < g.board.get_height(); i++) {
+		for (int j = 0; j < g.board.get_width(); j++) {
+			output_file << g.board.to_char(i,j);
+		}
+		output_file << std::endl;
+	}
 	//g.writeBoard(output_file);
 	output_file.close();
 }

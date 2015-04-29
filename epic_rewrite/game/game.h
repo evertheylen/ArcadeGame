@@ -21,6 +21,7 @@
 #include "events/killhandler.h"
 
 #include "board.h"
+#include "actions.h"
 
 class Game {
 public:
@@ -30,9 +31,12 @@ public:
 	typedef std::map<std::string, Gate*> Gatemap;
 
 	Board board;
+	std::list<Action*> actions;
 
 	Game();
 	
+	//Game (Board* board, std::list<Action*>* actions, Playermap players, Monstermap monsters, Gatemap gates);
+
 	KillManager kill;         // kill(a)
 	CollisionManager collide; // collide(a, b) == collide(b, a)
 	IA_EnterManager enter;    // enter(top, bottom)
@@ -67,13 +71,13 @@ public:
 	void main_loop();
 	
 private:
-	
+
 	Playermap playermap;
 	Monstermap monstermap;
 	Gatemap gatemap;
 
 	std::vector<Entity*> graveyard;
-	
+
 	bool ended;
 	
 	friend class CollisionHandler;

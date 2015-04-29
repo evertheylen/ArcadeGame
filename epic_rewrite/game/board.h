@@ -37,6 +37,10 @@ public:
 	// For debugging only
 	void print_sideview(unsigned int x, unsigned int y);
 	
+	int get_width();
+
+	int get_height();
+
 private:
 	int location_size(unsigned int x, unsigned int y);
 	

@@ -26,6 +26,14 @@ Game::Game():
 		collide(this), enter(this), leave(this), kill(this),
 		board(10,10,this), ended(false) {}
 
+/*Game::Game (Board* _board, std::list<Action*>* _actions, Playermap _players, Monstermap _monsters, Gatemap _gates):
+	collide(this), enter(this), leave(this), kill(this), ended(false), board(1,1,this) {
+	board = *_board;
+	actions = *_actions;
+	playermap = _players;
+	monstermap = _monsters;
+	gatemap = _gates;
+}*/
 
 void Game::main_loop() {
 	// Currently example code.
