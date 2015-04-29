@@ -17,7 +17,7 @@ void UI::run() {
 	bool board_loaded = false;
 	bool moves_loaded = false;
 	bool parsed = false;
-	Game g;
+	Game* g;
 	TiXmlDocument doc_board, doc_moves;
 	while (true) {
 		std::string input;
@@ -50,7 +50,7 @@ void UI::run() {
 			doc_board.LoadFile("Level3.xml");
 			doc_moves.LoadFile("Level3Acties.xml");
 			Game_parser gp(&std::cerr, std::string(board_file));
-			Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
+			g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 			parsed = true;
 			continue;
 		}
@@ -79,7 +79,7 @@ void UI::run() {
 
 		if (board_loaded && moves_loaded && !parsed) {
 			Game_parser gp(&std::cerr, std::string(board_file));
-			Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
+			g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 			std::cout << "Parsing and initializing game!\n";
 			parsed = true;
 		}
@@ -157,32 +157,33 @@ void UI::show(std::ostream& out) {
 	//out << g << std::endl;
 }
 
-void UI::write_board(std::string file, Game& g) {
+void UI::write_board(std::string file, Game* g) {
 	std::ofstream output_file;
 	output_file.open(file.c_str());
 	output_file << "Hier verschijnt later het huidige speelveld!\n";
-	for (int i = 0; i < g.board.get_height(); i++) {
-		for (int j = 0; j < g.board.get_width(); j++) {
-			output_file << g.board.to_char(i,j);
+	output_file << "Height: " << g->board.get_height() << " Width: " << g->board.get_width() << "\n";
+	for (int i = 0; i < g->board.get_height(); i++) {
+		for (int j = 0; j < g->board.get_width(); j++) {
+			output_file << g->board.to_char(i,j);
 		}
 		output_file << std::endl;
 	}
-	//g.writeBoard(output_file);
+	//g->writeBoard(output_file);
 	output_file.close();
 }
 
-void UI::write_actions(std::string file, Game& g) {
+void UI::write_actions(std::string file, Game* g) {
 	std::ofstream output_file;
 	output_file.open(file.c_str());
 	output_file << "Hier verschijnen later de resterende bewegingen!\n";
-	//g.writeActions(output_file);
+	//g->writeActions(output_file);
 	output_file.close();
 }
 
 void UI::do_action(int amount) {
 	for (int i = 0; i < amount; i++) {
 		std::cout << "Doing an action\n";
-		//g.do_action;
+		//g->do_action;
 	}
 }
 

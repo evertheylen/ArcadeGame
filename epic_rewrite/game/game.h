@@ -33,6 +33,10 @@ public:
 	Board board;
 	std::list<Action*> actions;
 
+	Playermap playermap;
+	Monstermap monstermap;
+	Gatemap gatemap;
+
 	Game();
 	
 	//Game (Board* board, std::list<Action*>* actions, Playermap players, Monstermap monsters, Gatemap gates);
@@ -71,10 +75,6 @@ public:
 	void main_loop();
 	
 private:
-
-	Playermap playermap;
-	Monstermap monstermap;
-	Gatemap gatemap;
 
 	std::vector<Entity*> graveyard;
 

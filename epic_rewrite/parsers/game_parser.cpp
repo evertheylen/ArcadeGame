@@ -38,11 +38,14 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	}*/
 	//Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
 	//gp = new Game(board, actions, players, monsters, gates);
-	//gp->board = *board;
-	//gp->actions = *actions;
-	//gp->monstermap = monsters;
-	//gp->playermap = players;
-	//gp->gatemap = gates;
+
+	gp->board = *board;
+	gp->actions = *actions;
+	gp->monstermap = monsters;
+	gp->playermap = players;
+	gp->gatemap = gates;
+
+	std::cout << "Height::" << gp->board.get_height() << std::endl;
 
 	return gp;
 }

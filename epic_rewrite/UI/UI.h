@@ -24,8 +24,8 @@ public:
 
 	void do_action(int amount = 1);
 
-	void write_board(std::string file, Game& g);
-	void write_actions(std::string file, Game& g);
+	void write_board(std::string file, Game* g);
+	void write_actions(std::string file, Game* g);
 
 	void show(std::ostream& out);
 
