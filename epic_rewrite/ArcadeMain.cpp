@@ -11,7 +11,7 @@ int main() {
 	g.main_loop();
 
 	UI user_interface;
-	//user_interface.run();
+	user_interface.run();
 }
 
 

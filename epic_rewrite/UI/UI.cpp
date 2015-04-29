@@ -6,7 +6,7 @@
  */
 
 #include "../UI/UI.h"
-//#include "../../src/game/parser/game_parser.h"	TODO FIX THE PARSERS!
+#include "../parsers/game_parser.h"
 #include <fstream>
 
 void UI::run() {
@@ -18,7 +18,7 @@ void UI::run() {
 	bool moves_loaded = false;
 	bool parsed = false;
 	Game g;
-	//TiXmlDocument doc_board, doc_moves;
+	TiXmlDocument doc_board, doc_moves;
 	while (true) {
 		std::string input;
 		std::getline(std::cin, input);
@@ -35,9 +35,9 @@ void UI::run() {
 				continue;
 			}
 			board_file = input.substr(compare_str.size()+1, input.size()).c_str();
-			//board_loaded = doc_board.LoadFile(board_file);
-			std::cout << "Reading board, automatically setting board_loaded = true\n";
-			board_loaded = true;
+			std::cout << " [Loading] " << board_file << std::endl;
+			board_loaded = doc_board.LoadFile(board_file);
+			//std::cout << "Reading board, automatically setting board_loaded = true\n";
 			if (!board_loaded) {
 				std::cerr << "Error loading board.\n";
 			}
@@ -57,9 +57,9 @@ void UI::run() {
 				continue;
 			}
 			const char* file = input.substr(compare_str.size()+1, input.size()).c_str();
+			std::cout << " [Loading] " << file << std::endl;
 			//moves_loaded = doc_moves.LoadFile(file);
-			std::cout << "Reading moves, automatically setting moves_loaded = true\n";
-			moves_loaded = true;
+			//std::cout << "Reading moves, automatically setting moves_loaded = true\n";
 			if (!moves_loaded) {
 				std::cerr << "Error loading moves.\n";
 			}
@@ -73,8 +73,8 @@ void UI::run() {
 		}
 
 		if (board_loaded && moves_loaded && !parsed) {
-			//Game_parser gp(&std::cerr, std::string(board_file));
-			//Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
+			Game_parser gp(&std::cerr, std::string(board_file));
+			Game g = *gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 			std::cout << "Parsing and initializing game!\n";
 			parsed = true;
 		}

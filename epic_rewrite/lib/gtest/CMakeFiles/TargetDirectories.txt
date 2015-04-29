@@ -1,2 +1,2 @@
-/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/gtest.dir
-/Bestanden/School/SE/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/gtest_main.dir
+/home/stijn/Documents/1Ba Informatica/Project Software Engineering/Arcade Game/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/gtest.dir
+/home/stijn/Documents/1Ba Informatica/Project Software Engineering/Arcade Game/ArcadeGame/epic_rewrite/lib/gtest/CMakeFiles/gtest_main.dir
