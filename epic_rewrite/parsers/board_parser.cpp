@@ -57,20 +57,22 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 			if (tagname == "NAAM") {
 				boardname = readElement(current_el);
 			//	(*bp).set_name(boardname); TODO
-			} else if (tagname == "SPELER" || tagname == "MONSTER") {
-				Actor* actor;
+			} else if (tagname == "SPELER" || tagname == "MONSTER" || tagname == "TON") {
+				Entity* entity;
 				if (tagname == "SPELER") {
-					actor = lp.parse_player(current_el, _players, (*bp));
+					entity = lp.parse_player(current_el, _players, (*bp));
 				} else if (tagname == "MONSTER") {
-					actor = lp.parse_monster(current_el, _monsters, (*bp));
+					entity = lp.parse_monster(current_el, _monsters, (*bp));
+				} else if (tagname == "TON") {
+					entity = tp.parse_barrel(current_el, (*bp));
 				}
 
-				unsigned int x = actor->x;
-				unsigned int y = actor->y;
+				unsigned int x = entity->x;
+				unsigned int y = entity->y;
 
-				bp->enter_top_location(actor, x, y);
+				bp->enter_top_location(entity, x, y);
 
-			} else if (tagname == "MUUR" || tagname == "WATER" || tagname == "POORT" || tagname == "DOEL" || tagname == "VALSTRIK" || tagname == "TON") {
+			} else if (tagname == "MUUR" || tagname == "WATER" || tagname == "POORT" || tagname == "DOEL" || tagname == "VALSTRIK") {
 				Entity* entity;
 				if (tagname == "MUUR") {
 					entity = tp.parse_wall(current_el, (*bp));
@@ -87,7 +89,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 				unsigned int x = entity->x;
 				unsigned int y = entity->y;
 				
-				bp->enter_top_location(entity, x, y);
+				bp->enter_location(entity, x, y);
 				
 			} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 				std::string s = current_el->Value();
@@ -113,7 +115,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 				unsigned int x = entity->x;
 				unsigned int y = entity->y;
 
-				bp->enter_top_location(entity, x, y);
+				bp->enter_location(entity, x, y);
 			}
 		} catch (ParseError& e) {
 			log(e.what(), board_elem);
