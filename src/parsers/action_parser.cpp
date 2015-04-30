@@ -16,7 +16,7 @@ Action_parser::Action_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
 
-std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game::Playermap& _players) {
+std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game* g) {
 	// NOTE hier heb ik de nieuwe log() en fatal() nog niet gebruikt, omdat deze toch sterk zal moeten herschreven worden
 	std::list<Action*>* mp = new std::list<Action*>;
 	if(move_elem == nullptr) fatal("Failed to load actions file: No root element.");
@@ -33,7 +33,7 @@ std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game::P
 				if (current_el_2->ValueTStr() != "ID"
 						&& current_el_2->ValueTStr() != "RICHTING") {
 					std::string s = current_el->Value();
-					//print(s + " not defined.");
+					log("Tag not defined", current_el_2);
 				}
 				current_el_2 = current_el_2->NextSiblingElement();
 			}
@@ -43,21 +43,25 @@ std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game::P
 			//std::cout << player_name << std::endl;
 			Direction dir (dir_s);
 			if (dir.get_dir() == Direction::Dirk::no_dir) {
-				//print("Invalid direction specified, skipping action in action file.");
+				log("Invalid direction specified", current_el);
 				current_el = current_el->NextSiblingElement();
 				continue;
+			}
+			if (g->get_actor(player_name) == nullptr) {
+				log("Actor doesn't exist", current_el);
 			}
 
-			if (_players.find(player_name) == _players.end()) {
-				//print("Invalid player specified, skipping action in action file.");
-				current_el = current_el->NextSiblingElement();
-				continue;
-			}
 			if (current_el->ValueTStr() == "BEWEGING") {
-				Action* ap = new Move(_players[player_name], dir_s);
+				std::cout << "Parsing " << player_name << " move to " << dir_s << std::endl;
+				Action* ap = new Move(g->get_actor(player_name), dir_s);
 				mp->push_back(ap);
 			} else if (current_el->ValueTStr() == "AANVAL") {
-				Action* ap = new Attack(_players[player_name], dir_s);
+				std::cout << "Parsing " << player_name << " attack to " << dir_s << std::endl;
+
+				if (g->get_player(player_name) == nullptr) {
+					log("error attack moet met player", current_el);
+				}
+				Action* ap = new Attack(g->get_player(player_name), dir_s);
 				mp->push_back(ap);
 			}
 		} else {

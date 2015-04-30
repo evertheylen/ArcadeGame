@@ -3,7 +3,7 @@
     <NAAM>
         Level 3 (With a monster)
     </NAAM>
-    <SPELER x="5" y="1">
+    <SPELER x="2" y="8">
         <NAAM>
             Chip
         </NAAM>
@@ -26,7 +26,7 @@
     <MUUR beweegbaar="false" x="8" y="9"/>
     <MUUR beweegbaar="false" x="9" y="9"/>
     <MUUR beweegbaar="false" x="0" y="8"/>
-    <MONSTER x="2" y="8">
+    <MONSTER x="5" y="1">
         <ID>
             monster1
         </ID>

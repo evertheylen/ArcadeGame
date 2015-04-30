@@ -56,6 +56,9 @@ Entity* Board::leave_top_location(unsigned int x, unsigned int y) {
 
 // returns whether the entity has fallen through
 bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
+	if (e == nullptr) {
+		return false;
+	}
 	e->x = x;
 	e->y = y;
 	std::cout << "Tadaa! " << e->to_char() << "\n";

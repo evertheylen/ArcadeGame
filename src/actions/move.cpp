@@ -13,12 +13,12 @@ Move::Move(Actor* _actor, std::string& dirname):
 void Move::execute(Game* g) {
 	unsigned int start_x = actor->x;
 	unsigned int start_y = actor->y;
-	
+	std::cout << "Moving " << actor->get_name() << " from " << start_x << ", " << start_y;
 	unsigned int next_x = start_x;
 	unsigned int next_y = start_y;
 	dir.move_to(next_x, next_y);
 	// check for valid next location
-	
+	std::cout << " to " << next_x << ", " << next_y << std::endl;
 	if (!g->board.valid_location(next_x, next_y) || (g->board.location_height(next_x, next_y) > 0)) {
 		std::cout << "Error: not a valid location or height (next)\n";
 		return;
@@ -44,9 +44,9 @@ void Move::execute(Game* g) {
 		while (true) {
 			dir.move_to(current_x, current_y);
 			dir.move_to(next_x, next_y);
-			
-			total_weight += g->board.get_top(current_x, current_y)->get_weight();
-			
+			if (g->board.get_top(current_x, current_y) != nullptr) {
+				total_weight += g->board.get_top(current_x, current_y)->get_weight();
+			}
 			// valid end location is empty, not out of board, not height > 0
 			if ( !(g->board.valid_location(next_x, next_y)) || (g->board.location_height(next_x, next_y) > 0)) {
 				// error: we can't push...

@@ -22,7 +22,7 @@ public:
 	//void input_board(TiXmlDocument& board_doc); Overbodig, wordt enkel gebruikt vanuit constructor.
 	//void input_actions(TiXmlDocument& action_doc);
 
-	void do_action(int amount = 1);
+	void do_action(Game* g, int amount = 1);
 
 	void write_board(std::string file, Game* g);
 	void write_actions(std::string file, Game* g);

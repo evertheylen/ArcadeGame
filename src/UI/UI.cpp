@@ -95,7 +95,7 @@ void UI::run() {
 				if (amount == 0) amount = 1;
 			}
 			if (parsed) {
-				do_action(amount);
+				do_action(g, amount);
 				continue;
 			} else {
 				std::cout << "Game is not initialized or parsed!\n";
@@ -162,9 +162,9 @@ void UI::write_board(std::string file, Game* g) {
 	output_file.open(file.c_str());
 	output_file << "Hier verschijnt later het huidige speelveld!\n";
 	output_file << "Height: " << g->board.get_height() << " Width: " << g->board.get_width() << "\n";
-	for (int i = 0; i < g->board.get_height(); i++) {
+	for (int i = g->board.get_height()-1; i>=0; i--) {
 		for (int j = 0; j < g->board.get_width(); j++) {
-			output_file << g->board.to_char(i,j);
+			output_file << g->board.to_char(j,i);
 		}
 		output_file << std::endl;
 	}
@@ -180,10 +180,11 @@ void UI::write_actions(std::string file, Game* g) {
 	output_file.close();
 }
 
-void UI::do_action(int amount) {
+void UI::do_action(Game* g, int amount) {
 	for (int i = 0; i < amount; i++) {
 		std::cout << "Doing an action\n";
-		//g->do_action;
+		g->actions.front()->execute(g);
+		g->actions.pop_front();
 	}
 }
 
