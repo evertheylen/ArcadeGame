@@ -1,5 +1,9 @@
+#!/usr/bin/python3
+
 import os
 import shutil
+
+# TODO review!
 
 for r,d,files in os.walk("./"):
     for f in files:

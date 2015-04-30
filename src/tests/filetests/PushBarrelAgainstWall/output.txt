@@ -1,6 +1,0 @@
-About to do all 10 movements.
-
-Error: Can't move infinite weight (like a wall), skipping this movement.
-Error: Can't move infinite weight (like a wall), skipping this movement.
-Error: Can't move infinite weight (like a wall), skipping this movement.
-Done.

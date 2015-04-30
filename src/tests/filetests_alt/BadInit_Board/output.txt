@@ -1,2 +1,0 @@
-Error: Invalid board dimensions.
-Something went wrong while parsing the xml files.

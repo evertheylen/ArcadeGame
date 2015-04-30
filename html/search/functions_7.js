@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['obstacle',['Obstacle',['../class_obstacle.html#aba366c218c8cdb528af666a561d98909',1,'Obstacle::Obstacle(unsigned int x, unsigned int y, int weight)'],['../class_obstacle.html#acf62e31a4894c207e8184c76b342d166',1,'Obstacle::Obstacle(const Obstacle &amp;that)']]],
-  ['operator_28_29',['operator()',['../class_board.html#a140f94b0e5f13a2acf89a2b8300801b2',1,'Board']]],
-  ['operator_3c_3c',['operator&lt;&lt;',['../board_8cpp.html#a4ad05cc23dac18ece951bb93630299ae',1,'operator&lt;&lt;(std::ostream &amp;out, Board &amp;board):&#160;board.cpp'],['../thing_8cpp.html#a3f817e7a00d51580001cc4611a4073f3',1,'operator&lt;&lt;(std::ostream &amp;out, Thing &amp;thing):&#160;thing.cpp'],['../movement_8cpp.html#af5e8097e0c991d0c3bd9fc3f76f6d3e0',1,'operator&lt;&lt;(std::ostream &amp;out, Movement &amp;move):&#160;movement.cpp']]],
-  ['operator_3d',['operator=',['../class_barrel.html#a2e98fbbe6790f24321bf420942f85c92',1,'Barrel::operator=()'],['../class_board.html#aaca321caea90c96811f055eef6a6d846',1,'Board::operator=()'],['../class_obstacle.html#ad1bc1cece41247b25716d194fef88109',1,'Obstacle::operator=()'],['../class_player.html#ac0aa6715186d05a228ee87b87c60c90d',1,'Player::operator=()'],['../class_thing.html#a782647fb68a138cbe33a1ccddc744f2e',1,'Thing::operator=()'],['../class_wall.html#aed67fc9794a624e92ec1704998cc12de',1,'Wall::operator=()'],['../class_game.html#a59b815bf509fbb1e09b8b249d7cdc924',1,'Game::operator=()'],['../class_movement.html#af59c34e73579f41364f7f9ce5bc9e525',1,'Movement::operator=()']]],
-  ['overflow',['overflow',['../class_null_buffer.html#a2662257258917376b99a0d656382a98f',1,'NullBuffer::overflow(int c)'],['../class_null_buffer.html#a2662257258917376b99a0d656382a98f',1,'NullBuffer::overflow(int c)']]]
-];

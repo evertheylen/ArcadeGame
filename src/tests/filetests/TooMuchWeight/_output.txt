@@ -1,5 +1,0 @@
-About to do all 12 movements.
-
-Error: Player tries to move too much weight. Skipping this movement.
-Error: Player tries to move too much weight. Skipping this movement.
-Done.

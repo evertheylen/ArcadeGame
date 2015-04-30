@@ -1,4 +1,0 @@
-Error: Invalid direction specified, skipping movement in movement file.
-About to do all 2 movements.
-
-Done.

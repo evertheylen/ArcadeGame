@@ -1,183 +1,203 @@
-#include <vector>
-#include <algorithm>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include <string>
-#include <map>
-#include <stdexcept>
-#include <cstdlib>
-
-#include "../../lib/tinyxml/tinyxml.h"
 #include "game.h"
-#include "../DesignByContract.h"
-#include "board/barrel.h"
-#include "board/wall.h"
-#include "actions/actions.h"
+#include "../events/managers.h"
 
-// copy constructor
-Game::Game(const Game& that):
-	_board(that._board),
-	_actions(),
-	_players() {
-	_initCheck = this;
-	ENSURE(properlyInitialized(), "Copy constructor must end...");
+#include "../entities/entity.h"
+#include "../entities/water.h"
+#include "../entities/player.h"
+#include "../entities/monster.h"
+#include "../entities/barrel.h"
+#include "../entities/button.h"
+#include "../entities/gate.h"
+
+#include "../actions/move.h"
+#include "../actions/attack.h"
+
+#include <iostream>
+#include <typeinfo>
+
+
+/*
+void Game::event_log(std::string s) {
+	em.log(s);
+}
+*/
+
+Game::Game():
+		collide(this), enter(this), leave(this), kill(this),
+		board(10,10,this), ended(false) {}
+
+/*Game::Game (Board* _board, std::list<Action*>* _actions, Playermap _players, Monstermap _monsters, Gatemap _gates):
+	collide(this), enter(this), leave(this), kill(this), ended(false), board(1,1,this) {
+	board = *_board;
+	actions = *_actions;
+	playermap = _players;
+	monstermap = _monsters;
+	gatemap = _gates;
+}*/
+
+void Game::main_loop() {
+	// Currently example code.
+	// TODO Check for this->ended
+	
+	/*
+	Entity* e;
+	Entity* f;
+	
+	e = new Water(3,2);
+	f = new Player(4,5,"Mario");
+	
+	std::cout << e->to_char() << "\n";
+
+	if (Water* w = dynamic_cast<Water*>(e)) {
+		std::cout << "It's water!\n";
+	}
+	
+	std::cout << "ended = " << ended << "\n";
+	collide(e,f);
+	std::cout << "ended = " << ended << "\n";
+	kill(e);
+	std::cout << "ended = " << ended << "\n";
+	kill(f);
+	std::cout << "ended = " << ended << "\n";
+	
+	std::cout << "\n-------------------------------------------------------\n\n";
+	
+	auto w1 = new Water(1,1);
+	auto w2 = new Water(1,2);
+	auto w3 = new Water(1,3);
+	auto w4 = new Water(1,4);
+	
+	auto ba1 = new Barrel(2,1);
+	auto ba2 = new Barrel(2,2);
+	auto ba3 = new Barrel(2,3);
+	
+	auto ga1 = new Gate(4,1);
+	auto bu1 = new Button(3, 1, ga1);
+	
+	
+	//board = Board(10,10,this);
+	board.enter_location(w1,1,1);
+	std::cout << "afte enter\n";
+	board.enter_location(w2,1,1);
+	std::cout << "afte enter\n";
+	board.enter_location(w3,1,1);
+	std::cout << "afte enter\n";
+	board.enter_location(w4,1,1);
+	std::cout << "afte enter\n";
+	board.print_sideview(1,1);
+	std::cout << "\n----------------\n\n";
+	
+	board.enter_location(ba1, 1, 1);
+	board.print_sideview(1,1);
+	std::cout << "\n----------------\n\n";
+	
+	board.enter_location(bu1, 1, 1);
+	board.print_sideview(1,1);
+	std::cout << "\n----------------\n\n";
+	
+	board.enter_location(ba2, 1, 1);
+	board.print_sideview(1,1);
+	std::cout << "\n----------------\n\n";
+	
+	std::cout << board.to_char(1, 1) << "\n";
+	
+	std::cout << "\n-------------------------------------------------------\n\n";
+	
+	auto pl1 = new Player(5,5,"Mario");
+	board.enter_top_location(pl1, 5, 5);
+
+	add_player(pl1);
+	std::cout << "players alive: " << players_alive() << "\n";
+	
+	auto m = new Monster(5,5,"Bowser");
+	board.enter_top_location(m, 5, 5);
+	
+	std::cout << "players alive: " << players_alive() << "\n";
+	
+	std::cout << board.to_char(5, 5) << "\n";
+	
+	std::cout << "\n-------------------------------------------------------\n\n";
+	
+	std::string s = "OMHOOG";
+	Move mooove(pl1, s);
+// 	std::cout << mooove.dir << "\n";
+
+	*/
+	
+	auto ba1 = new Barrel(2,1);
+	auto ba2 = new Barrel(2,2);
+	auto ba3 = new Barrel(2,3);
+	
+	auto ga1 = new Gate(4,1);
+	auto bu1 = new Button(3, 1, ga1);
+	
+	auto pl1 = new Player(5,5,"Mario");
+	auto m = new Monster(5,5,"Bowser");
+	
+	board.enter_top_location(pl1, 0, 2);
+	board.enter_top_location(ba1, 1, 2);
+	board.enter_top_location(m,   2, 2);
+	board.enter_top_location(ba2, 3, 2);
+	board.enter_top_location(ba3, 4, 2);
+	board.enter_location(bu1, 5, 2);
+	
+	std::string s = "RECHTS";
+	Move mooove(pl1, s);
+	
+	std::cout << ga1->is_open() << "\n";
+	
+	mooove.execute(this);
+	
+	std::cout << ga1->is_open() << "\n";
 }
 
-// copy assignment
-Game& Game::operator=(const Game& that) {
-	_board = that._board;
-	_actions = std::list<Action>();
-	_initCheck = this;
-	ENSURE(properlyInitialized(), "Copy by assignment must end...");
-	return *this;
+
+Player* Game::get_player(std::string name) {
+	auto p = playermap.find(name);
+	if (p == playermap.end()) {
+		return nullptr;
+	} else {
+		return p->second;
+	}
 }
 
-std::list<Action>& Game::get_actions() {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_actions");
-	return _actions;
+
+Monster* Game::get_monster(std::string name) {
+	auto m = monstermap.find(name);
+	if (m == monstermap.end()) {
+		return nullptr;
+	} else {
+		return m->second;
+	}
 }
 
-Game::Game(Board* board, std::list< Action >& actions, Game::Playermap& players):
-	_board(board),
-	_actions(actions),
-	_players(players){
-	_initCheck = this;
-	ENSURE(properlyInitialized(), "Constructor of Game did not end properly.");
+Actor* Game::get_actor(std::string name) {
+	// Players have priority if a player and monster have the same name
+	Player* p = get_player(name);
+	if (p != nullptr) {
+		return p;
+	} else {
+		return get_monster(name);
+	}
 }
 
-bool Game::properlyInitialized() const {
-	return _initCheck == this;
+
+void Game::add_player(Player* p) {
+	playermap[p->get_name()] = p;
 }
 
-void Game::writeBoard(std::ostream& stream) {
-	stream << *_board << "\n";
 
-	/*Het huidige speelveld is Level 1:
-	Eigenschappen van dit veld:
-	-Breedte 10
-	-Lengte 10*/
+void Game::add_monster(Monster* m) {
+	monstermap[m->get_name()] = m;
+}
 
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeBoard");
 
-	stream << "Het huidige speelveld is " << _board->get_name() << ":\n"
-			<< "Eigenschappen van dit veld:\n"
-			<< "-Breedte " << _board->get_width() << "\n"
-			<< "-Lengte " << _board->get_height() << "\n\n";
-
-	// Find all the stuff that isn't a wall
-	for (unsigned int i = 0; i != _board->get_width(); i++) {
-		for (unsigned int j = 0; j != _board->get_height(); j++) {
-			(*_board)(i,j)->writeThings(stream);
+int Game::players_alive() {
+	int alive = 0;
+	for (auto i: playermap) {
+		if (i.second->is_alive()) {
+			alive++;
 		}
 	}
-}
-
-void Game::writeActions(std::ostream& stream) {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeActions");
-	if (_actions.empty()) {
-		stream << "geen acties\n";
-		return;
-	}
-	/*for (auto i: _actions) {
-		stream << i << std::endl;
-	}*/ // Modified because actions is pure virtual and no object of class Action can be created.
-	std::list<Action> actions = _actions;
-	for (unsigned int i = 0; i < _actions.size(); i++) {
-		stream << actions.front() << std::endl;
-		actions.pop_front();
-	}
-}
-
-void Game::popAction(std::ostream& out) {
-	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling popAction");
-	REQUIRE(!_actions.empty(), "Actions was empty, can't be popped");
-	unsigned int original_size = _actions.size();
-	doAction(_actions.front(), out);
-	_actions.pop_front();
-	ENSURE(_actions.size() == original_size - 1, "Action was not popped");
-}
-
-void Game::doAction(Action& action, std::ostream& out) {
-/*	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doMove");
-	unsigned int x = movement.get_player()->get_x();
-	unsigned int y = movement.get_player()->get_y();
-	unsigned int x_original = x;
-	unsigned int y_original = y;
-	//out << movement << std::endl;
-	//std::cout << (*_board)(x,y)->is_movable() << "\n";
-	
-	if (! _board->valid_location(x,y)) {
-		out << "Error: Not a valid location. Skipping movement.\n";
-		return;
-	}
-	
-	// calculate total weight
-	unsigned int x_next = x;
-	unsigned int y_next = y;
-	// calculate new location
-	doDirection(movement.get_dir(), x_next, y_next);  // x or y are modified
-	int total_weight = 0;
-	// while not out of board and not an empty spot
-
-	while (_board->valid_location(x_next, y_next) && (*_board)(x_next, y_next) != nullptr) {
-		if ((*_board)(x_next, y_next)->get_weight() == -1) {
-			out << "Error: Can't move infinite weight (like a wall), skipping this movement.\n";
-			return;
-		}
-		total_weight += (*_board)(x_next, y_next)->get_weight();
-		doDirection(movement.get_dir(), x_next, y_next);
-	}
-	
-	if (! _board->valid_location(x_next, y_next)) {
-		out << "Error: Out of board. Skipping this movement.\n";
-		return;
-	}
-	
-	if ((*_board)(x_next, y_next) != nullptr) {
-		out << "Error: Player (and perhaps other things) have no place to go. Skipping this movement.\n";
-		return;
-	}
-		
-	if (total_weight > movement.get_player()->get_maximum_weight()) {
-		out << "Error: Player tries to move too much weight. Skipping this movement.\n";
-		return;
-	}
-	
-	// move all things, we work backwards
-	unsigned int x_new = x_next;
-	unsigned int y_new = y_next;
-	doReverseDirection(movement.get_dir(), x_new, y_new);
-	while (x_next != x || y_next != y) {
-		Thing* temp = (*_board)(x_new, y_new);
-		(*_board)(x_new, y_new) = nullptr; //(*_board)(x_next, y_next);
-		
-		(*_board)(x_next, y_next) = temp;
-		if ((*_board)(x_next, y_next) != nullptr) {
-			(*_board)(x_next, y_next)->set_x(x_next);
-			(*_board)(x_next, y_next)->set_y(y_next);
-		}
-		x_next = x_new;
-		y_next = y_new;
-		doReverseDirection(movement.get_dir(), x_new, y_new);
-	}
- 	doDirection(movement.get_dir(), x, y);
-// 	movement.get_player()->set_x(x);
-// 	movement.get_player()->set_y(y);
-	ENSURE(x_original != x || y_original != y, "Movement not completed, location remained the same.");*/
-}
-
-void Game::doAllActions(std::ostream& out) {
-	/*REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllMoves");
-	out << "About to do all " << _actions.size() << " actions.\n\n";
-	//out << _board << "\nStarting now:\n";
-	
-	while (! _actions.empty()) {
-// 		out << _board << "\n";
-		popMove(out);
-	}
-// 	out << _board << "\n";
-	out << "Done.\n";
-
-	ENSURE(get_actions().empty(), "Not all actions were executed.");*/
+	return alive;
 }

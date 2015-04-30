@@ -1,68 +1,90 @@
-#include "../../lib/tinyxml/tinyxml.h"
-#include "actions/actions.h"
-#include "board/board.h"
-#include "board/living_thing.h"
-#include "board/gate.h"
+
+#ifndef _H_Game
+#define _H_Game
 
 #include <iostream>
-#include <vector>
-#include <list>
 #include <string>
 #include <map>
 
-#ifndef _Game
-#define _Game
+#include <list>
+
+#include "entities/entity.h"
+#include "entities/gate.h"
+#include "entities/actor.h"
+#include "entities/player.h"
+#include "entities/monster.h"
+
+#include "events/managers.h"
+#include "events/collisionhandler.h"
+#include "events/ia_enterhandler.h"
+#include "events/ia_leavehandler.h"
+#include "events/killhandler.h"
+
+#include "board.h"
+#include "actions.h"
 
 class Game {
 public:
-	typedef std::map<std::string, LivingThing*> Playermap;
-	typedef std::pair<std::string, LivingThing*> Playerpair;
+	typedef std::map<std::string, Player*> Playermap;
+	typedef std::map<std::string, Monster*> Monstermap;
+
 	typedef std::map<std::string, Gate*> Gatemap;
 
-	//! copy constructor
-	Game(const Game& that);
-	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/
+	Board board;
+	std::list<Action*> actions;
 
-	//! copy assignment
-	Game& operator=(const Game& that);
-	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
+	Playermap playermap;
+	Monstermap monstermap;
+	Gatemap gatemap;
 
-	Game(Board* board, std::list<Action>& actions, Playermap& players);
-	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
-
-	void writeBoard(std::ostream& stream);
-	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeBoard");*/
-
-	void writeActions(std::ostream& stream);
-	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling writeActions");*/
-
-	std::list<Action>& get_actions();
-	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_actions");*/
-
-	void popAction(std::ostream& out);
-	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAction");
-	 	REQUIRE(!get_actions().empty(), "Actions was empty, can't be done");
-		ENSURE(_actions.size() == original_size - 1, "Action was not popped");*/
+	Game();
 	
-	void doAction(Action& action, std::ostream& out);
-	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAction"); */
+	//Game (Board* board, std::list<Action*>* actions, Playermap players, Monstermap monsters, Gatemap gates);
 
-	void doAllActions(std::ostream& out);
-	/**< REQUIRE(properlyInitialized(), "Game wasn't initialized when calling doAllActions");
-		ENSURE(get_actions().empty(), "Not all actions are executed");*/
+	KillManager kill;         // kill(a)
+	CollisionManager collide; // collide(a, b) == collide(b, a)
+	IA_EnterManager enter;    // enter(top, bottom)
+	IA_LeaveManager leave;    // leave(top, bottom)
+	
+	Player* get_player(std::string name);
+	Monster* get_monster(std::string name);
+	Actor* get_actor(std::string name);
+	// Players have priority if a player and monster have the same name
+	
+	void add_player(Player* p);
+	void add_monster(Monster* m);
+	
+	int players_alive();
+	
+// 	//void event_log(std::string s);
+// 	typedef std::map<std::string, Entity*> Playermap;
+// 	typedef std::pair<std::string, Entity*> Playerpair;
+// 	typedef std::map<std::string, Gate*> Gatemap;
+// 
+// 	//! copy constructor
+// 	Game(const Game& that);
+// 	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/
+// 
+// 	//! copy assignment
+// 	Game& operator=(const Game& that);
+// 	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
+// 
+// 	Game(Board* board, std::list<Action>& actions, Playermap& players);
+// 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
-	bool properlyInitialized() const;
-
+	void main_loop();
+	
 private:
-	Board* _board;
-	std::list<Action> _actions;
-	Playermap _players;
-	Game* _initCheck;
 
-	//void parsePlayer(TiXmlElement* elem, std::ostream& out);
+	std::vector<Entity*> graveyard;
 
-	//void parseObstacle(TiXmlElement* elem, std::ostream& out);
-
+	bool ended;
+	
+	friend class CollisionHandler;
+	friend class IA_EnterHandler;
+	friend class IA_LeaveHandler;
+	friend class KillHandler;
+	friend class Board;
 };
 
-#endif // _Game
+#endif

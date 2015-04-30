@@ -1,7 +1,0 @@
-Error: Error: A barrel must be declared movable.
-Error: Error: A barrel must be declared movable.
-Error: Error: A wall may not be declared movable.
-Error: Error: A wall may not be declared movable.
-About to do all 1 movements.
-
-Done.

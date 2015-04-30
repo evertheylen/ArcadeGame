@@ -1,9 +1,0 @@
-About to do all 10 movements.
-
-Error: Out of board. Skipping this movement.
-Error: Out of board. Skipping this movement.
-Error: Out of board. Skipping this movement.
-Error: Out of board. Skipping this movement.
-Error: Out of board. Skipping this movement.
-Error: Out of board. Skipping this movement.
-Done.

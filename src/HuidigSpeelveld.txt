@@ -1,53 +1,12 @@
-####################
-#                  #
-#                Y #
-#                  #
-#         O    ~~O~#
-#         O    ~~O~#
-#                  #
-#                  #
-#                  #
-#                  #
-#                  #
-#           @@@    #
-#      O           #
-#                  #
-#        O         #
-#                  #
-#                  #
-#        Y Y       #
-#                  #
-####################
-
-Het huidige speelveld is Fancy Level:
-Eigenschappen van dit veld:
--Breedte 20
--Lengte 20
-
-Er bevindt zich een ton op positie (7,7).
-Speler Mario bevindt zich in dit speelveld op positie (9,2).
-Er bevindt zich een ton op positie (9,5).
-Er bevindt zich water op positie (10,14).
-Er bevindt zich water op positie (10,14).
-Er bevindt zich een ton op positie (10,14).
-Er bevindt zich een ton op positie (10,14).
-Er bevindt zich water op positie (10,15).
-Er bevindt zich water op positie (10,15).
-Er bevindt zich een ton op positie (10,15).
-Speler Luigi bevindt zich in dit speelveld op positie (11,2).
-Er bevindt zich een monster op positie (12,8).
-Er bevindt zich een monster op positie (13,8).
-Er bevindt zich een monster op positie (14,8).
-Er bevindt zich water op positie (15,14).
-Er bevindt zich water op positie (15,15).
-Er bevindt zich water op positie (16,14).
-Er bevindt zich water op positie (16,15).
-Er bevindt zich een ton op positie (17,14).
-Er bevindt zich water op positie (17,14).
-Er bevindt zich een ton op positie (17,14).
-Er bevindt zich water op positie (17,15).
-Er bevindt zich een ton op positie (17,15).
-Speler Peach bevindt zich in dit speelveld op positie (17,17).
-Er bevindt zich een doel op positie (17,17).
-Er bevindt zich water op positie (18,14).
-Er bevindt zich water op positie (18,15).
+Hier verschijnt later het huidige speelveld!
+Height: 10 Width: 10
+##########
+#        #
+# ## ## @#
+#        #
+# ## # ###
+#Y## # =X#
+#      ###
+# ## ##  #
+#       .#
+##########
