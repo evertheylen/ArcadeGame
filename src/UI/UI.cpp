@@ -8,6 +8,8 @@
 #include "../UI/UI.h"
 #include "../parsers/game_parser.h"
 #include <fstream>
+#include <sstream>
+#include <string>
 
 void UI::run() {
 	std::cout << "\nWelcome to the Wonderful ARCADE GAME of Evert and Stijn!";
@@ -181,8 +183,15 @@ void UI::write_actions(std::string file, Game* g) {
 }
 
 void UI::do_action(Game* g, int amount) {
+	std::stringstream ss;
+	std::string str;
 	for (int i = 0; i < amount; i++) {
 		std::cout << "Doing an action\n";
+
+		ss << i << ".stijn-evert";
+		str = ss.str();
+		ss.str("");
+		write_board(str, g);
 		g->actions.front()->execute(g);
 		g->actions.pop_front();
 	}
