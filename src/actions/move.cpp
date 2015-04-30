@@ -42,11 +42,16 @@ void Move::execute(Game* g) {
 		
 		
 		while (true) {
+			if (g->board.get_top(next_x, next_y) == nullptr) {
+				// good, there's an empty spot for us
+				break;
+			}
+			
 			dir.move_to(current_x, current_y);
 			dir.move_to(next_x, next_y);
-			if (g->board.get_top(current_x, current_y) != nullptr) {
-				total_weight += g->board.get_top(current_x, current_y)->get_weight();
-			}
+
+			total_weight += g->board.get_top(current_x, current_y)->get_weight();
+
 			// valid end location is empty, not out of board, not height > 0
 			if ( !(g->board.valid_location(next_x, next_y)) || (g->board.location_height(next_x, next_y) > 0)) {
 				// error: we can't push...
@@ -54,10 +59,6 @@ void Move::execute(Game* g) {
 				return;
 			}
 			
-			if (g->board.get_top(next_x, next_y) == nullptr) {
-				// good, there's an empty spot for us
-				break;
-			}
 		}
 		
 		std::cout << "total_weight = " << total_weight << "\n";
