@@ -1,56 +1,42 @@
+#include "thing.h"
+#include "barrel.h"
+#include "movable_thing.h"
 
-#include <sstream>
+#ifndef _Water
+#define _Water
 
-TEST(Obstacle, NotProperlyInitialized) {
-	char a[sizeof(Obstacle)] {'a'};
-	EXPECT_FALSE(((Obstacle*) &a)->properlyInitialized());
-}
+class Water: public Thing {
+public:
+	static const int WATER_WEIGHT = 500;
+	static const int WATER_HEIGHT = - Barrel::BARREL_HEIGHT; // -100
+	static const int WATER_IMPORTANCE = 900;
+	
+	
+	//! copy constructor
+	Water(const Water& that);
+	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/
 
-TEST(Obstacle, Init) {
-	Obstacle t = Obstacle(4,8,12);
-	EXPECT_EQ(t.get_x(), 4);
-	EXPECT_EQ(t.get_y(), 8);
-	EXPECT_EQ(t.get_weight(), 12);
-	EXPECT_TRUE(t.properlyInitialized());
-}
+	//! copy assignment
+	Water& operator=(const Water& that);
+	/**< ENSURE(properlyInitialized(), "Copy by assignment must end...");*/
 
-TEST(Obstacle, NotMovable) {
-	Obstacle t = Obstacle(4,8,-1);
-	EXPECT_FALSE(t.is_movable());
-}
+	Water(unsigned int x, unsigned int y);
+	/**< REQUIRE(x >= 0 && y >= 0, "Incorrect arguments specified for constructor of Water");
+		ENSURE(properlyInitialized(), "constructor must end...");*/
 
-TEST(Obstacle, Movable) {
-	Obstacle t = Obstacle(4,8,1);
-	EXPECT_TRUE(t.is_movable());
-}
+	std::ostream& print(std::ostream& out);
+	/**< REQUIRE(properlyInitialized(), "Water wasn't initialized when calling print");*/
 
-TEST(Obstacle, Print) {
-	Obstacle t = Obstacle(4,8,1);
-	std::stringstream ss;
-	ss << t;
-	EXPECT_EQ(ss.str(), "Obstacle\n");
-}
+	char to_char();
+	/**< REQUIRE(properlyInitialized(), "Water wasn't initialized when calling to_char");*/
+	
+	int get_importance() const;
+	
+	void onEnter(MovableThing* other);
+	
+private:
+	bool _filled;
+};
 
-TEST(Obstacle, ToChar) {
-	Obstacle t = Obstacle(4,8,1);
-	EXPECT_EQ(t.to_char(), 'O');
-}
 
-TEST(Obstacle, CopyConstructor) {
-	Obstacle tt = Obstacle(4,8,12);
-	Obstacle t = tt;
-	EXPECT_EQ(t.get_x(), 4);
-	EXPECT_EQ(t.get_y(), 8);
-	EXPECT_EQ(t.get_weight(), 12);
-	EXPECT_TRUE(t.properlyInitialized());
-}
-
-TEST(Obstacle, CopyAssignment) {
-	Obstacle tt = Obstacle(4,8,12);
-	Obstacle t = Obstacle(80,1,0);
-	t = tt;
-	EXPECT_EQ(t.get_x(), 4);
-	EXPECT_EQ(t.get_y(), 8);
-	EXPECT_EQ(t.get_weight(), 12);
-	EXPECT_TRUE(t.properlyInitialized());
-}
+#endif // _Water

@@ -32,11 +32,11 @@ std::ostream& Water::print(std::ostream& out){
 }
 
 int Water::get_importance() const {
-// 	return WATER_IMPORTANCE;
-	if (! _filled)
-		return WATER_IMPORTANCE;
-	else
-		return 0;
+	return WATER_IMPORTANCE;
+// 	if (! _filled)
+// 		return WATER_IMPORTANCE;
+// 	else
+// 		return 0;
 }
 
 char Water::to_char() {

@@ -6,6 +6,9 @@ ArcadeTests
 *.cproject
 *.project
 
+*.pyc
+__pycache__
+
 # Compiled Object files
 *.slo
 *.lo
