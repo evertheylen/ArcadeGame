@@ -54,13 +54,12 @@ public:
 	void add_player(Player* p);
 	void add_monster(Monster* m);
 	
+	void write_actions(std::ostream& out);
+
 	int players_alive();
 	
 // 	//void event_log(std::string s);
-// 	typedef std::map<std::string, Entity*> Playermap;
-// 	typedef std::pair<std::string, Entity*> Playerpair;
-// 	typedef std::map<std::string, Gate*> Gatemap;
-// 
+//
 // 	//! copy constructor
 // 	Game(const Game& that);
 // 	/**< ENSURE(properlyInitialized(), "Copy constructor must end...");*/

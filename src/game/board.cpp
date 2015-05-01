@@ -24,6 +24,10 @@ Entity* Board::get(unsigned int loc, unsigned int x, unsigned int y) {
 	return spot[loc];
 }
 
+void Board::set_name(std::string _name) {
+	name = _name;
+}
+
 bool Board::valid_location(int x, int y) {
 	return ((0 <= x) && (x <= width) && (0 <= y) && (y <= height));
 }
@@ -176,6 +180,16 @@ void Board::print_sideview(unsigned int x, unsigned int y) {
 	}
 	
 	std::cout << "\n";
+}
+
+void Board::write_board(std::ostream& out) {
+	out << "Het huidige speelveld is " << name << ":\n"
+		<< "Eigenschappen van dit veld:\n-Breedte " << width << "\n-Lengte " << height << "\n\n";
+	for (int i = get_height()-1; i>=0; i--) {
+		for (int j = 0; j < get_width(); j++) {
+			out << "TODO Get objects on the board?";
+		}
+	}
 }
 
 void Board::simple_graphics(std::ostream& out) {

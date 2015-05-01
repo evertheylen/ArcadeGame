@@ -39,6 +39,10 @@ protected:
 public:
 	Action(Actor* _actor, std::string& dirname);
 	
+	Actor* get_actor();
+
+	Direction get_dir();
+
 	virtual void execute(Game* g) = 0;
 };
 

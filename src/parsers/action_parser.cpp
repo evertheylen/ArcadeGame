@@ -52,11 +52,11 @@ std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game* g
 			}
 
 			if (current_el->ValueTStr() == "BEWEGING") {
-				std::cout << "Parsing " << player_name << " move to " << dir_s << std::endl;
+				//std::cout << "Parsing " << player_name << " move to " << dir_s << std::endl;
 				Action* ap = new Move(g->get_actor(player_name), dir_s);
 				mp->push_back(ap);
 			} else if (current_el->ValueTStr() == "AANVAL") {
-				std::cout << "Parsing " << player_name << " attack to " << dir_s << std::endl;
+				//std::cout << "Parsing " << player_name << " attack to " << dir_s << std::endl;
 
 				if (g->get_player(player_name) == nullptr) {
 					log("error attack moet met player", current_el);

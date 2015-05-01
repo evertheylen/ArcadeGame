@@ -27,7 +27,7 @@ public:
 	void write_board(std::string file, Game* g);
 	void write_actions(std::string file, Game* g);
 
-	void show(std::ostream& out);
+	void show(std::ostream& out, Game* g);
 
 	void help();
 

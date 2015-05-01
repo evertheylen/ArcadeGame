@@ -1,12 +1,10 @@
-Hier verschijnt later het huidige speelveld!
-Height: 10 Width: 10
 ##########
 #   #X# .#
-# O #=#  #
+# O@#=#  #
 # #    # #
 # # ## # #
-#@       #
-#Y# ## # #
-# # ## # #
 #        #
+# # ## # #
+# # ## # #
+#   Y    #
 ##########

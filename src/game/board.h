@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "entity.h"
 
@@ -23,6 +24,8 @@ public:
 	Entity* get_top(unsigned int x, unsigned int y);
 	Entity* get(unsigned int loc, unsigned int x, unsigned int y);
 	
+	void set_name(std::string _name);
+
 	bool valid_location(int x, int y);
 	
 	int location_height(unsigned int x, unsigned int y);
@@ -37,6 +40,8 @@ public:
 	char to_char(unsigned int x, unsigned int y);
 	
 	void simple_graphics(std::ostream& out);
+
+	void write_board(std::ostream& out);
 
 	// For debugging only
 	void print_sideview(unsigned int x, unsigned int y);
@@ -53,6 +58,7 @@ private:
 	std::vector<std::vector<std::vector<Entity*>>> data;
 	int width;
 	int height;
+	std::string name;
 };
 
 

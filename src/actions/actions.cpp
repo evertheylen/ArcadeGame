@@ -87,5 +87,12 @@ Direction::Dirk Direction::get_dir() {
 Action::Action(Actor* _actor, std::string& dirname):
 		actor(_actor), dir(dirname) {}
 
+Actor* Action::get_actor() {
+	return actor;
+}
+
+Direction Action::get_dir() {
+	return dir;
+}
 
 

@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <typeinfo>
+#include <string>
 
 
 /*
@@ -200,4 +201,23 @@ int Game::players_alive() {
 		}
 	}
 	return alive;
+}
+
+void Game::write_actions(std::ostream& out) {
+	std::list<Action*> _actions = actions;
+	for (int i = 0; i < _actions.size(); i++) {
+		std::string name = _actions.front()->get_actor()->get_name();
+		bool player = true;
+		if (playermap.find(name) == playermap.end()) {
+			player = false;
+		}
+		if (player) {
+			out << "Speler ";
+		} else {
+			out << "Monster ";
+		}
+		Direction dir = _actions.front()->get_dir();
+		out << name << " zal volgende beweging nog uitvoeren:\n" << dir << "\n";
+		_actions.pop_front();
+	}
 }

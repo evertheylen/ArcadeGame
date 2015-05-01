@@ -142,35 +142,33 @@ void UI::run() {
 				continue;
 			}
 			if (input.size() <= compare_str.size()+1) {
-				show(std::cout);
+				show(std::cout, g);
 				continue;
 			}
 			std::ofstream stream;
 			stream.open(input.substr(compare_str.size()+1, input.size()).c_str());
-			show(stream);
+			show(stream, g);
 			stream.close();
 			continue;
 		}
 	}
 }
 
-void UI::show(std::ostream& out) {
-	out << "Showing the board!\n";
-	//out << g << std::endl;
+void UI::show(std::ostream& out, Game* g) {
+	g->board.simple_graphics(out);
 }
 
 void UI::write_board(std::string file, Game* g) {
 	std::ofstream output_file;
 	output_file.open(file.c_str());
-	g->board.simple_graphics(output_file);
+	g->board.write_board(output_file);
 	output_file.close();
 }
 
 void UI::write_actions(std::string file, Game* g) {
 	std::ofstream output_file;
 	output_file.open(file.c_str());
-	output_file << "Hier verschijnen later de resterende bewegingen!\n";
-	//g->writeActions(output_file);
+	g->write_actions(output_file);
 	output_file.close();
 }
 
@@ -183,7 +181,10 @@ void UI::do_action(Game* g, int amount) {
 		ss << i << ".stijn-evert";
 		str = ss.str();
 		ss.str("");
-		write_board(str, g);
+		std::ofstream file;
+		file.open(str);
+		show(file, g);
+		file.close();
 		g->actions.front()->execute(g);
 		g->actions.pop_front();
 	}

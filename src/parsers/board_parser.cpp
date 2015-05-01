@@ -56,7 +56,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 
 			if (tagname == "NAAM") {
 				boardname = readElement(current_el);
-			//	(*bp).set_name(boardname); TODO
+				(*bp).set_name(boardname);
 			} else if (tagname == "SPELER" || tagname == "MONSTER" || tagname == "TON") {
 				Entity* entity;
 				if (tagname == "SPELER") {
