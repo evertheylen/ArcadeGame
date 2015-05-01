@@ -19,6 +19,8 @@ public:
 	
 	Entity(unsigned int _x, unsigned int _y);
 	
+	virtual void info(std::ostream& out) = 0;
+
 	virtual ~Entity() {}
 	
 	// x and y can be both getted and setted, so it's better to make them public anyways.

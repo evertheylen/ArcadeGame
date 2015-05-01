@@ -185,7 +185,12 @@ void Board::write_board(std::ostream& out) {
 		<< "Eigenschappen van dit veld:\n-Breedte " << width << "\n-Lengte " << height << "\n\n";
 	for (int i = get_height()-1; i>=0; i--) {
 		for (int j = 0; j < get_width(); j++) {
-
+			if (topdata.at(j).at(i) != nullptr) {
+				topdata.at(j).at(i)->info(out);
+			}
+			for (Entity* e: data.at(j).at(i)) {
+				e->info(out);
+			}
 		}
 	}
 }
