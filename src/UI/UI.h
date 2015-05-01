@@ -7,6 +7,7 @@
 
 #include "../../lib/tinyxml/tinyxml.h"
 #include <string>
+#include <vector>
 #include <iostream>
 #include "../game/game.h"
 #include "../game/board.h"
@@ -16,23 +17,47 @@
 
 class UI {
 public:
-
+	UI();
+	
+	void reset();
+	
 	void run();
+	
+	bool parse_and_do(std::string& command);
 
-	//void input_board(TiXmlDocument& board_doc); Overbodig, wordt enkel gebruikt vanuit constructor.
-	//void input_actions(TiXmlDocument& action_doc);
 
-	void do_action(Game* g, int amount = 1);
-
-	void write_board(std::string file, Game* g);
-	void write_actions(std::string file, Game* g);
-
-	void show(std::ostream& out, Game* g);
-
+	// help
 	void help();
+	// read_board
+	void read_board(std::string& filename);
+	// read_actions
+	void read_actions(std::string& filename);
+	// simulate
+	void simulate(int num=1);
+	// write_board
+	void write_board(std::ostream& out);
+	// write_actions
+	void write_actions(std::ostream& out);
+	// show
+	void show(std::ostream& out);
+	
+	// returns whether or not the game is ready
+	bool init_game();
 
+
+private:
+	
+	bool board_loaded;
+	bool actions_loaded;
+	bool parsed;
+	Game* g;
+	TiXmlDocument doc_board;
+	TiXmlDocument doc_actions;
+	
+	bool reparse_board;
+	bool reparse_actions;
 };
 
-
+std::vector<std::string> split(std::string& s, char delim);
 
 #endif /* _UI */

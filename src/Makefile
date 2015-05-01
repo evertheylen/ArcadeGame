@@ -2,7 +2,7 @@
 INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I .
 
 CXX        = g++
-CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)
+CXXFLAGS   = -g3 -O0 -std=c++11 -lreadline -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)
 #CXXFLAGS   = -O3 -std=c++14
 
 OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp' -not -path './lib/*' -and -not -path './tests/*')))
@@ -16,7 +16,7 @@ TINYXMLLIBS = 	$(shell find ./lib/tinyxml -name '*.o')
 #--- the location of the test includes; YOU MIGHT NEED TO MODIFY THESE
 TINCL =		./lib/gtest/include
 #--- the location of the test libraries; YOU MIGHT NEED TO MODIFY THESE
-TLIBPATH =	-L../lib/gtest/lib
+TLIBPATH =	-L./lib/gtest/lib
 TLIBS =		-lgtest -lgtest_main
 
 

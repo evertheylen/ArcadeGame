@@ -16,8 +16,8 @@
 #include <list>
 
 
-Game_parser::Game_parser(std::ostream* stream, std::string filename):
-		Parser(stream, filename) {}
+Game_parser::Game_parser(std::ostream* stream, std::string _board_filename, std::string _actions_filename):
+		Parser(stream, "internal"), board_filename(_board_filename), actions_filename(_actions_filename) {}
 
 Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem) {
 	log("Game parser started", board_elem);
@@ -25,25 +25,20 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	Game::Playermap players;
 	Game::Monstermap monsters;
 	Game::Gatemap gates;
-	Board_parser bp(_out, _filename);
-	Action_parser ap(_out, "not unknown");  // TODO second filename!!
+	Board_parser bp(_out, board_filename);
 	
 	Board* board = bp.parse_board(board_elem, players, gates, monsters, gp);
 	gp->board = *board;
 	gp->monstermap = monsters;
 	gp->playermap = players;
 	gp->gatemap = gates;
-	std::list<Action*>* actions = ap.parse_action(move_elem, gp);
+	
+	if (move_elem != nullptr) {
+		Action_parser ap(_out, actions_filename);
+		std::list<Action*>* actions = ap.parse_action(move_elem, gp);
+		gp->actions = *actions;
+	}
 
-	//std::cout << *board << std::endl;
-	/*for (int i = 0; i != moves.size(); i++) {
-		std::cout << moves.front().get_dir_name() << std::endl;
-		moves.pop_front();
-	}*/
-	//Game g(bp.parse_board(board_elem, players), mp.parse_movement(move_elem, players), players, output_stream);
-	//gp = new Game(board, actions, players, monsters, gates);
-
-	gp->actions = *actions;
 	std::cout << "Height::" << gp->board.get_height() << std::endl;
 
 	return gp;
