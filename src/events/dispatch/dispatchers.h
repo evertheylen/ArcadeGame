@@ -21,7 +21,17 @@
 #include <../killhandler.h>
 
 
-class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
+class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
+public:
+    int getRule(Entity* __Entity0, Entity* __Entity1);
+    
+    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
+
+};
+
+
+
+class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     
@@ -41,17 +51,7 @@ public:
 
 
 
-class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
-public:
-    int getRule(Entity* __Entity0, Entity* __Entity1);
-    
-    void doRule(int rulenum, Entity* __Entity0, Entity* __Entity1);
-
-};
-
-
-
-class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
+class CollisionDispatch: public SymmetricDoubleDispatcher<void, Entity*, Entity*>, public CollisionHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     
