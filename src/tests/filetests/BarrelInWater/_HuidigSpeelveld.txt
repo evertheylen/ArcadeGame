@@ -1,0 +1,9 @@
+Het huidige speelveld is TestLevel:
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+Er bevindt zich water op positie (6,4)
+Er bevindt zich water op positie (6,4)
+Er bevindt zich water op positie (7,4)
+Speler Chip bevindt zich in dit speelveld op positie (7,3).

@@ -1,4 +1,4 @@
-Het huidige speelveld is Level 3 (With a monster):
+Het huidige speelveld is Testlevel:
 Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10

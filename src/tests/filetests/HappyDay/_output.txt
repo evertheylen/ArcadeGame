@@ -1,2 +1,2 @@
 Game parser started [internal:2:1]
-name is gate1 [tests/filetests/HappyDay/Speelveld.xml:42:5]
+name is gate1 [tests/filetests/HappyDay/Speelveld.xml:27:5]

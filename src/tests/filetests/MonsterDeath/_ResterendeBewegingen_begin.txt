@@ -1,0 +1,6 @@
+Monster Bowser zal volgende beweging nog uitvoeren:
+OMHOOG
+Speler Mario zal volgende beweging nog uitvoeren:
+RECHTS
+Speler Mario zal volgende beweging nog uitvoeren:
+RECHTS
