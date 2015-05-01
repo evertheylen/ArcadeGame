@@ -5,6 +5,8 @@ ArcadeMain
 ArcadeTests
 *.cproject
 *.project
+*.kdev4
+*.cmake
 
 *.pyc
 __pycache__

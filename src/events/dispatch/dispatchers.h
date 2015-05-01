@@ -21,7 +21,7 @@
 #include <../killhandler.h>
 
 
-class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
+class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     
@@ -31,7 +31,7 @@ public:
 
 
 
-class IA_EnterDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_EnterHandler {
+class IA_LeaveDispatch: public Dispatcher<void, Entity*, Entity*>, public IA_LeaveHandler {
 public:
     int getRule(Entity* __Entity0, Entity* __Entity1);
     

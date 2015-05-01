@@ -58,6 +58,8 @@ public:
 
 	int players_alive();
 	
+	void bury(Entity* e);
+	
 // 	//void event_log(std::string s);
 //
 // 	//! copy constructor
@@ -72,6 +74,7 @@ public:
 // 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
 	void main_loop();
+	
 	
 private:
 

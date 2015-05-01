@@ -22,36 +22,6 @@
 // no specific cpp header.
 
 
-// IA_LeaveDispatch
-
-#include <limits>
-
-int IA_LeaveDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
-    // Rule 0
-    Entity* __r0_Entity0 = dynamic_cast<Entity*>(__Entity0);
-    Button* __r0_Button1 = dynamic_cast<Button*>(__Entity1);
-    if (__r0_Entity0 != nullptr && __r0_Button1 != nullptr) {
-        return 0;
-    }
-
-
-    return std::numeric_limits<int>::max();
-}
-    
-void IA_LeaveDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
-    switch(rulenum) {
-
-        case 0:
-            return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Button*>(__Entity1));
-
-        default:
-            return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
-    }
-}
-
-
-
-
 // IA_EnterDispatch
 
 #include <limits>
@@ -96,6 +66,36 @@ void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1)
 
         default:
             return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+    }
+}
+
+
+
+
+// IA_LeaveDispatch
+
+#include <limits>
+
+int IA_LeaveDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+    // Rule 0
+    Entity* __r0_Entity0 = dynamic_cast<Entity*>(__Entity0);
+    Button* __r0_Button1 = dynamic_cast<Button*>(__Entity1);
+    if (__r0_Entity0 != nullptr && __r0_Button1 != nullptr) {
+        return 0;
+    }
+
+
+    return std::numeric_limits<int>::max();
+}
+    
+void IA_LeaveDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+    switch(rulenum) {
+
+        case 0:
+            return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Button*>(__Entity1));
+
+        default:
+            return onLeave(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 

@@ -203,6 +203,11 @@ int Game::players_alive() {
 	return alive;
 }
 
+void Game::bury(Entity* e) {
+	graveyard.push_back(e);
+}
+
+
 void Game::write_actions(std::ostream& out) {
 	std::list<Action*> _actions = actions;
 	for (int i = 0; i < _actions.size(); i++) {

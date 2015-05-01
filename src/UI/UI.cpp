@@ -70,6 +70,7 @@ void UI::fancy_command(std::string& command) {
 	if (times > 0) {
 		for (int i=0; i<times; i++) {
 			for (std::string subcommand: split(fancies[1], ',')) {
+				std::cout << "\033[1;38;2;255;0;0;48;2;0;0;0m>> " << i << ": " << subcommand << "\033\[m\n";
 				if (!parse_and_do(subcommand)) {
 					std::cout << "I didn't understand that command. Try help.\n";
 				}
