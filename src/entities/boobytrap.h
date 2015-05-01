@@ -18,7 +18,7 @@
 class Boobytrap: public Alive, public Small, public SimplePrint, public Entity {
 public:
 	Boobytrap(unsigned int x, unsigned y);
-	
+	void info(std::ostream&);
 	// spec: Interactive
 };
 

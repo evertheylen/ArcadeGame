@@ -22,6 +22,8 @@ public:
 	int get_weight();
 	int get_height();
 	
+	void info(std::ostream& out);
+
 	// Has to be both getted and setted, so easier to maintain as a public variable
 	Entity* contained;
 };

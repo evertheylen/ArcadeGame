@@ -15,6 +15,8 @@
 class Monster: public Actor {
 public:
 	Monster(unsigned int x, unsigned y, std::string _name);
+
+	void info(std::ostream& out);
 };
 
 #endif

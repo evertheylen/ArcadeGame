@@ -129,7 +129,7 @@ void Game::main_loop() {
 	auto ba2 = new Barrel(2,2);
 	auto ba3 = new Barrel(2,3);
 	
-	auto ga1 = new Gate(4,1);
+	auto ga1 = new Gate(4,1, "id");
 	auto bu1 = new Button(3, 1, ga1);
 	
 	auto pl1 = new Player(5,5,"Mario");

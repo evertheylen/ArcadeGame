@@ -1,3 +1,4 @@
+#include<iostream>
 
 #ifndef _H_Printer
 #define _H_Printer

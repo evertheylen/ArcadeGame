@@ -19,6 +19,7 @@
 class Barrel: public None, public Immutable, public Solid, public SimplePrint, public Entity {
 public:
 	Barrel(unsigned int x, unsigned int y);
+	void info(std::ostream& out);
 };
 
 #endif

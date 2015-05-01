@@ -157,8 +157,7 @@ Entity* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatem
 			
 		std::string name = elem->FirstChildElement("ID")->GetText();
 		std::cout << "  name is " << name << "\n";
-		//gate = new Gate(x,y,name);	TODO
-		gate = new Gate(x, y);
+		gate = new Gate(x,y,name);
 		_gates[name] = gate;
 
 		// TODO Fix the copy problem with gatemap and playermap!!!

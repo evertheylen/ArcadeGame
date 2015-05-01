@@ -169,8 +169,6 @@ char Board::to_char(unsigned int x, unsigned int y) {
 	return ' ';
 }
 
-
-
 void Board::print_sideview(unsigned int x, unsigned int y) {
 	if (topdata.at(x).at(y) != nullptr)
 		std::cout << ">> " << topdata.at(x).at(y)->to_char() << "\n";
@@ -187,7 +185,7 @@ void Board::write_board(std::ostream& out) {
 		<< "Eigenschappen van dit veld:\n-Breedte " << width << "\n-Lengte " << height << "\n\n";
 	for (int i = get_height()-1; i>=0; i--) {
 		for (int j = 0; j < get_width(); j++) {
-			out << "TODO Get objects on the board?";
+
 		}
 	}
 }

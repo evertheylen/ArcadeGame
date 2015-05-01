@@ -8,8 +8,8 @@
 #include "gate.h"
 #include "constants.h"
 
-Gate::Gate(unsigned int x, unsigned y):
-		Entity(x, y), _open(false) {}
+Gate::Gate(unsigned int x, unsigned y, std::string _name):
+		Entity(x, y), _open(false) , name(_name) {}
 
 int Gate::get_height() {
 	if (_open)
@@ -40,5 +40,13 @@ void Gate::close() {
 
 bool Gate::is_open() {
 	return _open;
+}
+
+std::string Gate::get_name() {
+	return name;
+}
+
+void Gate::info(std::ostream& out) {
+	out << "Er bevindt zich een poort (met id " << name << ") op positie (" << x << "," << y << ").\n";
 }
 

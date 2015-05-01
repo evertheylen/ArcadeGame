@@ -22,6 +22,7 @@
 class Button: public Immutable, public Small, public SimplePrint, public Entity {
 public:
 	Button(unsigned int x, unsigned y, Gate* _gate);
+	void info(std::ostream& out);
 	
 	// spec: Interactive
 	friend class IA_EnterHandler;

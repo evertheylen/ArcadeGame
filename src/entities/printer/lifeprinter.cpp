@@ -11,4 +11,3 @@ char LifePrinter::to_char() {
 		return symbol_dead;
 	}
 }
-

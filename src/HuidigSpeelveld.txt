@@ -1,12 +1,6 @@
-Hier verschijnt later het huidige speelveld!
-Height: 10 Width: 10
-##########
-#        #
-# ## ##O@#
-#        #
-# ## # ###
-#Y## # =X#
-#      ###
-# ## ##  #
-#       .#
-##########
+Het huidige speelveld is Level 3 (With a monster):
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?TODO Get objects on the board?

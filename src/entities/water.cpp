@@ -32,3 +32,6 @@ int Water::get_weight() {
 		return WATER_WEIGHT + contained->get_weight();
 }
 
+void Water::info(std::ostream& out) {
+	out << "Er bevindt zich water op positie (" << x << "," << y << ")\n";
+}

@@ -18,6 +18,7 @@
 class Wall: public None, public Immutable, public Solid, public SimplePrint, public Entity {
 public:
 	Wall(unsigned int x, unsigned y);
+	void info(std::ostream& out);
 };
 
 #endif

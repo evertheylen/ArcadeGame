@@ -11,4 +11,4 @@
 Wall::Wall(unsigned int x, unsigned y):
 		Solid(WALL_HEIGHT, WALL_WEIGHT), Entity(x, y), SimplePrint(WALL_SYMBOL) {}
 
-
+void Wall::info(std::ostream& out) {}

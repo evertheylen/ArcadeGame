@@ -16,5 +16,3 @@ std::string Actor::get_name() {
 	return name;
 }
 
-
-

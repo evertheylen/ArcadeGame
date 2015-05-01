@@ -11,4 +11,6 @@
 Player::Player(unsigned int x, unsigned y, std::string _name):
 		Actor(x, y, PLAYER_SYMBOL,_name) {}
 
-
+void Player::info(std::ostream& out) {
+	out << "Speler " << get_name() << " bevindt zich in dit speelveld op positie (" << x << "," << y << ").\n";
+}

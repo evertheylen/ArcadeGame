@@ -6,6 +6,7 @@
  */
 
 #include "entity.h"
+#include <string>
 
 #include "life/immutable.h"
 #include "physics/small.h"
@@ -17,7 +18,7 @@
 
 class Gate: public None, public Immutable, public Entity {
 public:
-	Gate(unsigned int x, unsigned y);		// TODO Add functionality to link a button
+	Gate(unsigned int x, unsigned y, std::string _name);		// TODO Add functionality to link a button
 	
 	// spec: Physics
 	int get_height();
@@ -26,13 +27,18 @@ public:
 	// spec: Printer
 	char to_char();
 	
+	std::string get_name();
+
 	void open();
 	void close();
 	
+	void info(std::ostream& out);
+
 	bool is_open();
 
 private:
 	bool _open;
+	std::string name;
 };
 
 #endif

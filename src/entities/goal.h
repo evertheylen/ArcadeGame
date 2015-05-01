@@ -18,7 +18,7 @@
 class Goal: public Immutable, public Small, public SimplePrint, public Entity {
 public:
 	Goal(unsigned int x, unsigned y);
-	
+	void info(std::ostream& out);
 	// spec: InterActive
 };
 
