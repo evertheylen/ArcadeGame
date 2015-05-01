@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<ACTIES>
+    <BEWEGING>
+        <ID>Bowser</ID>
+        <RICHTING>OMHOOG</RICHTING>
+    </BEWEGING>
+	<BEWEGING>
+        <ID>Mario</ID>
+        <RICHTING>RECHTS</RICHTING>
+    </BEWEGING>
+	<BEWEGING>
+        <ID>Mario</ID>
+        <RICHTING>RECHTS</RICHTING>
+    </BEWEGING>
+	<BEWEGING>
+        <ID>Mario</ID>
+        <RICHTING>RECHTS</RICHTING>
+    </BEWEGING>
+	<BEWEGING>
+        <ID>Mario</ID>
+        <RICHTING>RECHTS</RICHTING>
+    </BEWEGING>
+	<BEWEGING>
+        <ID>Bowser</ID>
+        <RICHTING>OMHOOG</RICHTING>
+    </BEWEGING>
+</ACTIES>

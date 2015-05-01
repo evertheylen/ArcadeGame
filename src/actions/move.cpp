@@ -10,18 +10,21 @@ Move::Move(Actor* _actor, std::string& dirname):
 		Action(_actor, dirname) {}
 
 
-void Move::execute(Game* g) {
+bool Move::execute(Game* g) {
 	unsigned int start_x = actor->x;
 	unsigned int start_y = actor->y;
-	std::cout << "Moving " << actor->get_name() << " from " << start_x << ", " << start_y;
+	if (g->board.get_top(start_x, start_y) != actor) {
+		return false;
+	}
+// 	std::cout << "Moving " << actor->get_name() << " from " << start_x << ", " << start_y;
 	unsigned int next_x = start_x;
 	unsigned int next_y = start_y;
 	dir.move_to(next_x, next_y);
 	// check for valid next location
-	std::cout << " to " << next_x << ", " << next_y << std::endl;
+// 	std::cout << " to " << next_x << ", " << next_y << std::endl;
 	if (!g->board.valid_location(next_x, next_y) || (g->board.location_height(next_x, next_y) > 0)) {
-		std::cout << "Error: not a valid location or height (next)\n";
-		return;
+// 		std::cout << "Error: not a valid location or height (next)\n";
+		return false;
 	}
 	
 	// Two possibilities:
@@ -29,6 +32,7 @@ void Move::execute(Game* g) {
 	//   2) not ^
 	
 	if (Actor* loc_a = dynamic_cast<Actor*>(g->board.get_top(next_x, next_y))) {
+		g->board.leave_top_location(start_x, start_y);
 		// Simply enter loc_a into the board
 		g->board.enter_top_location(actor, next_x, next_y);
 	} else {
@@ -39,7 +43,6 @@ void Move::execute(Game* g) {
 		
 		unsigned int current_x = start_x;
 		unsigned int current_y = start_y;
-		
 		
 		while (true) {
 			if (g->board.get_top(next_x, next_y) == nullptr) {
@@ -55,19 +58,18 @@ void Move::execute(Game* g) {
 			// valid end location is empty, not out of board, not height > 0
 			if ( !(g->board.valid_location(next_x, next_y)) || (g->board.location_height(next_x, next_y) > 0)) {
 				// error: we can't push...
-				std::cout << "Error: can't push\n";
-				return;
+				return false;
 			}
 			
 		}
 		
-		std::cout << "total_weight = " << total_weight << "\n";
-		std::cout << "next = (" << next_x << ", " << next_y << ")\n";
+// 		std::cout << "total_weight = " << total_weight << "\n";
+// 		std::cout << "next = (" << next_x << ", " << next_y << ")\n";
 		
 		// check total_weight > ACTOR_POWER
 		if (total_weight > ACTOR_POWER) {
-			std::cout << "Error: actor tries to push too much weight\n";
-			return;
+// 			std::cout << "Error: actor tries to push too much weight\n";
+			return false;
 		}
 		
 		// move all stuff (work backwards)
@@ -80,8 +82,10 @@ void Move::execute(Game* g) {
 			// the while loop will stop anyway in such a situation.
 			dir.move_from(next_x, next_y);
 			
-			std::cout << "next = (" << next_x << ", " << next_y << ")\n";
+// 			std::cout << "next = (" << next_x << ", " << next_y << ")\n";
 		} while (next_x != start_x || next_y != start_y);
 	}
+	
+	return true;
 }
 

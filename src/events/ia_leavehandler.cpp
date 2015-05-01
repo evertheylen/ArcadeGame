@@ -7,6 +7,7 @@ void IA_LeaveHandler::onLeave(Entity* e, Entity* f) {
 }
 
 void IA_LeaveHandler::onLeave(Entity* e, Button* b) {
+	std::cout << "gate close.\n";
 	b->gate->close();
 }
 

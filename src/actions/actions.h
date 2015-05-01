@@ -43,7 +43,7 @@ public:
 
 	Direction get_dir();
 
-	virtual void execute(Game* g) = 0;
+	virtual bool execute(Game* g) = 0;
 };
 
 

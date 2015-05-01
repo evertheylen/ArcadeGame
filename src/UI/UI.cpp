@@ -206,9 +206,12 @@ void UI::simulate(int amount) {
 	if (init_game()) {
 		for (int i = 0; i < amount; i++) {
 			if (g->actions.size() >= 1) {
-				g->actions.front()->execute(g);
+				if (!g->actions.front()->execute(g)) {
+					std::cout << "Action was unsuccesfull.\n";
+				}
 				g->actions.pop_front();
 			}
+			// TODO check for game->ended...
 		}
 	} else {
 		std::cout << "Can't simulate, Game isn't initialized yet.\n";

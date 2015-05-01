@@ -34,7 +34,7 @@ ArcadeMain: $(OBJS) ArcadeMain.o
 	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(TINYXMLLIBS) ArcadeMain.o
 
 
-ArcadeTests: $(OBJS) ArcadeTests.o generate_filetests
+ArcadeTests: $(OBJS) generate_filetests ArcadeTests.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
 	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread
 

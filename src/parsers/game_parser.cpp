@@ -39,8 +39,6 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 		gp->actions = *actions;
 	}
 
-	std::cout << "Height::" << gp->board.get_height() << std::endl;
-
 	return gp;
 }
 

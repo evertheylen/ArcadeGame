@@ -8,19 +8,18 @@ Attack::Attack(Player* player, std::string& dirname):
 		Action(player,dirname) {}
 
 
-void Attack::execute(Game* g) {
+bool Attack::execute(Game* g) {
 	unsigned int x = actor->x;
 	unsigned int y = actor->y;
 	dir.move_to(x,y);
 	if (!g->board.valid_location(x,y)) {
-		std::cout << "Invalid location\n";
-		return;
+		return false; // invalid location
 	}
 	
 	Entity* to_attack = g->board.get_top(x,y);
 	
 	if (to_attack == nullptr) {
-		std::cout << "Nothing to attack\n";
+		return false; // nothing to attack
 	} else {
 		g->kill(to_attack);
 		if (!to_attack->is_alive()) {
@@ -28,5 +27,7 @@ void Attack::execute(Game* g) {
 			g->bury(to_attack);
 		}
 	}
+	
+	return true;
 }
 

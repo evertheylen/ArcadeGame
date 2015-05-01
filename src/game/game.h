@@ -73,7 +73,7 @@ public:
 // 	Game(Board* board, std::list<Action>& actions, Playermap& players);
 // 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
-	void main_loop();
+	void main_loop(std::ostream& out);
 	
 	
 private:

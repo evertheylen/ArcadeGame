@@ -1,3 +1,2 @@
-About to do all 4 movements.
-
-Done.
+Game parser started [internal:2:1]
+name is gate1 [tests/filetests/HappyDay/Speelveld.xml:42:5]

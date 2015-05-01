@@ -8,7 +8,7 @@ class Move: public Action {
 public:
 	Move(Actor* _actor, std::string& dirname);
 	
-	void execute(Game* g);
+	bool execute(Game* g);
 };
 
 

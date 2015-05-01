@@ -8,7 +8,7 @@ class Attack: public Action {
 public:
 	Attack(Player* player, std::string& dirname);
 	
-	void execute(Game* g);
+	bool execute(Game* g);
 };
 
 

@@ -52,7 +52,7 @@ Entity* Board::leave_top_location(unsigned int x, unsigned int y) {
 		return nullptr;
 	}
 	
-	if (location_height(x,y) > 0) {
+	if (location_size(x,y) > 0) {
 		// We IA_Leave the entity below.
 		game->leave(e, data.at(x).at(y).at(0));
 	}
@@ -70,7 +70,6 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 	}
 	e->x = x;
 	e->y = y;
-	std::cout << "Tadaa! " << e->to_char() << "\n";
 	if (location_height(x,y) < 0) {
 		// fallthrough
 		enter_location(e, x, y);
@@ -87,7 +86,7 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 			// Two entities can't be on the exact same (top) location at once.
 			// So one has to dissappear. If one of the objects is dead, that one is deleted.
 			// Otherwise, the 'old' entity is deleted.
-			if (! e->is_alive()) {
+			if (!e->is_alive()) {
 				game->graveyard.push_back(e);
 			} else {
 				// the old one has to go, sadly.
@@ -139,7 +138,7 @@ void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 	
 	// Water never contains Smalls, they should slip in between Waters
 	if (lowest_water != nullptr && !(dynamic_cast<Small*>(e) != nullptr)) {
-		game->collide(lowest_water, e);  // puts e in w, kills e
+		game->collide(lowest_water, e);  // puts e in w, kills e, or not
 		if (current_pos < loc.size()) {
 			game->enter(lowest_water, loc.at(current_pos));
 		}

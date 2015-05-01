@@ -11,10 +11,14 @@ bool Water::is_filled() {
 
 
 char Water::to_char() {
-	if (contained == nullptr)
+	if (contained == nullptr) {
 		return WATER_SYMBOL_EMPTY;
-	else
-		return WATER_SYMBOL_FULL;
+	} else {
+		if (contained->get_height()+WATER_HEIGHT < 0)
+			return WATER_SYMBOL_EMPTY;
+		else
+			return WATER_SYMBOL_FULL;
+	}
 }
 
 

@@ -22,56 +22,6 @@
 // no specific cpp header.
 
 
-// IA_EnterDispatch
-
-#include <limits>
-
-int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
-    // Rule 0
-    Player* __r0_Player0 = dynamic_cast<Player*>(__Entity0);
-    Goal* __r0_Goal1 = dynamic_cast<Goal*>(__Entity1);
-    if (__r0_Player0 != nullptr && __r0_Goal1 != nullptr) {
-        return 0;
-    }
-
-    // Rule 1
-    Actor* __r1_Actor0 = dynamic_cast<Actor*>(__Entity0);
-    Boobytrap* __r1_Boobytrap1 = dynamic_cast<Boobytrap*>(__Entity1);
-    if (__r1_Actor0 != nullptr && __r1_Boobytrap1 != nullptr) {
-        return 1;
-    }
-
-    // Rule 2
-    Entity* __r2_Entity0 = dynamic_cast<Entity*>(__Entity0);
-    Button* __r2_Button1 = dynamic_cast<Button*>(__Entity1);
-    if (__r2_Entity0 != nullptr && __r2_Button1 != nullptr) {
-        return 2;
-    }
-
-
-    return std::numeric_limits<int>::max();
-}
-    
-void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
-    switch(rulenum) {
-
-        case 0:
-            return onEnter(dynamic_cast<Player*>(__Entity0), dynamic_cast<Goal*>(__Entity1));
-
-        case 1:
-            return onEnter(dynamic_cast<Actor*>(__Entity0), dynamic_cast<Boobytrap*>(__Entity1));
-
-        case 2:
-            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Button*>(__Entity1));
-
-        default:
-            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
-    }
-}
-
-
-
-
 // IA_LeaveDispatch
 
 #include <limits>
@@ -174,6 +124,56 @@ void CollisionDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1
 
         default:
             return onCollision(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
+    }
+}
+
+
+
+
+// IA_EnterDispatch
+
+#include <limits>
+
+int IA_EnterDispatch::getRule(Entity* __Entity0, Entity* __Entity1) {
+    // Rule 0
+    Player* __r0_Player0 = dynamic_cast<Player*>(__Entity0);
+    Goal* __r0_Goal1 = dynamic_cast<Goal*>(__Entity1);
+    if (__r0_Player0 != nullptr && __r0_Goal1 != nullptr) {
+        return 0;
+    }
+
+    // Rule 1
+    Actor* __r1_Actor0 = dynamic_cast<Actor*>(__Entity0);
+    Boobytrap* __r1_Boobytrap1 = dynamic_cast<Boobytrap*>(__Entity1);
+    if (__r1_Actor0 != nullptr && __r1_Boobytrap1 != nullptr) {
+        return 1;
+    }
+
+    // Rule 2
+    Entity* __r2_Entity0 = dynamic_cast<Entity*>(__Entity0);
+    Button* __r2_Button1 = dynamic_cast<Button*>(__Entity1);
+    if (__r2_Entity0 != nullptr && __r2_Button1 != nullptr) {
+        return 2;
+    }
+
+
+    return std::numeric_limits<int>::max();
+}
+    
+void IA_EnterDispatch::doRule(int rulenum, Entity* __Entity0, Entity* __Entity1) {
+    switch(rulenum) {
+
+        case 0:
+            return onEnter(dynamic_cast<Player*>(__Entity0), dynamic_cast<Goal*>(__Entity1));
+
+        case 1:
+            return onEnter(dynamic_cast<Actor*>(__Entity0), dynamic_cast<Boobytrap*>(__Entity1));
+
+        case 2:
+            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Button*>(__Entity1));
+
+        default:
+            return onEnter(dynamic_cast<Entity*>(__Entity0), dynamic_cast<Entity*>(__Entity1));
     }
 }
 
