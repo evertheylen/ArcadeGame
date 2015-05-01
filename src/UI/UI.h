@@ -23,6 +23,8 @@ public:
 	
 	void run();
 	
+	void fancy_command(std::string& command);
+	
 	bool parse_and_do(std::string& command);
 
 
@@ -60,4 +62,4 @@ private:
 
 std::vector<std::string> split(std::string& s, char delim);
 
-#endif /* _UI */
+#endif /* _H_UI */

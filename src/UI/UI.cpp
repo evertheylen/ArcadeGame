@@ -44,33 +44,39 @@ void UI::run() {
 		
 		if (raw_input == "quit" || raw_input == "q") {
 			return;
-		} else if (parse_and_do(raw_input)) { // this is a rather important function call hidden inside an if
-			continue;
 		} else {
-			// Try the fancy notation
-			std::vector<std::string> fancies = split(raw_input, ':');
-			int times = 0;
-			if (fancies.size() == 2) {
-				try {
-					times = std::stoi(fancies[0]);
-				} catch (std::invalid_argument& e) {
-					// too bad
-					times = -1;
+			fancy_command(raw_input);
+		}
+	}
+}
+
+void UI::fancy_command(std::string& command) {
+	std::vector<std::string> fancies = split(command, ':');
+	int times = 0;
+	if (fancies.size() == 2) {
+		try {
+			times = std::stoi(fancies[0]);
+		} catch (std::invalid_argument& e) {
+			// too bad
+			times = -1;
+		}
+	} else if (fancies.size() == 1) {
+		if (!parse_and_do(fancies[0])) {
+			std::cout << "I didn't understand that command. Try help.\n";
+		}
+		return;
+	}
+	
+	if (times > 0) {
+		for (int i=0; i<times; i++) {
+			for (std::string subcommand: split(fancies[1], ',')) {
+				if (!parse_and_do(subcommand)) {
+					std::cout << "I didn't understand that command. Try help.\n";
 				}
-			}
-			
-			if (times > 0) {
-				for (int i=0; i<times; i++) {
-					for (std::string subcommand: split(fancies[1], ';')) {
-						if (!parse_and_do(subcommand)) {
-							std::cout << "I didn't understand that command. Try help.\n";
-						}
-					}
-				}
-			} else {
-				std::cout << "I didn't understand that command. Try help.\n";
 			}
 		}
+	} else {
+		std::cout << "I didn't understand that command. Try help.\n";
 	}
 }
 
