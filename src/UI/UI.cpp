@@ -162,15 +162,7 @@ void UI::show(std::ostream& out) {
 void UI::write_board(std::string file, Game* g) {
 	std::ofstream output_file;
 	output_file.open(file.c_str());
-	output_file << "Hier verschijnt later het huidige speelveld!\n";
-	output_file << "Height: " << g->board.get_height() << " Width: " << g->board.get_width() << "\n";
-	for (int i = g->board.get_height()-1; i>=0; i--) {
-		for (int j = 0; j < g->board.get_width(); j++) {
-			output_file << g->board.to_char(j,i);
-		}
-		output_file << std::endl;
-	}
-	//g->writeBoard(output_file);
+	g->board.simple_graphics(output_file);
 	output_file.close();
 }
 

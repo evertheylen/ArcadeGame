@@ -5,9 +5,11 @@
  *      Author: stijn
  */
 
+#include <iostream>
 #include <vector>
 
 #include "entity.h"
+
 
 #ifndef _H_Board
 #define _H_Board
@@ -34,6 +36,8 @@ public:
 	
 	char to_char(unsigned int x, unsigned int y);
 	
+	void simple_graphics(std::ostream& out);
+
 	// For debugging only
 	void print_sideview(unsigned int x, unsigned int y);
 	

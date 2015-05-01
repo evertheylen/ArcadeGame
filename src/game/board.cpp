@@ -178,12 +178,13 @@ void Board::print_sideview(unsigned int x, unsigned int y) {
 	std::cout << "\n";
 }
 
-
-
-// Private
-
-int Board::location_size(unsigned int x, unsigned int y) {
-	return data.at(x).at(y).size();
+void Board::simple_graphics(std::ostream& out) {
+	for (int i = get_height()-1; i>=0; i--) {
+		for (int j = 0; j < get_width(); j++) {
+			out << to_char(j,i);
+		}
+		out << std::endl;
+	}
 }
 
 int Board::get_width() {
@@ -194,3 +195,8 @@ int Board::get_height() {
 	return height;
 }
 
+// Private
+
+int Board::location_size(unsigned int x, unsigned int y) {
+	return data.at(x).at(y).size();
+}
