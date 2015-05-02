@@ -1,0 +1,86 @@
+\hypertarget{classgtest__throw__on__failure__test_1_1_throw_on_failure_test}{\section{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test Class Reference}
+\label{classgtest__throw__on__failure__test_1_1_throw_on_failure_test}\index{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test}}
+}
+Inheritance diagram for gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgtest__throw__on__failure__test_1_1_throw_on_failure_test}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a98881d3352e7aff479be757151c8e241}{Run\-And\-Verify}
+\item 
+def \hyperlink{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a24612a4243bfa5733701044daaa056ea}{test\-Default\-Behavior}
+\item 
+def \hyperlink{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_ab55f201633e8bd230a95bb61350f99a9}{test\-Throw\-On\-Failure\-Env\-Var}
+\item 
+def \hyperlink{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a9ce7c025ec64ac277c2f870566fed6df}{test\-Throw\-On\-Failure\-Flag}
+\item 
+def \hyperlink{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a4ce45db83582fb498c998beef7efede7}{test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Tests the throw-on-failure mode.\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a98881d3352e7aff479be757151c8e241}{\index{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}!Run\-And\-Verify@{Run\-And\-Verify}}
+\index{Run\-And\-Verify@{Run\-And\-Verify}!gtest_throw_on_failure_test::ThrowOnFailureTest@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}}
+\subsubsection[{Run\-And\-Verify}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test.\-Run\-And\-Verify (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{env\-\_\-var\-\_\-value, }
+\item[{}]{flag\-\_\-value, }
+\item[{}]{should\-\_\-fail}
+\end{DoxyParamCaption}
+)}}\label{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a98881d3352e7aff479be757151c8e241}
+\begin{DoxyVerb}Runs gtest_throw_on_failure_test_ and verifies that it does
+(or does not) exit with a non-zero code.
+
+Args:
+  env_var_value:    value of the GTEST_BREAK_ON_FAILURE environment
+                variable; None if the variable should be unset.
+  flag_value:       value of the --gtest_break_on_failure flag;
+                None if the flag should not be present.
+  should_fail:      True iff the program is expected to fail.
+\end{DoxyVerb}
+ \hypertarget{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a24612a4243bfa5733701044daaa056ea}{\index{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}!test\-Default\-Behavior@{test\-Default\-Behavior}}
+\index{test\-Default\-Behavior@{test\-Default\-Behavior}!gtest_throw_on_failure_test::ThrowOnFailureTest@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}}
+\subsubsection[{test\-Default\-Behavior}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test.\-test\-Default\-Behavior (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a24612a4243bfa5733701044daaa056ea}
+\begin{DoxyVerb}Tests the behavior of the default mode.\end{DoxyVerb}
+ \hypertarget{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_ab55f201633e8bd230a95bb61350f99a9}{\index{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}!test\-Throw\-On\-Failure\-Env\-Var@{test\-Throw\-On\-Failure\-Env\-Var}}
+\index{test\-Throw\-On\-Failure\-Env\-Var@{test\-Throw\-On\-Failure\-Env\-Var}!gtest_throw_on_failure_test::ThrowOnFailureTest@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}}
+\subsubsection[{test\-Throw\-On\-Failure\-Env\-Var}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test.\-test\-Throw\-On\-Failure\-Env\-Var (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_ab55f201633e8bd230a95bb61350f99a9}
+\begin{DoxyVerb}Tests using the GTEST_THROW_ON_FAILURE environment variable.\end{DoxyVerb}
+ \hypertarget{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a9ce7c025ec64ac277c2f870566fed6df}{\index{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}!test\-Throw\-On\-Failure\-Flag@{test\-Throw\-On\-Failure\-Flag}}
+\index{test\-Throw\-On\-Failure\-Flag@{test\-Throw\-On\-Failure\-Flag}!gtest_throw_on_failure_test::ThrowOnFailureTest@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}}
+\subsubsection[{test\-Throw\-On\-Failure\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test.\-test\-Throw\-On\-Failure\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a9ce7c025ec64ac277c2f870566fed6df}
+\begin{DoxyVerb}Tests using the --gtest_throw_on_failure flag.\end{DoxyVerb}
+ \hypertarget{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a4ce45db83582fb498c998beef7efede7}{\index{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}!test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var@{test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var}}
+\index{test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var@{test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var}!gtest_throw_on_failure_test::ThrowOnFailureTest@{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test\-::\-Throw\-On\-Failure\-Test}}
+\subsubsection[{test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-Throw\-On\-Failure\-Test.\-test\-Throw\-On\-Failure\-Flag\-Overrides\-Env\-Var (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__throw__on__failure__test_1_1_throw_on_failure_test_a4ce45db83582fb498c998beef7efede7}
+\begin{DoxyVerb}Tests that --gtest_throw_on_failure overrides GTEST_THROW_ON_FAILURE.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/gtest/test/\hyperlink{gtest__throw__on__failure__test_8py}{gtest\-\_\-throw\-\_\-on\-\_\-failure\-\_\-test.\-py}\end{DoxyCompactItemize}

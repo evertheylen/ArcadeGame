@@ -1,0 +1,136 @@
+\hypertarget{classgtest__help__test_1_1_g_test_help_test}{\section{gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test Class Reference}
+\label{classgtest__help__test_1_1_g_test_help_test}\index{gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test}}
+}
+Inheritance diagram for gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgtest__help__test_1_1_g_test_help_test}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a913bc1e0c66584e436623688ba4d6b50}{Test\-Help\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a0eb2fe97ba1d7e143d96c53f291b1483}{Test\-Non\-Help\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a99d9c22b2f109922c7f9801a893ac84b}{test\-Prints\-Help\-With\-Full\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_abbbdca638eac1b6282575d829ddbfbb1}{test\-Prints\-Help\-With\-Short\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a4073fd2c07d116a27c292254530c19e5}{test\-Prints\-Help\-With\-Question\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a97d597972c6e922959ce2a52624ab1fe}{test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a997c51b045d9afdb780fba760dcc998b}{test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a4bcda3b4198315aa02b8cbac95e24988}{test\-Prints\-Help\-With\-Incorrect\-Flag\-Style}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_a5a5285dac93bcc5933da13ed5209fbda}{test\-Runs\-Tests\-Without\-Help\-Flag}
+\item 
+def \hyperlink{classgtest__help__test_1_1_g_test_help_test_aabce3d2be94ad4e413b9452e3dc8c3a8}{test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Tests the --help flag and its equivalent forms.\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_a913bc1e0c66584e436623688ba4d6b50}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!Test\-Help\-Flag@{Test\-Help\-Flag}}
+\index{Test\-Help\-Flag@{Test\-Help\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{Test\-Help\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-Test\-Help\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{flag}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a913bc1e0c66584e436623688ba4d6b50}
+\begin{DoxyVerb}Verifies correct behavior when help flag is specified.
+
+The right message must be printed and the tests must
+skipped when the given flag is specified.
+
+Args:
+  flag:  A flag to pass to the binary or None.
+\end{DoxyVerb}
+ \hypertarget{classgtest__help__test_1_1_g_test_help_test_a0eb2fe97ba1d7e143d96c53f291b1483}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!Test\-Non\-Help\-Flag@{Test\-Non\-Help\-Flag}}
+\index{Test\-Non\-Help\-Flag@{Test\-Non\-Help\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{Test\-Non\-Help\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-Test\-Non\-Help\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{flag}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a0eb2fe97ba1d7e143d96c53f291b1483}
+\begin{DoxyVerb}Verifies correct behavior when no help flag is specified.
+
+Verifies that when no help flag is specified, the tests are run
+and the help message is not printed.
+
+Args:
+  flag:  A flag to pass to the binary or None.
+\end{DoxyVerb}
+ \hypertarget{classgtest__help__test_1_1_g_test_help_test_a99d9c22b2f109922c7f9801a893ac84b}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Prints\-Help\-With\-Full\-Flag@{test\-Prints\-Help\-With\-Full\-Flag}}
+\index{test\-Prints\-Help\-With\-Full\-Flag@{test\-Prints\-Help\-With\-Full\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Prints\-Help\-With\-Full\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Prints\-Help\-With\-Full\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a99d9c22b2f109922c7f9801a893ac84b}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_a4bcda3b4198315aa02b8cbac95e24988}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Prints\-Help\-With\-Incorrect\-Flag\-Style@{test\-Prints\-Help\-With\-Incorrect\-Flag\-Style}}
+\index{test\-Prints\-Help\-With\-Incorrect\-Flag\-Style@{test\-Prints\-Help\-With\-Incorrect\-Flag\-Style}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Prints\-Help\-With\-Incorrect\-Flag\-Style}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Prints\-Help\-With\-Incorrect\-Flag\-Style (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a4bcda3b4198315aa02b8cbac95e24988}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_a4073fd2c07d116a27c292254530c19e5}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Prints\-Help\-With\-Question\-Flag@{test\-Prints\-Help\-With\-Question\-Flag}}
+\index{test\-Prints\-Help\-With\-Question\-Flag@{test\-Prints\-Help\-With\-Question\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Prints\-Help\-With\-Question\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Prints\-Help\-With\-Question\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a4073fd2c07d116a27c292254530c19e5}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_abbbdca638eac1b6282575d829ddbfbb1}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Prints\-Help\-With\-Short\-Flag@{test\-Prints\-Help\-With\-Short\-Flag}}
+\index{test\-Prints\-Help\-With\-Short\-Flag@{test\-Prints\-Help\-With\-Short\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Prints\-Help\-With\-Short\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Prints\-Help\-With\-Short\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_abbbdca638eac1b6282575d829ddbfbb1}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_a997c51b045d9afdb780fba760dcc998b}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag@{test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag}}
+\index{test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag@{test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Prints\-Help\-With\-Unrecognized\-Google\-Test\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a997c51b045d9afdb780fba760dcc998b}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_a97d597972c6e922959ce2a52624ab1fe}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag@{test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag}}
+\index{test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag@{test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Prints\-Help\-With\-Windows\-Style\-Question\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a97d597972c6e922959ce2a52624ab1fe}
+\hypertarget{classgtest__help__test_1_1_g_test_help_test_aabce3d2be94ad4e413b9452e3dc8c3a8}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag@{test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag}}
+\index{test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag@{test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Runs\-Tests\-With\-Gtest\-Internal\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_aabce3d2be94ad4e413b9452e3dc8c3a8}
+\begin{DoxyVerb}Verifies that the tests are run and no help message is printed when
+a flag starting with Google Test prefix and 'internal_' is supplied.\end{DoxyVerb}
+ \hypertarget{classgtest__help__test_1_1_g_test_help_test_a5a5285dac93bcc5933da13ed5209fbda}{\index{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}!test\-Runs\-Tests\-Without\-Help\-Flag@{test\-Runs\-Tests\-Without\-Help\-Flag}}
+\index{test\-Runs\-Tests\-Without\-Help\-Flag@{test\-Runs\-Tests\-Without\-Help\-Flag}!gtest_help_test::GTestHelpTest@{gtest\-\_\-help\-\_\-test\-::\-G\-Test\-Help\-Test}}
+\subsubsection[{test\-Runs\-Tests\-Without\-Help\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}def gtest\-\_\-help\-\_\-test.\-G\-Test\-Help\-Test.\-test\-Runs\-Tests\-Without\-Help\-Flag (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classgtest__help__test_1_1_g_test_help_test_a5a5285dac93bcc5933da13ed5209fbda}
+\begin{DoxyVerb}Verifies that when no help flag is specified, the tests are run
+and the help message is not printed.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+lib/gtest/test/\hyperlink{gtest__help__test_8py}{gtest\-\_\-help\-\_\-test.\-py}\end{DoxyCompactItemize}

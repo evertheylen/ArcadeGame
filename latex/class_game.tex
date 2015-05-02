@@ -1,0 +1,218 @@
+\hypertarget{class_game}{\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+}
+
+
+{\ttfamily \#include $<$game.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::map$<$ std\-::string, \\*
+\hyperlink{class_player}{Player} $\ast$ $>$ \hyperlink{class_game_a11e553861e3a7fc842680e55171ed06f}{Playermap}
+\item 
+typedef std\-::map$<$ std\-::string, \\*
+\hyperlink{class_monster}{Monster} $\ast$ $>$ \hyperlink{class_game_a2c39481e575abd66baa206771c504149}{Monstermap}
+\item 
+typedef std\-::map$<$ std\-::string, \\*
+\hyperlink{class_gate}{Gate} $\ast$ $>$ \hyperlink{class_game_a3ac788aaa1e70509a9b9745acd17a8b5}{Gatemap}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game} ()
+\item 
+\hyperlink{class_player}{Player} $\ast$ \hyperlink{class_game_a1ba768153bfd50425bf834080e787991}{get\-\_\-player} (std\-::string name)
+\item 
+\hyperlink{class_monster}{Monster} $\ast$ \hyperlink{class_game_a7ec99a9ec7eae9083a124600ac5023b6}{get\-\_\-monster} (std\-::string name)
+\item 
+\hyperlink{class_actor}{Actor} $\ast$ \hyperlink{class_game_a58a569b16c5350c2139b16827b9787ed}{get\-\_\-actor} (std\-::string name)
+\item 
+void \hyperlink{class_game_a532e7897423e470019ada16917b457c2}{add\-\_\-player} (\hyperlink{class_player}{Player} $\ast$p)
+\item 
+void \hyperlink{class_game_a5b3ceb773fe5f462bb23679ed0482db1}{add\-\_\-monster} (\hyperlink{class_monster}{Monster} $\ast$m)
+\item 
+void \hyperlink{class_game_a73b72d3098c7c9a8d232b5fd4b1139ad}{write\-\_\-actions} (std\-::ostream \&out)
+\item 
+int \hyperlink{class_game_ad6165e671cd454ac4c2296f306d293eb}{players\-\_\-alive} ()
+\item 
+void \hyperlink{class_game_a1845d7f4c11f16a76e79f119f4077f17}{bury} (\hyperlink{class_entity}{Entity} $\ast$e)
+\item 
+void \hyperlink{class_game_ace7329584fe440ea6496ff553f1a0e59}{main\-\_\-loop} (std\-::ostream \&out)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_board}{Board} \hyperlink{class_game_af5bc546b0c766ecf2f7e008f750832ed}{board}
+\item 
+std\-::list$<$ \hyperlink{class_action}{Action} $\ast$ $>$ \hyperlink{class_game_a8e61c60693aa39b8a3deb5f3f277b43f}{actions}
+\item 
+\hyperlink{class_game_a11e553861e3a7fc842680e55171ed06f}{Playermap} \hyperlink{class_game_a80a6b1acda9236fe3b7fe0350798c177}{playermap}
+\item 
+\hyperlink{class_game_a2c39481e575abd66baa206771c504149}{Monstermap} \hyperlink{class_game_a258c0d85bedcded80253fa4727893e5f}{monstermap}
+\item 
+\hyperlink{class_game_a3ac788aaa1e70509a9b9745acd17a8b5}{Gatemap} \hyperlink{class_game_a1d765a83bc51abcacd6d29982e8f1334}{gatemap}
+\item 
+\hyperlink{collisionmanager_8h_a68b133893cc2135753d73d2eb67d8862}{Kill\-Manager} \hyperlink{class_game_a5e85f7712e3de31f39c90fb67faa8810}{kill}
+\item 
+\hyperlink{collisionmanager_8h_aa6e6f4ef51ae9973907d531f6b4a1185}{Collision\-Manager} \hyperlink{class_game_aa2a0d5dc6a9af51c8b34c2cf27284d4a}{collide}
+\item 
+\hyperlink{collisionmanager_8h_ad2f95bbc2be9cd96bdcf6e78d8f2c68f}{I\-A\-\_\-\-Enter\-Manager} \hyperlink{class_game_a74330f1be42a0084acb37b91ef89664a}{enter}
+\item 
+\hyperlink{collisionmanager_8h_a197a12544b0eb494b21e8808db01dc7f}{I\-A\-\_\-\-Leave\-Manager} \hyperlink{class_game_ace7ec571f69a4a210e5a4d1f80232753}{leave}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_game_ab0955901615f29e137d1ad6b95fc2c55}{Collision\-Handler}
+\item 
+class \hyperlink{class_game_ad46435fe6b8e9a384d33d608058862ae}{I\-A\-\_\-\-Enter\-Handler}
+\item 
+class \hyperlink{class_game_adc4c20007ad2fd4bc2556fbfbff54945}{I\-A\-\_\-\-Leave\-Handler}
+\item 
+class \hyperlink{class_game_aab5a016b7fd0a16c4e689d3102ec3a17}{Kill\-Handler}
+\item 
+class \hyperlink{class_game_a12525b6ed7c8186be0bee5cf78e2a49c}{Board}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_game_a3ac788aaa1e70509a9b9745acd17a8b5}{\index{Game@{Game}!Gatemap@{Gatemap}}
+\index{Gatemap@{Gatemap}!Game@{Game}}
+\subsubsection[{Gatemap}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::map$<$std\-::string, {\bf Gate}$\ast$$>$ {\bf Game\-::\-Gatemap}}}\label{class_game_a3ac788aaa1e70509a9b9745acd17a8b5}
+\hypertarget{class_game_a2c39481e575abd66baa206771c504149}{\index{Game@{Game}!Monstermap@{Monstermap}}
+\index{Monstermap@{Monstermap}!Game@{Game}}
+\subsubsection[{Monstermap}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::map$<$std\-::string, {\bf Monster}$\ast$$>$ {\bf Game\-::\-Monstermap}}}\label{class_game_a2c39481e575abd66baa206771c504149}
+\hypertarget{class_game_a11e553861e3a7fc842680e55171ed06f}{\index{Game@{Game}!Playermap@{Playermap}}
+\index{Playermap@{Playermap}!Game@{Game}}
+\subsubsection[{Playermap}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::map$<$std\-::string, {\bf Player}$\ast$$>$ {\bf Game\-::\-Playermap}}}\label{class_game_a11e553861e3a7fc842680e55171ed06f}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}{\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}Game\-::\-Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_game_ad59df6562a58a614fda24622d3715b65}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_a5b3ceb773fe5f462bb23679ed0482db1}{\index{Game@{Game}!add\-\_\-monster@{add\-\_\-monster}}
+\index{add\-\_\-monster@{add\-\_\-monster}!Game@{Game}}
+\subsubsection[{add\-\_\-monster}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-\_\-monster (
+\begin{DoxyParamCaption}
+\item[{{\bf Monster} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{class_game_a5b3ceb773fe5f462bb23679ed0482db1}
+\hypertarget{class_game_a532e7897423e470019ada16917b457c2}{\index{Game@{Game}!add\-\_\-player@{add\-\_\-player}}
+\index{add\-\_\-player@{add\-\_\-player}!Game@{Game}}
+\subsubsection[{add\-\_\-player}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::add\-\_\-player (
+\begin{DoxyParamCaption}
+\item[{{\bf Player} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_game_a532e7897423e470019ada16917b457c2}
+\hypertarget{class_game_a1845d7f4c11f16a76e79f119f4077f17}{\index{Game@{Game}!bury@{bury}}
+\index{bury@{bury}!Game@{Game}}
+\subsubsection[{bury}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::bury (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}}\label{class_game_a1845d7f4c11f16a76e79f119f4077f17}
+\hypertarget{class_game_a58a569b16c5350c2139b16827b9787ed}{\index{Game@{Game}!get\-\_\-actor@{get\-\_\-actor}}
+\index{get\-\_\-actor@{get\-\_\-actor}!Game@{Game}}
+\subsubsection[{get\-\_\-actor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Actor} $\ast$ Game\-::get\-\_\-actor (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_game_a58a569b16c5350c2139b16827b9787ed}
+\hypertarget{class_game_a7ec99a9ec7eae9083a124600ac5023b6}{\index{Game@{Game}!get\-\_\-monster@{get\-\_\-monster}}
+\index{get\-\_\-monster@{get\-\_\-monster}!Game@{Game}}
+\subsubsection[{get\-\_\-monster}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Monster} $\ast$ Game\-::get\-\_\-monster (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_game_a7ec99a9ec7eae9083a124600ac5023b6}
+\hypertarget{class_game_a1ba768153bfd50425bf834080e787991}{\index{Game@{Game}!get\-\_\-player@{get\-\_\-player}}
+\index{get\-\_\-player@{get\-\_\-player}!Game@{Game}}
+\subsubsection[{get\-\_\-player}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} $\ast$ Game\-::get\-\_\-player (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_game_a1ba768153bfd50425bf834080e787991}
+\hypertarget{class_game_ace7329584fe440ea6496ff553f1a0e59}{\index{Game@{Game}!main\-\_\-loop@{main\-\_\-loop}}
+\index{main\-\_\-loop@{main\-\_\-loop}!Game@{Game}}
+\subsubsection[{main\-\_\-loop}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::main\-\_\-loop (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out}
+\end{DoxyParamCaption}
+)}}\label{class_game_ace7329584fe440ea6496ff553f1a0e59}
+$<$ E\-N\-S\-U\-R\-E(properly\-Initialized(), \char`\"{}\-Copy constructor must end...\char`\"{}); $<$ E\-N\-S\-U\-R\-E(properly\-Initialized(), \char`\"{}\-Copy by assignment must end...\char`\"{}); $<$ E\-N\-S\-U\-R\-E(properly\-Initialized(), \char`\"{}constructor must end ...\char`\"{}); \hypertarget{class_game_ad6165e671cd454ac4c2296f306d293eb}{\index{Game@{Game}!players\-\_\-alive@{players\-\_\-alive}}
+\index{players\-\_\-alive@{players\-\_\-alive}!Game@{Game}}
+\subsubsection[{players\-\_\-alive}]{\setlength{\rightskip}{0pt plus 5cm}int Game\-::players\-\_\-alive (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_game_ad6165e671cd454ac4c2296f306d293eb}
+\hypertarget{class_game_a73b72d3098c7c9a8d232b5fd4b1139ad}{\index{Game@{Game}!write\-\_\-actions@{write\-\_\-actions}}
+\index{write\-\_\-actions@{write\-\_\-actions}!Game@{Game}}
+\subsubsection[{write\-\_\-actions}]{\setlength{\rightskip}{0pt plus 5cm}void Game\-::write\-\_\-actions (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out}
+\end{DoxyParamCaption}
+)}}\label{class_game_a73b72d3098c7c9a8d232b5fd4b1139ad}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_game_a12525b6ed7c8186be0bee5cf78e2a49c}{\index{Game@{Game}!Board@{Board}}
+\index{Board@{Board}!Game@{Game}}
+\subsubsection[{Board}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Board}\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_game_a12525b6ed7c8186be0bee5cf78e2a49c}
+\hypertarget{class_game_ab0955901615f29e137d1ad6b95fc2c55}{\index{Game@{Game}!Collision\-Handler@{Collision\-Handler}}
+\index{Collision\-Handler@{Collision\-Handler}!Game@{Game}}
+\subsubsection[{Collision\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}friend class Collision\-Handler\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_game_ab0955901615f29e137d1ad6b95fc2c55}
+\hypertarget{class_game_ad46435fe6b8e9a384d33d608058862ae}{\index{Game@{Game}!I\-A\-\_\-\-Enter\-Handler@{I\-A\-\_\-\-Enter\-Handler}}
+\index{I\-A\-\_\-\-Enter\-Handler@{I\-A\-\_\-\-Enter\-Handler}!Game@{Game}}
+\subsubsection[{I\-A\-\_\-\-Enter\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf I\-A\-\_\-\-Enter\-Handler}\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_game_ad46435fe6b8e9a384d33d608058862ae}
+\hypertarget{class_game_adc4c20007ad2fd4bc2556fbfbff54945}{\index{Game@{Game}!I\-A\-\_\-\-Leave\-Handler@{I\-A\-\_\-\-Leave\-Handler}}
+\index{I\-A\-\_\-\-Leave\-Handler@{I\-A\-\_\-\-Leave\-Handler}!Game@{Game}}
+\subsubsection[{I\-A\-\_\-\-Leave\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf I\-A\-\_\-\-Leave\-Handler}\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_game_adc4c20007ad2fd4bc2556fbfbff54945}
+\hypertarget{class_game_aab5a016b7fd0a16c4e689d3102ec3a17}{\index{Game@{Game}!Kill\-Handler@{Kill\-Handler}}
+\index{Kill\-Handler@{Kill\-Handler}!Game@{Game}}
+\subsubsection[{Kill\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Kill\-Handler}\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_game_aab5a016b7fd0a16c4e689d3102ec3a17}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_game_a8e61c60693aa39b8a3deb5f3f277b43f}{\index{Game@{Game}!actions@{actions}}
+\index{actions@{actions}!Game@{Game}}
+\subsubsection[{actions}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<${\bf Action}$\ast$$>$ Game\-::actions}}\label{class_game_a8e61c60693aa39b8a3deb5f3f277b43f}
+\hypertarget{class_game_af5bc546b0c766ecf2f7e008f750832ed}{\index{Game@{Game}!board@{board}}
+\index{board@{board}!Game@{Game}}
+\subsubsection[{board}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Board} Game\-::board}}\label{class_game_af5bc546b0c766ecf2f7e008f750832ed}
+\hypertarget{class_game_aa2a0d5dc6a9af51c8b34c2cf27284d4a}{\index{Game@{Game}!collide@{collide}}
+\index{collide@{collide}!Game@{Game}}
+\subsubsection[{collide}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collision\-Manager} Game\-::collide}}\label{class_game_aa2a0d5dc6a9af51c8b34c2cf27284d4a}
+\hypertarget{class_game_a74330f1be42a0084acb37b91ef89664a}{\index{Game@{Game}!enter@{enter}}
+\index{enter@{enter}!Game@{Game}}
+\subsubsection[{enter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-A\-\_\-\-Enter\-Manager} Game\-::enter}}\label{class_game_a74330f1be42a0084acb37b91ef89664a}
+\hypertarget{class_game_a1d765a83bc51abcacd6d29982e8f1334}{\index{Game@{Game}!gatemap@{gatemap}}
+\index{gatemap@{gatemap}!Game@{Game}}
+\subsubsection[{gatemap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Gatemap} Game\-::gatemap}}\label{class_game_a1d765a83bc51abcacd6d29982e8f1334}
+\hypertarget{class_game_a5e85f7712e3de31f39c90fb67faa8810}{\index{Game@{Game}!kill@{kill}}
+\index{kill@{kill}!Game@{Game}}
+\subsubsection[{kill}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Kill\-Manager} Game\-::kill}}\label{class_game_a5e85f7712e3de31f39c90fb67faa8810}
+\hypertarget{class_game_ace7ec571f69a4a210e5a4d1f80232753}{\index{Game@{Game}!leave@{leave}}
+\index{leave@{leave}!Game@{Game}}
+\subsubsection[{leave}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-A\-\_\-\-Leave\-Manager} Game\-::leave}}\label{class_game_ace7ec571f69a4a210e5a4d1f80232753}
+\hypertarget{class_game_a258c0d85bedcded80253fa4727893e5f}{\index{Game@{Game}!monstermap@{monstermap}}
+\index{monstermap@{monstermap}!Game@{Game}}
+\subsubsection[{monstermap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Monstermap} Game\-::monstermap}}\label{class_game_a258c0d85bedcded80253fa4727893e5f}
+\hypertarget{class_game_a80a6b1acda9236fe3b7fe0350798c177}{\index{Game@{Game}!playermap@{playermap}}
+\index{playermap@{playermap}!Game@{Game}}
+\subsubsection[{playermap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Playermap} Game\-::playermap}}\label{class_game_a80a6b1acda9236fe3b7fe0350798c177}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+game/\hyperlink{game_8h}{game.\-h}\item 
+game/\hyperlink{game_8cpp}{game.\-cpp}\end{DoxyCompactItemize}

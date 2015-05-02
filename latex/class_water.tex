@@ -1,0 +1,110 @@
+\hypertarget{class_water}{\section{Water Class Reference}
+\label{class_water}\index{Water@{Water}}
+}
+
+
+{\ttfamily \#include $<$water.\-h$>$}
+
+Inheritance diagram for Water\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_water}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_water_ab5347dafc5898a03fd556f1640d0fd55}{Water} (unsigned int \hyperlink{class_entity_afa8f48eccdb09a290e2c1ded3f135363}{x}, unsigned \hyperlink{class_entity_a9d39843430829a89bb8233dbaadae4f1}{y})
+\item 
+bool \hyperlink{class_water_a063397ad0da6b286bdad0a27cc646cb4}{is\-\_\-filled} ()
+\item 
+char \hyperlink{class_water_a979406ad1fe514e132bf1d0e50802f49}{to\-\_\-char} ()
+\item 
+int \hyperlink{class_water_a3f9cea082bd0a91d0e8a3b5737d3fbd2}{get\-\_\-weight} ()
+\item 
+int \hyperlink{class_water_a090400fa44c929081aa6b097ed6f16e7}{get\-\_\-height} ()
+\item 
+void \hyperlink{class_water_a0931381448954bfc525aa6492860f599}{info} (std\-::ostream \&out)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_entity}{Entity} $\ast$ \hyperlink{class_water_a71b18a4a6cbd58ebbe7c927a84eaab3c}{contained}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_water_ab5347dafc5898a03fd556f1640d0fd55}{\index{Water@{Water}!Water@{Water}}
+\index{Water@{Water}!Water@{Water}}
+\subsubsection[{Water}]{\setlength{\rightskip}{0pt plus 5cm}Water\-::\-Water (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{x, }
+\item[{unsigned}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_water_ab5347dafc5898a03fd556f1640d0fd55}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_water_a090400fa44c929081aa6b097ed6f16e7}{\index{Water@{Water}!get\-\_\-height@{get\-\_\-height}}
+\index{get\-\_\-height@{get\-\_\-height}!Water@{Water}}
+\subsubsection[{get\-\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}int Water\-::get\-\_\-height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_water_a090400fa44c929081aa6b097ed6f16e7}
+
+
+Implements \hyperlink{class_physics_ae3e59e7723c9f0334b88baf60c01f376}{Physics}.
+
+\hypertarget{class_water_a3f9cea082bd0a91d0e8a3b5737d3fbd2}{\index{Water@{Water}!get\-\_\-weight@{get\-\_\-weight}}
+\index{get\-\_\-weight@{get\-\_\-weight}!Water@{Water}}
+\subsubsection[{get\-\_\-weight}]{\setlength{\rightskip}{0pt plus 5cm}int Water\-::get\-\_\-weight (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_water_a3f9cea082bd0a91d0e8a3b5737d3fbd2}
+
+
+Implements \hyperlink{class_physics_a00580cf655d0569cc44f11b630cfcee7}{Physics}.
+
+\hypertarget{class_water_a0931381448954bfc525aa6492860f599}{\index{Water@{Water}!info@{info}}
+\index{info@{info}!Water@{Water}}
+\subsubsection[{info}]{\setlength{\rightskip}{0pt plus 5cm}void Water\-::info (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_water_a0931381448954bfc525aa6492860f599}
+Shows the info about the entity, used in the method \hyperlink{class_board_ae7e407126c1c113669e645a216fc7848}{Board\-::write\-\_\-board}. Is a pure virtual function for \hyperlink{class_entity}{Entity}. R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Entity wasn't initialized when calling info\char`\"{}) 
+
+Implements \hyperlink{class_entity_aa694874d1f59971187de675d1e0c1fdf}{Entity}.
+
+\hypertarget{class_water_a063397ad0da6b286bdad0a27cc646cb4}{\index{Water@{Water}!is\-\_\-filled@{is\-\_\-filled}}
+\index{is\-\_\-filled@{is\-\_\-filled}!Water@{Water}}
+\subsubsection[{is\-\_\-filled}]{\setlength{\rightskip}{0pt plus 5cm}bool Water\-::is\-\_\-filled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_water_a063397ad0da6b286bdad0a27cc646cb4}
+\hypertarget{class_water_a979406ad1fe514e132bf1d0e50802f49}{\index{Water@{Water}!to\-\_\-char@{to\-\_\-char}}
+\index{to\-\_\-char@{to\-\_\-char}!Water@{Water}}
+\subsubsection[{to\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}char Water\-::to\-\_\-char (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_water_a979406ad1fe514e132bf1d0e50802f49}
+
+
+Implements \hyperlink{class_printer_a66ecfd99bb8bc0a88ed0fc1276c70e23}{Printer}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_water_a71b18a4a6cbd58ebbe7c927a84eaab3c}{\index{Water@{Water}!contained@{contained}}
+\index{contained@{contained}!Water@{Water}}
+\subsubsection[{contained}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity}$\ast$ Water\-::contained}}\label{class_water_a71b18a4a6cbd58ebbe7c927a84eaab3c}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+entities/\hyperlink{water_8h}{water.\-h}\item 
+entities/\hyperlink{water_8cpp}{water.\-cpp}\end{DoxyCompactItemize}

@@ -3,6 +3,7 @@
 #include "life/life.h"
 #include "physics/physics.h"
 #include "printer/printer.h"
+#include "DesignByContract.h"
 
 #ifndef _H_Entity
 #define _H_Entity
@@ -17,8 +18,25 @@ class Entity: public virtual Interactive, public virtual Life, public virtual Ph
 public:
 	virtual void __polymorphic__() {}
 	
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Entity(unsigned int _x, unsigned int _y);
 	
+	/** \brief Copy constructor
+	 *
+	 * ENSURE(properlyInitialized(), "Copy constructor must end...")
+	 */
+	Entity(const Entity& that);
+
+	/** \brief Copy by assignment
+	 *
+	 * ENSURE(properlyInitialized(), "Copy by assignment must end...")
+	 */
+	Entity& operator=(const Entity& that);
+
+	/** Shows the info about the entity, used in the method Board::write_board.
+	 * Is a pure virtual function for Entity.
+	 * REQUIRE(properlyInitialized(), "Entity wasn't initialized when calling info")
+	 */
 	virtual void info(std::ostream& out) = 0;
 
 	virtual ~Entity() {}
@@ -26,6 +44,11 @@ public:
 	// x and y can be both getted and setted, so it's better to make them public anyways.
 	unsigned int x;
 	unsigned int y;
+
+	bool properlyInitialized();
+
+private:
+	Entity* initCheck;
 };
 
 #endif

@@ -1,0 +1,124 @@
+\hypertarget{class_entity}{\section{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+}
+
+
+{\ttfamily \#include $<$entity.\-h$>$}
+
+Inheritance diagram for Entity\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_entity_a11d5655c6e057fb86551402380009c01}{\-\_\-\-\_\-polymorphic\-\_\-\-\_\-} ()
+\item 
+\hyperlink{class_entity_a0a44f1b08b1c84fef9d62a2e12e5af14}{Entity} (unsigned int \-\_\-x, unsigned int \-\_\-y)
+\item 
+\hyperlink{class_entity_ac565cb6d4e6d9dc40c910809c83e5dfe}{Entity} (const \hyperlink{class_entity}{Entity} \&that)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_entity}{Entity} \& \hyperlink{class_entity_a5f8e38834cf2661b2edf50b62fa8d8b8}{operator=} (const \hyperlink{class_entity}{Entity} \&that)
+\begin{DoxyCompactList}\small\item\em Copy by assignment. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_entity_aa694874d1f59971187de675d1e0c1fdf}{info} (std\-::ostream \&out)=0
+\item 
+virtual \hyperlink{class_entity_a588098978eea6a3486b7361605ff3f0f}{$\sim$\-Entity} ()
+\item 
+bool \hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{class_entity_afa8f48eccdb09a290e2c1ded3f135363}{x}
+\item 
+unsigned int \hyperlink{class_entity_a9d39843430829a89bb8233dbaadae4f1}{y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_entity_a0a44f1b08b1c84fef9d62a2e12e5af14}{\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-::\-Entity (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{\-\_\-x, }
+\item[{unsigned int}]{\-\_\-y}
+\end{DoxyParamCaption}
+)}}\label{class_entity_a0a44f1b08b1c84fef9d62a2e12e5af14}
+E\-N\-S\-U\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Constructor must end...\char`\"{}) \hypertarget{class_entity_ac565cb6d4e6d9dc40c910809c83e5dfe}{\index{Entity@{Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!Entity@{Entity}}
+\subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-::\-Entity (
+\begin{DoxyParamCaption}
+\item[{const {\bf Entity} \&}]{that}
+\end{DoxyParamCaption}
+)}}\label{class_entity_ac565cb6d4e6d9dc40c910809c83e5dfe}
+
+
+Copy constructor. 
+
+E\-N\-S\-U\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Copy constructor must end...\char`\"{}) \hypertarget{class_entity_a588098978eea6a3486b7361605ff3f0f}{\index{Entity@{Entity}!$\sim$\-Entity@{$\sim$\-Entity}}
+\index{$\sim$\-Entity@{$\sim$\-Entity}!Entity@{Entity}}
+\subsubsection[{$\sim$\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}virtual Entity\-::$\sim$\-Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_entity_a588098978eea6a3486b7361605ff3f0f}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_entity_a11d5655c6e057fb86551402380009c01}{\index{Entity@{Entity}!\-\_\-\-\_\-polymorphic\-\_\-\-\_\-@{\-\_\-\-\_\-polymorphic\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-polymorphic\-\_\-\-\_\-@{\-\_\-\-\_\-polymorphic\-\_\-\-\_\-}!Entity@{Entity}}
+\subsubsection[{\-\_\-\-\_\-polymorphic\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Entity\-::\-\_\-\-\_\-polymorphic\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_entity_a11d5655c6e057fb86551402380009c01}
+
+
+Reimplemented from \hyperlink{class_interactive_a07537d2f82f4b05daaa9abfe24e16673}{Interactive}.
+
+\hypertarget{class_entity_aa694874d1f59971187de675d1e0c1fdf}{\index{Entity@{Entity}!info@{info}}
+\index{info@{info}!Entity@{Entity}}
+\subsubsection[{info}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Entity\-::info (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_entity_aa694874d1f59971187de675d1e0c1fdf}
+Shows the info about the entity, used in the method \hyperlink{class_board_ae7e407126c1c113669e645a216fc7848}{Board\-::write\-\_\-board}. Is a pure virtual function for \hyperlink{class_entity}{Entity}. R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Entity wasn't initialized when calling info\char`\"{}) 
+
+Implemented in \hyperlink{class_gate_a194b57934f4ab3ed226a7c5fb45693bd}{Gate}, \hyperlink{class_button_aba3d89d8caf373ced3f69f24ad09682a}{Button}, \hyperlink{class_water_a0931381448954bfc525aa6492860f599}{Water}, \hyperlink{class_barrel_aebd6e6fda845b455a01d4731286cee67}{Barrel}, \hyperlink{class_boobytrap_aa73f3cbd8027a4ae55e082a62971ef72}{Boobytrap}, \hyperlink{class_goal_adbce7419324f805e9b0527d85d033ce2}{Goal}, \hyperlink{class_wall_a0ff5e8bb39976f825e99dcd51a2ee610}{Wall}, \hyperlink{class_monster_aba6f66599146c238ff906e0bffb06b71}{Monster}, and \hyperlink{class_player_a43124e562ec95ecd4a2aece053b65098}{Player}.
+
+\hypertarget{class_entity_a5f8e38834cf2661b2edf50b62fa8d8b8}{\index{Entity@{Entity}!operator=@{operator=}}
+\index{operator=@{operator=}!Entity@{Entity}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} \& Entity\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Entity} \&}]{that}
+\end{DoxyParamCaption}
+)}}\label{class_entity_a5f8e38834cf2661b2edf50b62fa8d8b8}
+
+
+Copy by assignment. 
+
+E\-N\-S\-U\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Copy by assignment must end...\char`\"{}) \hypertarget{class_entity_af7f20142aa7883ca29a91c43e3511e48}{\index{Entity@{Entity}!properly\-Initialized@{properly\-Initialized}}
+\index{properly\-Initialized@{properly\-Initialized}!Entity@{Entity}}
+\subsubsection[{properly\-Initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool Entity\-::properly\-Initialized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_entity_af7f20142aa7883ca29a91c43e3511e48}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_entity_afa8f48eccdb09a290e2c1ded3f135363}{\index{Entity@{Entity}!x@{x}}
+\index{x@{x}!Entity@{Entity}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Entity\-::x}}\label{class_entity_afa8f48eccdb09a290e2c1ded3f135363}
+\hypertarget{class_entity_a9d39843430829a89bb8233dbaadae4f1}{\index{Entity@{Entity}!y@{y}}
+\index{y@{y}!Entity@{Entity}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Entity\-::y}}\label{class_entity_a9d39843430829a89bb8233dbaadae4f1}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+entities/\hyperlink{entity_8h}{entity.\-h}\item 
+entities/\hyperlink{entity_8cpp}{entity.\-cpp}\end{DoxyCompactItemize}
