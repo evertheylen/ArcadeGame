@@ -2,12 +2,12 @@
 INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I .
 
 CXX        = g++
-CXXFLAGS   = -g3 -O0 -std=c++11 -lreadline -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)
+CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)
 #CXXFLAGS   = -O3 -std=c++14
 
 OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 -name '*.cpp' -not -path './lib/*' -and -not -path './tests/*')))
 SHELL      = /bin/bash
-TARGETS    = dispatch ArcadeMain ArcadeTests
+TARGETS    = ArcadeMain ArcadeTests
 
 # include all .o files in lib/tinyxml
 TINYXMLLIBS = 	$(shell find ./lib/tinyxml -name '*.o')
@@ -26,17 +26,17 @@ all: $(TARGETS)
 .PHONY: dispatch
 dispatch:
 	@echo -e "\033[1;38;2;0;255;180;48;2;0;0;0m --> Creating Dispatchers \033[0m"
-	@python3 ./events/dispatch/precompile.py ./events/dispatch/dispatchers.toml
+	@python3 ./events/dispatch/precompile.py ./events/dispatch/dispatchers.toml -lreadline
 
 
 ArcadeMain: $(OBJS) ArcadeMain.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
-	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(TINYXMLLIBS) ArcadeMain.o
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(TINYXMLLIBS) ArcadeMain.o -lreadline
 
 
 ArcadeTests: $(OBJS) generate_filetests ArcadeTests.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
-	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) ArcadeTests.o $(TINYXMLLIBS) $(TLIBPATH) $(TLIBS) -pthread -lreadline
 
 
 .PHONY: generate_filetests
