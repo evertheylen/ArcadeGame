@@ -17,7 +17,11 @@
 
 class Boobytrap: public Alive, public Small, public SimplePrint, public Entity {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Boobytrap(unsigned int x, unsigned y);
+
+	/**REQUIRE(properlyInitialized(), "Boobytrap wasn't initialized when calling info")*/
 	void info(std::ostream&);
 	// spec: Interactive
 };

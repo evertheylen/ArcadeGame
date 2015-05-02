@@ -13,6 +13,7 @@ Barrel::Barrel(unsigned int x, unsigned y):
 		Solid(BARREL_HEIGHT, BARREL_WEIGHT), Entity(x, y), SimplePrint(BARREL_SYMBOL) {}
 
 void Barrel::info(std::ostream& out) {
+	REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling info");
 	out << "Er bevindt zich een ton op positie (" << x << "," << y << ").\n";
 }
 

@@ -13,8 +13,11 @@
 
 class Player: public Actor {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Player(unsigned int x, unsigned y, std::string _name);
 
+	/**REQUIRE(properlyInitialized(), "Player wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 };
 

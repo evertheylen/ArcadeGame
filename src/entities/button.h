@@ -21,7 +21,11 @@
 
 class Button: public Immutable, public Small, public SimplePrint, public Entity {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Button(unsigned int x, unsigned y, Gate* _gate);
+
+	/**REQUIRE(properlyInitialized(), "Button wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 	
 	// spec: Interactive

@@ -18,7 +18,11 @@
 
 class Barrel: public None, public Immutable, public Solid, public SimplePrint, public Entity {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Barrel(unsigned int x, unsigned int y);
+
+	/**REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 };
 

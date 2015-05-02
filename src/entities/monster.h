@@ -14,8 +14,11 @@
 
 class Monster: public Actor {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Monster(unsigned int x, unsigned y, std::string _name);
 
+	/**REQUIRE(properlyInitialized(), "Monster wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 };
 

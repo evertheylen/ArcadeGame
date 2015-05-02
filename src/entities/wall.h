@@ -17,7 +17,11 @@
 
 class Wall: public None, public Immutable, public Solid, public SimplePrint, public Entity {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Wall(unsigned int x, unsigned y);
+
+	/**REQUIRE(properlyInitialized(), "Wall wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 };
 

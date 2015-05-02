@@ -9,6 +9,10 @@
 #include "constants.h"
 
 Wall::Wall(unsigned int x, unsigned y):
-		Solid(WALL_HEIGHT, WALL_WEIGHT), Entity(x, y), SimplePrint(WALL_SYMBOL) {}
+		Solid(WALL_HEIGHT, WALL_WEIGHT), Entity(x, y), SimplePrint(WALL_SYMBOL) {
+	ENSURE(properlyInitialized(), "Constructor must end...");
+}
 
-void Wall::info(std::ostream& out) {}
+void Wall::info(std::ostream& out) {
+	REQUIRE(properlyInitialized(), "Player wasn't initialized when calling info");
+}

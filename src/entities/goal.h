@@ -17,7 +17,11 @@
 
 class Goal: public Immutable, public Small, public SimplePrint, public Entity {
 public:
+
+	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Goal(unsigned int x, unsigned y);
+
+	/**REQUIRE(properlyInitialized(), "Goal wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 	// spec: InterActive
 };
