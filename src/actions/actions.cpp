@@ -32,8 +32,8 @@ Direction::Direction(std::string& s) {
 	ENSURE(properlyInitialized(), "Constructor must end...");
 }
 
-Direction::Direction(const Direction& that) {
-	dir = that.dir;
+Direction::Direction(const Direction& that):
+		dir(that.dir) {
 	initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");
 }
@@ -119,8 +119,8 @@ bool Action::properlyInitialized() {
 	return (initCheck == this);
 }
 
-Action::Action(const Action& that) {
-	//dir(that.dir);	 TODO COPY CONSTRUCTOR FOR DIR FIXEN
+Action::Action(const Action& that):
+		dir(that.dir) {
 	actor = that.actor;
 	initCheck = this;
 	ENSURE(properlyInitialized(), "Copy constructor must end...");

@@ -101,12 +101,16 @@ bool UI::parse_and_do(std::string& command) {
 		
 	} else if (input[0] == "simulate") {
 		if (init_game()) {
-			int times = input.size() >= 2 ? std::stoi(input[1]) : 1;
-			simulate(times);
+			try {
+				int times = input.size() >= 2 ? std::stoi(input[1]) : 1;
+				simulate(times);
+			} catch (std::invalid_argument& e) {
+				std::cout << "Wrong argument, try again.\n";
+				return false;
+			}
 		} else {
 			std::cout << "Game not initialized yet\n";
 		}
-		
 	} else if (input[0] == "write_board") {
 		std::string filename = input.size() >= 2 ? input[1] : "HuidigSpeelveld.txt";
 		if (filename == "cout") {
