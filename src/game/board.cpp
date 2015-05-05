@@ -34,7 +34,7 @@ void Board::set_name(std::string _name) {
 }
 
 bool Board::valid_location(int x, int y) {
-	return ((0 <= x) && (x <= width) && (0 <= y) && (y <= height));
+	return ((0 <= x) && (x < width) && (0 <= y) && (y < height));
 }
 
 int Board::location_height(unsigned int x, unsigned int y) {

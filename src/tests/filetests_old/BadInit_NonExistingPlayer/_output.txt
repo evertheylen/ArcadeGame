@@ -1,0 +1,3 @@
+Game parser started [internal:1:1]
+Actor doesn't exist [tests/filetests_old/BadInit_NonExistingPlayer/Acties.xml:7:5]
+Action was unsuccessfull.

@@ -20,13 +20,13 @@ public:
 			_info(info), _filename(filename) {}
 	
 	const char* what()throw() {
-		std::string s;
-		s += "Error while parsing the XML file \'";
-		s += _filename + "\': " + _info;
-		return s.c_str();
+		_s = "Error while parsing the XML file \'";
+		_s += _filename + "\': " + _info;
+		return _s.c_str();
 	}
 	
 private:
+	std::string _s;
 	std::string _info;
 	std::string _filename;
 };

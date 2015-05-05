@@ -64,6 +64,8 @@ TEST(Meta, GTestTest) {
 
 #include "tests/filetests.tests"
 
+#include "tests/etc.cpp"
+
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
 	// Get rid of the irritating threading warning when testing DEATH

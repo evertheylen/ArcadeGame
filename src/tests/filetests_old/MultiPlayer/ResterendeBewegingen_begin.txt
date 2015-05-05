@@ -1,0 +1,18 @@
+Speler Chip zal volgende beweging nog uitvoeren:
+RECHTS
+Speler Chip zal volgende beweging nog uitvoeren:
+RECHTS
+Speler Chip zal volgende beweging nog uitvoeren:
+RECHTS
+Speler Munk zal volgende beweging nog uitvoeren:
+LINKS
+Speler Munk zal volgende beweging nog uitvoeren:
+LINKS
+Speler Munk zal volgende beweging nog uitvoeren:
+OMHOOG
+Speler Munk zal volgende beweging nog uitvoeren:
+LINKS
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+Speler Chip zal volgende beweging nog uitvoeren:
+RECHTS

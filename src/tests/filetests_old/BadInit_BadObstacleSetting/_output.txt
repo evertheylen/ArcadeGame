@@ -1,0 +1,5 @@
+Game parser started [internal:1:1]
+Error while parsing the XML file 'Barrel must be movable [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:7  [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:1:1]
+Error while parsing the XML file 'Barrel must be movable [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:8  [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:1:1]
+Error while parsing the XML file 'Wall may not be declared movable [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:10:1]':° [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:1:1]
+Error while parsing the XML file 'Wall may not be declared movable [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:11:1]':° [tests/filetests_old/BadInit_BadObstacleSetting/Speelveld.xml:1:1]

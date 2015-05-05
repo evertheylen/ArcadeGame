@@ -1,31 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<VELD>
-    <NAAM>
+<VELD><NAAM>
         Testlevel
     </NAAM>
-    <BREEDTE>
-        10
-    </BREEDTE>
     <LENGTE>
         10
     </LENGTE>
 	
-    <SPELER x="5" y="1">
-        <NAAM>
+    <BREEDTE>
+        10
+    </BREEDTE>
+    <SPELER x="5" y="1"><NAAM>
             Chip
         </NAAM>
     </SPELER>
-    <MUUR beweegbaar="false" x="0" y="8"/>
-    <MONSTER x="2" y="8">
-        <ID>
+<MUUR beweegbaar="false" x="0" y="8" />
+<MONSTER x="2" y="8"><ID>
             monster1
         </ID>
     </MONSTER>
-    <DOEL x="5" y="8"/>
-    <KNOP id="gate1" x="8" y="8"/>
-    <TON beweegbaar="true" x="2" y="7"/>
-    <POORT beweegbaar="false" x="5" y="7">
-        <ID>
+<DOEL x="5" y="8" />
+<KNOP x="8" y="8" />
+<TON beweegbaar="true" x="2" y="7" />
+<POORT beweegbaar="false" x="5" y="7"><ID>
             gate1
         </ID>
     </POORT>

@@ -1,0 +1,17 @@
+<VELD><NAAM>Level 1</NAAM>
+    <LENGTE>20</LENGTE>
+    <BREEDTE>20</BREEDTE>
+    <SPELER x="5" y="14"><NAAM>Chip</NAAM>
+    </SPELER>
+<TON beweegbaar="true" x="5" y="16" />
+<TON beweegbaar="true" x="11" y="16" />
+<TON beweegbaar="true" x="4" y="10" />
+<TON beweegbaar="true" x="5" y="11" />
+<TON beweegbaar="true" x="6" y="12" />
+<TON beweegbaar="true" x="7" y="12" />
+<TON beweegbaar="true" x="8" y="12" />
+<TON beweegbaar="true" x="9" y="12" />
+<TON beweegbaar="true" x="10" y="12" />
+<TON beweegbaar="true" x="11" y="11" />
+<TON beweegbaar="true" x="12" y="10" />
+</VELD>

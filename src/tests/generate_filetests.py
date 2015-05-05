@@ -4,8 +4,8 @@ import os
 
 
 text = """
-TEST(ArcadeGameTest, {0} ) {{
-	std::string Base = "tests/filetests/{0}/";
+TEST(ArcadeGameTest{1}, {0} ) {{
+	std::string Base = "tests/filetests{1}/{0}/";
 	std::string board_name = Base+"Speelveld.xml";
 	std::string actions_name = Base+"Acties.xml";
 	
@@ -54,4 +54,8 @@ f = open('tests/filetests.tests', 'w')
 
 for root, dirs, files in os.walk("./tests/filetests"):
     for d in dirs:
-        f.write(text.format(d))
+        f.write(text.format(d, ""))
+
+for root, dirs, files in os.walk("./tests/filetests_old"):
+    for d in dirs:
+        f.write(text.format(d, "_old"))

@@ -142,7 +142,7 @@ void UI::help() {
 	std::cout << "\nThis interactive User Interface is able to do a few simple things:\n";
 	std::cout << "  * Read an xml-file for the board\t\t[ read_board <board_file> ]\n";
 	std::cout << "  * Read an xml-file for the actions\t\t[ read_actions <actions_file> ]\n";
-	std::cout << "  * Simulate one action\t\t[ simulate ]\n";
+	std::cout << "  * Simulate one action\t\t\t[ simulate ]\n";
 	std::cout << "  * Write the current board to a file\t\t[ write_board <output_file> ]\tdefault=HuidigSpeelveld.txt\n";
 	std::cout << "  * Write the rest of the actions to a file\t[ write_actions <output_file> ]\tdefault=ResterendeBewegingen.txt\n";
 	std::cout << "  * Print out the simple graphical impression\t[ show ]\n";

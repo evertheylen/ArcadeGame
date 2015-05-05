@@ -1,0 +1,2 @@
+Game parser started [internal:1:1]
+Invalid direction specified [tests/filetests_old/BadInit_WrongDirection/Acties.xml:11:5]

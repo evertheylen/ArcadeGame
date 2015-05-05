@@ -39,7 +39,7 @@ std::string Parser::readElement(TiXmlElement* elem) {
 
 std::string Parser::readAttribute(TiXmlElement* elem, const char* tag) {
 	if (elem == nullptr || elem->Attribute(tag) == nullptr) {
-		fatal(std::string("Element was null or tag was not found. tag=") + tag, elem);
+		fatal("Element was null or tag was not found.", elem);
 	}
 	return std::string(elem->Attribute(tag));
 }

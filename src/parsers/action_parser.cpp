@@ -48,6 +48,8 @@ std::list<Action*> Action_parser::parse_action(TiXmlElement* move_elem, Game* g)
 			}
 			if (g->get_actor(player_name) == nullptr) {
 				log("Actor doesn't exist", current_el);
+				current_el = current_el->NextSiblingElement();
+				continue;
 			}
 
 			if (current_el->ValueTStr() == "BEWEGING") {

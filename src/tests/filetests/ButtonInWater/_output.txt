@@ -1,2 +1,3 @@
-Game parser started [internal:2:1]
-name is poort [tests/filetests/ButtonInWater/Speelveld.xml:18:5]
+Game parser started [internal:1:1]
+name is poort [tests/filetests/ButtonInWater/Speelveld.xml:15:1]
+Error while parsing the XML file 'Element was null or tag was not found. [tests/filetests/ButtonInWater/Speelveld.xml:19:1]':  [tests/filetests/ButtonInWater/Speelveld.xml:1:1]
