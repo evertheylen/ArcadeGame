@@ -1060,3 +1060,64 @@ make[1]: *** [cmTryCompileExec2425676913/fast] Error 2
 make[1]: Leaving directory `/home/stijn/Documents/1Ba Informatica/Project Software Engineering/Arcade Game/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec2284664309/fast"
+make[1]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2284664309.dir/build.make CMakeFiles/cmTryCompileExec2284664309.dir/build
+make[2]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2284664309.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2284664309.dir/CheckSymbolExists.c.o   -c /Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2284664309
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2284664309.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2284664309.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2284664309 -rdynamic 
+CMakeFiles/cmTryCompileExec2284664309.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec2284664309.dir/build.make:88: recipe for target 'cmTryCompileExec2284664309' failed
+make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec2284664309] Error 1
+Makefile:117: recipe for target 'cmTryCompileExec2284664309/fast' failed
+make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2284664309/fast] Error 2
+
+File /Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTryCompileExec3331855833/fast"
+make[1]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3331855833.dir/build.make CMakeFiles/cmTryCompileExec3331855833.dir/build
+make[2]: Entering directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3331855833.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3331855833.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.2/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3331855833
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3331855833.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3331855833.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3331855833 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTryCompileExec3331855833.dir/build.make:88: recipe for target 'cmTryCompileExec3331855833' failed
+make[2]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[2]: *** [cmTryCompileExec3331855833] Error 1
+Makefile:117: recipe for target 'cmTryCompileExec3331855833/fast' failed
+make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec3331855833/fast] Error 2
+
+
