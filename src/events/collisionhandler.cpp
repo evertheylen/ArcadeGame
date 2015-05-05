@@ -7,11 +7,11 @@
 
 
 void CollisionHandler::onCollision(Entity* e, Entity* f) {
-	std::cout << "Entity collision\n";
+	//std::cout << "Entity collision\n";
 }
 
 void CollisionHandler::onCollision(Water* w, Entity* e) {
-	std::cout << "Something entered water!\n";
+	//std::cout << "Something entered water!\n";
 	game->kill(e);
 	if (e->is_alive()) {
 		w->contained = e;
@@ -21,6 +21,6 @@ void CollisionHandler::onCollision(Water* w, Entity* e) {
 }
 
 void CollisionHandler::onCollision(Player* p, Monster* m) {
-	std::cout << "Player and Monster collided!\n";
+	//std::cout << "Player and Monster collided!\n";
 	game->kill(p);
 }

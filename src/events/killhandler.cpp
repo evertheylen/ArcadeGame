@@ -6,13 +6,13 @@
 
 void KillHandler::onKill(Entity* e) {
 	e->kill();
-	std::cout << "Entity was killed (but it might have survived).\n";
+	//std::cout << "Entity was killed (but it might have survived).\n";
 }
 
 void KillHandler::onKill(Player* p) {
 	p->kill();
-	std::cout << "Player died! End the game!\n";
-	std::cout << game << "\n";
+	//std::cout << "Player died! End the game!\n";
+	//std::cout << game << "\n";
 	if (game->players_alive() <= 0) {
 		game->ended = true;
 	}
