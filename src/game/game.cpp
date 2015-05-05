@@ -33,7 +33,6 @@ Game::Game():
 
 void Game::collide(Entity* a, Entity* b) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling collide");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	_collide(a,b);
 }
 
@@ -43,19 +42,16 @@ bool Game::properlyInitialized() {
 
 void Game::kill(Entity* a) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling kill");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	_kill(a);
 }
 
 void Game::enter(Entity* top, Entity* bottom) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling enter");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	_enter(top, bottom);
 }
 
 void Game::leave(Entity* top, Entity* bottom) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling leave");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	_leave(top, bottom);
 }
 
@@ -71,7 +67,6 @@ void Game::leave(Entity* top, Entity* bottom) {
 
 void Game::do_all_actions(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_all_actions");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	for (int i=0; i<actions.size(); i++) {
 		do_action(out);
 		
@@ -83,7 +78,6 @@ void Game::do_all_actions(std::ostream& out) {
 
 void Game::do_action(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_action");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	if (actions.size() < 1) return;
 	Action* a = actions.front();
 	if (!a->execute(this)) {
@@ -95,20 +89,17 @@ void Game::do_action(std::ostream& out) {
 
 int Game::get_num_actions() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_num_actions");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	return actions.size();
 }
 
 bool Game::is_ended() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling is_ended");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	return ended;
 }
 
 
 Player* Game::get_player(std::string& name) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_player");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	auto p = playermap.find(name);
 	if (p == playermap.end()) {
 		return nullptr;
@@ -120,7 +111,6 @@ Player* Game::get_player(std::string& name) {
 
 Monster* Game::get_monster(std::string& name) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_monster");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	auto m = monstermap.find(name);
 	if (m == monstermap.end()) {
 		return nullptr;
@@ -131,7 +121,6 @@ Monster* Game::get_monster(std::string& name) {
 
 Actor* Game::get_actor(std::string& name) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_actor");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	// Players have priority if a player and monster have the same name
 	Player* p = get_player(name);
 	if (p != nullptr) {
@@ -143,7 +132,6 @@ Actor* Game::get_actor(std::string& name) {
 
 Gate* Game::get_gate(std::string& name) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_gate");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	auto g = gatemap.find(name);
 	if (g == gatemap.end()) {
 		return nullptr;
@@ -155,27 +143,23 @@ Gate* Game::get_gate(std::string& name) {
 
 void Game::add_player(Player* p) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling add_player");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	playermap[p->get_name()] = p;
 }
 
 
 void Game::add_monster(Monster* m) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling add_monster");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	monstermap[m->get_name()] = m;
 }
 
 void Game::add_gate(Gate* g) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling add_gate");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	gatemap[g->get_name()] = g;
 }
 
 
 int Game::players_alive() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling players_alive");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	int alive = 0;
 	for (auto i: playermap) {
 		if (i.second->is_alive()) {
@@ -187,14 +171,12 @@ int Game::players_alive() {
 
 void Game::bury(Entity* e) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling bury");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	graveyard.push_back(e);
 }
 
 
 void Game::write_actions(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling write_actions");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	std::list<Action*> _actions = actions;
 	for (int i = 0; i < _actions.size(); i++) {
 		std::string name = _actions.front()->get_actor()->get_name();
@@ -215,7 +197,6 @@ void Game::write_actions(std::ostream& out) {
 
 void Game::clear_actions() {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling clear_actions");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	for (Action* a: actions) {
 		delete a;
 	}
@@ -230,7 +211,6 @@ Board* Game::get_board() {
 
 void Game::set_board(Board* b) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling set_board");
-	REQUIRE(board != nullptr, "Board wasn't specified");
 	board = b;
 }
 
