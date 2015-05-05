@@ -1,5 +1,6 @@
 #include "game.h"
 #include "../events/managers.h"
+#include <events/collisionmanager.h>
 
 #include "../entities/entity.h"
 #include "../entities/water.h"
@@ -24,8 +25,25 @@ void Game::event_log(std::string s) {
 */
 
 Game::Game():
-		collide(this), enter(this), leave(this), kill(this),
+		_collide(this), _enter(this), _leave(this), _kill(this),
 		board(nullptr), ended(false) {}
+
+void Game::collide(Entity* a, Entity* b) {
+	_collide(a,b);
+}
+
+void Game::kill(Entity* a) {
+	_kill(a);
+}
+
+void Game::enter(Entity* top, Entity* bottom) {
+	_enter(top, bottom);
+}
+
+void Game::leave(Entity* top, Entity* bottom) {
+	_leave(top, bottom);
+}
+
 
 /*Game::Game (Board* _board, std::list<Action*>* _actions, Playermap _players, Monstermap _monsters, Gatemap _gates):
 	collide(this), enter(this), leave(this), kill(this), ended(false), board(1,1,this) {
@@ -65,7 +83,7 @@ bool Game::is_ended() {
 }
 
 
-Player* Game::get_player(std::string name) {
+Player* Game::get_player(std::string& name) {
 	auto p = playermap.find(name);
 	if (p == playermap.end()) {
 		return nullptr;
@@ -75,7 +93,7 @@ Player* Game::get_player(std::string name) {
 }
 
 
-Monster* Game::get_monster(std::string name) {
+Monster* Game::get_monster(std::string& name) {
 	auto m = monstermap.find(name);
 	if (m == monstermap.end()) {
 		return nullptr;
@@ -84,13 +102,22 @@ Monster* Game::get_monster(std::string name) {
 	}
 }
 
-Actor* Game::get_actor(std::string name) {
+Actor* Game::get_actor(std::string& name) {
 	// Players have priority if a player and monster have the same name
 	Player* p = get_player(name);
 	if (p != nullptr) {
 		return p;
 	} else {
 		return get_monster(name);
+	}
+}
+
+Gate* Game::get_gate(std::string& name) {
+	auto g = gatemap.find(name);
+	if (g == gatemap.end()) {
+		return nullptr;
+	} else {
+		return g->second;
 	}
 }
 
@@ -102,6 +129,10 @@ void Game::add_player(Player* p) {
 
 void Game::add_monster(Monster* m) {
 	monstermap[m->get_name()] = m;
+}
+
+void Game::add_gate(Gate* g) {
+	gatemap[g->get_name()] = g;
 }
 
 

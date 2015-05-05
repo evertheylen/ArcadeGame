@@ -36,7 +36,7 @@ public:
 	char to_char();
 	
 	/**REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling get_name")*/
-	std::string get_name();
+	std::string& get_name();
 
 	/**REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling open")
 	 * ENSURE(_open == true, "Gate wasn't opened when calling open")*/

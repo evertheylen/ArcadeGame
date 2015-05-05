@@ -22,15 +22,15 @@ Game_parser::Game_parser(std::ostream* stream, std::string _board_filename, std:
 Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem) {
 	log("Game parser started", board_elem);
 	Game* gp = new Game;
-	Game::Playermap players;
-	Game::Monstermap monsters;
-	Game::Gatemap gates;
+// 	Game::Playermap players;
+// 	Game::Monstermap monsters;
+// 	Game::Gatemap gates;
 	Board_parser bp(_out, board_filename);
 	
-	gp->set_board(bp.parse_board(board_elem, players, gates, monsters, gp));
-	gp->monstermap = monsters;
-	gp->playermap = players;
-	gp->gatemap = gates;
+	gp->set_board(bp.parse_board(board_elem, gp));
+// 	gp->monstermap = monsters;
+// 	gp->playermap = players;
+// 	gp->gatemap = gates;
 	
 	if (move_elem != nullptr) {
 		Action_parser ap(_out, actions_filename);

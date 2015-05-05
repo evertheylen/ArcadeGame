@@ -24,7 +24,7 @@
 Entity_parser::Entity_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-Entity* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
+Wall* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -51,7 +51,7 @@ Entity* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	return wall;
 }
 
-Entity* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
+Barrel* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -77,7 +77,7 @@ Entity* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	return barrel;
 }
 
-Entity* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
+Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -103,7 +103,7 @@ Entity* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	return water;
 }
 
-Entity* Entity_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gatemap _gates) {
+Button* Entity_parser::parse_button(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -122,10 +122,11 @@ Entity* Entity_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gat
 		/*for (auto s: _gates) {
 			std::cout << "  " << s.first << ": " << s.second << "\n";
 		}*/
-		if (_gates.find(id) == _gates.end()) {
+		Gate* g = _board.get_game()->get_gate(id);
+		if (g == nullptr) {
 			fatal("Could not couple the button to the right gate.");
 		}
-		button = new Button(x, y , _gates[id]);
+		button = new Button(x, y , g);
 	} else {
 		fatal("Button must be KNOP", elem);
 	}
@@ -133,7 +134,7 @@ Entity* Entity_parser::parse_button(TiXmlElement* elem, Board& _board, Game::Gat
 }
 
 
-Entity* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates) {
+Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -158,7 +159,6 @@ Entity* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatem
 		std::string name = elem->FirstChildElement("ID")->GetText();
 		log(std::string("name is ")+name, elem);
 		gate = new Gate(x,y,name);
-		_gates[name] = gate;
 
 		// TODO Fix the copy problem with gatemap and playermap!!!
 	} else {
@@ -167,7 +167,7 @@ Entity* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board, Game::Gatem
 	return gate;
 }
 
-Entity* Entity_parser::parse_goal(TiXmlElement* elem, Board& _board) {
+Goal* Entity_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));
@@ -189,7 +189,7 @@ Entity* Entity_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 	return goal;
 }
 
-Entity* Entity_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
+Boobytrap* Entity_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
 	int x,y;
 	try {
 		x = std::stoi(readAttribute(elem, "x"));

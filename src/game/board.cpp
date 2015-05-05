@@ -216,6 +216,11 @@ int Board::get_height() {
 	return height;
 }
 
+Game* Board::get_game() {
+	return game;
+}
+
+
 Board::~Board() {
 	for (int i = get_height()-1; i>=0; i--) {
 		for (int j = 0; j < get_width(); j++) {

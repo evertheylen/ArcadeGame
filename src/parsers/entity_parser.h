@@ -30,13 +30,13 @@ public:
 
 	Entity_parser() = default;
 	
-	Entity* parse_wall(TiXmlElement* elem, Board& _board);
-	Entity* parse_barrel(TiXmlElement* elem, Board& _board);
-	Entity* parse_water(TiXmlElement* elem, Board& _board);
-	Entity* parse_button(TiXmlElement* elem, Board& _board, Game::Gatemap _gates);
-	Entity* parse_goal(TiXmlElement* elem, Board& _board);
-	Entity* parse_boobytrap(TiXmlElement* elem, Board& _board);
-	Entity* parse_gate(TiXmlElement* elem, Board& _board, Game::Gatemap& _gates);
+	Wall* parse_wall(TiXmlElement* elem, Board& _board);
+	Barrel* parse_barrel(TiXmlElement* elem, Board& _board);
+	Water* parse_water(TiXmlElement* elem, Board& _board);
+	Button* parse_button(TiXmlElement* elem, Board& _board);
+	Goal* parse_goal(TiXmlElement* elem, Board& _board);
+	Boobytrap* parse_boobytrap(TiXmlElement* elem, Board& _board);
+	Gate* parse_gate(TiXmlElement* elem, Board& _board);
 };
 
 #endif /* _Entity_parser */

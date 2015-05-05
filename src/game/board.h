@@ -51,6 +51,8 @@ public:
 
 	int get_height();
 	
+	Game* get_game();
+	
 	~Board();
 
 private:

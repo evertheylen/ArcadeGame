@@ -14,7 +14,7 @@ Actor::Actor(unsigned int x, unsigned y, char print, std::string _name):
 }
 
 
-std::string Actor::get_name() {
+std::string& Actor::get_name() {
 	REQUIRE(properlyInitialized(), "Actor wasn't initialized when calling get_name");
 	return name;
 }

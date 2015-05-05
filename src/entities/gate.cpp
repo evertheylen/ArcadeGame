@@ -52,7 +52,7 @@ bool Gate::is_open() {
 	return _open;
 }
 
-std::string Gate::get_name() {
+std::string& Gate::get_name() {
 	REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling get_name");
 	return name;
 }

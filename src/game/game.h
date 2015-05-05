@@ -32,26 +32,22 @@ public:
 
 	std::list<Action*> actions;
 
-	Playermap playermap;
-	Monstermap monstermap;
-	Gatemap gatemap;
 
 	Game();
 	
 	//Game (Board* board, std::list<Action*>* actions, Playermap players, Monstermap monsters, Gatemap gates);
 
-	KillManager kill;         // kill(a)
-	CollisionManager collide; // collide(a, b) == collide(b, a)
-	IA_EnterManager enter;    // enter(top, bottom)
-	IA_LeaveManager leave;    // leave(top, bottom)
 	
-	Player* get_player(std::string name);
-	Monster* get_monster(std::string name);
-	Actor* get_actor(std::string name);
+	Player* get_player(std::string& name);
+	Monster* get_monster(std::string& name);
+	Actor* get_actor(std::string& name);
 	// Players have priority if a player and monster have the same name
+	
+	Gate* get_gate(std::string& name);
 	
 	void add_player(Player* p);
 	void add_monster(Monster* m);
+	void add_gate(Gate* g);
 	
 	void write_actions(std::ostream& out);
 
@@ -85,15 +81,28 @@ public:
 	Board* get_board();
 	void set_board(Board* b);
 	
+	void kill(Entity* a);
+	void collide(Entity* a, Entity* b);
+	void enter(Entity* top, Entity* bottom);
+	void leave(Entity* top, Entity* bottom);
+	
 	~Game();
 	
 private:
+	Playermap playermap;
+	Monstermap monstermap;
+	Gatemap gatemap;
 
 	Board* board;
 	
 	std::vector<Entity*> graveyard;
 
 	bool ended;
+	
+	KillManager _kill;         // kill(a)
+	CollisionManager _collide; // collide(a, b) == collide(b, a)
+	IA_EnterManager _enter;    // enter(top, bottom)
+	IA_LeaveManager _leave;    // leave(top, bottom)
 	
 	friend class CollisionHandler;
 	friend class IA_EnterHandler;

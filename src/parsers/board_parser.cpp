@@ -23,7 +23,7 @@
 Board_parser::Board_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates, Game::Monstermap& _monsters, Game* game) {
+Board* Board_parser::parse_board(TiXmlElement* board_elem, Game* game) {
 	Actor_parser lp(_out, _filename);
 	Entity_parser tp(_out, _filename);
 
@@ -31,7 +31,6 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 
 	TiXmlElement* current_el = board_elem->FirstChildElement();
 	std::string boardname;
-	_players = Game::Playermap();
 	
 	int x, y;
 	try {
@@ -59,9 +58,19 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 			} else if (tagname == "SPELER" || tagname == "MONSTER" || tagname == "TON") {
 				Entity* entity;
 				if (tagname == "SPELER") {
-					entity = lp.parse_player(current_el, _players, (*bp));
+					Player* p = lp.parse_player(current_el, *bp);
+					if (game->get_monster(p->get_name()) != nullptr) {
+						fatal("Player with that name already exists.", current_el);
+					}
+					game->add_player(p);
+					entity = p;
 				} else if (tagname == "MONSTER") {
-					entity = lp.parse_monster(current_el, _monsters, (*bp));
+					Monster* m = lp.parse_monster(current_el, (*bp));
+					if (game->get_monster(m->get_name()) != nullptr) {
+						fatal("Monster with that name already exists.", current_el);
+					}
+					game->add_monster(m);
+					entity = m; // downcast
 				} else if (tagname == "TON") {
 					entity = tp.parse_barrel(current_el, (*bp));
 				}
@@ -78,7 +87,12 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 				}  else if (tagname == "WATER") {
 					entity = tp.parse_water(current_el, (*bp));
 				} else if (tagname == "POORT") {
-					entity = tp.parse_gate(current_el, (*bp), _gates);
+					Gate* g = tp.parse_gate(current_el, (*bp));
+					if (game->get_gate(g->get_name()) != nullptr) {
+						fatal("Gate with that name already exists.\n;", current_el);
+					}
+					game->add_gate(g);
+					entity = g; // downcast
 				} else if (tagname == "DOEL") {
 					entity = tp.parse_goal(current_el, (*bp));
 				} else if (tagname == "VALSTRIK") {
@@ -110,7 +124,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	while (current_el != NULL) {
 		try {
 			if (current_el->ValueTStr() == "KNOP") {  // TODO Fix that buttons work.
-				Entity* entity = tp.parse_button(current_el, (*bp), _gates);
+				Entity* entity = tp.parse_button(current_el, (*bp));
 
 				unsigned int x = entity->x;
 				unsigned int y = entity->y;

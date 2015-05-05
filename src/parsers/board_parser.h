@@ -21,7 +21,7 @@ public:
 	
 	Board_parser() = default;
 	
-	Board* parse_board(TiXmlElement* board_elem, Game::Playermap& _players, Game::Gatemap& _gates, Game::Monstermap& _monsters, Game* game);
+	Board* parse_board(TiXmlElement* board_elem, Game* game);
 };
 
 #endif /* _Board_parser */
