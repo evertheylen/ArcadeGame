@@ -1,0 +1,3 @@
+Game parser started [internal:2:1]
+Game ended, stopping.
+Game ended, stopping.
