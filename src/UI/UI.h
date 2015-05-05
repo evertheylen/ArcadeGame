@@ -35,7 +35,7 @@ public:
 	// read_actions
 	void read_actions(std::string& filename);
 	// simulate
-	void simulate(int num=1);
+	void simulate();
 	// write_board
 	void write_board(std::ostream& out);
 	// write_actions

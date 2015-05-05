@@ -15,10 +15,10 @@ Parser::Parser(std::ostream* stream, std::string filename):
 
 std::string Parser::readElement(TiXmlElement* elem, const char* tag) {
 	if (elem == nullptr) {
-		fatal(std::string("Element was null"), elem);
+		fatal("Element was null", elem);
 	}
 	TiXmlElement* e = elem->FirstChildElement(tag);
-	if (elem == nullptr) fatal(std::string("Child element was null, with tag ") + tag, elem);
+	if (e == nullptr) fatal(std::string("Child element was null, with tag ") + tag, elem);
 	TiXmlNode* node = e->FirstChild();
 	if (node == nullptr) fatal("Node was null", elem);
 	TiXmlText* text = node->ToText();
@@ -43,7 +43,6 @@ std::string Parser::readAttribute(TiXmlElement* elem, const char* tag) {
 	}
 	return std::string(elem->Attribute(tag));
 }
-
 
 
 bool Parser::reqElement(TiXmlElement* elem, const char* tag) {

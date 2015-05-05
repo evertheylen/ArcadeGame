@@ -57,8 +57,12 @@ void UI::fancy_command(std::string& command) {
 		try {
 			times = std::stoi(fancies[0]);
 		} catch (std::invalid_argument& e) {
-			// too bad
-			times = -1;
+			if (fancies[0] == "a" && init_game()) {
+				// Means total amount of actions
+				times = g->get_num_actions();
+			} else {
+				times = -1;
+			}
 		}
 	} else if (fancies.size() == 1) {
 		if (!parse_and_do(fancies[0])) {
@@ -100,17 +104,8 @@ bool UI::parse_and_do(std::string& command) {
 		init_game();
 		
 	} else if (input[0] == "simulate") {
-		if (init_game()) {
-			try {
-				int times = input.size() >= 2 ? std::stoi(input[1]) : 1;
-				simulate(times);
-			} catch (std::invalid_argument& e) {
-				std::cout << "Wrong argument, try again.\n";
-				return false;
-			}
-		} else {
-			std::cout << "Game not initialized yet\n";
-		}
+		simulate();
+		
 	} else if (input[0] == "write_board") {
 		std::string filename = input.size() >= 2 ? input[1] : "HuidigSpeelveld.txt";
 		if (filename == "cout") {
@@ -147,10 +142,12 @@ void UI::help() {
 	std::cout << "\nThis interactive User Interface is able to do a few simple things:\n";
 	std::cout << "  * Read an xml-file for the board\t\t[ read_board <board_file> ]\n";
 	std::cout << "  * Read an xml-file for the actions\t\t[ read_actions <actions_file> ]\n";
-	std::cout << "  * Simulate one or more of the actions\t\t[ simulate <amount of moves> ]\tdefault=1\n";
+	std::cout << "  * Simulate one action\t\t[ simulate ]\n";
 	std::cout << "  * Write the current board to a file\t\t[ write_board <output_file> ]\tdefault=HuidigSpeelveld.txt\n";
 	std::cout << "  * Write the rest of the actions to a file\t[ write_actions <output_file> ]\tdefault=ResterendeBewegingen.txt\n";
 	std::cout << "  * Print out the simple graphical impression\t[ show ]\n";
+	std::cout << "  * For loop: `5:simulate,show` will execute simulate and show 5 times\n";
+	std::cout << "    You may use the letter 'a' to denote the total number of actions.\n";
 	std::cout << "\n\tIf you ever want to see this documentation again please type help.\n";
 }
 
@@ -184,7 +181,7 @@ void UI::read_actions(std::string& filename) {
 
 void UI::write_board(std::ostream& out) {
 	if (init_game()) {
-		g->board.write_board(out);
+		g->get_board()->write_board(out);
 	} else {
 		std::cout << "Game isn't initialized yet.\n";
 	}
@@ -200,22 +197,26 @@ void UI::write_actions(std::ostream& out) {
 
 void UI::show(std::ostream& out) {
 	if (init_game()) {
-		g->board.simple_graphics(out);
+		g->get_board()->simple_graphics(out);
 	} else {
 		std::cout << "Can't show, Game isn't initialized yet.\n";
 	}
 }
 
-void UI::simulate(int amount) {
+void UI::simulate() {
 	if (init_game()) {
-		for (int i = 0; i < amount; i++) {
-			if (g->actions.size() >= 1) {
-				if (!g->actions.front()->execute(g)) {
-					std::cout << "Action was unsuccesfull.\n";
-				}
-				g->actions.pop_front();
+		if (g->is_ended()) {
+			std::cout << "Game has already ended, not executing.\n";
+			return;
+		}
+		
+		if (g->get_num_actions() >= 1) {
+			if (!g->actions.front()->execute(g)) {
+				std::cout << "Action was unsuccesfull.\n";
 			}
-			// TODO check for game->ended...
+			g->actions.pop_front();
+		} else {
+			std::cout << "No action to be done.\n";
 		}
 	} else {
 		std::cout << "Can't simulate, Game isn't initialized yet.\n";
@@ -245,8 +246,7 @@ bool UI::init_game() {
 		if (actions_loaded && reparse_actions && g!=nullptr) {
 			Action_parser ap(&std::cout, "unspecified");
 			TiXmlElement* root = doc_actions.RootElement();
-			std::list<Action*>* actions = ap.parse_action(root, g);
-			g->actions = *actions;
+			g->actions = ap.parse_action(root, g);
 			reparse_actions = false;
 		}
 	} catch (ParseError& e) {

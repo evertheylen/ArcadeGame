@@ -6,21 +6,20 @@
 #include <iostream>
 
 void IA_EnterHandler::onEnter(Entity* e, Entity* f) {
-	std::cout << "unhandled enter " << e->x << ", " << e->y << ";; " << f->x << ", " << f->y << "\n";
+// 	std::cout << "unhandled enter " << e->x << ", " << e->y << ";; " << f->x << ", " << f->y << "\n";
 }
 
 void IA_EnterHandler::onEnter(Entity* e, Button* b) {
 	if (e->get_weight() > BUTTON_ACTIVATE_FROM) {
 		b->gate->open();
-		std::cout << "Gate open!\n";
+// 		std::cout << "Gate open!\n";
 	} else {
-		std::cout << "Not opening Gate, not enough weight\n";
+// 		std::cout << "Not opening Gate, not enough weight\n";
 	}
 }
 
 void IA_EnterHandler::onEnter(Player* p, Goal* g) {
-	// TODO Game should end
-	std::cout << "Player entered Goal\n";
+// 	std::cout << "Player entered Goal\n";
 	game->ended = true;
 }
 

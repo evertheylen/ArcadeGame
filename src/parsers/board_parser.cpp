@@ -45,8 +45,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 		fatal("Invalid board dimensions", board_elem);
 	}
 	
-	Board* bp;
-	bp = new Board(x, y, game);
+	Board* bp = new Board(x, y, game);
 
 	while (current_el != NULL) {
 		try {
@@ -56,7 +55,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 
 			if (tagname == "NAAM") {
 				boardname = readElement(current_el);
-				(*bp).set_name(boardname);
+				bp->set_name(boardname);
 			} else if (tagname == "SPELER" || tagname == "MONSTER" || tagname == "TON") {
 				Entity* entity;
 				if (tagname == "SPELER") {
@@ -93,7 +92,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 				
 			} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 				std::string s = current_el->Value();
-				// TODO log or fatal?
+				log(std::string("Didn't understand tag ") + s, current_el);
 			}
 		} catch (ParseError& e) {
 			log(e.what(), board_elem);
@@ -107,6 +106,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game::Playermap& _pla
 	
 	current_el = board_elem->FirstChildElement();
 	
+	// Parse buttons latest, because they need all the gates to be parsed already
 	while (current_el != NULL) {
 		try {
 			if (current_el->ValueTStr() == "KNOP") {  // TODO Fix that buttons work.

@@ -16,9 +16,8 @@ Action_parser::Action_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
 
-std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game* g) {
-	// NOTE hier heb ik de nieuwe log() en fatal() nog niet gebruikt, omdat deze toch sterk zal moeten herschreven worden
-	std::list<Action*>* mp = new std::list<Action*>;
+std::list<Action*> Action_parser::parse_action(TiXmlElement* move_elem, Game* g) {
+	std::list<Action*> mp;
 	if(move_elem == nullptr) fatal("Failed to load actions file: No root element.");
 	if(move_elem->ValueTStr() != "BEWEGINGEN" && move_elem->ValueTStr() != "ACTIES") fatal("Failed to load actions file: Wrong root element tag.");
 
@@ -54,7 +53,7 @@ std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game* g
 			if (current_el->ValueTStr() == "BEWEGING") {
 				//std::cout << "Parsing " << player_name << " move to " << dir_s << std::endl;
 				Action* ap = new Move(g->get_actor(player_name), dir_s);
-				mp->push_back(ap);
+				mp.push_back(ap);
 			} else if (current_el->ValueTStr() == "AANVAL") {
 				//std::cout << "Parsing " << player_name << " attack to " << dir_s << std::endl;
 
@@ -62,7 +61,7 @@ std::list<Action*>* Action_parser::parse_action(TiXmlElement* move_elem, Game* g
 					log("error attack moet met player", current_el);
 				}
 				Action* ap = new Attack(g->get_player(player_name), dir_s);
-				mp->push_back(ap);
+				mp.push_back(ap);
 			}
 		} else {
 			std::string s = current_el->Value();

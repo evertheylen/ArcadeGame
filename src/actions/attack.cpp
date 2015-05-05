@@ -12,18 +12,18 @@ bool Attack::execute(Game* g) {
 	unsigned int x = actor->x;
 	unsigned int y = actor->y;
 	dir.move_to(x,y);
-	if (!g->board.valid_location(x,y)) {
+	if (!g->get_board()->valid_location(x,y)) {
 		return false; // invalid location
 	}
 	
-	Entity* to_attack = g->board.get_top(x,y);
+	Entity* to_attack = g->get_board()->get_top(x,y);
 	
 	if (to_attack == nullptr) {
 		return false; // nothing to attack
 	} else {
 		g->kill(to_attack);
 		if (!to_attack->is_alive()) {
-			g->board.clear_top(x,y);
+			g->get_board()->clear_top(x,y);
 			g->bury(to_attack);
 		}
 	}

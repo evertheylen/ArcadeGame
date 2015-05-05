@@ -25,7 +25,7 @@ void Game::event_log(std::string s) {
 
 Game::Game():
 		collide(this), enter(this), leave(this), kill(this),
-		board(10,10,this), ended(false) {}
+		board(nullptr), ended(false) {}
 
 /*Game::Game (Board* _board, std::list<Action*>* _actions, Playermap _players, Monstermap _monsters, Gatemap _gates):
 	collide(this), enter(this), leave(this), kill(this), ended(false), board(1,1,this) {
@@ -36,14 +36,34 @@ Game::Game():
 	gatemap = _gates;
 }*/
 
-void Game::main_loop(std::ostream& out) {
-	for (Action* a: actions) {
-		if (!a->execute(this)) {
-			out << "Action was unsuccessfull.\n";
+void Game::do_all_actions(std::ostream& out) {
+	for (int i=0; i<actions.size(); i++) {
+		do_action(out);
+		
+		if (ended) {
+			out << "Game ended, stopping.\n";
 		}
 	}
-	actions.clear();
 }
+
+void Game::do_action(std::ostream& out) {
+	if (actions.size() < 1) return;
+	Action* a = actions.front();
+	if (!a->execute(this)) {
+		out << "Action was unsuccessfull.\n";
+	}
+	delete a;
+	actions.pop_front();
+}
+
+int Game::get_num_actions() {
+	return actions.size();
+}
+
+bool Game::is_ended() {
+	return ended;
+}
+
 
 Player* Game::get_player(std::string name) {
 	auto p = playermap.find(name);
@@ -117,4 +137,29 @@ void Game::write_actions(std::ostream& out) {
 		out << name << " zal volgende beweging nog uitvoeren:\n" << dir << "\n";
 		_actions.pop_front();
 	}
+}
+
+void Game::clear_actions() {
+	for (Action* a: actions) {
+		delete a;
+	}
+	actions.clear();
+}
+
+Board* Game::get_board() {
+	return board;
+}
+
+void Game::set_board(Board* b) {
+	board = b;
+}
+
+
+
+Game::~Game() {
+	for (Entity* e: graveyard) {
+		delete e;
+	}
+	clear_actions();
+	delete board;
 }

@@ -30,7 +30,6 @@ public:
 
 	typedef std::map<std::string, Gate*> Gatemap;
 
-	Board board;
 	std::list<Action*> actions;
 
 	Playermap playermap;
@@ -73,11 +72,25 @@ public:
 // 	Game(Board* board, std::list<Action>& actions, Playermap& players);
 // 	/**< ENSURE(properlyInitialized(), "constructor must end ...");*/
 
-	void main_loop(std::ostream& out);
+	void do_all_actions(std::ostream& out);
 	
+	void do_action(std::ostream& out);
+	
+	int get_num_actions();
+	
+	bool is_ended();
+	
+	void clear_actions();
+	
+	Board* get_board();
+	void set_board(Board* b);
+	
+	~Game();
 	
 private:
 
+	Board* board;
+	
 	std::vector<Entity*> graveyard;
 
 	bool ended;

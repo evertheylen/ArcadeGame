@@ -216,6 +216,20 @@ int Board::get_height() {
 	return height;
 }
 
+Board::~Board() {
+	for (int i = get_height()-1; i>=0; i--) {
+		for (int j = 0; j < get_width(); j++) {
+			if (topdata.at(i).at(j) != nullptr) {
+				delete topdata.at(i).at(j);
+			}
+			for (Entity* e: data.at(i).at(j)) {
+				delete e;
+			}
+		}
+	}
+}
+
+
 // Private
 
 int Board::location_size(unsigned int x, unsigned int y) {

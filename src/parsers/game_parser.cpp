@@ -27,16 +27,14 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	Game::Gatemap gates;
 	Board_parser bp(_out, board_filename);
 	
-	Board* board = bp.parse_board(board_elem, players, gates, monsters, gp);
-	gp->board = *board;
+	gp->set_board(bp.parse_board(board_elem, players, gates, monsters, gp));
 	gp->monstermap = monsters;
 	gp->playermap = players;
 	gp->gatemap = gates;
 	
 	if (move_elem != nullptr) {
 		Action_parser ap(_out, actions_filename);
-		std::list<Action*>* actions = ap.parse_action(move_elem, gp);
-		gp->actions = *actions;
+		gp->actions = ap.parse_action(move_elem, gp);
 	}
 
 	return gp;

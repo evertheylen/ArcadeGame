@@ -50,6 +50,8 @@ public:
 	int get_width();
 
 	int get_height();
+	
+	~Board();
 
 private:
 	int location_size(unsigned int x, unsigned int y);

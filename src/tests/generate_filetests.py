@@ -30,11 +30,11 @@ TEST(ArcadeGameTest, {0} ) {{
 	g->write_actions(output_file);
 	output_file.close();
 	
-	g->main_loop(new_cout); // TODO: with new_cout
+	g->do_all_actions(new_cout); // TODO: with new_cout
 	new_cout.close();
 	
 	output_file.open(Base+"HuidigSpeelveld.txt");
-	g->board.write_board(output_file);
+	g->get_board()->write_board(output_file);
 	output_file.close();
 	
 	output_file.open(Base+"ResterendeBewegingen_einde.txt");
