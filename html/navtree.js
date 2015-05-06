@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Arcade Game", "index.html", [
+  [ "Arcade Game by Evert Heylen and Stijn Janssens", "index.html", [
     [ "ArcadeGame", "md__r_e_a_d_m_e.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
@@ -16,7 +16,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
@@ -40,8 +40,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_arcade_main_8cpp.html",
-"class_parser.html#a41c96386f1b315f661dbaeca8b230090",
-"physics_8cpp.html"
+"class_manager.html#acf4518aae98aa841e94511ad59d105a4",
+"goal_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

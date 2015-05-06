@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: parsers/entity_parser.h Source File</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: parsers/entity_parser.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -140,38 +141,43 @@ $(document).ready(function(){initNavTree('entity__parser_8h_source.html','');});
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_entity__parser.html#a3efc9df13b6fd109315f4c6f36a76375">Entity_parser</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#aba961cfb05c2e7d12648804363d11bb5">parse_wall</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#a9c8e42b25b924483e8355bda85a603f2">parse_barrel</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#a8c67bd953a6fdde2c21163184a7522cd">parse_water</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#aa04c27556fdd6bb9586c8892904888d7">parse_button</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board, <a class="code" href="class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5">Game::Gatemap</a> _gates);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#a011968c051d36dbbeff3315ce475e176">parse_goal</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#af6bb13a80634bd9c7328786d79fe3231">parse_boobytrap</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_entity__parser.html#ac4792b94c41bde103925ae866cb60b6c">parse_gate</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board, <a class="code" href="class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5">Game::Gatemap</a>&amp; _gates);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_wall.html">Wall</a>* <a class="code" href="class_entity__parser.html#a4b5ec7aef90947d346db9cf6aeb8fe6b">parse_wall</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_barrel.html">Barrel</a>* <a class="code" href="class_entity__parser.html#ac6460766a3fb0fb8a54e59f1a09c02f2">parse_barrel</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_water.html">Water</a>* <a class="code" href="class_entity__parser.html#ab337768346e511822f49418ceb7a3549">parse_water</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_button.html">Button</a>* <a class="code" href="class_entity__parser.html#a2c2da316e966ba3ac64d18874a4cd274">parse_button</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_goal.html">Goal</a>* <a class="code" href="class_entity__parser.html#af9188db166e12f5def2c4423d259a57c">parse_goal</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_boobytrap.html">Boobytrap</a>* <a class="code" href="class_entity__parser.html#ac1e5914d94309fe88069b1e8a5c071db">parse_boobytrap</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_gate.html">Gate</a>* <a class="code" href="class_entity__parser.html#ab85fb730a2a1c07539aed278f204010b">parse_gate</a>(TiXmlElement* elem, <a class="code" href="class_board.html">Board</a>&amp; _board);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _Entity_parser */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
-<div class="ttc" id="class_game_html_a3ac788aaa1e70509a9b9745acd17a8b5"><div class="ttname"><a href="class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5">Game::Gatemap</a></div><div class="ttdeci">std::map&lt; std::string, Gate * &gt; Gatemap</div><div class="ttdef"><b>Definition:</b> game.h:31</div></div>
-<div class="ttc" id="class_entity__parser_html_a8c67bd953a6fdde2c21163184a7522cd"><div class="ttname"><a href="class_entity__parser.html#a8c67bd953a6fdde2c21163184a7522cd">Entity_parser::parse_water</a></div><div class="ttdeci">Entity * parse_water(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:80</div></div>
-<div class="ttc" id="class_entity__parser_html_a9c8e42b25b924483e8355bda85a603f2"><div class="ttname"><a href="class_entity__parser.html#a9c8e42b25b924483e8355bda85a603f2">Entity_parser::parse_barrel</a></div><div class="ttdeci">Entity * parse_barrel(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:54</div></div>
+<div class="ttc" id="class_goal_html"><div class="ttname"><a href="class_goal.html">Goal</a></div><div class="ttdef"><b>Definition:</b> goal.h:18</div></div>
+<div class="ttc" id="class_entity__parser_html_ac1e5914d94309fe88069b1e8a5c071db"><div class="ttname"><a href="class_entity__parser.html#ac1e5914d94309fe88069b1e8a5c071db">Entity_parser::parse_boobytrap</a></div><div class="ttdeci">Boobytrap * parse_boobytrap(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:192</div></div>
+<div class="ttc" id="class_water_html"><div class="ttname"><a href="class_water.html">Water</a></div><div class="ttdef"><b>Definition:</b> water.h:12</div></div>
+<div class="ttc" id="class_boobytrap_html"><div class="ttname"><a href="class_boobytrap.html">Boobytrap</a></div><div class="ttdef"><b>Definition:</b> boobytrap.h:18</div></div>
+<div class="ttc" id="class_barrel_html"><div class="ttname"><a href="class_barrel.html">Barrel</a></div><div class="ttdef"><b>Definition:</b> barrel.h:19</div></div>
 <div class="ttc" id="class_entity__parser_html_a3efc9df13b6fd109315f4c6f36a76375"><div class="ttname"><a href="class_entity__parser.html#a3efc9df13b6fd109315f4c6f36a76375">Entity_parser::Entity_parser</a></div><div class="ttdeci">Entity_parser()=default</div></div>
-<div class="ttc" id="class_entity__parser_html_aa04c27556fdd6bb9586c8892904888d7"><div class="ttname"><a href="class_entity__parser.html#aa04c27556fdd6bb9586c8892904888d7">Entity_parser::parse_button</a></div><div class="ttdeci">Entity * parse_button(TiXmlElement *elem, Board &amp;_board, Game::Gatemap _gates)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:106</div></div>
+<div class="ttc" id="class_entity__parser_html_ab85fb730a2a1c07539aed278f204010b"><div class="ttname"><a href="class_entity__parser.html#ab85fb730a2a1c07539aed278f204010b">Entity_parser::parse_gate</a></div><div class="ttdeci">Gate * parse_gate(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:137</div></div>
 <div class="ttc" id="class_parser_html"><div class="ttname"><a href="class_parser.html">Parser</a></div><div class="ttdef"><b>Definition:</b> parser.h:34</div></div>
-<div class="ttc" id="class_entity__parser_html_ac4792b94c41bde103925ae866cb60b6c"><div class="ttname"><a href="class_entity__parser.html#ac4792b94c41bde103925ae866cb60b6c">Entity_parser::parse_gate</a></div><div class="ttdeci">Entity * parse_gate(TiXmlElement *elem, Board &amp;_board, Game::Gatemap &amp;_gates)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:136</div></div>
+<div class="ttc" id="class_entity__parser_html_ac6460766a3fb0fb8a54e59f1a09c02f2"><div class="ttname"><a href="class_entity__parser.html#ac6460766a3fb0fb8a54e59f1a09c02f2">Entity_parser::parse_barrel</a></div><div class="ttdeci">Barrel * parse_barrel(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:54</div></div>
 <div class="ttc" id="parser_8h_html"><div class="ttname"><a href="parser_8h.html">parser.h</a></div></div>
-<div class="ttc" id="class_entity__parser_html_aba961cfb05c2e7d12648804363d11bb5"><div class="ttname"><a href="class_entity__parser.html#aba961cfb05c2e7d12648804363d11bb5">Entity_parser::parse_wall</a></div><div class="ttdeci">Entity * parse_wall(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:27</div></div>
+<div class="ttc" id="class_entity__parser_html_a2c2da316e966ba3ac64d18874a4cd274"><div class="ttname"><a href="class_entity__parser.html#a2c2da316e966ba3ac64d18874a4cd274">Entity_parser::parse_button</a></div><div class="ttdeci">Button * parse_button(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:106</div></div>
 <div class="ttc" id="class_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> board.h:20</div></div>
-<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:17</div></div>
-<div class="ttc" id="class_entity__parser_html_a011968c051d36dbbeff3315ce475e176"><div class="ttname"><a href="class_entity__parser.html#a011968c051d36dbbeff3315ce475e176">Entity_parser::parse_goal</a></div><div class="ttdeci">Entity * parse_goal(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:170</div></div>
-<div class="ttc" id="class_entity__parser_html_af6bb13a80634bd9c7328786d79fe3231"><div class="ttname"><a href="class_entity__parser.html#af6bb13a80634bd9c7328786d79fe3231">Entity_parser::parse_boobytrap</a></div><div class="ttdeci">Entity * parse_boobytrap(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:192</div></div>
+<div class="ttc" id="class_wall_html"><div class="ttname"><a href="class_wall.html">Wall</a></div><div class="ttdef"><b>Definition:</b> wall.h:18</div></div>
+<div class="ttc" id="class_entity__parser_html_a4b5ec7aef90947d346db9cf6aeb8fe6b"><div class="ttname"><a href="class_entity__parser.html#a4b5ec7aef90947d346db9cf6aeb8fe6b">Entity_parser::parse_wall</a></div><div class="ttdeci">Wall * parse_wall(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:27</div></div>
+<div class="ttc" id="class_gate_html"><div class="ttname"><a href="class_gate.html">Gate</a></div><div class="ttdef"><b>Definition:</b> gate.h:19</div></div>
+<div class="ttc" id="class_entity__parser_html_af9188db166e12f5def2c4423d259a57c"><div class="ttname"><a href="class_entity__parser.html#af9188db166e12f5def2c4423d259a57c">Entity_parser::parse_goal</a></div><div class="ttdeci">Goal * parse_goal(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:170</div></div>
+<div class="ttc" id="class_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:22</div></div>
 <div class="ttc" id="class_entity__parser_html"><div class="ttname"><a href="class_entity__parser.html">Entity_parser</a></div><div class="ttdef"><b>Definition:</b> entity_parser.h:27</div></div>
+<div class="ttc" id="class_entity__parser_html_ab337768346e511822f49418ceb7a3549"><div class="ttname"><a href="class_entity__parser.html#ab337768346e511822f49418ceb7a3549">Entity_parser::parse_water</a></div><div class="ttdeci">Water * parse_water(TiXmlElement *elem, Board &amp;_board)</div><div class="ttdef"><b>Definition:</b> entity_parser.cpp:80</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a5a40681709ed751decc24cd7289c9c5.html">parsers</a></li><li class="navelem"><a class="el" href="entity__parser_8h.html">entity_parser.h</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:41 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['leave',['leave',['../class_game.html#ace7ec571f69a4a210e5a4d1f80232753',1,'Game']]],
+  ['leave',['leave',['../class_game.html#a737c0a9f00bccef6f3e8e743a2f8bea1',1,'Game']]],
   ['leave_5ftop_5flocation',['leave_top_location',['../class_board.html#ad77efbd5de132a72a97a9307b111f622',1,'Board']]],
   ['left',['left',['../class_direction.html#a218282b2789da5abcafb2be32cf99011a811882fecd5c7618d7099ebbd39ea254',1,'Direction']]],
+  ['lengte',['lengte',['../classconvert_1_1_board.html#a36f114a23926efd5dcb472db47615b59',1,'convert::Board']]],
   ['lethal',['Lethal',['../class_lethal.html',1,'']]],
   ['lethal_2ecpp',['lethal.cpp',['../lethal_8cpp.html',1,'']]],
   ['lethal_2eh',['lethal.h',['../lethal_8h.html',1,'']]],

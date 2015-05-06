@@ -19,6 +19,7 @@ var searchData=
   ['init_5fgame',['init_game',['../class_u_i.html#adf4e96404df921e04f60217c93763fcd',1,'UI']]],
   ['interactive',['Interactive',['../class_interactive.html',1,'']]],
   ['is_5falive',['is_alive',['../class_alive.html#a35db3016aaa9bbea5e9bcaa4965581b6',1,'Alive::is_alive()'],['../class_immutable.html#a0460b0dffb45031b03bb1835a86c3185',1,'Immutable::is_alive()'],['../class_life.html#a8f79fb2cb57ef2a76e0c0feba345c68c',1,'Life::is_alive()']]],
+  ['is_5fended',['is_ended',['../class_game.html#a47be91dcc180c606507cc06d06d351b2',1,'Game']]],
   ['is_5ffilled',['is_filled',['../class_water.html#a063397ad0da6b286bdad0a27cc646cb4',1,'Water']]],
   ['is_5fopen',['is_open',['../class_gate.html#a5cb8530f286fcbe2c40d7f396176b805',1,'Gate']]]
 ];

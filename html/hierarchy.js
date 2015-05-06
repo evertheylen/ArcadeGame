@@ -6,6 +6,7 @@ var hierarchy =
     ] ],
     [ "precompile.Argument", "classprecompile_1_1_argument.html", null ],
     [ "Board", "class_board.html", null ],
+    [ "convert.Board", "classconvert_1_1_board.html", null ],
     [ "CollisionHandler", null, [
       [ "CollisionDispatch", "class_collision_dispatch.html", [
         [ "Manager< CollisionDispatch >", "class_manager.html", null ],
@@ -36,6 +37,7 @@ var hierarchy =
         [ "CollisionDispatch", "class_collision_dispatch.html", null ]
       ] ]
     ] ],
+    [ "convert.Entity", "classconvert_1_1_entity.html", null ],
     [ "exception", null, [
       [ "ParseError", "class_parse_error.html", null ]
     ] ],

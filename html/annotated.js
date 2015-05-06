@@ -1,5 +1,6 @@
 var annotated =
 [
+    [ "convert", "namespaceconvert.html", "namespaceconvert" ],
     [ "generate_filetests", "namespacegenerate__filetests.html", null ],
     [ "precompile", "namespaceprecompile.html", "namespaceprecompile" ],
     [ "replace_filetests", "namespacereplace__filetests.html", null ],

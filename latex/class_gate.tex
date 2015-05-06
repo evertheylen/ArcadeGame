@@ -22,7 +22,7 @@ int \hyperlink{class_gate_a71358b21088e77ddcd7c1980e13ba063}{get\-\_\-weight} ()
 \item 
 char \hyperlink{class_gate_a4c957d7092b0c53a0a8e711142818dfa}{to\-\_\-char} ()
 \item 
-std\-::string \hyperlink{class_gate_a26fc1621b08010e7f712b68d665a6aa7}{get\-\_\-name} ()
+std\-::string \& \hyperlink{class_gate_a49c1fb6fd0f2bbf4a7593e7e6e0bfb48}{get\-\_\-name} ()
 \item 
 void \hyperlink{class_gate_a6b6e01294cd8f5dbb5c93831c5cd3c3f}{open} ()
 \item 
@@ -45,7 +45,7 @@ bool \hyperlink{class_gate_a5cb8530f286fcbe2c40d7f396176b805}{is\-\_\-open} ()
 \item[{std\-::string}]{\-\_\-name}
 \end{DoxyParamCaption}
 )}}\label{class_gate_a8c222415d9aa37b3057038e0fa1cb20f}
-
+E\-N\-S\-U\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Constructor must end...\char`\"{}) 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_gate_a3733611cc86dfe641915fcbfaf4d41c8}{\index{Gate@{Gate}!close@{close}}
@@ -55,32 +55,32 @@ bool \hyperlink{class_gate_a5cb8530f286fcbe2c40d7f396176b805}{is\-\_\-open} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{class_gate_a3733611cc86dfe641915fcbfaf4d41c8}
-\hypertarget{class_gate_a92969268c88df32619ae44de87614cf8}{\index{Gate@{Gate}!get\-\_\-height@{get\-\_\-height}}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling close\char`\"{}) E\-N\-S\-U\-R\-E(\-\_\-open == false, \char`\"{}\-Gate wasn't closed when calling close\char`\"{}) \hypertarget{class_gate_a92969268c88df32619ae44de87614cf8}{\index{Gate@{Gate}!get\-\_\-height@{get\-\_\-height}}
 \index{get\-\_\-height@{get\-\_\-height}!Gate@{Gate}}
 \subsubsection[{get\-\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}int Gate\-::get\-\_\-height (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_gate_a92969268c88df32619ae44de87614cf8}
-
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling get\-\_\-height\char`\"{}) 
 
 Implements \hyperlink{class_physics_ae3e59e7723c9f0334b88baf60c01f376}{Physics}.
 
-\hypertarget{class_gate_a26fc1621b08010e7f712b68d665a6aa7}{\index{Gate@{Gate}!get\-\_\-name@{get\-\_\-name}}
+\hypertarget{class_gate_a49c1fb6fd0f2bbf4a7593e7e6e0bfb48}{\index{Gate@{Gate}!get\-\_\-name@{get\-\_\-name}}
 \index{get\-\_\-name@{get\-\_\-name}!Gate@{Gate}}
-\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Gate\-::get\-\_\-name (
+\subsubsection[{get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string \& Gate\-::get\-\_\-name (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_gate_a26fc1621b08010e7f712b68d665a6aa7}
-\hypertarget{class_gate_a71358b21088e77ddcd7c1980e13ba063}{\index{Gate@{Gate}!get\-\_\-weight@{get\-\_\-weight}}
+)}}\label{class_gate_a49c1fb6fd0f2bbf4a7593e7e6e0bfb48}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling get\-\_\-name\char`\"{}) \hypertarget{class_gate_a71358b21088e77ddcd7c1980e13ba063}{\index{Gate@{Gate}!get\-\_\-weight@{get\-\_\-weight}}
 \index{get\-\_\-weight@{get\-\_\-weight}!Gate@{Gate}}
 \subsubsection[{get\-\_\-weight}]{\setlength{\rightskip}{0pt plus 5cm}int Gate\-::get\-\_\-weight (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_gate_a71358b21088e77ddcd7c1980e13ba063}
-
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling get\-\_\-weight\char`\"{}) 
 
 Implements \hyperlink{class_physics_a00580cf655d0569cc44f11b630cfcee7}{Physics}.
 
@@ -91,7 +91,7 @@ Implements \hyperlink{class_physics_a00580cf655d0569cc44f11b630cfcee7}{Physics}.
 \item[{std\-::ostream \&}]{out}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_gate_a194b57934f4ab3ed226a7c5fb45693bd}
-Shows the info about the entity, used in the method \hyperlink{class_board_ae7e407126c1c113669e645a216fc7848}{Board\-::write\-\_\-board}. Is a pure virtual function for \hyperlink{class_entity}{Entity}. R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Entity wasn't initialized when calling info\char`\"{}) 
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling info\char`\"{}) 
 
 Implements \hyperlink{class_entity_aa694874d1f59971187de675d1e0c1fdf}{Entity}.
 
@@ -102,21 +102,21 @@ Implements \hyperlink{class_entity_aa694874d1f59971187de675d1e0c1fdf}{Entity}.
 {}
 \end{DoxyParamCaption}
 )}}\label{class_gate_a5cb8530f286fcbe2c40d7f396176b805}
-\hypertarget{class_gate_a6b6e01294cd8f5dbb5c93831c5cd3c3f}{\index{Gate@{Gate}!open@{open}}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling is\-\_\-open\char`\"{}) \hypertarget{class_gate_a6b6e01294cd8f5dbb5c93831c5cd3c3f}{\index{Gate@{Gate}!open@{open}}
 \index{open@{open}!Gate@{Gate}}
 \subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}void Gate\-::open (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{class_gate_a6b6e01294cd8f5dbb5c93831c5cd3c3f}
-\hypertarget{class_gate_a4c957d7092b0c53a0a8e711142818dfa}{\index{Gate@{Gate}!to\-\_\-char@{to\-\_\-char}}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling open\char`\"{}) E\-N\-S\-U\-R\-E(\-\_\-open == true, \char`\"{}\-Gate wasn't opened when calling open\char`\"{}) \hypertarget{class_gate_a4c957d7092b0c53a0a8e711142818dfa}{\index{Gate@{Gate}!to\-\_\-char@{to\-\_\-char}}
 \index{to\-\_\-char@{to\-\_\-char}!Gate@{Gate}}
 \subsubsection[{to\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}char Gate\-::to\-\_\-char (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_gate_a4c957d7092b0c53a0a8e711142818dfa}
-
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_entity_af7f20142aa7883ca29a91c43e3511e48}{properly\-Initialized()}, \char`\"{}\-Gate wasn't initialized when calling to\-\_\-char\char`\"{}) 
 
 Implements \hyperlink{class_printer_a66ecfd99bb8bc0a88ed0fc1276c70e23}{Printer}.
 

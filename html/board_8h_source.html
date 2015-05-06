@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: game/board.h Source File</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: game/board.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -160,32 +161,38 @@ $(document).ready(function(){initNavTree('board_8h_source.html','');});
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_board.html#a5eb8b8fd57b54ee43c189e16a9ee577b">get_width</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_board.html#a82081634443ee5ad9b00626111caf65a">get_height</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> location_size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_game.html">Game</a>* game;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::vector&lt;std::vector&lt;Entity*&gt;&gt; topdata;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::vector&lt;std::vector&lt;std::vector&lt;Entity*&gt;&gt;&gt; data;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> width;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> height;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_game.html">Game</a>* <a class="code" href="class_board.html#a7077136173994866ec146dcefa3dfe64">get_game</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> location_size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_game.html">Game</a>* game;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;std::vector&lt;Entity*&gt;&gt; topdata;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::vector&lt;std::vector&lt;std::vector&lt;Entity*&gt;&gt;&gt; data;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> width;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span> height;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::string name;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
 <div class="ttc" id="class_board_html_ae4b3c84812939e557a58e92468a2234b"><div class="ttname"><a href="class_board.html#ae4b3c84812939e557a58e92468a2234b">Board::enter_location</a></div><div class="ttdeci">void enter_location(Entity *e, unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:107</div></div>
 <div class="ttc" id="class_board_html_a458cae7e6bb9189f7bf0b3ab1036ea6f"><div class="ttname"><a href="class_board.html#a458cae7e6bb9189f7bf0b3ab1036ea6f">Board::set_name</a></div><div class="ttdeci">void set_name(std::string _name)</div><div class="ttdef"><b>Definition:</b> board.cpp:32</div></div>
 <div class="ttc" id="class_board_html_a34efaf5d1af34d910525b20a00d8ff34"><div class="ttname"><a href="class_board.html#a34efaf5d1af34d910525b20a00d8ff34">Board::enter_top_location</a></div><div class="ttdeci">bool enter_top_location(Entity *e, unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:67</div></div>
+<div class="ttc" id="class_board_html_a7077136173994866ec146dcefa3dfe64"><div class="ttname"><a href="class_board.html#a7077136173994866ec146dcefa3dfe64">Board::get_game</a></div><div class="ttdeci">Game * get_game()</div><div class="ttdef"><b>Definition:</b> board.cpp:219</div></div>
 <div class="ttc" id="class_board_html_ae58237ab49518bbfec3260152e02335c"><div class="ttname"><a href="class_board.html#ae58237ab49518bbfec3260152e02335c">Board::get_top</a></div><div class="ttdeci">Entity * get_top(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:16</div></div>
+<div class="ttc" id="class_board_html_af73f45730119a1fd8f6670f53f959e68"><div class="ttname"><a href="class_board.html#af73f45730119a1fd8f6670f53f959e68">Board::~Board</a></div><div class="ttdeci">~Board()</div><div class="ttdef"><b>Definition:</b> board.cpp:224</div></div>
 <div class="ttc" id="class_board_html_a85fe9fc0472a4658caada2f9ab585868"><div class="ttname"><a href="class_board.html#a85fe9fc0472a4658caada2f9ab585868">Board::print_sideview</a></div><div class="ttdeci">void print_sideview(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:176</div></div>
 <div class="ttc" id="class_board_html_ac0253eac886de98047fc70833c4832e0"><div class="ttname"><a href="class_board.html#ac0253eac886de98047fc70833c4832e0">Board::to_char</a></div><div class="ttdeci">char to_char(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:154</div></div>
 <div class="ttc" id="class_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> board.h:20</div></div>
 <div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:17</div></div>
 <div class="ttc" id="class_board_html_ad77efbd5de132a72a97a9307b111f622"><div class="ttname"><a href="class_board.html#ad77efbd5de132a72a97a9307b111f622">Board::leave_top_location</a></div><div class="ttdeci">Entity * leave_top_location(unsigned int x, unsigned int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:48</div></div>
 <div class="ttc" id="class_board_html_a5eb8b8fd57b54ee43c189e16a9ee577b"><div class="ttname"><a href="class_board.html#a5eb8b8fd57b54ee43c189e16a9ee577b">Board::get_width</a></div><div class="ttdeci">int get_width()</div><div class="ttdef"><b>Definition:</b> board.cpp:211</div></div>
-<div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:26</div></div>
+<div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:27</div></div>
 <div class="ttc" id="class_board_html_a272e0648e136707f6a652b84526f351c"><div class="ttname"><a href="class_board.html#a272e0648e136707f6a652b84526f351c">Board::simple_graphics</a></div><div class="ttdeci">void simple_graphics(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> board.cpp:202</div></div>
 <div class="ttc" id="class_board_html_ae7e407126c1c113669e645a216fc7848"><div class="ttname"><a href="class_board.html#ae7e407126c1c113669e645a216fc7848">Board::write_board</a></div><div class="ttdeci">void write_board(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> board.cpp:187</div></div>
 <div class="ttc" id="class_board_html_a4ea85ce0aad0d905e3757a3531396178"><div class="ttname"><a href="class_board.html#a4ea85ce0aad0d905e3757a3531396178">Board::valid_location</a></div><div class="ttdeci">bool valid_location(int x, int y)</div><div class="ttdef"><b>Definition:</b> board.cpp:36</div></div>
@@ -199,7 +206,7 @@ $(document).ready(function(){initNavTree('board_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_37c6514aeece95293041e34c0f2e0784.html">game</a></li><li class="navelem"><a class="el" href="board_8h.html">board.h</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:41 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
