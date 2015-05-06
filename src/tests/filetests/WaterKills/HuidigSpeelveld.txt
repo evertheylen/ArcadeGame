@@ -3,6 +3,5 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Speler Chip bevindt zich in dit speelveld op positie (4,4).
 Er bevindt zich een ton op positie (5,3).
 Er bevindt zich water op positie (5,2)

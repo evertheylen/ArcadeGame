@@ -21,6 +21,8 @@ void CollisionHandler::onCollision(Water* w, Entity* e) {
 }
 
 void CollisionHandler::onCollision(Player* p, Monster* m) {
+	//std::cout << "actor alive = " << p->is_alive() << std::endl;
 	//std::cout << "Player and Monster collided!\n";
 	game->kill(p);
+	//std::cout << "actor alive = " << p->is_alive() << std::endl;
 }

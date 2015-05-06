@@ -6,12 +6,12 @@ Eigenschappen van dit veld:
 Er bevindt zich een ton op positie (5,16).
 Er bevindt zich een ton op positie (11,16).
 Er bevindt zich een ton op positie (4,14).
+Er bevindt zich een ton op positie (12,14).
 Er bevindt zich een ton op positie (5,13).
+Er bevindt zich een ton op positie (11,13).
 Er bevindt zich een ton op positie (6,12).
 Er bevindt zich een ton op positie (7,12).
 Er bevindt zich een ton op positie (8,12).
 Er bevindt zich een ton op positie (9,12).
 Er bevindt zich een ton op positie (10,12).
-Er bevindt zich een ton op positie (11,11).
-Speler Chip bevindt zich in dit speelveld op positie (5,10).
-Er bevindt zich een ton op positie (12,10).
+Speler Chip bevindt zich in dit speelveld op positie (12,10).

@@ -24,7 +24,15 @@ void IA_EnterHandler::onEnter(Player* p, Goal* g) {
 }
 
 void IA_EnterHandler::onEnter(Actor* a, Boobytrap* b) {
-	game->kill(a);
-	game->kill(b);
+	//std::cout << "boobytrap entered\n";
+	//std::cout << "actor alive = " << a->is_alive() << std::endl;
+	if (b->is_alive()) {
+		//std::cout << "boobytrap is alive, boobytrap sprung\n";
+		game->kill(a);
+		game->kill(b);
+	} //else {
+		//std::cout << "boobytrap already sprung, nothing happens\n";
+	//}
+	//std::cout << "actor alive = " << a->is_alive() << std::endl;
 }
 

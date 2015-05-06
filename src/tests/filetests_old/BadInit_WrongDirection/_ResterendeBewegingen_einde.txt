@@ -1,2 +1,1 @@
-Speler Chip zal volgende beweging nog uitvoeren:
-OMHOOG
+Geen resterende bewegingen

@@ -2,3 +2,5 @@ Speler Chip zal volgende beweging nog uitvoeren:
 RECHTS
 Monster Bowser zal volgende beweging nog uitvoeren:
 RECHTS
+Monster Bowser zal volgende beweging nog uitvoeren:
+RECHTS

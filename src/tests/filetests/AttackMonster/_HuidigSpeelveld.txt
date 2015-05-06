@@ -3,5 +3,4 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Er bevindt zich een monster op positie (2,7).
-Speler Chip bevindt zich in dit speelveld op positie (4,5).
+Speler Chip bevindt zich in dit speelveld op positie (3,7).

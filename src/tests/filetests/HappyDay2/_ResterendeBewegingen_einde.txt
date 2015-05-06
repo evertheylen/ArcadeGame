@@ -1,2 +1,1 @@
-Speler Chip zal volgende beweging nog uitvoeren:
-LINKS
+Geen resterende bewegingen

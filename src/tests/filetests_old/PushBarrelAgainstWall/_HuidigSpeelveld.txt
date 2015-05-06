@@ -3,5 +3,5 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Speler Chip bevindt zich in dit speelveld op positie (4,3).
+Speler Chip bevindt zich in dit speelveld op positie (4,2).
 Er bevindt zich een ton op positie (4,1).

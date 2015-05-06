@@ -98,6 +98,11 @@ bool Board::enter_top_location(Entity* e, unsigned int x, unsigned int y) {
 		if (location_size(x,y) > 0) {
 			// We IA_Enter the entity below.
 			game->enter(e, data.at(x).at(y).at(0));
+			if (!e->is_alive()) {
+				// Dead on impact
+				topdata.at(x).at(y) = nullptr;
+				game->bury(e);
+			}
 		}
 		
 		return false;

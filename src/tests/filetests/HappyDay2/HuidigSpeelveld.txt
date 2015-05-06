@@ -3,4 +3,4 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Speler Chip bevindt zich in dit speelveld op positie (6,4).
+Speler Chip bevindt zich in dit speelveld op positie (5,5).

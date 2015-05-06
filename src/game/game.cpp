@@ -67,7 +67,8 @@ void Game::leave(Entity* top, Entity* bottom) {
 
 void Game::do_all_actions(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_all_actions");
-	for (int i=0; i<actions.size(); i++) {
+	int size = actions.size();
+	for (int i=0; i<size; i++) {
 		do_action(out);
 		
 		if (ended) {
@@ -179,7 +180,11 @@ void Game::bury(Entity* e) {
 void Game::write_actions(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling write_actions");
 	std::list<Action*> _actions = actions;
-	for (int i = 0; i < _actions.size(); i++) {
+	if (_actions.size() == 0) {
+		out << "Geen resterende bewegingen\n";
+		return;
+	}
+	for (int i = 0; i < actions.size(); i++) {
 		std::string name = _actions.front()->get_actor()->get_name();
 		bool player = true;
 		if (playermap.find(name) == playermap.end()) {

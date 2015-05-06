@@ -3,6 +3,5 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Speler Munk bevindt zich in dit speelveld op positie (5,7).
-Er bevindt zich een ton op positie (5,6).
-Speler Chip bevindt zich in dit speelveld op positie (5,5).
+Er bevindt zich een ton op positie (5,5).
+Speler Munk bevindt zich in dit speelveld op positie (4,4).

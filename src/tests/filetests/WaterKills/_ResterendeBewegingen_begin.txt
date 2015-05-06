@@ -4,3 +4,9 @@ Speler Chip zal volgende beweging nog uitvoeren:
 OMLAAG
 Speler Chip zal volgende beweging nog uitvoeren:
 LINKS
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+Speler Chip zal volgende beweging nog uitvoeren:
+OMLAAG
+Speler Chip zal volgende beweging nog uitvoeren:
+RECHTS
