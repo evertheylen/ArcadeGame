@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['safetext',['safetext',['../namespaceprecompile.html#addd9f61dbf0e623d070597812399f6a7',1,'precompile']]],
-  ['set_5fname',['set_name',['../class_board.html#a458cae7e6bb9189f7bf0b3ab1036ea6f',1,'Board']]],
-  ['set_5fout',['set_out',['../class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da',1,'Parser']]],
-  ['setgame',['setGame',['../class_handler.html#ac0ff81e19943c7c1c360dd5597e5b658',1,'Handler']]],
-  ['show',['show',['../class_u_i.html#a589a1aaee2f73707fef65872b1ba9853',1,'UI']]],
-  ['simple_5fgraphics',['simple_graphics',['../class_board.html#a272e0648e136707f6a652b84526f351c',1,'Board']]],
-  ['simplephysics',['SimplePhysics',['../class_simple_physics.html#a7b112689e7cbf3d4831a4cbcc5560156',1,'SimplePhysics']]],
-  ['simpleprint',['SimplePrint',['../class_simple_print.html#ae02e09f4c1f2f4814654b07661294735',1,'SimplePrint']]],
-  ['simulate',['simulate',['../class_u_i.html#a72a0d1c12612179d29fd133ba974547e',1,'UI']]],
-  ['solid',['Solid',['../class_solid.html#a2f8cf8edb1bb73a0c0cd75082b80a28d',1,'Solid']]],
-  ['split',['split',['../_u_i_8cpp.html#a401b1a46a839e6751219bb8ba152c827',1,'split(std::string &amp;s, char delim):&#160;UI.cpp'],['../_u_i_8h.html#a401b1a46a839e6751219bb8ba152c827',1,'split(std::string &amp;s, char delim):&#160;UI.cpp']]]
+  ['read_5factions',['read_actions',['../class_u_i.html#a3036f1791dce9d55da94d4e572b0d4a3',1,'UI']]],
+  ['read_5fboard',['read_board',['../class_u_i.html#aceecd424a608445e4ee9f4b8ee75a64b',1,'UI']]],
+  ['readattribute',['readAttribute',['../class_parser.html#ab9e0267aecaf7861b8a239fb72da949b',1,'Parser']]],
+  ['readelement',['readElement',['../class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c',1,'Parser::readElement(TiXmlElement *elem, const char *tag)'],['../class_parser.html#ad6ad607bb6ca701cdaba3dbea8d26ca6',1,'Parser::readElement(TiXmlElement *elem)']]],
+  ['reqelement',['reqElement',['../class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad',1,'Parser']]],
+  ['reset',['reset',['../class_u_i.html#ae02d9a71dd29b037d1ee7d8bd673c1de',1,'UI']]],
+  ['run',['run',['../class_u_i.html#a6bdaec41e41f67039516936fae3f0c30',1,'UI']]]
 ];

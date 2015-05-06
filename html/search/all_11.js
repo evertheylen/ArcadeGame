@@ -1,6 +1,7 @@
 var searchData=
 [
   ['safetext',['safetext',['../namespaceprecompile.html#addd9f61dbf0e623d070597812399f6a7',1,'precompile']]],
+  ['set_5fboard',['set_board',['../class_game.html#ac164df696f1b71acc6246a08e8066b70',1,'Game']]],
   ['set_5fname',['set_name',['../class_board.html#a458cae7e6bb9189f7bf0b3ab1036ea6f',1,'Board']]],
   ['set_5fout',['set_out',['../class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da',1,'Parser']]],
   ['setgame',['setGame',['../class_handler.html#ac0ff81e19943c7c1c360dd5597e5b658',1,'Handler']]],
@@ -12,7 +13,7 @@ var searchData=
   ['simpleprint',['SimplePrint',['../class_simple_print.html',1,'SimplePrint'],['../class_simple_print.html#ae02e09f4c1f2f4814654b07661294735',1,'SimplePrint::SimplePrint()']]],
   ['simpleprint_2ecpp',['simpleprint.cpp',['../simpleprint_8cpp.html',1,'']]],
   ['simpleprint_2eh',['simpleprint.h',['../simpleprint_8h.html',1,'']]],
-  ['simulate',['simulate',['../class_u_i.html#a72a0d1c12612179d29fd133ba974547e',1,'UI']]],
+  ['simulate',['simulate',['../class_u_i.html#af69a6800f49eb64c616b9d3c6e861776',1,'UI']]],
   ['small',['Small',['../class_small.html',1,'']]],
   ['small_2ecpp',['small.cpp',['../small_8cpp.html',1,'']]],
   ['small_2eh',['small.h',['../small_8h.html',1,'']]],
@@ -22,6 +23,8 @@ var searchData=
   ['split',['split',['../_u_i_8cpp.html#a401b1a46a839e6751219bb8ba152c827',1,'split(std::string &amp;s, char delim):&#160;UI.cpp'],['../_u_i_8h.html#a401b1a46a839e6751219bb8ba152c827',1,'split(std::string &amp;s, char delim):&#160;UI.cpp']]],
   ['spot_2ecpp',['spot.cpp',['../spot_8cpp.html',1,'']]],
   ['spot_2eh',['spot.h',['../spot_8h.html',1,'']]],
+  ['stuff',['stuff',['../classconvert_1_1_board.html#ace8a4757fdababb59f63d112a309b1ad',1,'convert::Board']]],
+  ['subs',['subs',['../classconvert_1_1_entity.html#a0c8f63ae0353069137abe9a8e4c9b112',1,'convert::Entity']]],
   ['symmetricdoubledispatcher',['SymmetricDoubleDispatcher',['../class_symmetric_double_dispatcher.html',1,'']]],
   ['symmetricdoubledispatcher_3c_20void_2c_20entity_20_2a_2c_20entity_20_2a_20_3e',['SymmetricDoubleDispatcher&lt; void, Entity *, Entity * &gt;',['../class_symmetric_double_dispatcher.html',1,'']]]
 ];

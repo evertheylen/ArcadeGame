@@ -9,8 +9,11 @@ var class_direction =
     ] ],
     [ "Direction", "class_direction.html#af17924e019c164609181cdf6bca30397", null ],
     [ "Direction", "class_direction.html#a180839d58bb1ff41301425963701d963", null ],
+    [ "Direction", "class_direction.html#a1c24d60ad7382e5091d38e6b191db3d9", null ],
     [ "get_dir", "class_direction.html#a8160f7e9bd8442e5a5cc66743c223d1d", null ],
     [ "move_from", "class_direction.html#a769ec4b4375d0a78596109005a66eb80", null ],
     [ "move_to", "class_direction.html#a9ccac2a9f99b9c67cac948bfd99cd366", null ],
+    [ "operator=", "class_direction.html#a935591bae199779575f6ddc8d8f73ba1", null ],
+    [ "properlyInitialized", "class_direction.html#a892f0d3aecac651fe905f3208a486818", null ],
     [ "operator<<", "class_direction.html#a81c17e954a272036ec685b1e79b1b006", null ]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['action',['Action',['../class_action.html',1,'Action'],['../class_action.html#a97da8add4b456b38347ad3447e136d48',1,'Action::Action()']]],
+  ['action',['Action',['../class_action.html',1,'Action'],['../class_action.html#a97da8add4b456b38347ad3447e136d48',1,'Action::Action(Actor *_actor, std::string &amp;dirname)'],['../class_action.html#a4259793a39b4dcfcc1e7f091eae40ced',1,'Action::Action(const Action &amp;that)']]],
   ['action_5fparser',['Action_parser',['../class_action__parser.html',1,'Action_parser'],['../class_action__parser.html#a3c55a5dc1dacc4679fd8cf805a13845d',1,'Action_parser::Action_parser(std::ostream *stream, std::string filename)'],['../class_action__parser.html#a7fa6713374665d4f749a6fd512a45c80',1,'Action_parser::Action_parser()=default']]],
   ['action_5fparser_2ecpp',['action_parser.cpp',['../action__parser_8cpp.html',1,'']]],
   ['action_5fparser_2eh',['action_parser.h',['../action__parser_8h.html',1,'']]],
@@ -17,6 +17,7 @@ var searchData=
   ['actor_5fparser_2eh',['actor_parser.h',['../actor__parser_8h.html',1,'']]],
   ['actor_5fpower',['ACTOR_POWER',['../constants_8h.html#a70fce11ef15402db2ddae015b106e9a7',1,'constants.h']]],
   ['actor_5fweight',['ACTOR_WEIGHT',['../constants_8h.html#ad300c7a6295032d29bb45ec67d52a5ea',1,'constants.h']]],
+  ['add_5fgate',['add_gate',['../class_game.html#a2b5f926b163ba9ff405f45c5f3e7d734',1,'Game']]],
   ['add_5fmonster',['add_monster',['../class_game.html#a5b3ceb773fe5f462bb23679ed0482db1',1,'Game']]],
   ['add_5fplayer',['add_player',['../class_game.html#a532e7897423e470019ada16917b457c2',1,'Game']]],
   ['alive',['Alive',['../class_alive.html',1,'Alive'],['../class_alive.html#ab125282112512443da759822eac32423',1,'Alive::Alive()']]],

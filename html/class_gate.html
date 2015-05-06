@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: Gate Class Reference</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: Gate Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -143,8 +144,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a71358b21088e77ddcd7c1980e13ba063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c957d7092b0c53a0a8e711142818dfa"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gate.html#a4c957d7092b0c53a0a8e711142818dfa">to_char</a> ()</td></tr>
 <tr class="separator:a4c957d7092b0c53a0a8e711142818dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26fc1621b08010e7f712b68d665a6aa7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gate.html#a26fc1621b08010e7f712b68d665a6aa7">get_name</a> ()</td></tr>
-<tr class="separator:a26fc1621b08010e7f712b68d665a6aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c1fb6fd0f2bbf4a7593e7e6e0bfb48"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gate.html#a49c1fb6fd0f2bbf4a7593e7e6e0bfb48">get_name</a> ()</td></tr>
+<tr class="separator:a49c1fb6fd0f2bbf4a7593e7e6e0bfb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b6e01294cd8f5dbb5c93831c5cd3c3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gate.html#a6b6e01294cd8f5dbb5c93831c5cd3c3f">open</a> ()</td></tr>
 <tr class="separator:a6b6e01294cd8f5dbb5c93831c5cd3c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3733611cc86dfe641915fcbfaf4d41c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gate.html#a3733611cc86dfe641915fcbfaf4d41c8">close</a> ()</td></tr>
@@ -224,6 +225,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ENSURE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Constructor must end...") </p>
 
 </div>
 </div>
@@ -240,6 +242,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling close") ENSURE(_open == false, "Gate wasn't closed when calling close") </p>
 
 </div>
 </div>
@@ -263,23 +266,25 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling get_height") </p>
 
 <p>Implements <a class="el" href="class_physics.html#ae3e59e7723c9f0334b88baf60c01f376">Physics</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a26fc1621b08010e7f712b68d665a6aa7"></a>
+<a class="anchor" id="a49c1fb6fd0f2bbf4a7593e7e6e0bfb48"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Gate::get_name </td>
+          <td class="memname">std::string &amp; Gate::get_name </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling get_name") </p>
 
 </div>
 </div>
@@ -303,6 +308,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling get_weight") </p>
 
 <p>Implements <a class="el" href="class_physics.html#a00580cf655d0569cc44f11b630cfcee7">Physics</a>.</p>
 
@@ -329,7 +335,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Shows the info about the entity, used in the method <a class="el" href="class_board.html#ae7e407126c1c113669e645a216fc7848">Board::write_board</a>. Is a pure virtual function for <a class="el" href="class_entity.html">Entity</a>. REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Entity wasn't initialized when calling info") </p>
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling info") </p>
 
 <p>Implements <a class="el" href="class_entity.html#aa694874d1f59971187de675d1e0c1fdf">Entity</a>.</p>
 
@@ -347,6 +353,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling is_open") </p>
 
 </div>
 </div>
@@ -362,6 +369,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling open") ENSURE(_open == true, "Gate wasn't opened when calling open") </p>
 
 </div>
 </div>
@@ -385,6 +393,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_entity.html#af7f20142aa7883ca29a91c43e3511e48">properlyInitialized()</a>, "Gate wasn't initialized when calling to_char") </p>
 
 <p>Implements <a class="el" href="class_printer.html#a66ecfd99bb8bc0a88ed0fc1276c70e23">Printer</a>.</p>
 
@@ -400,7 +409,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_gate.html">Gate</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:42 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:51 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

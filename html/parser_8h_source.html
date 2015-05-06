@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: parsers/parser.h Source File</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: parsers/parser.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -130,13 +131,13 @@ $(document).ready(function(){initNavTree('parser_8h_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            _info(info), _filename(filename) {}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c">   22</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c">what</a>()throw() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        std::string s;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        s += <span class="stringliteral">&quot;Error while parsing the XML file \&#39;&quot;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        s += _filename + <span class="stringliteral">&quot;\&#39;: &quot;</span> + _info;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> s.c_str();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        _s = <span class="stringliteral">&quot;Error while parsing the XML file \&#39;&quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        _s += _filename + <span class="stringliteral">&quot;\&#39;: &quot;</span> + _info;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> _s.c_str();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::string _s;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::string _info;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::string _filename;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
@@ -171,18 +172,18 @@ $(document).ready(function(){initNavTree('parser_8h_source.html','');});
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _Parser*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_parser_html_a41c96386f1b315f661dbaeca8b230090"><div class="ttname"><a href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">Parser::_filename</a></div><div class="ttdeci">std::string _filename</div><div class="ttdef"><b>Definition:</b> parser.h:44</div></div>
-<div class="ttc" id="class_parser_html_a5bd88cd16274ffe89c0a5ec0678525da"><div class="ttname"><a href="class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da">Parser::set_out</a></div><div class="ttdeci">void set_out(std::ostream *stream)</div><div class="ttdef"><b>Definition:</b> parser.cpp:58</div></div>
+<div class="ttc" id="class_parser_html_a5bd88cd16274ffe89c0a5ec0678525da"><div class="ttname"><a href="class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da">Parser::set_out</a></div><div class="ttdeci">void set_out(std::ostream *stream)</div><div class="ttdef"><b>Definition:</b> parser.cpp:57</div></div>
 <div class="ttc" id="class_parse_error_html"><div class="ttname"><a href="class_parse_error.html">ParseError</a></div><div class="ttdef"><b>Definition:</b> parser.h:17</div></div>
 <div class="ttc" id="class_parser_html"><div class="ttname"><a href="class_parser.html">Parser</a></div><div class="ttdef"><b>Definition:</b> parser.h:34</div></div>
 <div class="ttc" id="class_parse_error_html_aeaca4de4aa07b84893eecbb19b540a3c"><div class="ttname"><a href="class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c">ParseError::what</a></div><div class="ttdeci">const char * what()</div><div class="ttdef"><b>Definition:</b> parser.h:22</div></div>
 <div class="ttc" id="class_parser_html_ab9e0267aecaf7861b8a239fb72da949b"><div class="ttname"><a href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">Parser::readAttribute</a></div><div class="ttdeci">std::string readAttribute(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:40</div></div>
-<div class="ttc" id="class_parser_html_abc90ea43684459b62e7c6e427a837840"><div class="ttname"><a href="class_parser.html#abc90ea43684459b62e7c6e427a837840">Parser::fatal</a></div><div class="ttdeci">void fatal(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:70</div></div>
+<div class="ttc" id="class_parser_html_abc90ea43684459b62e7c6e427a837840"><div class="ttname"><a href="class_parser.html#abc90ea43684459b62e7c6e427a837840">Parser::fatal</a></div><div class="ttdeci">void fatal(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:69</div></div>
 <div class="ttc" id="class_parser_html_a9d7a3f96e466a7a28a5402283b842341"><div class="ttname"><a href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">Parser::_out</a></div><div class="ttdeci">std::ostream * _out</div><div class="ttdef"><b>Definition:</b> parser.h:43</div></div>
 <div class="ttc" id="class_parse_error_html_a1db9c9dad671ad0a22cb04afa5df6be2"><div class="ttname"><a href="class_parse_error.html#a1db9c9dad671ad0a22cb04afa5df6be2">ParseError::ParseError</a></div><div class="ttdeci">ParseError(std::string info, std::string filename)</div><div class="ttdef"><b>Definition:</b> parser.h:19</div></div>
-<div class="ttc" id="class_parser_html_ae4c1362cb6fe05ba3eb3f1e662654a7c"><div class="ttname"><a href="class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c">Parser::log</a></div><div class="ttdeci">void log(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:75</div></div>
-<div class="ttc" id="class_parser_html_a44cf607802b6863b512ccdbe6c34c9ad"><div class="ttname"><a href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">Parser::reqElement</a></div><div class="ttdeci">bool reqElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:49</div></div>
+<div class="ttc" id="class_parser_html_ae4c1362cb6fe05ba3eb3f1e662654a7c"><div class="ttname"><a href="class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c">Parser::log</a></div><div class="ttdeci">void log(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:74</div></div>
+<div class="ttc" id="class_parser_html_a44cf607802b6863b512ccdbe6c34c9ad"><div class="ttname"><a href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">Parser::reqElement</a></div><div class="ttdeci">bool reqElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:48</div></div>
 <div class="ttc" id="class_parser_html_a977153b2f9ff5be8cf436696b18e4c6c"><div class="ttname"><a href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">Parser::readElement</a></div><div class="ttdeci">std::string readElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:16</div></div>
-<div class="ttc" id="class_parser_html_ae8eeb9f3116dce90f8fd5ab267c5773f"><div class="ttname"><a href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">Parser::format_message</a></div><div class="ttdeci">void format_message(std::string &amp;msg, TiXmlBase *el)</div><div class="ttdef"><b>Definition:</b> parser.cpp:62</div></div>
+<div class="ttc" id="class_parser_html_ae8eeb9f3116dce90f8fd5ab267c5773f"><div class="ttname"><a href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">Parser::format_message</a></div><div class="ttdeci">void format_message(std::string &amp;msg, TiXmlBase *el)</div><div class="ttdef"><b>Definition:</b> parser.cpp:61</div></div>
 <div class="ttc" id="class_parser_html_a12234f6cd36b61af4b50c94a179422c1"><div class="ttname"><a href="class_parser.html#a12234f6cd36b61af4b50c94a179422c1">Parser::Parser</a></div><div class="ttdeci">Parser()</div><div class="ttdef"><b>Definition:</b> parser.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -190,7 +191,7 @@ $(document).ready(function(){initNavTree('parser_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a5a40681709ed751decc24cd7289c9c5.html">parsers</a></li><li class="navelem"><a class="el" href="parser_8h.html">parser.h</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:41 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

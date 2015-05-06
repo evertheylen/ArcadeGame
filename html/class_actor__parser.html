@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: Actor_parser Class Reference</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: Actor_parser Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -131,10 +132,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac313d2d8f57b99a7d207c1fe73d6dcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a663d1598bbe15d136c86ac198d989eb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_actor__parser.html#a663d1598bbe15d136c86ac198d989eb0">Actor_parser</a> ()=default</td></tr>
 <tr class="separator:a663d1598bbe15d136c86ac198d989eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a352d0ccca7a9412a507bd8f304992c98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_actor__parser.html#a352d0ccca7a9412a507bd8f304992c98">parse_player</a> (TiXmlElement *elem, <a class="el" href="class_game.html#a11e553861e3a7fc842680e55171ed06f">Game::Playermap</a> &amp;_players, <a class="el" href="class_board.html">Board</a> &amp;_board)</td></tr>
-<tr class="separator:a352d0ccca7a9412a507bd8f304992c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e7ef952116829399ea6fd2f03e47ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_actor__parser.html#aa8e7ef952116829399ea6fd2f03e47ed">parse_monster</a> (TiXmlElement *elem, <a class="el" href="class_game.html#a2c39481e575abd66baa206771c504149">Game::Monstermap</a> &amp;_monsters, <a class="el" href="class_board.html">Board</a> &amp;_board)</td></tr>
-<tr class="separator:aa8e7ef952116829399ea6fd2f03e47ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaefff797a5946c6f2fa2ddc1c860e6e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_actor__parser.html#aaefff797a5946c6f2fa2ddc1c860e6e8">parse_player</a> (TiXmlElement *elem, <a class="el" href="class_board.html">Board</a> &amp;_board)</td></tr>
+<tr class="separator:aaefff797a5946c6f2fa2ddc1c860e6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a333b98bd35332c5ce8c420266b035a14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_monster.html">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_actor__parser.html#a333b98bd35332c5ce8c420266b035a14">parse_monster</a> (TiXmlElement *elem, <a class="el" href="class_board.html">Board</a> &amp;_board)</td></tr>
+<tr class="separator:a333b98bd35332c5ce8c420266b035a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_parser"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_parser')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_parser.html">Parser</a></td></tr>
 <tr class="memitem:a12234f6cd36b61af4b50c94a179422c1 inherit pub_methods_class_parser"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a12234f6cd36b61af4b50c94a179422c1">Parser</a> ()</td></tr>
 <tr class="separator:a12234f6cd36b61af4b50c94a179422c1 inherit pub_methods_class_parser"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,21 +218,15 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa8e7ef952116829399ea6fd2f03e47ed"></a>
+<a class="anchor" id="a333b98bd35332c5ce8c420266b035a14"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_actor.html">Actor</a> * Actor_parser::parse_monster </td>
+          <td class="memname"><a class="el" href="class_monster.html">Monster</a> * Actor_parser::parse_monster </td>
           <td>(</td>
           <td class="paramtype">TiXmlElement *&#160;</td>
           <td class="paramname"><em>elem</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_game.html#a2c39481e575abd66baa206771c504149">Game::Monstermap</a> &amp;&#160;</td>
-          <td class="paramname"><em>_monsters</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -249,21 +244,15 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a352d0ccca7a9412a507bd8f304992c98"></a>
+<a class="anchor" id="aaefff797a5946c6f2fa2ddc1c860e6e8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_actor.html">Actor</a> * Actor_parser::parse_player </td>
+          <td class="memname"><a class="el" href="class_player.html">Player</a> * Actor_parser::parse_player </td>
           <td>(</td>
           <td class="paramtype">TiXmlElement *&#160;</td>
           <td class="paramname"><em>elem</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_game.html#a11e553861e3a7fc842680e55171ed06f">Game::Playermap</a> &amp;&#160;</td>
-          <td class="paramname"><em>_players</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -291,7 +280,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_actor__parser.html">Actor_parser</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:41 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:50 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

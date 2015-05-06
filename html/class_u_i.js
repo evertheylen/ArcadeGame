@@ -10,7 +10,7 @@ var class_u_i =
     [ "reset", "class_u_i.html#ae02d9a71dd29b037d1ee7d8bd673c1de", null ],
     [ "run", "class_u_i.html#a6bdaec41e41f67039516936fae3f0c30", null ],
     [ "show", "class_u_i.html#a589a1aaee2f73707fef65872b1ba9853", null ],
-    [ "simulate", "class_u_i.html#a72a0d1c12612179d29fd133ba974547e", null ],
+    [ "simulate", "class_u_i.html#af69a6800f49eb64c616b9d3c6e861776", null ],
     [ "write_actions", "class_u_i.html#a96dcbe153fb0624e4695a32ea99233b4", null ],
     [ "write_board", "class_u_i.html#a622632c0a198b6d799489eff4f1069c3", null ]
 ];

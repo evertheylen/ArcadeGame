@@ -24,11 +24,17 @@ enum \hyperlink{class_direction_a218282b2789da5abcafb2be32cf99011}{Dirk} \{ \\*
 \item 
 \hyperlink{class_direction_a180839d58bb1ff41301425963701d963}{Direction} (\hyperlink{class_direction_a218282b2789da5abcafb2be32cf99011}{Dirk} d)
 \item 
+\hyperlink{class_direction_a1c24d60ad7382e5091d38e6b191db3d9}{Direction} (const \hyperlink{class_direction}{Direction} \&that)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_direction}{Direction} \& \hyperlink{class_direction_a935591bae199779575f6ddc8d8f73ba1}{operator=} (const \hyperlink{class_direction}{Direction} \&that)
+\begin{DoxyCompactList}\small\item\em Copy by assignment. \end{DoxyCompactList}\item 
 \hyperlink{class_direction_a218282b2789da5abcafb2be32cf99011}{Direction\-::\-Dirk} \hyperlink{class_direction_a8160f7e9bd8442e5a5cc66743c223d1d}{get\-\_\-dir} ()
 \item 
 void \hyperlink{class_direction_a9ccac2a9f99b9c67cac948bfd99cd366}{move\-\_\-to} (unsigned int \&x, unsigned int \&y)
 \item 
 void \hyperlink{class_direction_a769ec4b4375d0a78596109005a66eb80}{move\-\_\-from} (unsigned int \&x, unsigned int \&y)
+\item 
+bool \hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized} ()
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -66,14 +72,25 @@ std\-::ostream \& \hyperlink{class_direction_a81c17e954a272036ec685b1e79b1b006}{
 \item[{std\-::string \&}]{s}
 \end{DoxyParamCaption}
 )}}\label{class_direction_af17924e019c164609181cdf6bca30397}
-\hypertarget{class_direction_a180839d58bb1ff41301425963701d963}{\index{Direction@{Direction}!Direction@{Direction}}
+E\-N\-S\-U\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Constructor must end...\char`\"{}) \hypertarget{class_direction_a180839d58bb1ff41301425963701d963}{\index{Direction@{Direction}!Direction@{Direction}}
 \index{Direction@{Direction}!Direction@{Direction}}
 \subsubsection[{Direction}]{\setlength{\rightskip}{0pt plus 5cm}Direction\-::\-Direction (
 \begin{DoxyParamCaption}
 \item[{{\bf Direction\-::\-Dirk}}]{d}
 \end{DoxyParamCaption}
 )}}\label{class_direction_a180839d58bb1ff41301425963701d963}
+E\-N\-S\-U\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Constructor must end...\char`\"{}) \hypertarget{class_direction_a1c24d60ad7382e5091d38e6b191db3d9}{\index{Direction@{Direction}!Direction@{Direction}}
+\index{Direction@{Direction}!Direction@{Direction}}
+\subsubsection[{Direction}]{\setlength{\rightskip}{0pt plus 5cm}Direction\-::\-Direction (
+\begin{DoxyParamCaption}
+\item[{const {\bf Direction} \&}]{that}
+\end{DoxyParamCaption}
+)}}\label{class_direction_a1c24d60ad7382e5091d38e6b191db3d9}
 
+
+Copy constructor. 
+
+E\-N\-S\-U\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Copy constructor must end...\char`\"{}) 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_direction_a8160f7e9bd8442e5a5cc66743c223d1d}{\index{Direction@{Direction}!get\-\_\-dir@{get\-\_\-dir}}
@@ -83,7 +100,7 @@ std\-::ostream \& \hyperlink{class_direction_a81c17e954a272036ec685b1e79b1b006}{
 {}
 \end{DoxyParamCaption}
 )}}\label{class_direction_a8160f7e9bd8442e5a5cc66743c223d1d}
-\hypertarget{class_direction_a769ec4b4375d0a78596109005a66eb80}{\index{Direction@{Direction}!move\-\_\-from@{move\-\_\-from}}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Direction wasn't initialized when calling get\-\_\-dir.\char`\"{}) \hypertarget{class_direction_a769ec4b4375d0a78596109005a66eb80}{\index{Direction@{Direction}!move\-\_\-from@{move\-\_\-from}}
 \index{move\-\_\-from@{move\-\_\-from}!Direction@{Direction}}
 \subsubsection[{move\-\_\-from}]{\setlength{\rightskip}{0pt plus 5cm}void Direction\-::move\-\_\-from (
 \begin{DoxyParamCaption}
@@ -91,7 +108,7 @@ std\-::ostream \& \hyperlink{class_direction_a81c17e954a272036ec685b1e79b1b006}{
 \item[{unsigned int \&}]{y}
 \end{DoxyParamCaption}
 )}}\label{class_direction_a769ec4b4375d0a78596109005a66eb80}
-\hypertarget{class_direction_a9ccac2a9f99b9c67cac948bfd99cd366}{\index{Direction@{Direction}!move\-\_\-to@{move\-\_\-to}}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Direction wasn't initialized when calling move\-\_\-from.\char`\"{}) \hypertarget{class_direction_a9ccac2a9f99b9c67cac948bfd99cd366}{\index{Direction@{Direction}!move\-\_\-to@{move\-\_\-to}}
 \index{move\-\_\-to@{move\-\_\-to}!Direction@{Direction}}
 \subsubsection[{move\-\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}void Direction\-::move\-\_\-to (
 \begin{DoxyParamCaption}
@@ -99,6 +116,24 @@ std\-::ostream \& \hyperlink{class_direction_a81c17e954a272036ec685b1e79b1b006}{
 \item[{unsigned int \&}]{y}
 \end{DoxyParamCaption}
 )}}\label{class_direction_a9ccac2a9f99b9c67cac948bfd99cd366}
+R\-E\-Q\-U\-I\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Direction wasn't initialized when calling move\-\_\-to.\char`\"{}) \hypertarget{class_direction_a935591bae199779575f6ddc8d8f73ba1}{\index{Direction@{Direction}!operator=@{operator=}}
+\index{operator=@{operator=}!Direction@{Direction}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Direction} \& Direction\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Direction} \&}]{that}
+\end{DoxyParamCaption}
+)}}\label{class_direction_a935591bae199779575f6ddc8d8f73ba1}
+
+
+Copy by assignment. 
+
+E\-N\-S\-U\-R\-E(\hyperlink{class_direction_a892f0d3aecac651fe905f3208a486818}{properly\-Initialized()}, \char`\"{}\-Copy by assignment must end...\char`\"{}) \hypertarget{class_direction_a892f0d3aecac651fe905f3208a486818}{\index{Direction@{Direction}!properly\-Initialized@{properly\-Initialized}}
+\index{properly\-Initialized@{properly\-Initialized}!Direction@{Direction}}
+\subsubsection[{properly\-Initialized}]{\setlength{\rightskip}{0pt plus 5cm}bool Direction\-::properly\-Initialized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_direction_a892f0d3aecac651fe905f3208a486818}
 
 
 \subsection{Friends And Related Function Documentation}
@@ -110,7 +145,7 @@ std\-::ostream \& \hyperlink{class_direction_a81c17e954a272036ec685b1e79b1b006}{
 \item[{{\bf Direction} \&}]{d}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_direction_a81c17e954a272036ec685b1e79b1b006}
-
+R\-E\-Q\-U\-I\-R\-E(d.\-properly\-Initialized(), \char`\"{}\-Direction wasn't initialized when calling operator $<$$<$.\char`\"{}) 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

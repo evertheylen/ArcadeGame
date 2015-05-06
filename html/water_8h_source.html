@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: entities/water.h Source File</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: entities/water.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -121,40 +122,42 @@ $(document).ready(function(){initNavTree('water_8h_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_water.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_water.html">Water</a>: <span class="keyword">public</span> <a class="code" href="class_lethal.html">Lethal</a>, <span class="keyword">public</span> <a class="code" href="class_immutable.html">Immutable</a>, <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a> {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_water.html#ab5347dafc5898a03fd556f1640d0fd55">Water</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">x</a>, <span class="keywordtype">unsigned</span> <a class="code" href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">y</a>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_water.html#a063397ad0da6b286bdad0a27cc646cb4">is_filled</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_water.html#ab5347dafc5898a03fd556f1640d0fd55">Water</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">x</a>, <span class="keywordtype">unsigned</span> <a class="code" href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">y</a>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// spec: Printer</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">char</span> <a class="code" href="class_water.html#a979406ad1fe514e132bf1d0e50802f49">to_char</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_water.html#a063397ad0da6b286bdad0a27cc646cb4">is_filled</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// spec: Physics</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_water.html#a3f9cea082bd0a91d0e8a3b5737d3fbd2">get_weight</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_water.html#a090400fa44c929081aa6b097ed6f16e7">get_height</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// spec: Printer</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span>    <span class="keywordtype">char</span> <a class="code" href="class_water.html#a979406ad1fe514e132bf1d0e50802f49">to_char</a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_water.html#a0931381448954bfc525aa6492860f599">info</a>(std::ostream&amp; out);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// Has to be both getted and setted, so easier to maintain as a public variable</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_water.html#a71b18a4a6cbd58ebbe7c927a84eaab3c">   28</a></span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_water.html#a71b18a4a6cbd58ebbe7c927a84eaab3c">contained</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// spec: Physics</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span>    <span class="keywordtype">int</span> <a class="code" href="class_water.html#a3f9cea082bd0a91d0e8a3b5737d3fbd2">get_weight</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_water.html#a090400fa44c929081aa6b097ed6f16e7">get_height</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_water.html#a0931381448954bfc525aa6492860f599">info</a>(std::ostream&amp; out);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Has to be both getted and setted, so easier to maintain as a public variable</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_water.html#a71b18a4a6cbd58ebbe7c927a84eaab3c">   36</a></span>&#160;    <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_water.html#a71b18a4a6cbd58ebbe7c927a84eaab3c">contained</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
 <div class="ttc" id="class_entity_html_afa8f48eccdb09a290e2c1ded3f135363"><div class="ttname"><a href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">Entity::x</a></div><div class="ttdeci">unsigned int x</div><div class="ttdef"><b>Definition:</b> entity.h:45</div></div>
 <div class="ttc" id="class_water_html"><div class="ttname"><a href="class_water.html">Water</a></div><div class="ttdef"><b>Definition:</b> water.h:12</div></div>
 <div class="ttc" id="class_water_html_ab5347dafc5898a03fd556f1640d0fd55"><div class="ttname"><a href="class_water.html#ab5347dafc5898a03fd556f1640d0fd55">Water::Water</a></div><div class="ttdeci">Water(unsigned int x, unsigned y)</div><div class="ttdef"><b>Definition:</b> water.cpp:5</div></div>
-<div class="ttc" id="class_water_html_a063397ad0da6b286bdad0a27cc646cb4"><div class="ttname"><a href="class_water.html#a063397ad0da6b286bdad0a27cc646cb4">Water::is_filled</a></div><div class="ttdeci">bool is_filled()</div><div class="ttdef"><b>Definition:</b> water.cpp:8</div></div>
-<div class="ttc" id="class_water_html_a979406ad1fe514e132bf1d0e50802f49"><div class="ttname"><a href="class_water.html#a979406ad1fe514e132bf1d0e50802f49">Water::to_char</a></div><div class="ttdeci">char to_char()</div><div class="ttdef"><b>Definition:</b> water.cpp:13</div></div>
+<div class="ttc" id="class_water_html_a063397ad0da6b286bdad0a27cc646cb4"><div class="ttname"><a href="class_water.html#a063397ad0da6b286bdad0a27cc646cb4">Water::is_filled</a></div><div class="ttdeci">bool is_filled()</div><div class="ttdef"><b>Definition:</b> water.cpp:10</div></div>
+<div class="ttc" id="class_water_html_a979406ad1fe514e132bf1d0e50802f49"><div class="ttname"><a href="class_water.html#a979406ad1fe514e132bf1d0e50802f49">Water::to_char</a></div><div class="ttdeci">char to_char()</div><div class="ttdef"><b>Definition:</b> water.cpp:16</div></div>
 <div class="ttc" id="class_immutable_html"><div class="ttname"><a href="class_immutable.html">Immutable</a></div><div class="ttdef"><b>Definition:</b> immutable.h:7</div></div>
 <div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:17</div></div>
-<div class="ttc" id="class_water_html_a0931381448954bfc525aa6492860f599"><div class="ttname"><a href="class_water.html#a0931381448954bfc525aa6492860f599">Water::info</a></div><div class="ttdeci">void info(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> water.cpp:39</div></div>
+<div class="ttc" id="class_water_html_a0931381448954bfc525aa6492860f599"><div class="ttname"><a href="class_water.html#a0931381448954bfc525aa6492860f599">Water::info</a></div><div class="ttdeci">void info(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> water.cpp:45</div></div>
 <div class="ttc" id="solid_8h_html"><div class="ttname"><a href="solid_8h.html">solid.h</a></div></div>
 <div class="ttc" id="immutable_8h_html"><div class="ttname"><a href="immutable_8h.html">immutable.h</a></div></div>
-<div class="ttc" id="class_water_html_a090400fa44c929081aa6b097ed6f16e7"><div class="ttname"><a href="class_water.html#a090400fa44c929081aa6b097ed6f16e7">Water::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdef"><b>Definition:</b> water.cpp:25</div></div>
+<div class="ttc" id="class_water_html_a090400fa44c929081aa6b097ed6f16e7"><div class="ttname"><a href="class_water.html#a090400fa44c929081aa6b097ed6f16e7">Water::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdef"><b>Definition:</b> water.cpp:29</div></div>
 <div class="ttc" id="lethal_8h_html"><div class="ttname"><a href="lethal_8h.html">lethal.h</a></div></div>
-<div class="ttc" id="class_water_html_a3f9cea082bd0a91d0e8a3b5737d3fbd2"><div class="ttname"><a href="class_water.html#a3f9cea082bd0a91d0e8a3b5737d3fbd2">Water::get_weight</a></div><div class="ttdeci">int get_weight()</div><div class="ttdef"><b>Definition:</b> water.cpp:32</div></div>
+<div class="ttc" id="class_water_html_a3f9cea082bd0a91d0e8a3b5737d3fbd2"><div class="ttname"><a href="class_water.html#a3f9cea082bd0a91d0e8a3b5737d3fbd2">Water::get_weight</a></div><div class="ttdeci">int get_weight()</div><div class="ttdef"><b>Definition:</b> water.cpp:37</div></div>
 <div class="ttc" id="class_lethal_html"><div class="ttname"><a href="class_lethal.html">Lethal</a></div><div class="ttdef"><b>Definition:</b> lethal.h:7</div></div>
-<div class="ttc" id="class_water_html_a71b18a4a6cbd58ebbe7c927a84eaab3c"><div class="ttname"><a href="class_water.html#a71b18a4a6cbd58ebbe7c927a84eaab3c">Water::contained</a></div><div class="ttdeci">Entity * contained</div><div class="ttdef"><b>Definition:</b> water.h:28</div></div>
+<div class="ttc" id="class_water_html_a71b18a4a6cbd58ebbe7c927a84eaab3c"><div class="ttname"><a href="class_water.html#a71b18a4a6cbd58ebbe7c927a84eaab3c">Water::contained</a></div><div class="ttdeci">Entity * contained</div><div class="ttdef"><b>Definition:</b> water.h:36</div></div>
 <div class="ttc" id="simpleprint_8h_html"><div class="ttname"><a href="simpleprint_8h.html">simpleprint.h</a></div></div>
 <div class="ttc" id="class_entity_html_a9d39843430829a89bb8233dbaadae4f1"><div class="ttname"><a href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">Entity::y</a></div><div class="ttdeci">unsigned int y</div><div class="ttdef"><b>Definition:</b> entity.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -163,7 +166,7 @@ $(document).ready(function(){initNavTree('water_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9404ca00d5cf333c309ae0ebf80749c4.html">entities</a></li><li class="navelem"><a class="el" href="water_8h.html">water.h</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:41 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

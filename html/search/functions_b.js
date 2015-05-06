@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['leave',['leave',['../class_game.html#a737c0a9f00bccef6f3e8e743a2f8bea1',1,'Game']]],
   ['leave_5ftop_5flocation',['leave_top_location',['../class_board.html#ad77efbd5de132a72a97a9307b111f622',1,'Board']]],
   ['lifeprinter',['LifePrinter',['../class_life_printer.html#a6693ebbe13889415345d4e9ad0618f75',1,'LifePrinter']]],
   ['location_5fheight',['location_height',['../class_board.html#a8ee871cbc57f75299eb95652ab1c3411',1,'Board']]],

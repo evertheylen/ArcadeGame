@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game: Action Class Reference</title>
+<title>Arcade Game by Evert Heylen and Stijn Janssens: Action Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,11 +28,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game
+   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
    &#160;<span id="projectnumber">2.0</span>
    </div>
-   <div id="projectbrief">Develop a classic Arcade Game for PSE 1 Ba Inf</div>
+   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
   </td>
  </tr>
  </tbody>
@@ -131,12 +132,20 @@ Inheritance diagram for Action:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a97da8add4b456b38347ad3447e136d48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action</a> (<a class="el" href="class_actor.html">Actor</a> *_actor, std::string &amp;dirname)</td></tr>
 <tr class="separator:a97da8add4b456b38347ad3447e136d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4259793a39b4dcfcc1e7f091eae40ced"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a4259793a39b4dcfcc1e7f091eae40ced">Action</a> (const <a class="el" href="class_action.html">Action</a> &amp;that)</td></tr>
+<tr class="memdesc:a4259793a39b4dcfcc1e7f091eae40ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a4259793a39b4dcfcc1e7f091eae40ced">More...</a><br/></td></tr>
+<tr class="separator:a4259793a39b4dcfcc1e7f091eae40ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade12feba8f8f494fd8bc202d85d07d14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_action.html">Action</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#ade12feba8f8f494fd8bc202d85d07d14">operator=</a> (const <a class="el" href="class_action.html">Action</a> &amp;that)</td></tr>
+<tr class="memdesc:ade12feba8f8f494fd8bc202d85d07d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy by assignment.  <a href="#ade12feba8f8f494fd8bc202d85d07d14">More...</a><br/></td></tr>
+<tr class="separator:ade12feba8f8f494fd8bc202d85d07d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dd87350cb42eccbf2d096eb4f1f9a85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a7dd87350cb42eccbf2d096eb4f1f9a85">get_actor</a> ()</td></tr>
 <tr class="separator:a7dd87350cb42eccbf2d096eb4f1f9a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26fff2d0b1eaf0109170fe6d8fe77879"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_direction.html">Direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a26fff2d0b1eaf0109170fe6d8fe77879">get_dir</a> ()</td></tr>
 <tr class="separator:a26fff2d0b1eaf0109170fe6d8fe77879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18a2520db7750f26d7a571c990b82daf"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a18a2520db7750f26d7a571c990b82daf">execute</a> (<a class="el" href="class_game.html">Game</a> *g)=0</td></tr>
 <tr class="separator:a18a2520db7750f26d7a571c990b82daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d13b602cc90dbd788c61d8cce8acf2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized</a> ()</td></tr>
+<tr class="separator:a6d13b602cc90dbd788c61d8cce8acf2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -169,6 +178,26 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>ENSURE(<a class="el" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized()</a>, "Constructor must end...") </p>
+
+</div>
+</div>
+<a class="anchor" id="a4259793a39b4dcfcc1e7f091eae40ced"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Action::Action </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_action.html">Action</a> &amp;&#160;</td>
+          <td class="paramname"><em>that</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy constructor. </p>
+<p>ENSURE(<a class="el" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized()</a>, "Copy constructor must end...") </p>
 
 </div>
 </div>
@@ -211,6 +240,7 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized()</a>, "Action wasn't initialized when calling get_actor.") </p>
 
 </div>
 </div>
@@ -220,6 +250,41 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_direction.html">Direction</a> Action::get_dir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(<a class="el" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized()</a>, "Action wasn't initialized when calling get_dir.") </p>
+
+</div>
+</div>
+<a class="anchor" id="ade12feba8f8f494fd8bc202d85d07d14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_action.html">Action</a> &amp; Action::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_action.html">Action</a> &amp;&#160;</td>
+          <td class="paramname"><em>that</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy by assignment. </p>
+<p>ENSURE(<a class="el" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized()</a>, "Copy by assignment must end...") </p>
+
+</div>
+</div>
+<a class="anchor" id="a6d13b602cc90dbd788c61d8cce8acf2c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Action::properlyInitialized </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -280,7 +345,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_action.html">Action</a></li>
-    <li class="footer">Generated on Sat May 2 2015 20:52:41 for Arcade Game by
+    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

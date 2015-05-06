@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['enter',['enter',['../class_game.html#a0cc9604134dde3c5e80cebdc97a270e1',1,'Game']]],
   ['enter_5flocation',['enter_location',['../class_board.html#ae4b3c84812939e557a58e92468a2234b',1,'Board']]],
   ['enter_5ftop_5flocation',['enter_top_location',['../class_board.html#a34efaf5d1af34d910525b20a00d8ff34',1,'Board']]],
   ['entity',['Entity',['../class_entity.html#a0a44f1b08b1c84fef9d62a2e12e5af14',1,'Entity::Entity(unsigned int _x, unsigned int _y)'],['../class_entity.html#ac565cb6d4e6d9dc40c910809c83e5dfe',1,'Entity::Entity(const Entity &amp;that)']]],

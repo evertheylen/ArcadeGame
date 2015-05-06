@@ -1,10 +1,12 @@
 var class_board =
 [
     [ "Board", "class_board.html#a533223f28724623e763587dc401baefa", null ],
+    [ "~Board", "class_board.html#af73f45730119a1fd8f6670f53f959e68", null ],
     [ "clear_top", "class_board.html#a91b01e0fb35aa30fb60252867fedb1e7", null ],
     [ "enter_location", "class_board.html#ae4b3c84812939e557a58e92468a2234b", null ],
     [ "enter_top_location", "class_board.html#a34efaf5d1af34d910525b20a00d8ff34", null ],
     [ "get", "class_board.html#adad073b1a8011cba63eb8c945da9ba28", null ],
+    [ "get_game", "class_board.html#a7077136173994866ec146dcefa3dfe64", null ],
     [ "get_height", "class_board.html#a82081634443ee5ad9b00626111caf65a", null ],
     [ "get_top", "class_board.html#ae58237ab49518bbfec3260152e02335c", null ],
     [ "get_width", "class_board.html#a5eb8b8fd57b54ee43c189e16a9ee577b", null ],
