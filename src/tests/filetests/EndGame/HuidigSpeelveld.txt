@@ -3,4 +3,4 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Er bevindt zich een monster op positie (7,5).
+Er bevindt zich een monster op positie (6,5).

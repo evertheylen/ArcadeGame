@@ -72,6 +72,7 @@ void Game::do_all_actions(std::ostream& out) {
 		
 		if (ended) {
 			out << "Game ended, stopping.\n";
+			break;
 		}
 	}
 }
