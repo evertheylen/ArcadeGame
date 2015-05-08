@@ -48,5 +48,6 @@ void Water::info(std::ostream& out) {
 
 void Water::save(std::ostream& out, int x, int y) {
 	REQUIRE(properlyInitialized(), "Water wasn't initialized when calling save");
-	out << "<WATER beweegbaar=\"false\" x=\"" << x << "\" y=\"" << y << "\"/>";
+	out << "<WATER beweegbaar=\"false\" x=\"" << x << "\" y=\"" << y << "\" contained=\"true\">\n";
+	out << "\t\t<CONTAINED>";
 }

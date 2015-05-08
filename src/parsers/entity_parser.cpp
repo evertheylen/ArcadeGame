@@ -20,6 +20,7 @@
 #include <iostream>
 #include <string>
 #include "entity_parser.h"
+#include "actor_parser.h"
 
 struct Result {
 	int x;
@@ -87,6 +88,48 @@ Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 			fatal("Water may not be movable");
 		} else {
 			water = new Water(r.x, r.y);
+			if (readAttribute(elem, "contained", "false") == "true") {
+				if (elem->FirstChild()->ValueTStr() == "CONTAINED") {
+					std::string tag = elem->FirstChild()->FirstChild()->ValueTStr();
+					TiXmlElement* elem2 = elem->FirstChild()->FirstChildElement();
+
+					Entity* contained_e = nullptr;
+					if (tag == "SPELER") {
+						Actor_parser ap;
+						contained_e = ap.parse_player(elem2, _board);
+					} else if (tag == "MONSTER") {
+						Actor_parser ap;
+						contained_e = ap.parse_monster(elem2, _board);
+					} else if (tag == "TON") {
+						Entity_parser ep;
+						contained_e = ep.parse_barrel(elem2, _board);
+					} else if (tag == "VALSTRIK") {
+						Entity_parser ep;
+						contained_e = ep.parse_boobytrap(elem2, _board);
+					} else if (tag == "KNOP") {
+						Entity_parser ep;
+						contained_e = ep.parse_button(elem2, _board);
+					} else if (tag == "POORT") {
+						Entity_parser ep;
+						contained_e = ep.parse_gate(elem2, _board);
+					} else if (tag == "DOEL") {
+						Entity_parser ep;
+						contained_e = ep.parse_goal(elem2, _board);
+					} else if (tag == "MUUR") {
+						Entity_parser ep;
+						contained_e = ep.parse_wall(elem2, _board);
+					} else if (tag == "WATER") {
+						Entity_parser ep;
+						contained_e = ep.parse_water(elem2, _board);
+					} else {
+						log("Nothing was contained inside of this water");
+					}
+					water->contained = contained_e;
+
+				} else {
+					fatal("Water can only have CONTAINED as child");
+				}
+			}
 		}
 	} else {
 		fatal("Water must be WATER", elem);

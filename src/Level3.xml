@@ -37,6 +37,7 @@
     <KNOP id="gate1" x="8" y="8"/>
     <MUUR beweegbaar="false" x="9" y="8"/>
     <MUUR beweegbaar="false" x="0" y="7"/>
+    <WATER beweegbaar="false" x="2" y="7"/>
     <TON beweegbaar="true" x="2" y="7"/>
     <MUUR beweegbaar="false" x="4" y="7"/>
     <POORT beweegbaar="false" x="5" y="7">

@@ -222,7 +222,8 @@ void Game::set_board(Board* b) {
 
 void Game::save(std::ostream& level, std::ostream& actions) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling save");
-	level << "<VELD>\n\t<NAAM> " << board->get_name() << " </NAAM>\n";
+	level << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<VELD>\n\t<NAAM> " << board->get_name() << " </NAAM>\n";
+	level << "\t<BREEDTE>" << board->get_width() << "</BREEDTE>\n\t<LENGTE>" << board->get_height() << "</LENGTE>\n";
 	for (int i = board->get_height()-1; i>=0; i--) {
 		for (int j = 0; j < board->get_width(); j++) {
 			if (board->get_top(j,i) != nullptr) {
@@ -235,9 +236,17 @@ void Game::save(std::ostream& level, std::ostream& actions) {
 				level << "\t";
 				e->save(level, j, i);
 				level << "\n";
+				if(Water* w = dynamic_cast<Water*>(e)) {
+					if(w->contained != nullptr) {
+						level << "\t\t\t";
+						w->contained->save(level, j, i);
+					}
+					level << "\n\t\t</CONTAINED>\n\t</WATER>\n";
+				}
 			}
 		}
 	}
+	level << "</VELD>\n";
 }
 
 Game::~Game() {
