@@ -30,6 +30,8 @@ public:
 
 	Entity_parser() = default;
 	
+	struct Result parse_entity(TiXmlElement* elem, Board& _board);
+
 	Wall* parse_wall(TiXmlElement* elem, Board& _board);
 	Barrel* parse_barrel(TiXmlElement* elem, Board& _board);
 	Water* parse_water(TiXmlElement* elem, Board& _board);

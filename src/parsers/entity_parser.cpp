@@ -21,29 +21,39 @@
 #include <string>
 #include "entity_parser.h"
 
+struct Result {
+	int x;
+	int y;
+};
+
 Entity_parser::Entity_parser(std::ostream* stream, std::string filename):
 		Parser(stream, filename) {}
 
-Wall* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
-	int x,y;
+struct Result Entity_parser::parse_entity(TiXmlElement* elem, Board& _board) {
+	struct Result result;
 	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
+		result.x = std::stoi(readAttribute(elem, "x"));
+		result.y = std::stoi(readAttribute(elem, "y"));
 	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for wall", elem);
+		fatal("Invalid x or y for entity", elem);
 	}
 
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for wall", elem);
+	if (! _board.valid_location(result.x, result.y)) {
+		fatal("Invalid location on board for entity", elem);
 	}
+	return result;
+}
 
+Wall* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 	Wall* wall;
+
+	struct Result r = parse_entity(elem, _board);
 
 	if (elem->ValueTStr() == "MUUR") {
 		if (readAttribute(elem, "beweegbaar") != "false") {
 			fatal("Wall may not be declared movable", elem);
 		} else {
-			wall = new Wall(x, y);
+			wall = new Wall(r.x, r.y);
 		}
 	} else {
 		fatal("Wall must be MUUR", elem);
@@ -52,24 +62,14 @@ Wall* Entity_parser::parse_wall(TiXmlElement* elem, Board& _board) {
 }
 
 Barrel* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for barrel", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for barrel", elem);
-	}
-
 	Barrel* barrel;
+
+	struct Result r = parse_entity(elem, _board);
 	if (elem->ValueTStr() == "TON") {
 		if (readAttribute(elem, "beweegbaar") != "true") {
 			fatal("Barrel must be movable", elem);
 		} else {
-			barrel = new Barrel(x, y);
+			barrel = new Barrel(r.x, r.y);
 		}
 	} else {
 		fatal("Barrel must be TON", elem);
@@ -78,24 +78,15 @@ Barrel* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 }
 
 Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for water", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for water", elem);
-	}
-
 	Water* water;
+
+	struct Result r = parse_entity(elem, _board);
+
 	if (elem->ValueTStr() == "WATER") {
 		if (readAttribute(elem, "beweegbaar") != "false") {
 			fatal("Water may not be movable");
 		} else {
-			water = new Water(x, y);
+			water = new Water(r.x, r.y);
 		}
 	} else {
 		fatal("Water must be WATER", elem);
@@ -104,29 +95,17 @@ Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 }
 
 Button* Entity_parser::parse_button(TiXmlElement* elem, Board& _board) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for button", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for button", elem);
-	}
-
 	Button* button;
+
+	struct Result r = parse_entity(elem, _board);
+
 	if (elem->ValueTStr() == "KNOP") {
 		std::string id = readAttribute(elem, "id");
-		/*for (auto s: _gates) {
-			std::cout << "  " << s.first << ": " << s.second << "\n";
-		}*/
 		Gate* g = _board.get_game()->get_gate(id);
 		if (g == nullptr) {
 			fatal("Could not couple the button to the right gate.");
 		}
-		button = new Button(x, y , g);
+		button = new Button(r.x, r.y , g);
 	} else {
 		fatal("Button must be KNOP", elem);
 	}
@@ -135,19 +114,10 @@ Button* Entity_parser::parse_button(TiXmlElement* elem, Board& _board) {
 
 
 Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for gate", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for gate", elem);
-	}
-
 	Gate* gate;
+
+	struct Result r = parse_entity(elem, _board);
+
 	if (elem->ValueTStr() == "POORT") {
 		if (readAttribute(elem, "beweegbaar") != "false")
 			fatal("Gate may not be movable", elem);
@@ -158,7 +128,7 @@ Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
 			
 		std::string name = elem->FirstChildElement("ID")->GetText();
 		log(std::string("name is ")+name, elem);
-		gate = new Gate(x,y,name);
+		gate = new Gate(r.x, r.y, name);
 
 		// TODO Fix the copy problem with gatemap and playermap!!!
 	} else {
@@ -168,21 +138,12 @@ Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
 }
 
 Goal* Entity_parser::parse_goal(TiXmlElement* elem, Board& _board) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for goal", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for goal", elem);
-	}
-
 	Goal* goal;
+
+	struct Result r = parse_entity(elem, _board);
+
 	if (elem->ValueTStr() == "DOEL") {
-		goal = new Goal(x, y);
+		goal = new Goal(r.x, r.y);
 	} else {
 		fatal("Goal must be DOEL", elem);
 	}
@@ -190,22 +151,12 @@ Goal* Entity_parser::parse_goal(TiXmlElement* elem, Board& _board) {
 }
 
 Boobytrap* Entity_parser::parse_boobytrap(TiXmlElement* elem, Board& _board) {
-	int x,y;
-	try {
-		x = std::stoi(readAttribute(elem, "x"));
-		y = std::stoi(readAttribute(elem, "y"));
-	} catch (std::invalid_argument& e) {
-		fatal("Invalid x or y for boobytrap", elem);
-	}
-
-	if (! _board.valid_location(x,y)) {
-		fatal("Invalid location on board for boobytrap", elem);
-	}
-	// TODO Movable?
-	
 	Boobytrap* boobytrap;
+
+	struct Result r = parse_entity(elem, _board);
+	
 	if (elem->ValueTStr() == "VALSTRIK") {
-		boobytrap = new Boobytrap(x, y);
+		boobytrap = new Boobytrap(r.x, r.y);
 	} else {
 		fatal("Boobytrap must be VALSTRIK", elem);
 	}

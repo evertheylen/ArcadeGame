@@ -147,6 +147,11 @@ public:
 	 */
 	void leave(Entity* top, Entity* bottom);
 	
+	/**
+	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling save")
+	 */
+	void save(std::ostream& out);
+
 	~Game();
 	
 	bool properlyInitialized();
