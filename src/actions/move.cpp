@@ -90,3 +90,8 @@ bool Move::execute(Game* g) {
 	return true;
 }
 
+void Move::save(std::ostream& out) {
+	Direction dir = get_dir();
+	out << "\t<BEWEGING>\n\t\t<ID>" << get_actor()->get_name() << "</ID>\n\t\t<RICHTING>" << dir << "</RICHTING>\n\t</BEWEGING>";
+}
+

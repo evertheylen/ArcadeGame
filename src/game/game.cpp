@@ -220,7 +220,7 @@ void Game::set_board(Board* b) {
 	board = b;
 }
 
-void Game::save(std::ostream& level, std::ostream& actions) {
+void Game::save(std::ostream& level, std::ostream& action) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling save");
 	level << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<VELD>\n\t<NAAM> " << board->get_name() << " </NAAM>\n";
 	level << "\t<BREEDTE>" << board->get_width() << "</BREEDTE>\n\t<LENGTE>" << board->get_height() << "</LENGTE>\n";
@@ -247,6 +247,16 @@ void Game::save(std::ostream& level, std::ostream& actions) {
 		}
 	}
 	level << "</VELD>\n";
+
+	action << "<?xml version=\"1.0\" ?>\n<ACTIES>\n";
+	int size = actions.size();
+	std::list<Action*> _actions = actions;
+	for (int i = 0; i < size; i++) {
+		_actions.front()->save(action);
+		_actions.pop_front();
+		action << "\n";
+	}
+	action << "</ACTIES>\n";
 }
 
 Game::~Game() {

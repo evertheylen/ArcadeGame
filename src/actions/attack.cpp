@@ -31,3 +31,8 @@ bool Attack::execute(Game* g) {
 	return true;
 }
 
+void Attack::save(std::ostream& out) {
+	Direction dir = get_dir();
+	out << "\t<AANVAL>\n\t\t<ID>" << get_actor()->get_name() << "</ID>\n\t\t<RICHTING>" << dir << "</RICHTING>\n\t</AANVAL>";
+}
+
