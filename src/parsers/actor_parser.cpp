@@ -38,7 +38,13 @@ Player* Actor_parser::parse_player(TiXmlElement* elem, Board& _board) {
 		fatal("Invalid location for player", elem);
 	}
 
-	Player* player = new Player(x, y, name);
+	int life = atoi(readAttribute(elem, "lives", "-1").c_str());
+	Player* player;
+	if (life == -1) {
+		player = new Player(x, y, name);
+	} else {
+		player = new Player(x, y, name, life);
+	}
 
 	return player;
 }
@@ -70,9 +76,14 @@ Monster* Actor_parser::parse_monster(TiXmlElement* elem, Board& _board) {
 	if (! _board.valid_location(x,y)) {
 		fatal("Invalid location for monster", elem);
 	}
-
-	Monster* monster = new Monster(x, y, name);
 	
+	int life = atoi(readAttribute(elem, "lives", "-1").c_str());
+	Monster* monster;
+	if (life == -1) {
+		monster = new Monster(x, y, name);
+	} else {
+		monster = new Monster(x, y, name, life);
+	}
 	return monster;
 }
 

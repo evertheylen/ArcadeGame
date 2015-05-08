@@ -9,6 +9,8 @@ public:
 	virtual bool is_alive() = 0;
 	virtual void kill() = 0; // kill() should not be called by other Entities
 	
+	virtual int get_lives() = 0;
+
 	virtual ~Life() {}
 };
 

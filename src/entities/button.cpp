@@ -17,3 +17,8 @@ void Button::info(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Button wasn't initialized when calling info");
 	out << "Er bevindt zich een knop (gelinkt aan poort " << gate->get_name() << ") op positie (" << x << "," << y << ").\n";
 }
+
+void Button::save(std::ostream& out, int x, int y) {
+	REQUIRE(properlyInitialized(), "Button wasn't initialized when calling save");
+	out << "<KNOP id=\"" << gate->get_name() << "\" x=\"" << x << "\" y=\"" << y << "\"/>";
+}

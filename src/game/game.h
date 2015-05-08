@@ -150,7 +150,7 @@ public:
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling save")
 	 */
-	void save(std::ostream& out);
+	void save(std::ostream& level, std::ostream& actions);
 
 	~Game();
 	

@@ -1,6 +1,10 @@
-Monster Wario zal volgende beweging nog uitvoeren:
-OMLAAG
-Speler Chip zal volgende beweging nog uitvoeren:
-RECHTS
-Speler Chip zal volgende beweging nog uitvoeren:
-OMLAAG
+Het huidige speelveld is Level 3 (With a monster):
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+Speler Chip bevindt zich in dit speelveld op positie (1,8).
+Er bevindt zich een doel op positie (5,8).
+Er bevindt zich een knop (gelinkt aan poort gate1) op positie (8,8).
+Er bevindt zich een ton op positie (3,7).
+Er bevindt zich een poort (met id gate1) op positie (5,7).

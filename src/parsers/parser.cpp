@@ -44,6 +44,12 @@ std::string Parser::readAttribute(TiXmlElement* elem, const char* tag) {
 	return std::string(elem->Attribute(tag));
 }
 
+std::string Parser::readAttribute(TiXmlElement* elem, const char* tag, const char* default_value) {
+	if (elem == nullptr || elem->Attribute(tag) == nullptr) {
+		return std::string(default_value);
+	}
+	return std::string(elem->Attribute(tag));
+}
 
 bool Parser::reqElement(TiXmlElement* elem, const char* tag) {
 	TiXmlElement* e = elem->FirstChildElement(tag);

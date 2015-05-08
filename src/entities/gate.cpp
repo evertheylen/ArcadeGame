@@ -62,3 +62,9 @@ void Gate::info(std::ostream& out) {
 	out << "Er bevindt zich een poort (met id " << name << ") op positie (" << x << "," << y << ").\n";
 }
 
+void Gate::save(std::ostream& out, int x, int y) {
+	REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling save");
+	out << "<POORT beweegbaar=\"false\" x=\"" << x << "\" y=\"" << y << "\" open=\"" << is_open() << "\">\n";
+	out << "\t\t<ID> " << name << " </ID>\n\t</POORT>";
+}
+

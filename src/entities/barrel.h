@@ -24,6 +24,9 @@ public:
 
 	/**REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling info")*/
 	void info(std::ostream& out);
+
+	/**REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
 };
 
 #endif

@@ -24,13 +24,17 @@ void Board::clear_top(unsigned int x, unsigned int y) {
 
 Entity* Board::get(unsigned int loc, unsigned int x, unsigned int y) {
 	std::vector<Entity*>& spot = data.at(x).at(y);
-	if (spot.size() > loc)
+	if (spot.size() < loc)
 		return nullptr;
 	return spot[loc];
 }
 
 void Board::set_name(std::string _name) {
 	name = _name;
+}
+
+std::string Board::get_name() {
+	return name;
 }
 
 bool Board::valid_location(int x, int y) {

@@ -26,6 +26,7 @@ public:
 	Entity* get(unsigned int loc, unsigned int x, unsigned int y);
 	
 	void set_name(std::string _name);
+	std::string get_name();
 
 	bool valid_location(int x, int y);
 	
@@ -55,9 +56,9 @@ public:
 	
 	~Board();
 
-private:
 	int location_size(unsigned int x, unsigned int y);
-	
+
+private:
 	Game* game;
 	std::vector<std::vector<Entity*>> topdata;
 	std::vector<std::vector<std::vector<Entity*>>> data;

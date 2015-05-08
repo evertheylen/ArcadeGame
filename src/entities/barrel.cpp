@@ -17,3 +17,8 @@ void Barrel::info(std::ostream& out) {
 	out << "Er bevindt zich een ton op positie (" << x << "," << y << ").\n";
 }
 
+void Barrel::save(std::ostream& out, int x, int y) {
+	REQUIRE(properlyInitialized(), "Barrel wasn't initialized when calling save");
+	out << "<TON beweegbaar=\"true\" x=\"" << x << "\" y=\"" << y << "\"/>";
+}
+

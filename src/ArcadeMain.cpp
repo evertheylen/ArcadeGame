@@ -42,6 +42,13 @@ int main(int argc, const char** argv) {
 		output_file.open("ResterendeBewegingen_begin.txt");
 		g->write_actions(output_file);
 		output_file.close();
+		std::ofstream f1;
+		f1.open("SaveLevel.xml");
+		std::ofstream f2;
+		f2.open("SaveActions.xml");
+		g->save(f1, f2);
+		f1.close();
+		f2.close();
 		
 		g->do_all_actions(std::cout);
 		

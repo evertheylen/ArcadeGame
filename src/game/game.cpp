@@ -220,7 +220,25 @@ void Game::set_board(Board* b) {
 	board = b;
 }
 
-
+void Game::save(std::ostream& level, std::ostream& actions) {
+	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling save");
+	level << "<VELD>\n\t<NAAM> " << board->get_name() << " </NAAM>\n";
+	for (int i = board->get_height()-1; i>=0; i--) {
+		for (int j = 0; j < board->get_width(); j++) {
+			if (board->get_top(j,i) != nullptr) {
+				level << "\t";
+				board->get_top(j,i)->save(level, j, i);
+				level << "\n";
+			}
+			for (int k = 0; k < board->location_size(j,i); k++) {
+				Entity* e = board->get(k, j, i);
+				level << "\t";
+				e->save(level, j, i);
+				level << "\n";
+			}
+		}
+	}
+}
 
 Game::~Game() {
 	for (Entity* e: graveyard) {

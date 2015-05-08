@@ -39,6 +39,12 @@ public:
 	 */
 	virtual void info(std::ostream& out) = 0;
 
+	/** Saves the entity, used in the method Game::save.
+	 * Is a pure virtual function for Entity.
+	 * REQUIRE(properlyInitialized(), "Entity wasn't initialized when calling save")
+	 */
+	virtual void save(std::ostream& out, int x, int y) = 0;
+
 	virtual ~Entity() {}
 	
 	// x and y can be both getted and setted, so it's better to make them public anyways.

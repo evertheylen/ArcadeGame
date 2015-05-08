@@ -23,6 +23,9 @@ public:
 
 	/**REQUIRE(properlyInitialized(), "Wall wasn't initialized when calling info")*/
 	void info(std::ostream& out);
+
+	/**REQUIRE(properlyInitialized(), "Wall wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
 };
 
 #endif

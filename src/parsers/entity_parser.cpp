@@ -130,6 +130,10 @@ Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
 		log(std::string("name is ")+name, elem);
 		gate = new Gate(r.x, r.y, name);
 
+		if (readAttribute(elem, "open", "0") == "1") {
+			gate->open();
+		}
+
 		// TODO Fix the copy problem with gatemap and playermap!!!
 	} else {
 		fatal("Gate must be POORT", elem);

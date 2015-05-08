@@ -50,6 +50,9 @@ public:
 	/**REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 
+	/**REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
+
 	/**REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling is_open")*/
 	bool is_open();
 

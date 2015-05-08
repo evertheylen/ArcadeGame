@@ -15,6 +15,10 @@ bool Alive::is_alive() {
 	return _lives > 0;
 }
 
+int Alive::get_lives() {
+	return _lives;
+}
+
 void Alive::kill() {
 	_lives--;
 }

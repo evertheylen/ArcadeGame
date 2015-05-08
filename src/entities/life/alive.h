@@ -17,6 +17,8 @@ public:
 	
 	void kill();
 
+	int get_lives();
+
 private:
 	int _lives;
 };

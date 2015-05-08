@@ -25,7 +25,6 @@ char Water::to_char() {
 	}
 }
 
-
 int Water::get_height() {
 	REQUIRE(properlyInitialized(), "Water wasn't initialized when calling get_height");
 	if (contained == nullptr)
@@ -45,4 +44,9 @@ int Water::get_weight() {
 void Water::info(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Water wasn't initialized when calling info");
 	out << "Er bevindt zich water op positie (" << x << "," << y << ")\n";
+}
+
+void Water::save(std::ostream& out, int x, int y) {
+	REQUIRE(properlyInitialized(), "Water wasn't initialized when calling save");
+	out << "<WATER beweegbaar=\"false\" x=\"" << x << "\" y=\"" << y << "\"/>";
 }

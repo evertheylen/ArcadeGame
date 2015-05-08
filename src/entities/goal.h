@@ -23,7 +23,9 @@ public:
 
 	/**REQUIRE(properlyInitialized(), "Goal wasn't initialized when calling info")*/
 	void info(std::ostream& out);
-	// spec: InterActive
+
+	/**REQUIRE(properlyInitialized(), "Goal wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
 };
 
 #endif

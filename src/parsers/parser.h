@@ -54,6 +54,8 @@ protected:
 
 	std::string readAttribute(TiXmlElement* elem, const char* tag);
 
+	std::string readAttribute(TiXmlElement* elem, const char* tag, const char* default_value);
+
 	bool reqElement(TiXmlElement* elem, const char* tag);
 };
 

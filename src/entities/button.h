@@ -28,6 +28,9 @@ public:
 	/**REQUIRE(properlyInitialized(), "Button wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 	
+	/**REQUIRE(properlyInitialized(), "Button wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
+
 	// spec: Interactive
 	friend class IA_EnterHandler;
 	friend class IA_LeaveHandler;

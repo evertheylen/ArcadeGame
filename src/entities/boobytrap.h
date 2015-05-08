@@ -23,7 +23,9 @@ public:
 
 	/**REQUIRE(properlyInitialized(), "Boobytrap wasn't initialized when calling info")*/
 	void info(std::ostream&);
-	// spec: Interactive
+
+	/**REQUIRE(properlyInitialized(), "Boobytrap wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
 };
 
 #endif

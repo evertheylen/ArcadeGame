@@ -32,6 +32,9 @@ public:
 	/**REQUIRE(properlyInitialized(), "Water wasn't initialized when calling info")*/
 	void info(std::ostream& out);
 
+	/**REQUIRE(properlyInitialized(), "Water wasn't initialized when calling save")*/
+	void save(std::ostream& out, int x, int y);
+
 	// Has to be both getted and setted, so easier to maintain as a public variable
 	Entity* contained;
 };

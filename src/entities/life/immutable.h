@@ -8,6 +8,7 @@ class Immutable: public virtual Life {
 public:
 	bool is_alive();
 	void kill();
+	int get_lives();
 };
 
 #endif
