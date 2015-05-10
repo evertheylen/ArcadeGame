@@ -20,6 +20,7 @@
 #include "../game/game.h"
 #include <iostream>
 #include <string>
+#include <list>
 
 #ifndef _Entity_parser
 #define _Entity_parser
@@ -34,8 +35,8 @@ public:
 
 	Wall* parse_wall(TiXmlElement* elem, Board& _board);
 	Barrel* parse_barrel(TiXmlElement* elem, Board& _board);
-	Water* parse_water(TiXmlElement* elem, Board& _board);
-	Button* parse_button(TiXmlElement* elem, Board& _board);
+	Water* parse_water(TiXmlElement* elem, Board& _board, Game* game);
+	Button* parse_button(TiXmlElement* elem, Board& _board, Game* game);
 	Goal* parse_goal(TiXmlElement* elem, Board& _board);
 	Boobytrap* parse_boobytrap(TiXmlElement* elem, Board& _board);
 	Gate* parse_gate(TiXmlElement* elem, Board& _board);

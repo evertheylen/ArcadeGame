@@ -78,9 +78,8 @@ Barrel* Entity_parser::parse_barrel(TiXmlElement* elem, Board& _board) {
 	return barrel;
 }
 
-Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
+Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board, Game* game) {
 	Water* water;
-
 	struct Result r = parse_entity(elem, _board);
 
 	if (elem->ValueTStr() == "WATER") {
@@ -108,7 +107,7 @@ Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 						contained_e = ep.parse_boobytrap(elem2, _board);
 					} else if (tag == "KNOP") {
 						Entity_parser ep;
-						contained_e = ep.parse_button(elem2, _board);
+						contained_e = ep.parse_button(elem2, _board, game);
 					} else if (tag == "POORT") {
 						Entity_parser ep;
 						contained_e = ep.parse_gate(elem2, _board);
@@ -120,7 +119,7 @@ Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 						contained_e = ep.parse_wall(elem2, _board);
 					} else if (tag == "WATER") {
 						Entity_parser ep;
-						contained_e = ep.parse_water(elem2, _board);
+						contained_e = ep.parse_water(elem2, _board, game);
 					} else {
 						log("Nothing was contained inside of this water");
 					}
@@ -137,7 +136,7 @@ Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board) {
 	return water;
 }
 
-Button* Entity_parser::parse_button(TiXmlElement* elem, Board& _board) {
+Button* Entity_parser::parse_button(TiXmlElement* elem, Board& _board, Game* game) {
 	Button* button;
 
 	struct Result r = parse_entity(elem, _board);
@@ -146,7 +145,11 @@ Button* Entity_parser::parse_button(TiXmlElement* elem, Board& _board) {
 		std::string id = readAttribute(elem, "id");
 		Gate* g = _board.get_game()->get_gate(id);
 		if (g == nullptr) {
-			fatal("Could not couple the button to the right gate.");
+			g = new Gate(r.x, r.y, id);
+			Parser::dummyset++;
+			game->add_gate(g);
+			//log("Created a dummy gate.", elem);
+			//fatal("Could not couple the button to the right gate.");
 		}
 		button = new Button(r.x, r.y , g);
 	} else {

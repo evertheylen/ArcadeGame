@@ -13,6 +13,21 @@ Gate::Gate(unsigned int x, unsigned y, std::string _name):
 	ENSURE(properlyInitialized(), "Constructor must end...");
 }
 
+Gate::Gate(const Gate& that): Entity(that) {
+	_open = that._open;
+	name = that.name;
+	ENSURE(properlyInitialized(), "Copy constructor must end...");
+}
+
+Gate& Gate::operator=(const Gate& that) {
+	Entity::operator=(that);
+	_open = that._open;
+	name = that.name;
+	ENSURE(properlyInitialized(), "Copy by assignment must end...");
+	return *this;
+}
+
+
 int Gate::get_height() {
 	REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling get_height");
 	if (_open)

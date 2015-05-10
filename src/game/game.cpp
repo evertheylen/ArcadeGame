@@ -142,7 +142,6 @@ Gate* Game::get_gate(std::string& name) {
 	}
 }
 
-
 void Game::add_player(Player* p) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling add_player");
 	playermap[p->get_name()] = p;
