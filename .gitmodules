@@ -1,0 +1,3 @@
+[submodule "src/lib/mongoosecpp"]
+	path = src/lib/mongoosecpp
+	url = git@github.com:thinlizzy/mongoosecpp.git
