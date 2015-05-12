@@ -13,6 +13,8 @@ Parser::Parser() {}
 Parser::Parser(std::ostream* stream, std::string filename):
 		_filename(filename), _out(stream) {}
 
+int Parser::dummyset = 0;
+
 std::string Parser::readElement(TiXmlElement* elem, const char* tag) {
 	if (elem == nullptr) {
 		fatal("Element was null", elem);

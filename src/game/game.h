@@ -58,7 +58,7 @@ public:
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_gate")
 	 */
 	Gate* get_gate(std::string& name);
-	
+
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling add_player")
 	 */

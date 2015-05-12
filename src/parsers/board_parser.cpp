@@ -45,7 +45,6 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game* game) {
 	}
 	
 	Board* bp = new Board(x, y, game);
-
 	while (current_el != NULL) {
 		try {
 			// TODO alles pointers, zie ook zever met gates enzo
@@ -85,13 +84,17 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game* game) {
 				if (tagname == "MUUR") {
 					entity = tp.parse_wall(current_el, (*bp));
 				}  else if (tagname == "WATER") {
-					entity = tp.parse_water(current_el, (*bp));
+					entity = tp.parse_water(current_el, (*bp), game);
 				} else if (tagname == "POORT") {
 					Gate* g = tp.parse_gate(current_el, (*bp));
 					if (game->get_gate(g->get_name()) != nullptr) {
-						fatal("Gate with that name already exists.\n;", current_el);
+						log("Replacing dummy gate.");
+						//fatal("Gate with that name already exists.\n;", current_el);
+						*game->get_gate(g->get_name()) = *g;
+						Parser::dummyset --;
+					} else {
+						game->add_gate(g);
 					}
-					game->add_gate(g);
 					entity = g; // downcast
 				} else if (tagname == "DOEL") {
 					entity = tp.parse_goal(current_el, (*bp));
@@ -119,12 +122,11 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game* game) {
 	}
 	
 	current_el = board_elem->FirstChildElement();
-	
 	// Parse buttons latest, because they need all the gates to be parsed already
 	while (current_el != NULL) {
 		try {
 			if (current_el->ValueTStr() == "KNOP") {  // TODO Fix that buttons work.
-				Entity* entity = tp.parse_button(current_el, (*bp));
+				Entity* entity = tp.parse_button(current_el, (*bp), game);
 
 				unsigned int x = entity->x;
 				unsigned int y = entity->y;
@@ -138,6 +140,8 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game* game) {
 	}
 	
 //	std::cout << *bp << std::endl;
-
+	if (Parser::dummyset != 0) {
+		fatal("Not all dummy gates are replaced!");
+	}
 	return bp;
 }

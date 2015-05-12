@@ -22,6 +22,18 @@ public:
 	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
 	Gate(unsigned int x, unsigned y, std::string _name);		// TODO Add functionality to link a button
 	
+	/** \brief Copy constructor
+	 *
+	 * ENSURE(properlyInitialized(), "Copy constructor must end...")
+	 */
+	Gate(const Gate& that);
+
+	/** \brief Copy by assignment
+	 *
+	 * ENSURE(properlyInitialized(), "Copy by assignment must end...")
+	 */
+	Gate& operator=(const Gate& that);
+
 	// spec: Physics
 
 	/**REQUIRE(properlyInitialized(), "Gate wasn't initialized when calling get_height")*/

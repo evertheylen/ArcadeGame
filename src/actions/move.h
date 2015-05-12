@@ -9,6 +9,8 @@ public:
 	Move(Actor* _actor, std::string& dirname);
 	
 	bool execute(Game* g);
+
+	void save(std::ostream& out);
 };
 
 

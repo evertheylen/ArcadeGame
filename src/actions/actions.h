@@ -101,6 +101,11 @@ public:
 
 	virtual bool execute(Game* g) = 0;
 
+	/**
+	 * REQUIRE(d.properlyInitialized(), "Action wasn't initialized when calling save.")
+	 */
+	virtual void save(std::ostream& out) = 0;
+
 	bool properlyInitialized();
 
 private:

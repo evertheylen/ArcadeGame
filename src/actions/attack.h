@@ -9,6 +9,8 @@ public:
 	Attack(Player* player, std::string& dirname);
 	
 	bool execute(Game* g);
+
+	void save(std::ostream& out);
 };
 
 

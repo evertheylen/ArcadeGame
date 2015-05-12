@@ -39,6 +39,7 @@ public:
 
 	void set_out(std::ostream* stream);
 
+	static int dummyset;
 protected:
 	std::ostream* _out;
 	std::string _filename;  // for debugging purposes
