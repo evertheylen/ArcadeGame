@@ -17,6 +17,7 @@ Action_parser::Action_parser(std::ostream* stream, std::string filename):
 
 
 std::list<Action*> Action_parser::parse_actions(TiXmlElement* move_elem, Game* g) {
+	log("Actions parser started", move_elem);
 	std::list<Action*> mp;
 	if(move_elem == nullptr) fatal("Failed to load actions file: No root element.");
 	if(move_elem->ValueTStr() != "BEWEGINGEN" && move_elem->ValueTStr() != "ACTIES") fatal("Failed to load actions file: Wrong root element tag.");
@@ -63,7 +64,7 @@ Action* Action_parser::parse_action(TiXmlElement* current_el, Game* g) {
 			current_el = current_el->NextSiblingElement();
 		}
 		if (g->get_actor(player_name) == nullptr) {
-			fatal("Actor doesn't exist", current_el);
+			fatal("Actor doesnt exist", current_el);
 			current_el = current_el->NextSiblingElement();
 		}
 
@@ -78,7 +79,6 @@ Action* Action_parser::parse_action(TiXmlElement* current_el, Game* g) {
 			}
 			a = new Attack(g->get_player(player_name), dir_s);
 		}
-		std::cout << "action in dir: " << dir_s << "\n";
 	} else {
 		std::string s = current_el->Value();
 		fatal(s + " not defined.", current_el);

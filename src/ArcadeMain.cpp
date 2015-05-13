@@ -82,10 +82,9 @@ int main(int argc, const char** argv) {
 				}
 				port = abs(port);
 			}
-			std::cout << "starting server on port " << port << "\n";
 			GameServer s(g, port);
 			s.run();
-			std::cout << "Type Enter to stop\n";
+			std::cout << "> Press Enter to stop... \n";
 			std::cin.ignore();
 		}
 		

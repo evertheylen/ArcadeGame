@@ -20,8 +20,8 @@ public:
 			_info(info), _filename(filename) {}
 	
 	const char* what()throw() {
-		_s = "Error while parsing the XML file \'";
-		_s += _filename + "\': " + _info;
+		_s = "Error while parsing the XML file ";
+		_s += _filename + ": " + _info;
 		return _s.c_str();
 	}
 	

@@ -109,7 +109,7 @@ Board* Board_parser::parse_board(TiXmlElement* board_elem, Game* game) {
 				
 			} else if (tagname != "BREEDTE" && tagname != "LENGTE" && tagname != "KNOP") {
 				std::string s = current_el->Value();
-				log(std::string("Didn't understand tag ") + s, current_el);
+				log(std::string("Didnt understand tag ") + s, current_el);
 			}
 		} catch (ParseError& e) {
 			log(e.what(), board_elem);

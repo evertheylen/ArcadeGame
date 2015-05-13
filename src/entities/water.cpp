@@ -51,3 +51,7 @@ void Water::save(std::ostream& out, int x, int y) {
 	out << "<WATER beweegbaar=\"false\" x=\"" << x << "\" y=\"" << y << "\" contained=\"true\">\n";
 	out << "\t\t<CONTAINED>";
 }
+
+Water::~Water() {
+	delete contained;
+}

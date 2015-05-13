@@ -173,7 +173,7 @@ Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
 			fatal("Name of gate cannot be empty", elem);
 			
 		std::string name = elem->FirstChildElement("ID")->GetText();
-		log(std::string("name is ")+name, elem);
+// 		log(std::string("name is ")+name, elem);
 		gate = new Gate(r.x, r.y, name);
 
 		if (readAttribute(elem, "open", "0") == "1") {

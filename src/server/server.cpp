@@ -15,8 +15,7 @@
 #define wrap_method(method_name) [&](Mongo::Request req, Mongo::Response resp) -> bool { return method_name(req, resp); }
 
 GameServer::GameServer(Game* _g, int _port):
-		g(_g), dispatcher(server) {
-	std::cout << "started on port " << std::to_string(_port) << "\n";
+		g(_g), port(_port), dispatcher(server) {
 	server.setOption("listening_ports", std::to_string(_port));
 	/* server.setStart([&](Mongo::Request req, Mongo::Response resp) -> bool {
 		// Three possible handlers:
@@ -38,7 +37,7 @@ GameServer::GameServer(Game* _g, int _port):
 }
 
 void GameServer::run() {
-	std::cout << "Running!\n";
+	std::cout << "Running on http://localhost:" << port << "/\n";
 	server.start();
 }
 
@@ -56,7 +55,7 @@ bool GameServer::AJAX(Mongo::Request req, Mongo::Response resp) {
 	} else if (mode == "do") {
 		try {
 			std::string action_text = req.post("action");
-			Action_parser p(&std::cout, "ajax_req");
+			Action_parser p(&log, "ajax_req");
 			TiXmlDocument doc;
 			doc.Parse(action_text.c_str());
 			Action* a = p.parse_action(doc.RootElement(), g);
@@ -65,12 +64,20 @@ bool GameServer::AJAX(Mongo::Request req, Mongo::Response resp) {
 				status = "FAIL";
 			}
 			delete a;
+		} catch (ParseError& e) {
+			log << "error: " << e.what() << "\n";
+			std::cout << "error: " << e.what() << "\n";
+			status = "ERROR";
 		} catch (std::exception& e) {
 			log << "error: " << e.what() << "\n";
 			std::cout << "error: " << e.what() << "\n";
 			status = "ERROR";
 		}
 		add_board = true;
+		
+		if (g->is_ended()) {
+			log << "\nGame has ended!\n";
+		}
 	} else {
 		std::cout << "Wrong ajax request mode: " << mode << "\n";
 		resp.status(404);
@@ -81,7 +88,7 @@ bool GameServer::AJAX(Mongo::Request req, Mongo::Response resp) {
 		g->save(resp_text, s_actions);
 	}
 	
-	resp_text << "<LOG>\n" << log << "\n</LOG>\n";
+	resp_text << "<LOG>\n" << log.str() << "\n</LOG>\n";
 	resp_text << "<STATUS>" << status << "</STATUS>\n";
 	resp_text << "\n</RESPONSE>\n";
 	resp.write(resp_text);

@@ -15,6 +15,8 @@
         10
     </LENGTE>
 	
+	<TON beweegbaar="true" x="8" y="4"/>
+	
     <MUUR beweegbaar="false" x="0" y="9"/>
     <MUUR beweegbaar="false" x="1" y="9"/>
     <MUUR beweegbaar="false" x="2" y="9"/>

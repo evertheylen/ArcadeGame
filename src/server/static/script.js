@@ -25,13 +25,17 @@ function parse_entity(e) {
 			div.attr("title", e.getAttribute("id").getValue());
 			break;
 		case "POORT":
+			if (e.getAttribute("open") != undefined && e.getAttribute("open").getValue() == "1") {
+				console.log("open!");
+				div.attr("hidden", "hidden");
+			}
 		case "MONSTER":
 			div.attr("title", e.getChildElement("ID").getContents().toString());
 			break;
 		case "WATER":
 			// Contained!
 			div = [div];
-			if (e.getChildElement("CONTAINED") != undefined) {
+			if (e.getChildElement("CONTAINED") != undefined && e.getChildElement("CONTAINED").getChildElements()[0] != undefined) {
 				div.push(parse_entity(e.getChildElement("CONTAINED").getChildElements()[0]));
 			}
 			div.reverse();
@@ -46,7 +50,7 @@ function place(e) {
 	var y = parseInt(e.getAttribute("y").getValue());
 	var cell = get(x,y);
 	var div = parse_entity(e);
-	cell.append(div);
+	cell.prepend(div);
 }
 
 function refresh_grid(el) {
@@ -80,7 +84,12 @@ function ajax_callback(doc, params) {
 		refresh_grid(veld_el);
 	}
 	
-	$("#log").append(root.getChildElement("LOG").getContents().toString());
+	var content = root.getChildElement("LOG").getContents().toString();
+	if (content != "") {
+		$("#log").append(content);
+		$("#log").append($('<br/>'));
+		$('#log').scrollTop($('#log')[0].scrollHeight);
+	}
 	
 	var status = root.getChildElement("STATUS").getContents().toString();
 	if (status != "OK") {
@@ -107,7 +116,7 @@ function do_action(dir, e) {
 	
 	element.addChildElement(id);
 	element.addChildElement(richting);
-	console.log(element.toString());
+	
 	var urlParams = {
 		mode: "do",
 		action: element.toString(),

@@ -37,6 +37,8 @@ public:
 
 	// Has to be both getted and setted, so easier to maintain as a public variable
 	Entity* contained;
+	
+	virtual ~Water(); // deletes contained
 };
 
 #endif
