@@ -93,12 +93,56 @@ h2 {
 	border-radius: 5px;
 	background: #7b7b7b;
 	box-shadow: 0 0 5px #185d71;
+	overflow: hidden;
 }
 
 #grid td {
+	background-size: contain;
 	width: 32px;
 	height: 32px;
+	background-repeat: no-repeat;
+	background-image: url('sprites/Floor.png');
 }
+
+/* Style specific for the game */
+
+.entity {
+	background-size: contain;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+
+.wall {
+	background-image: url('sprites/Wall.png');
+}
+
+.monster {
+	background-image: url('sprites/Monster.png');
+}
+
+.button {
+	background-image: url('sprites/button_notpressed.png');
+}
+
+.player {
+	background-image: url('sprites/Player.png');
+}
+
+.water {
+	background-image: url('sprites/Water.png');
+}
+
+.gate {
+	background-image: url('sprites/Gate.png');
+}
+
+.barrel {
+	background-image: url('sprites/Barrel.png');
+}
+
+/* --------------------------- */
 
 
 #right {
