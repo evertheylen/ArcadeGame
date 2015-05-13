@@ -69,8 +69,10 @@ void Game::do_all_actions(std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_all_actions");
 	int size = actions.size();
 	for (int i=0; i<size; i++) {
-		do_action(out);
-		
+		Action* a = actions.front();
+		do_action(a, out);
+		actions.pop_front();
+		delete a;
 		if (ended) {
 			out << "Game ended, stopping.\n";
 			break;
@@ -78,15 +80,13 @@ void Game::do_all_actions(std::ostream& out) {
 	}
 }
 
-void Game::do_action(std::ostream& out) {
+bool Game::do_action(Action* a, std::ostream& out) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_action");
-	if (actions.size() < 1) return;
-	Action* a = actions.front();
 	if (!a->execute(this)) {
 		out << "Action was unsuccessfull.\n";
+		return false;
 	}
-	delete a;
-	actions.pop_front();
+	return true;
 }
 
 int Game::get_num_actions() {
@@ -221,7 +221,9 @@ void Game::set_board(Board* b) {
 
 void Game::save(std::ostream& level, std::ostream& action) {
 	REQUIRE(properlyInitialized(), "Game wasn't initialized when calling save");
-	level << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<VELD>\n\t<NAAM> " << board->get_name() << " </NAAM>\n";
+	// removed <?xml version=\"1.0\" encoding=\"utf-8\"?>
+	// no one cares about that, and it makes parsing client side harder
+	level << "\n<VELD>\n\t<NAAM> " << board->get_name() << " </NAAM>\n";
 	level << "\t<BREEDTE>" << board->get_width() << "</BREEDTE>\n\t<LENGTE>" << board->get_height() << "</LENGTE>\n";
 	for (int i = board->get_height()-1; i>=0; i--) {
 		for (int j = 0; j < board->get_width(); j++) {

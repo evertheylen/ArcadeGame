@@ -14,7 +14,7 @@
 #define _Parser
 
 
-class ParseError: std::exception {
+class ParseError: public std::exception {
 public:
 	ParseError(std::string info, std::string filename):
 			_info(info), _filename(filename) {}

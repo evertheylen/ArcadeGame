@@ -74,6 +74,8 @@ public:
 	 */
 	void add_gate(Gate* g);
 	
+	
+	
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling write_actions")
 	 */
@@ -89,7 +91,6 @@ public:
 	 */
 	void bury(Entity* e);
 	
-// 	//void event_log(std::string s);
 
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_all_actions")
@@ -99,7 +100,7 @@ public:
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_action")
 	 */
-	void do_action(std::ostream& out);
+	bool do_action(Action* a, std::ostream& out);
 	
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling get_num_actions")
@@ -126,6 +127,8 @@ public:
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling set_board")
 	 */
 	void set_board(Board* b);
+	
+	
 	
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling kill")

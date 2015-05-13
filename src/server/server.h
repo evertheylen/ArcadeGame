@@ -4,6 +4,12 @@
 
 #include "../game/game.h"
 
+#include "../actions/actions.h"
+
+#include "../parsers/action_parser.h"
+
+#include "../lib/tinyxml/tinyxml.h"
+
 #ifndef _SERVER_H
 #define _SERVER_H
 
@@ -11,7 +17,8 @@ class GameServer {
 public:
 	GameServer(Game* _g, int _port);
 	
-	bool XML_Game(Mongo::Request req, Mongo::Response resp);
+	bool AJAX(Mongo::Request req, Mongo::Response resp);
+	bool homepage(Mongo::Request req, Mongo::Response resp);
 	
 	void run();
 	

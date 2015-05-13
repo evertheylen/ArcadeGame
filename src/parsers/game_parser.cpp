@@ -29,7 +29,7 @@ Game* Game_parser::parse_game(TiXmlElement* board_elem, TiXmlElement* move_elem)
 	
 	if (move_elem != nullptr) {
 		Action_parser ap(_out, actions_filename);
-		gp->actions = ap.parse_action(move_elem, gp);
+		gp->actions = ap.parse_actions(move_elem, gp);
 	}
 
 	return gp;

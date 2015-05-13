@@ -9,6 +9,7 @@ Attack::Attack(Player* player, std::string& dirname):
 
 
 bool Attack::execute(Game* g) {
+	REQUIRE(properlyInitialized(), "not prop init");
 	unsigned int x = actor->x;
 	unsigned int y = actor->y;
 	dir.move_to(x,y);

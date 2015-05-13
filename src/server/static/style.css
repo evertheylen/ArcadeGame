@@ -68,6 +68,7 @@ h1 {
 	text-align: center;
 	font-weight: 700;
 	font-size: 60px;
+	text-shadow: 0 5px 10px rgba(0, 0, 0, 0.44)
 }
 
 h2 {
@@ -94,6 +95,7 @@ h2 {
 	background: #7b7b7b;
 	box-shadow: 0 0 5px #185d71;
 	overflow: hidden;
+	position: relative;
 }
 
 #grid td {
@@ -101,7 +103,7 @@ h2 {
 	width: 32px;
 	height: 32px;
 	background-repeat: no-repeat;
-	background-image: url('sprites/Floor.png');
+	background-image: url('/static/sprites/Floor.png');
 }
 
 /* Style specific for the game */
@@ -112,34 +114,37 @@ h2 {
 	height: 32px;
 	background-repeat: no-repeat;
 	position: absolute;
+	float: left;
 }
 
-.wall {
-	background-image: url('sprites/Wall.png');
+.muur {
+	background-image: url('/static/sprites/Wall.png');
 }
 
 .monster {
-	background-image: url('sprites/Monster.png');
+	background-image: url('/static/sprites/Monster.png');
 }
 
-.button {
-	background-image: url('sprites/button_notpressed.png');
+.knop {
+	background-image: url('/static/sprites/button_notpressed.png');
 }
 
-.player {
-	background-image: url('sprites/Player.png');
+.speler {
+	background-image: url('/static/sprites/Player.png');
 }
 
 .water {
-	background-image: url('sprites/Water.png');
+	opacity: 0.7;
+	background-image: url('/static/sprites/Water.png');
 }
 
-.gate {
-	background-image: url('sprites/Gate.png');
+
+.poort {
+	background-image: url('/static/sprites/Gate.png');
 }
 
-.barrel {
-	background-image: url('sprites/Barrel.png');
+.ton {
+	background-image: url('/static/sprites/Barrel.png');
 }
 
 /* --------------------------- */
@@ -148,9 +153,15 @@ h2 {
 #right {
 	width: 30%;
 	float: right;
+	position: relative;
+	padding-top: 400px;
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #controls {
+	margin-top: -400px;
 	height: 400px;
 	background: #790000;
 	box-sizing: border-box;
@@ -158,11 +169,16 @@ h2 {
 	box-shadow: black 0 0 40px inset;
 	color: white;
 	font-weight: 700;
+	position: absolute;
+	right: 0;
+	width: 100%;
 }
 
 #log {
 	box-sizing: border-box;
 	padding: 20px;
 	background: #b4b4b4;
-	/* TODO stretch vertically */
+	overflow-y: scroll;
+	position: relative;
+	height: 100%;
 }

@@ -2,6 +2,9 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <fstream>
+
+
 
 #include "server.h"
 #include "../UI/UI.h"  //split
@@ -27,8 +30,11 @@ GameServer::GameServer(Game* _g, int _port):
 		return true;
 	});
 	*/
+	dispatcher.serve("/", wrap_method(homepage));
 	dispatcher.staticPages("/static","server/static");
-	dispatcher.serve("/game", wrap_method(XML_Game));
+	dispatcher.staticPages("/static/sprites","server/static/sprites"); // TODO fix?
+	dispatcher.serve("/ajax", wrap_method(AJAX));
+	dispatcher.servePrefix("/ajax", wrap_method(AJAX));
 }
 
 void GameServer::run() {
@@ -36,12 +42,59 @@ void GameServer::run() {
 	server.start();
 }
 
-bool GameServer::XML_Game(Mongo::Request req, Mongo::Response resp) {
-	resp.status(200);
-	std::stringstream s_board;
-	std::stringstream s_actions;
-	g->save(s_board, s_actions);
-	resp.write(s_board);
+bool GameServer::AJAX(Mongo::Request req, Mongo::Response resp) {
+	std::string mode = req.post("mode");
+	std::stringstream resp_text;
+	resp_text << "<RESPONSE>";
+	std::stringstream log;
+	std::string status = "OK";
+	bool add_board = false;
 	
+	if (mode == "show") {
+		resp.status(200);
+		add_board = true;
+	} else if (mode == "do") {
+		try {
+			std::string action_text = req.post("action");
+			Action_parser p(&std::cout, "ajax_req");
+			TiXmlDocument doc;
+			doc.Parse(action_text.c_str());
+			Action* a = p.parse_action(doc.RootElement(), g);
+			bool success = g->do_action(a, log);
+			if (!success) {
+				status = "FAIL";
+			}
+			delete a;
+		} catch (std::exception& e) {
+			log << "error: " << e.what() << "\n";
+			std::cout << "error: " << e.what() << "\n";
+			status = "ERROR";
+		}
+		add_board = true;
+	} else {
+		std::cout << "Wrong ajax request mode: " << mode << "\n";
+		resp.status(404);
+	}
+	
+	if (add_board) {
+		std::stringstream s_actions;
+		g->save(resp_text, s_actions);
+	}
+	
+	resp_text << "<LOG>\n" << log << "\n</LOG>\n";
+	resp_text << "<STATUS>" << status << "</STATUS>\n";
+	resp_text << "\n</RESPONSE>\n";
+	resp.write(resp_text);
+	
+	return true;
+}
+
+bool GameServer::homepage(Mongo::Request req, Mongo::Response resp) {
+	resp.status(200);
+	resp.contentType("text/html");
+	std::fstream f;
+	f.open("server/static/index.html");
+	resp.write(f);
+	f.close();
 	return true;
 }

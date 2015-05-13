@@ -11,6 +11,7 @@ Move::Move(Actor* _actor, std::string& dirname):
 
 
 bool Move::execute(Game* g) {
+	REQUIRE(properlyInitialized(), "not prop init");
 	unsigned int start_x = actor->x;
 	unsigned int start_y = actor->y;
 	if (g->get_board()->get_top(start_x, start_y) != actor) {

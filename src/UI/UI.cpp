@@ -246,7 +246,7 @@ bool UI::init_game() {
 		if (actions_loaded && reparse_actions && g!=nullptr) {
 			Action_parser ap(&std::cout, "unspecified");
 			TiXmlElement* root = doc_actions.RootElement();
-			g->actions = ap.parse_action(root, g);
+			g->actions = ap.parse_actions(root, g);
 			reparse_actions = false;
 		}
 	} catch (ParseError& e) {
