@@ -32,6 +32,11 @@ std::list<Action*> Action_parser::parse_actions(TiXmlElement* move_elem, Game* g
 			mp.push_back(a);
 		} catch (ParseError& e) {
 			log(std::string("Error in parse_actions: ") + e.what(), current_el);
+			if (current_el == nullptr) {
+				break;
+			} else {
+				current_el = current_el->NextSiblingElement();
+			}
 			continue;
 		}
 		current_el = current_el->NextSiblingElement();
@@ -61,11 +66,9 @@ Action* Action_parser::parse_action(TiXmlElement* current_el, Game* g) {
 		Direction dir (dir_s);
 		if (dir.get_dir() == Direction::Dirk::no_dir) {
 			fatal("Invalid direction specified", current_el);
-			current_el = current_el->NextSiblingElement();
 		}
 		if (g->get_actor(player_name) == nullptr) {
 			fatal("Actor doesnt exist", current_el);
-			current_el = current_el->NextSiblingElement();
 		}
 
 		if (current_el->ValueTStr() == "BEWEGING") {

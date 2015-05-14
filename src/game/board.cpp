@@ -233,10 +233,10 @@ Game* Board::get_game() {
 Board::~Board() {
 	for (int i = get_height()-1; i>=0; i--) {
 		for (int j = 0; j < get_width(); j++) {
-			if (topdata.at(i).at(j) != nullptr) {
-				delete topdata.at(i).at(j);
+			if (topdata.at(j).at(i) != nullptr) {
+				delete topdata.at(j).at(i);
 			}
-			for (Entity* e: data.at(i).at(j)) {
+			for (Entity* e: data.at(j).at(i)) {
 				delete e;
 			}
 		}

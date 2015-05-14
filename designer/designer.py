@@ -8,6 +8,7 @@ def element_as_prop(name, prop):
     el.text = str(prop)
     return el
 
+# http://stackoverflow.com/a/4590052/2678118
 def indent(elem, level=0):
     i = "\n" + level*"  "
     if len(elem):
