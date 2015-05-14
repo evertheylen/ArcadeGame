@@ -1,7 +1,0 @@
-Het huidige speelveld is Level 3 (With a monster):
-Eigenschappen van dit veld:
--Breedte 10
--Lengte 10
-
-Speler Chip bevindt zich in dit speelveld op positie (5,5).
-Er bevindt zich een valstrik op positie (6,4).

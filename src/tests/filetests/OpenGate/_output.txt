@@ -1,2 +1,0 @@
-Game parser started [internal:2:1]
-name is poort [tests/filetests/OpenGate/Speelveld.xml:18:5]

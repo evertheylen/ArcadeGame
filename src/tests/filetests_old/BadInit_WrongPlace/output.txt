@@ -1,6 +1,0 @@
-Game parser started [internal:1:1]
-Error while parsing the XML file 'tests/filetests_old/BadInit_WrongPlace/Speelveld.xml': Invalid location for player [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:4:5] [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:1:1]
-Error while parsing the XML file 'tests/filetests_old/BadInit_WrongPlace/Speelveld.xml': Invalid location on board for entity [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:6:1] [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:1:1]
-Error while parsing the XML file 'tests/filetests_old/BadInit_WrongPlace/Speelveld.xml': Invalid location on board for entity [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:8:1] [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:1:1]
-Error while parsing the XML file 'tests/filetests_old/BadInit_WrongPlace/Speelveld.xml': Invalid location on board for entity [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:9:1] [tests/filetests_old/BadInit_WrongPlace/Speelveld.xml:1:1]
-Actor doesn't exist [tests/filetests_old/BadInit_WrongPlace/Acties.xml:3:5]
