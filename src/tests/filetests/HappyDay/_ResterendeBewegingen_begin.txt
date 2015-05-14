@@ -1,0 +1,2 @@
+Monster monster1 zal volgende beweging nog uitvoeren:
+RECHTS

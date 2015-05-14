@@ -1,0 +1,8 @@
+Game parser started [internal:1:1]
+Actions parser started [tests/filetests_old/PushBarrelOutOfBoard/Acties.xml:2:1]
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.

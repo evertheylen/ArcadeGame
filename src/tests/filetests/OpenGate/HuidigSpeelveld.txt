@@ -1,0 +1,8 @@
+Het huidige speelveld is Level 3 (With a monster):
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+Speler Chip bevindt zich in dit speelveld op positie (5,6).
+Er bevindt zich een knop (gelinkt aan poort poort) op positie (5,6).
+Er bevindt zich een poort (met id poort) op positie (2,2).

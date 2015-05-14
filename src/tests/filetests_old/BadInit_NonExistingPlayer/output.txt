@@ -1,0 +1,5 @@
+Game parser started [internal:1:1]
+Actions parser started [tests/filetests_old/BadInit_NonExistingPlayer/Acties.xml:2:1]
+Error in parse_actions: Error while parsing the XML file tests/filetests_old/BadInit_NonExistingPlayer/Acties.xml: Actor doesnt exist [tests/filetests_old/BadInit_NonExistingPlayer/Acties.xml:7:5] [tests/filetests_old/BadInit_NonExistingPlayer/Acties.xml:7:5]
+Action was unsuccessfull.
+Action was unsuccessfull.
