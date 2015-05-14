@@ -126,11 +126,31 @@ h2 {
 }
 
 .knop {
-	background-image: url('/static/sprites/button_notpressed.png');
+	background-image: url('/static/sprites/Button.png');
 }
 
-.speler {
-	background-image: url('/static/sprites/Player.png');
+/*
+ * Dynamically set based on the hash of the name
+ */
+
+.speler_beige {
+        background-image: url("/static/sprites/Player_beige.png");
+}
+
+.speler_blue {
+        background-image: url("/static/sprites/Player_blue.png");
+}
+
+.speler_green {
+        background-image: url("/static/sprites/Player_green.png");
+}
+
+.speler_yellow {
+        background-image: url("/static/sprites/Player_yellow.png");
+}
+
+.speler_pink {
+        background-image: url("/static/sprites/Player_pink.png");
 }
 
 .water {
@@ -138,6 +158,11 @@ h2 {
 	background-image: url('/static/sprites/Water.png');
 }
 
+.doel {
+	box-sizing: border-box;
+	padding: 4px;
+	background-image: url('/static/sprites/Goal.gif');
+}
 
 .poort {
 	background-image: url('/static/sprites/Gate.png');

@@ -1,3 +1,21 @@
+player_classes = ['speler_beige', 'speler_blue', 'speler_green', 'speler_yellow', 'speler_pink'];
+
+String.prototype.hashCode = function() {
+	var hash = 0;
+	if (this.length == 0) return hash;
+	for (i = 0; i < this.length; i++) {
+		char = this.charCodeAt(i);
+		hash = ((hash<<5)-hash)+char;
+		hash = hash & hash; // Convert to 32bit integer
+	}
+	return hash;
+}
+
+function player_class(naam) {
+	var hash = naam.hashCode();
+	var i = hash % player_classes.length;
+	return player_classes[i];
+}
 
 function rumble() {
 	var timeout;
@@ -19,7 +37,9 @@ function parse_entity(e) {
 	// Special entities
 	switch (e.getName()) {
 		case "SPELER":
-			div.attr("title", e.getChildElement("NAAM").getContents().toString());
+			var naam = e.getChildElement("NAAM").getContents().toString()
+			div.attr("title", naam);
+			div.addClass(player_class(naam));
 			break;
 		case "KNOP":
 			div.attr("title", e.getAttribute("id").getValue());
