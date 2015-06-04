@@ -12,25 +12,44 @@
         10
     </BREEDTE>
     <LENGTE>
-        10
+        11
     </LENGTE>
-	
+	<WATER beweegbaar="false" x="8" y="4"/>
 	<TON beweegbaar="true" x="8" y="4"/>
-	
-    <MUUR beweegbaar="false" x="0" y="9"/>
-    <MUUR beweegbaar="false" x="1" y="9"/>
-    <MUUR beweegbaar="false" x="2" y="9"/>
-    <MUUR beweegbaar="false" x="3" y="9"/>
-    <MUUR beweegbaar="false" x="4" y="9"/>
-	<MUUR beweegbaar="false" x="5" y="9"/>
-    <MUUR beweegbaar="false" x="6" y="9"/>
-    <MUUR beweegbaar="false" x="7" y="9"/>
-    <MUUR beweegbaar="false" x="8" y="9"/>
-    <MUUR beweegbaar="false" x="9" y="9"/>
+	<TON beweegbaar="true" x="8" y="2"/>
+    <MUUR beweegbaar="false" x="0" y="10"/>
+    <MUUR beweegbaar="false" x="0" y="1"/>
+    <MUUR beweegbaar="false" x="0" y="2"/>
+    <MUUR beweegbaar="false" x="9" y="1"/>
+    <MUUR beweegbaar="false" x="0" y="3"/>
+    <MUUR beweegbaar="false" x="9" y="3"/>
+    <MUUR beweegbaar="false" x="9" y="2"/>
+    <MUUR beweegbaar="false" x="1" y="10"/>
+    <MUUR beweegbaar="false" x="2" y="10"/>
+    <VALSTRIK beweegbaar="false" x="2" y="4"/>
+    <MUUR beweegbaar="false" x="3" y="10"/>
+    <MUUR beweegbaar="false" x="4" y="10"/>
+	<MUUR beweegbaar="false" x="5" y="10"/>
+    <MUUR beweegbaar="false" x="6" y="10"/>
+    <MUUR beweegbaar="false" x="7" y="10"/>
+    <MUUR beweegbaar="false" x="8" y="10"/>
+    <MUUR beweegbaar="false" x="9" y="10"/>
     <MUUR beweegbaar="false" x="0" y="8"/>
+    <MUUR beweegbaar="false" x="0" y="9"/>
+    <MUUR beweegbaar="false" x="9" y="9"/>
     <MONSTER x="2" y="8">
         <ID>
             monster1
+        </ID>
+    </MONSTER>
+    <MONSTER x="4" y="2">
+        <ID>
+            monster2
+        </ID>
+    </MONSTER>
+    <MONSTER x="1" y="1">
+        <ID>
+            monster3
         </ID>
     </MONSTER>
     <MUUR beweegbaar="false" x="4" y="8"/>
@@ -40,39 +59,43 @@
     <MUUR beweegbaar="false" x="9" y="8"/>
     <MUUR beweegbaar="false" x="0" y="7"/>
     <WATER beweegbaar="false" x="2" y="7"/>
+    <WATER beweegbaar="false" x="2" y="7"/>
     <TON beweegbaar="true" x="2" y="7"/>
+    <TON beweegbaar="true" x="2" y="6"/>
     <MUUR beweegbaar="false" x="4" y="7"/>
     <POORT beweegbaar="false" x="5" y="7">
         <ID>
             gate1
         </ID>
     </POORT>
+    <WATER beweegbaar="false" x="1" y="4"/>
+    <WATER beweegbaar="false" x="2" y="4"/>
+    <WATER beweegbaar="false" x="3" y="4"/>
+    <WATER beweegbaar="false" x="4" y="4"/>
+    <WATER beweegbaar="false" x="5" y="4"/>
+    <WATER beweegbaar="false" x="6" y="4"/>
+    <WATER beweegbaar="false" x="7" y="4"/>
+    
+    <WATER beweegbaar="false" x="1" y="3"/>
+    <WATER beweegbaar="false" x="2" y="3"/>
+    <WATER beweegbaar="false" x="3" y="3"/>
+    <WATER beweegbaar="false" x="4" y="3"/>
+    <WATER beweegbaar="false" x="5" y="3"/>
+    <WATER beweegbaar="false" x="6" y="3"/>
+    <WATER beweegbaar="false" x="7" y="3"/>
+    <WATER beweegbaar="false" x="8" y="3"/>
     <MUUR beweegbaar="false" x="6" y="7"/>
     <MUUR beweegbaar="false" x="9" y="7"/>
     <MUUR beweegbaar="false" x="0" y="6"/>
-    <MUUR beweegbaar="false" x="2" y="6"/>
     <MUUR beweegbaar="false" x="7" y="6"/>
     <MUUR beweegbaar="false" x="9" y="6"/>
     <MUUR beweegbaar="false" x="0" y="5"/>
-    <MUUR beweegbaar="false" x="2" y="5"/>
     <MUUR beweegbaar="false" x="4" y="5"/>
     <MUUR beweegbaar="false" x="5" y="5"/>
     <MUUR beweegbaar="false" x="7" y="5"/>
     <MUUR beweegbaar="false" x="9" y="5"/>
     <MUUR beweegbaar="false" x="0" y="4"/>
     <MUUR beweegbaar="false" x="9" y="4"/>
-    <MUUR beweegbaar="false" x="0" y="3"/>
-    <MUUR beweegbaar="false" x="2" y="3"/>
-    <MUUR beweegbaar="false" x="4" y="3"/>
-    <MUUR beweegbaar="false" x="5" y="3"/>
-    <MUUR beweegbaar="false" x="7" y="3"/>
-    <MUUR beweegbaar="false" x="9" y="3"/>
-    <MUUR beweegbaar="false" x="0" y="2"/>
-    <MUUR beweegbaar="false" x="2" y="2"/>
-    <MUUR beweegbaar="false" x="4" y="2"/>
-    <MUUR beweegbaar="false" x="5" y="2"/>
-    <MUUR beweegbaar="false" x="7" y="2"/>
-    <MUUR beweegbaar="false" x="9" y="2"/>
     <MUUR beweegbaar="false" x="0" y="1"/>
     <MUUR beweegbaar="false" x="9" y="1"/>
     <MUUR beweegbaar="false" x="0" y="0"/>
