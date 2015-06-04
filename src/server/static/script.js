@@ -160,29 +160,35 @@ $( document ).ready(function() {
 	// Init all the elements that need to be able to rumble
 	$('#grid_outer').jrumble();
 	
+	// Loop audio
+	var music = $('#bgmusic')[0];
+	music.addEventListener('ended', function() {
+		$('#bgmusic')[0].play();
+	}, false);
+	
 	// Keyboard
 	$(document).keydown(function(e) {
-    switch(e.which) {
-        case 37: // left
-			do_action("LINKS", e);
-        	break;
+		switch(e.which) {
+			case 37: // left
+				do_action("LINKS", e);
+				break;
 
-        case 38: // up
-			do_action("OMHOOG", e);
-        	break;
+			case 38: // up
+				do_action("OMHOOG", e);
+				break;
 
-        case 39: // right
-			do_action("RECHTS", e);
-        	break;
+			case 39: // right
+				do_action("RECHTS", e);
+				break;
 
-        case 40: // down
-			do_action("OMLAAG", e);
-        	break;
+			case 40: // down
+				do_action("OMLAAG", e);
+				break;
 
-        default: return; // exit this handler for other keys
-    }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
-});
+			default: return; // exit this handler for other keys
+		}
+		e.preventDefault(); // prevent the default action (scroll / move caret)
+	});
 	
 	// First Ajax call
 	var ajax = new marknote.AJAX();
