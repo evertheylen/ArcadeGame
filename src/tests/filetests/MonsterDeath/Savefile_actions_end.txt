@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<ACTIES>
+	<BEWEGING>
+		<ID>Bowser</ID>
+		<RICHTING>OMHOOG</RICHTING>
+	</BEWEGING>
+</ACTIES>

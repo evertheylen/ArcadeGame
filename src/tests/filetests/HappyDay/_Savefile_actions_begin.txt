@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<ACTIES>
+	<BEWEGING>
+		<ID>monster1</ID>
+		<RICHTING>RECHTS</RICHTING>
+	</BEWEGING>
+</ACTIES>

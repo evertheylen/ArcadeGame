@@ -1,0 +1,8 @@
+
+<VELD>
+	<NAAM> Level 1 </NAAM>
+	<BREEDTE>10</BREEDTE>
+	<LENGTE>10</LENGTE>
+	<TON beweegbaar="true" x="0" y="5"/>
+	<TON beweegbaar="true" x="4" y="5"/>
+</VELD>

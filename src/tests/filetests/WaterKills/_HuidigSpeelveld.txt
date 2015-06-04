@@ -1,0 +1,7 @@
+Het huidige speelveld is Level 3 (With a monster):
+Eigenschappen van dit veld:
+-Breedte 10
+-Lengte 10
+
+Er bevindt zich een ton op positie (5,3).
+Er bevindt zich water op positie (5,2)

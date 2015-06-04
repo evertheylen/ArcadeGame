@@ -1,0 +1,9 @@
+
+<VELD>
+	<NAAM> Level 1 </NAAM>
+	<BREEDTE>10</BREEDTE>
+	<LENGTE>10</LENGTE>
+	<SPELER x="9" y="0" lives="1">
+		<NAAM> Chip </NAAM>
+	</SPELER>
+</VELD>

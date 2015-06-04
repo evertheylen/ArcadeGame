@@ -2,7 +2,7 @@
 INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I ./lib/mongoosecpp/ -I .
 
 CXX        = g++
-CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -Werror=missing-include-dirs -fstack-protector-all $(INCLUDES)
+CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -fstack-protector-all $(INCLUDES)
 #CXXFLAGS   = -O3 -std=c++14
 
 OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 \( -name '*.cpp' -or -name '*.c' \) -and -not -path './lib/gtest/*' -and -not -path './lib/tinyxml/*' -and -not -path './tests/*')))

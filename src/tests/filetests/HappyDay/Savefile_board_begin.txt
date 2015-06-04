@@ -1,0 +1,19 @@
+
+<VELD>
+	<NAAM> Testlevel </NAAM>
+	<BREEDTE>10</BREEDTE>
+	<LENGTE>10</LENGTE>
+	<MUUR beweegbaar="false" x="0" y="8"/>
+	<MONSTER x="2" y="8" lives="1">
+		<ID> monster1 </ID>
+	</MONSTER>
+	<DOEL beweegbaar="false" x="5" y="8"/>
+	<KNOP id="gate1" x="8" y="8"/>
+	<TON beweegbaar="true" x="2" y="7"/>
+	<POORT beweegbaar="false" x="5" y="7" open="0">
+		<ID> gate1 </ID>
+	</POORT>
+	<SPELER x="5" y="1" lives="1">
+		<NAAM> Chip </NAAM>
+	</SPELER>
+</VELD>

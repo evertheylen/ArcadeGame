@@ -25,10 +25,17 @@ TEST(ArcadeGameTest{1}, {0} ) {{
 	//ASSERT_TRUE(g.properlyInitialized());
 	
 	std::ofstream output_file;
+	std::ofstream output_file2;
 	
 	output_file.open(Base+"ResterendeBewegingen_begin.txt");
 	g->write_actions(output_file);
 	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_begin.txt");
+	output_file2.open(Base+"Savefile_actions_begin.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
 	
 	g->do_all_actions(new_cout); // TODO: with new_cout
 	new_cout.close();
@@ -41,8 +48,18 @@ TEST(ArcadeGameTest{1}, {0} ) {{
 	g->write_actions(output_file);
 	output_file.close();
 	
+	output_file.open(Base+"Savefile_board_end.txt");
+    output_file2.open(Base+"Savefile_actions_end.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
 	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
 	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_begin.txt", Base+"_Savefile_board_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_begin.txt", Base+"_Savefile_actions_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_end.txt", Base+"_Savefile_board_end.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_end.txt", Base+"_Savefile_actions_end.txt"));
     EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
 	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
 }}

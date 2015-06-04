@@ -1,0 +1,16 @@
+
+<VELD>
+	<NAAM> Level 1 </NAAM>
+	<BREEDTE>10</BREEDTE>
+	<LENGTE>10</LENGTE>
+	<SPELER x="8" y="6" lives="1">
+		<NAAM> Chip </NAAM>
+	</SPELER>
+	<TON beweegbaar="true" x="2" y="5"/>
+	<SPELER x="4" y="5" lives="1">
+		<NAAM> Chip </NAAM>
+	</SPELER>
+	<SPELER x="3" y="3" lives="1">
+		<NAAM> Ape </NAAM>
+	</SPELER>
+</VELD>
