@@ -1,4 +1,3 @@
-
 #include "actions.h"
 #include "game.h"
 

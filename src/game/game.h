@@ -74,8 +74,6 @@ public:
 	 */
 	void add_gate(Gate* g);
 	
-	
-	
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling write_actions")
 	 */
@@ -91,7 +89,6 @@ public:
 	 */
 	void bury(Entity* e);
 	
-
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling do_all_actions")
 	 */
@@ -127,8 +124,6 @@ public:
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling set_board")
 	 */
 	void set_board(Board* b);
-	
-	
 	
 	/**
 	 * REQUIRE(properlyInitialized(), "Game wasn't initialized when calling kill")

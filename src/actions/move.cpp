@@ -7,11 +7,14 @@
 #include <iostream>
 
 Move::Move(Actor* _actor, std::string& dirname):
-		Action(_actor, dirname) {}
+		Action(_actor, dirname) {
+	initCheck = this;
+	ENSURE(properlyInitialized(), "Constructor must end...");
+}
 
 
 bool Move::execute(Game* g) {
-	REQUIRE(properlyInitialized(), "not prop init");
+	REQUIRE(properlyInitialized(), "Move wasn't initialized when calling execute.");
 	unsigned int start_x = actor->x;
 	unsigned int start_y = actor->y;
 	if (g->get_board()->get_top(start_x, start_y) != actor) {
@@ -92,6 +95,7 @@ bool Move::execute(Game* g) {
 }
 
 void Move::save(std::ostream& out) {
+	REQUIRE(properlyInitialized(), "Move wasn't initialized when calling save.");
 	Direction dir = get_dir();
 	out << "\t<BEWEGING>\n\t\t<ID>" << get_actor()->get_name() << "</ID>\n\t\t<RICHTING>" << dir << "</RICHTING>\n\t</BEWEGING>";
 }
