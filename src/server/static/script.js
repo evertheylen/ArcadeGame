@@ -162,8 +162,11 @@ $( document ).ready(function() {
 	
 	// Loop audio
 	var music = $('#bgmusic')[0];
+	music.play();
 	music.addEventListener('ended', function() {
+		music.src = music.src;  // very ugly chrome hack, doesn't work otherwise
 		$('#bgmusic')[0].play();
+		//console.log("loop");
 	}, false);
 	
 	// Keyboard
