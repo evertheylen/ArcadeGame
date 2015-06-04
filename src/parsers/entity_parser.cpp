@@ -180,7 +180,6 @@ Gate* Entity_parser::parse_gate(TiXmlElement* elem, Board& _board) {
 			gate->open();
 		}
 
-		// TODO Fix the copy problem with gatemap and playermap!!!
 	} else {
 		fatal("Gate must be POORT", elem);
 	}

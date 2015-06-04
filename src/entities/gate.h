@@ -20,7 +20,7 @@ class Gate: public None, public Immutable, public Entity {
 public:
 
 	/**ENSURE(properlyInitialized(), "Constructor must end...")*/
-	Gate(unsigned int x, unsigned y, std::string _name);		// TODO Add functionality to link a button
+	Gate(unsigned int x, unsigned y, std::string _name);
 	
 	/** \brief Copy constructor
 	 *
