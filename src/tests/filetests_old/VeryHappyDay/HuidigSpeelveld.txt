@@ -15,3 +15,25 @@ Er bevindt zich een ton op positie (8,12).
 Er bevindt zich een ton op positie (9,12).
 Er bevindt zich een ton op positie (10,12).
 Speler Chip bevindt zich in dit speelveld op positie (12,10).
+
+
+                    
+                    
+                    
+     O     O        
+                    
+    O       O       
+     O     O        
+      OOOOO         
+                    
+            Y       
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    

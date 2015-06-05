@@ -5,3 +5,15 @@ Eigenschappen van dit veld:
 
 Er bevindt zich een ton op positie (2,5).
 Speler Munk bevindt zich in dit speelveld op positie (4,5).
+
+
+          
+          
+          
+          
+  O Y     
+          
+          
+          
+          
+          

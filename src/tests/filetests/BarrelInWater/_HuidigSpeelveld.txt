@@ -7,3 +7,15 @@ Er bevindt zich water op positie (6,4)
 Er bevindt zich water op positie (6,4)
 Er bevindt zich water op positie (7,4)
 Speler Chip bevindt zich in dit speelveld op positie (7,3).
+
+
+##########
+#        #
+#        #
+#        #
+#        #
+#        #
+#      Y #
+#        #
+#        #
+##########

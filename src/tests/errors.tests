@@ -76,5 +76,6 @@ TEST(ArcadeGameTest, BadInit_board ) {
 	
 	Game_parser gp(&new_cout, board_name, actions_name);
 	ASSERT_THROW(gp.parse_game(doc_board.FirstChildElement(), doc_actions.FirstChildElement()), std::exception);
+
 }
 

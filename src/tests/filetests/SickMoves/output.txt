@@ -1,0 +1,7 @@
+Game parser started [internal:2:1]
+Actions parser started [tests/filetests/SickMoves/Acties.xml:2:1]
+Error in parse_actions: Error while parsing the XML file tests/filetests/SickMoves/Acties.xml: Invalid direction specified [tests/filetests/SickMoves/Acties.xml:27:9] [tests/filetests/SickMoves/Acties.xml:27:9]
+Error in parse_actions: Error while parsing the XML file tests/filetests/SickMoves/Acties.xml: Node was null [tests/filetests/SickMoves/Acties.xml:31:5] [tests/filetests/SickMoves/Acties.xml:31:5]
+Error in parse_actions: Error while parsing the XML file tests/filetests/SickMoves/Acties.xml: Child element was null, with tag RICHTING [tests/filetests/SickMoves/Acties.xml:35:5] [tests/filetests/SickMoves/Acties.xml:35:5]
+Error in parse_actions: Error while parsing the XML file tests/filetests/SickMoves/Acties.xml: Child element was null, with tag ID [tests/filetests/SickMoves/Acties.xml:38:5] [tests/filetests/SickMoves/Acties.xml:38:5]
+Game ended, stopping.

@@ -1,0 +1,4 @@
+Game parser started [internal:1:1]
+Error while parsing the XML file tests/filetests/PuzzleScenario/Speelveld.xml: Monster has no ID specified [tests/filetests/PuzzleScenario/Speelveld.xml:112:3] [tests/filetests/PuzzleScenario/Speelveld.xml:1:1]
+Actions parser started [tests/filetests/PuzzleScenario/Acties.xml:2:1]
+Action was unsuccessfull.

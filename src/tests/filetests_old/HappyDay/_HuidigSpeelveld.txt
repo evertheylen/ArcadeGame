@@ -5,3 +5,15 @@ Eigenschappen van dit veld:
 
 Speler Chip bevindt zich in dit speelveld op positie (4,5).
 Er bevindt zich een ton op positie (7,4).
+
+
+##########
+#        #
+#        #
+#        #
+#   Y    #
+#      O #
+#        #
+#        #
+#        #
+##########
