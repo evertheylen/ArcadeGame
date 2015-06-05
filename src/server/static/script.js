@@ -40,31 +40,31 @@ function get(x,y) {
 }
 
 function parse_entity(e) {
-	var div = $('<div class="entity"/>').addClass(e.getName().toLowerCase());
+	var div = $('<div class="entity"/>').addClass(e.tagName.toLowerCase());
 	
 	// Special entities
-	switch (e.getName()) {
+	switch (e.tagName) {
 		case "SPELER":
-			var naam = e.getChildElement("NAAM").getContents().toString()
+			var naam = e.getElementsByTagName("NAAM")[0].textContent;
 			div.attr("title", naam);
 			div.addClass(player_class(naam));
 			break;
 		case "KNOP":
-			div.attr("title", e.getAttribute("id").getValue());
+			div.attr("title", e.getAttribute("id"));
 			break;
 		case "POORT":
-			if (e.getAttribute("open") != undefined && e.getAttribute("open").getValue() == "1") {
+			if (e.getAttribute("open") != undefined && e.getAttribute("open") == "1") {
 				console.log("open!");
 				div.attr("hidden", "hidden");
 			}
 		case "MONSTER":
-			div.attr("title", e.getChildElement("ID").getContents().toString());
+			div.attr("title", e.getElementsByTagName("ID")[0].textContent);
 			break;
 		case "WATER":
 			// Contained!
 			div = [div];
-			if (e.getChildElement("CONTAINED") != undefined && e.getChildElement("CONTAINED").getChildElements()[0] != undefined) {
-				div.push(parse_entity(e.getChildElement("CONTAINED").getChildElements()[0]));
+			if (e.getElementsByTagName("CONTAINED").length > 0 && e.getElementsByTagName("CONTAINED")[0].children[0] != undefined) {
+				div.push(parse_entity(e.getElementsByTagName("CONTAINED")[0].children[0]));
 			}
 			div.reverse();
 			break;
@@ -74,8 +74,8 @@ function parse_entity(e) {
 }
 
 function place(e) {
-	var x = parseInt(e.getAttribute("x").getValue());
-	var y = parseInt(e.getAttribute("y").getValue());
+	var x = parseInt(e.getAttribute("x"));
+	var y = parseInt(e.getAttribute("y"));
 	var cell = get(x,y);
 	var div = parse_entity(e);
 	cell.prepend(div);
@@ -83,8 +83,8 @@ function place(e) {
 
 function refresh_grid(el) {
 	timelog("start refresh");
-	var width = parseInt(el.getChildElement("BREEDTE").getContents().toString());
-	var length = parseInt(el.getChildElement("LENGTE").getContents().toString());
+	var width = parseInt(el.getElementsByTagName("BREEDTE")[0].textContent)
+	var length = parseInt(el.getElementsByTagName("LENGTE")[0].textContent)
 	
 	// Create table
 	var table = $("<table id='grid'/>");
@@ -99,11 +99,12 @@ function refresh_grid(el) {
 	$("#grid_outer").append(table);
 	
 	// Put elements in place
-	el.getChildElements().forEach(function(e) {
-		if (e.getName() != "BREEDTE" && e.getName() != "LENGTE" && e.getName() != "NAAM") {
+	for (var i=0; i<el.children.length; i++) {
+		var e = el.children[i];
+		if (e.tagName != "BREEDTE" && e.tagName != "LENGTE" && e.tagName != "NAAM") {
 			place(e);
 		}
-	});
+	}
 	timelog("end refresh");
 }
 
@@ -111,23 +112,23 @@ function refresh_grid(el) {
 
 // ----- Network, XML stuff and more -----
 
-var xml_socket_parser = new marknote.Parser();
+var dom_parser = new DOMParser();
 
 function on_socket_message(event) {
 	timelog("start onmessage ---------");
 	//console.log(event);
 	timelog("before parsing");
-	var doc = xml_socket_parser.parse(event.data);
+	var doc = dom_parser.parseFromString(event.data, "application/xml");
 	timelog("after parsing");
-	var root = doc.getRootElement();
-	var veld_el = root.getChildElement("VELD");
-	if (veld_el != undefined) {
-		refresh_grid(veld_el);
+	var root = doc.children[0];
+	var veld_els = root.getElementsByTagName("VELD");
+	if (veld_els.length > 0) {
+		refresh_grid(veld_els[0]);
 	}
 	
-	var log = root.getChildElement("LOG");
-	if (log != undefined) {
-		content = log.getContents().toString();
+	var logs = root.getElementsByTagName("LOG");
+	if (logs.length > 0) {
+		var content = logs[0].textContent;
 		if (content != "") {
 			$("#log").append(content);
 			$("#log").append($('<br/>'));
@@ -135,11 +136,11 @@ function on_socket_message(event) {
 		}
 	}
 	
-	var status = root.getChildElement("STATUS");
-	if (status != undefined) {
-		var statusstr = status.getContents().toString();
+	var statuses = root.getElementsByTagName("STATUS");
+	if (statuses.length > 0) {
+		console.log(status);
+		var statusstr = statuses[0].textContent;
 		if (statusstr != "OK") {
-			//console.log(status);
 			rumble();
 		}
 	}
@@ -147,23 +148,19 @@ function on_socket_message(event) {
 }
 
 function do_action(dir, e) {
-	var element;
+	var name;
+	var total = "";
 	if (e.ctrlKey) {
-		element = new marknote.Element("AANVAL");
+		name = "AANVAL";
 	} else {
-		element = new marknote.Element("BEWEGING");
+		name = "BEWEGING";
 	}
+	total += "<" + name + ">\n";
+	total += "<ID>" + $('#name').val() + "</ID>\n";
+	total += "<RICHTING>" + dir + "</RICHTING>\n";
+	total += "</" + name + ">";
 	
-	var id = new marknote.Element("ID");
-	id.setText($('#name').val());
-	
-	var richting = new marknote.Element("RICHTING");
-	richting.setText(dir);
-	
-	element.addChildElement(id);
-	element.addChildElement(richting);
-	
-	send("DOOO", element.toString());
+	send("DOOO", total);
 }
 
 function send(mode, data) {
@@ -188,6 +185,7 @@ $( document ).ready(function() {
 	
 	// Keyboard
 	$(document).keydown(function(e) {
+		timelog("pressed key");
 		switch(e.which) {
 			case 37: // left
 				do_action("LINKS", e);
@@ -211,7 +209,6 @@ $( document ).ready(function() {
 	});
 	
 	// Set up the websockets
-	var xml_socket_parser = new marknote.Parser();
 	socket = new WebSocket("ws://"+window.location.hostname+":8081");
 	
 	socket.onmessage = on_socket_message;
