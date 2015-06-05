@@ -193,6 +193,19 @@ $( document ).ready(function() {
 		e.preventDefault(); // prevent the default action (scroll / move caret)
 	});
 	
+	// Set up the websockets
+	var socket = new WebSocket("ws://localhost:8081");
+	var xml_socket_parser = new marknote.Parser();
+	
+	socket.onconnect = function (event) {
+		console.log("Connected with websocket.");
+	}
+	
+	socket.onmessage = function (event) {
+		refresh_grid(xml_socket_parser.parse(event.data).getRootElement());
+		//console.log(xml_socket_parser.parse(event.data).getRootElement());
+	};
+	
 	// First Ajax call
 	var ajax = new marknote.AJAX();
 	// optional request parameters

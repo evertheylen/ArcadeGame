@@ -1,5 +1,5 @@
 
-INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I ./lib/mongoosecpp/ -I .
+INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I ./lib/mongoosecpp/ -I . -I ./lib/ -I ./lib/websocketpp/
 
 CXX        = g++
 CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -fstack-protector-all $(INCLUDES)
@@ -12,14 +12,15 @@ TARGETS    = ArcadeMain ArcadeTests
 # include all .o files in lib/tinyxml
 TINYXMLLIBS = 	$(shell find ./lib/tinyxml -name '*.o')
 
-# gtest stuff. I don't understand it, I don't know whether I want to understand.
+
 #--- the location of the test includes; YOU MIGHT NEED TO MODIFY THESE
 TINCL =		./lib/gtest/include
 #--- the location of the test libraries; YOU MIGHT NEED TO MODIFY THESE
 TLIBPATH =	-L./lib/gtest/lib
 TLIBS =		-lgtest -lgtest_main
 
-LIBS = -ldl -lpthread -lreadline
+# last 4 are for Websockets
+LIBS = -ldl -lpthread -lreadline -lboost_system -lboost_timer -lboost_chrono -lrt
 
 
 .PHONY: all
