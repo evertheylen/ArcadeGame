@@ -1,0 +1,9 @@
+
+<VELD>
+	<NAAM>  </NAAM>
+	<BREEDTE>1000</BREEDTE>
+	<LENGTE>10</LENGTE>
+	<SPELER x="2" y="4" lives="1">
+		<NAAM> Chip </NAAM>
+	</SPELER>
+</VELD>
