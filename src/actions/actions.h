@@ -106,6 +106,8 @@ public:
 	virtual void save(std::ostream& out) = 0;
 
 	bool properlyInitialized();
+	
+	virtual ~Action() {};
 };
 
 

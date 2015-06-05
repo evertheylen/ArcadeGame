@@ -2,8 +2,8 @@
 INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I ./lib/mongoosecpp/ -I . -I ./lib/ -I ./lib/websocketpp/
 
 CXX        = g++
-CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -fstack-protector-all $(INCLUDES)
-#CXXFLAGS   = -O3 -std=c++14
+#CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -fstack-protector-all $(INCLUDES)
+CXXFLAGS   = -O3 -std=c++11 -fstack-protector-all $(INCLUDES)
 
 OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 \( -name '*.cpp' -or -name '*.c' \) -and -not -path './lib/gtest/*' -and -not -path './lib/tinyxml/*' -and -not -path './tests/*')))
 SHELL      = /bin/bash

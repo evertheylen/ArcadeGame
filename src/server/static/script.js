@@ -1,4 +1,12 @@
 player_classes = ['speler_beige', 'speler_blue', 'speler_green', 'speler_yellow', 'speler_pink'];
+current_time = 0;
+
+function timelog(s) {
+	var now = (new Date()).getTime();
+	var diff = now - current_time;
+	console.log("[" + diff.toString() + "] " + s);
+	current_time = now;
+}
 
 String.prototype.hashCode = function() {
 	var hash = 0;
@@ -74,6 +82,7 @@ function place(e) {
 }
 
 function refresh_grid(el) {
+	timelog("start refresh");
 	var width = parseInt(el.getChildElement("BREEDTE").getContents().toString());
 	var length = parseInt(el.getChildElement("LENGTE").getContents().toString());
 	
@@ -95,32 +104,49 @@ function refresh_grid(el) {
 			place(e);
 		}
 	});
+	timelog("end refresh");
 }
 
-function ajax_callback(doc, params) {
+
+
+// ----- Network, XML stuff and more -----
+
+var xml_socket_parser = new marknote.Parser();
+
+function on_socket_message(event) {
+	timelog("start onmessage ---------");
+	//console.log(event);
+	timelog("before parsing");
+	var doc = xml_socket_parser.parse(event.data);
+	timelog("after parsing");
 	var root = doc.getRootElement();
 	var veld_el = root.getChildElement("VELD");
 	if (veld_el != undefined) {
 		refresh_grid(veld_el);
 	}
 	
-	var content = root.getChildElement("LOG").getContents().toString();
-	if (content != "") {
-		$("#log").append(content);
-		$("#log").append($('<br/>'));
-		$('#log').scrollTop($('#log')[0].scrollHeight);
+	var log = root.getChildElement("LOG");
+	if (log != undefined) {
+		content = log.getContents().toString();
+		if (content != "") {
+			$("#log").append(content);
+			$("#log").append($('<br/>'));
+			$('#log').scrollTop($('#log')[0].scrollHeight);
+		}
 	}
 	
-	var status = root.getChildElement("STATUS").getContents().toString();
-	if (status != "OK") {
-		console.log(status);
-		rumble();
+	var status = root.getChildElement("STATUS");
+	if (status != undefined) {
+		var statusstr = status.getContents().toString();
+		if (statusstr != "OK") {
+			//console.log(status);
+			rumble();
+		}
 	}
+	timelog("end onmessage -----------");
 }
 
 function do_action(dir, e) {
-	var ajax = new marknote.AJAX();
-	
 	var element;
 	if (e.ctrlKey) {
 		element = new marknote.Element("AANVAL");
@@ -137,25 +163,16 @@ function do_action(dir, e) {
 	element.addChildElement(id);
 	element.addChildElement(richting);
 	
-	var urlParams = {
-		mode: "do",
-		action: element.toString(),
-	};
-	// optional callback parameters
-	var callbackParams = {};
-	// read the URL
-	// (the callback handles the response)
-	ajax.read(
-		"ajax",
-		urlParams, 
-		ajax_callback,
-		callbackParams,
-		"POST"
-	);
+	send("DOOO", element.toString());
+}
+
+function send(mode, data) {
+	//console.log(mode + ":" + data);
+	socket.send(mode + ":" + data);
 }
 
 $( document ).ready(function() {
-    console.log( "ready!" );
+    console.log("ready!");
 	
 	// Init all the elements that need to be able to rumble
 	$('#grid_outer').jrumble();
@@ -194,35 +211,20 @@ $( document ).ready(function() {
 	});
 	
 	// Set up the websockets
-	var socket = new WebSocket("ws://localhost:8081");
 	var xml_socket_parser = new marknote.Parser();
+	socket = new WebSocket("ws://"+window.location.hostname+":8081");
+	
+	socket.onmessage = on_socket_message;
 	
 	socket.onconnect = function (event) {
-		console.log("Connected with websocket.");
+		// get board
+		send("SHOW", "");
+		console.log("socket ready");
 	}
 	
-	socket.onmessage = function (event) {
-		refresh_grid(xml_socket_parser.parse(event.data).getRootElement());
-		//console.log(xml_socket_parser.parse(event.data).getRootElement());
-	};
+	socket.onopen = socket.onconnect;
 	
-	// First Ajax call
-	var ajax = new marknote.AJAX();
-	// optional request parameters
-	var urlParams = {
-		mode: "show",
-	};
-	// optional callback parameters
-	var callbackParams = {};
-	
-	// read the URL
-	// (the callback handles the response)
-	ajax.read(
-		"ajax",
-		urlParams, 
-		ajax_callback,
-		callbackParams,
-		"POST"
-	);
-	
+	if (socket.readyState == socket.OPEN) {
+		socket.onconnect();
+	}
 });

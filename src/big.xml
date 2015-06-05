@@ -136,7 +136,7 @@
   </POORT>
   
   <TON beweegbaar="true" x="12" y="5" />
-  <KNOP beweegbaar="false" x="14" y="5" id="boven"/>
+  <KNOP beweegbaar="false" x="14" y="5" id="poort_easy"/>
   <POORT beweegbaar="false" x="17" y="5">
 	  <ID>poort_easy</ID>
   </POORT>
@@ -156,7 +156,7 @@
   <MUUR beweegbaar="false" x="0" y="3" />
   <KNOP beweegbaar="false" x="4" y="3" id="onder"/>
   <MUUR beweegbaar="false" x="7" y="3" />
-  <KNOP beweegbaar="false" x="10" y="3" id="poort_easy"/>
+  <KNOP beweegbaar="false" x="10" y="3" id="boven"/>
   <MUUR beweegbaar="false" x="17" y="3" />
   <WATER beweegbaar="false" x="22" y="3" />
   <WATER beweegbaar="false" x="23" y="3" />
