@@ -111,14 +111,14 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 		resp_all << "\n</RESPONSE>\n";
 		for (auto it: connections) {
 			// Don't send to update to sender itself
-			//if (it.lock() != hdl.lock()) {
+			if (it.lock() != hdl.lock()) {
 				try {
 					ws_server.send(it, resp_all.str(), websocketpp::frame::opcode::text);
 				} catch (const websocketpp::lib::error_code& e) {
 					std::cout << "Echo failed because: " << e
 							<< "(" << e.message() << ")" << std::endl;
 				}
-			//}
+			}
 		}
 	}
 }
