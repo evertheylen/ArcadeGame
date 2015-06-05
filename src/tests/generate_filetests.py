@@ -14,7 +14,8 @@ TEST(ArcadeGameTest{1}, {0} ) {{
 	bool board_loaded = doc_board.LoadFile(board_name);
 	bool actions_loaded = doc_actions.LoadFile(actions_name);
 
-	ASSERT_TRUE(board_loaded && actions_loaded) << "Failed to load xml files.";
+	ASSERT_TRUE(board_loaded) << "Failed to load board xml file.";
+	ASSERT_TRUE(actions_loaded) << "Failed to load action xml file.";
 	
 	std::ofstream new_cout;
 	new_cout.open(Base+"output.txt"); // TODO
