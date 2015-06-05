@@ -243,6 +243,128 @@ TEST(ArcadeGameTest, Boobytrap ) {
 }
 
 
+TEST(ArcadeGameTest, Attacktests ) {
+	std::string Base = "tests/filetests/Attacktests/";
+	std::string board_name = Base+"Speelveld.xml";
+	std::string actions_name = Base+"Acties.xml";
+	
+	TiXmlDocument doc_board, doc_actions;
+
+	bool board_loaded = doc_board.LoadFile(board_name);
+	bool actions_loaded = doc_actions.LoadFile(actions_name);
+
+	ASSERT_TRUE(board_loaded && actions_loaded) << "Failed to load xml files.";
+	
+	std::ofstream new_cout;
+	new_cout.open(Base+"output.txt"); // TODO
+	
+	Game_parser gp(&new_cout, board_name, actions_name);
+	Game* g = gp.parse_game(doc_board.FirstChildElement(), doc_actions.FirstChildElement());
+	
+	//ASSERT_TRUE(g.properlyInitialized());
+	
+	std::ofstream output_file;
+	std::ofstream output_file2;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_begin.txt");
+	output_file2.open(Base+"Savefile_actions_begin.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	g->do_all_actions(new_cout); // TODO: with new_cout
+	new_cout.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g->get_board()->write_board(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_end.txt");
+    output_file2.open(Base+"Savefile_actions_end.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_begin.txt", Base+"_Savefile_board_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_begin.txt", Base+"_Savefile_actions_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_end.txt", Base+"_Savefile_board_end.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_end.txt", Base+"_Savefile_actions_end.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
+TEST(ArcadeGameTest, BadInit_board ) {
+	std::string Base = "tests/filetests/BadInit_board/";
+	std::string board_name = Base+"Speelveld.xml";
+	std::string actions_name = Base+"Acties.xml";
+	
+	TiXmlDocument doc_board, doc_actions;
+
+	bool board_loaded = doc_board.LoadFile(board_name);
+	bool actions_loaded = doc_actions.LoadFile(actions_name);
+
+	ASSERT_TRUE(board_loaded && actions_loaded) << "Failed to load xml files.";
+	
+	std::ofstream new_cout;
+	new_cout.open(Base+"output.txt"); // TODO
+	
+	Game_parser gp(&new_cout, board_name, actions_name);
+	Game* g = gp.parse_game(doc_board.FirstChildElement(), doc_actions.FirstChildElement());
+	
+	//ASSERT_TRUE(g.properlyInitialized());
+	
+	std::ofstream output_file;
+	std::ofstream output_file2;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_begin.txt");
+	output_file2.open(Base+"Savefile_actions_begin.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	g->do_all_actions(new_cout); // TODO: with new_cout
+	new_cout.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g->get_board()->write_board(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_end.txt");
+    output_file2.open(Base+"Savefile_actions_end.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_begin.txt", Base+"_Savefile_board_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_begin.txt", Base+"_Savefile_actions_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_end.txt", Base+"_Savefile_board_end.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_end.txt", Base+"_Savefile_actions_end.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
 TEST(ArcadeGameTest, OpenGate ) {
 	std::string Base = "tests/filetests/OpenGate/";
 	std::string board_name = Base+"Speelveld.xml";
@@ -609,8 +731,130 @@ TEST(ArcadeGameTest, HappyDay ) {
 }
 
 
+TEST(ArcadeGameTest, BadInit_board2 ) {
+	std::string Base = "tests/filetests/BadInit_board2/";
+	std::string board_name = Base+"Speelveld.xml";
+	std::string actions_name = Base+"Acties.xml";
+	
+	TiXmlDocument doc_board, doc_actions;
+
+	bool board_loaded = doc_board.LoadFile(board_name);
+	bool actions_loaded = doc_actions.LoadFile(actions_name);
+
+	ASSERT_TRUE(board_loaded && actions_loaded) << "Failed to load xml files.";
+	
+	std::ofstream new_cout;
+	new_cout.open(Base+"output.txt"); // TODO
+	
+	Game_parser gp(&new_cout, board_name, actions_name);
+	Game* g = gp.parse_game(doc_board.FirstChildElement(), doc_actions.FirstChildElement());
+	
+	//ASSERT_TRUE(g.properlyInitialized());
+	
+	std::ofstream output_file;
+	std::ofstream output_file2;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_begin.txt");
+	output_file2.open(Base+"Savefile_actions_begin.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	g->do_all_actions(new_cout); // TODO: with new_cout
+	new_cout.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g->get_board()->write_board(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_end.txt");
+    output_file2.open(Base+"Savefile_actions_end.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_begin.txt", Base+"_Savefile_board_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_begin.txt", Base+"_Savefile_actions_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_end.txt", Base+"_Savefile_board_end.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_end.txt", Base+"_Savefile_actions_end.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
 TEST(ArcadeGameTest, GateInWater ) {
 	std::string Base = "tests/filetests/GateInWater/";
+	std::string board_name = Base+"Speelveld.xml";
+	std::string actions_name = Base+"Acties.xml";
+	
+	TiXmlDocument doc_board, doc_actions;
+
+	bool board_loaded = doc_board.LoadFile(board_name);
+	bool actions_loaded = doc_actions.LoadFile(actions_name);
+
+	ASSERT_TRUE(board_loaded && actions_loaded) << "Failed to load xml files.";
+	
+	std::ofstream new_cout;
+	new_cout.open(Base+"output.txt"); // TODO
+	
+	Game_parser gp(&new_cout, board_name, actions_name);
+	Game* g = gp.parse_game(doc_board.FirstChildElement(), doc_actions.FirstChildElement());
+	
+	//ASSERT_TRUE(g.properlyInitialized());
+	
+	std::ofstream output_file;
+	std::ofstream output_file2;
+	
+	output_file.open(Base+"ResterendeBewegingen_begin.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_begin.txt");
+	output_file2.open(Base+"Savefile_actions_begin.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	g->do_all_actions(new_cout); // TODO: with new_cout
+	new_cout.close();
+	
+	output_file.open(Base+"HuidigSpeelveld.txt");
+	g->get_board()->write_board(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"ResterendeBewegingen_einde.txt");
+	g->write_actions(output_file);
+	output_file.close();
+	
+	output_file.open(Base+"Savefile_board_end.txt");
+    output_file2.open(Base+"Savefile_actions_end.txt");
+    g->save(output_file, output_file2);
+    output_file.close();
+    output_file2.close();
+	
+	EXPECT_TRUE(fileCompare(Base+"HuidigSpeelveld.txt", Base+"_HuidigSpeelveld.txt"));
+	EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_begin.txt", Base+"_ResterendeBewegingen_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_begin.txt", Base+"_Savefile_board_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_begin.txt", Base+"_Savefile_actions_begin.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_board_end.txt", Base+"_Savefile_board_end.txt"));
+	EXPECT_TRUE(fileCompare(Base+"Savefile_actions_end.txt", Base+"_Savefile_actions_end.txt"));
+    EXPECT_TRUE(fileCompare(Base+"ResterendeBewegingen_einde.txt", Base+"_ResterendeBewegingen_einde.txt"));
+	EXPECT_TRUE(fileCompare(Base+"output.txt", Base+"_output.txt"));
+}
+
+
+TEST(ArcadeGameTest, BadInit_new ) {
+	std::string Base = "tests/filetests/BadInit_new/";
 	std::string board_name = Base+"Speelveld.xml";
 	std::string actions_name = Base+"Acties.xml";
 	

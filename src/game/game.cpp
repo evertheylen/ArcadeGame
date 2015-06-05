@@ -1,6 +1,6 @@
 #include "game.h"
 #include "../events/managers.h"
-#include <events/collisionmanager.h>
+//#include <events/collisionmanager.h>
 
 #include "../entities/entity.h"
 #include "../entities/water.h"

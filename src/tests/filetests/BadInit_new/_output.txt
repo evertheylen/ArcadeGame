@@ -1,0 +1,7 @@
+Game parser started [internal:2:1]
+Error while parsing the XML file tests/filetests/BadInit_new/Speelveld.xml: Player has no name specified [tests/filetests/BadInit_new/Speelveld.xml:11:5] [tests/filetests/BadInit_new/Speelveld.xml:2:1]
+Error while parsing the XML file tests/filetests/BadInit_new/Speelveld.xml: Invalid location for player [tests/filetests/BadInit_new/Speelveld.xml:13:5] [tests/filetests/BadInit_new/Speelveld.xml:2:1]
+Error while parsing the XML file tests/filetests/BadInit_new/Speelveld.xml: Wall may not be declared movable [tests/filetests/BadInit_new/Speelveld.xml:37:5] [tests/filetests/BadInit_new/Speelveld.xml:2:1]
+Actions parser started [tests/filetests/BadInit_new/Acties.xml:2:1]
+Error in parse_actions: Error while parsing the XML file tests/filetests/BadInit_new/Acties.xml: Actor doesnt exist [tests/filetests/BadInit_new/Acties.xml:3:5] [tests/filetests/BadInit_new/Acties.xml:3:5]
+Game ended, stopping.
