@@ -2,6 +2,8 @@
 #include <functional>
 #include <fstream>
 
+#include <csignal>
+
 #include "game/game.h"
 #include "parsers/game_parser.h"
 #include "UI/UI.h"
@@ -20,11 +22,25 @@ void help() {
 			<< "    exec ui_cmd;ui_cmd;...\n";
 }
 
+void control_c(int s) {
+	std::cout << "Application shutting down.\n";
+	exit(1);
+}
+
 int main(int argc, const char** argv) {
 	if (argc < 2) {
 		help();
 		return 0;
 	}
+	
+	// Set SIGINT handler
+	// http://stackoverflow.com/a/1641223/2678118
+	struct sigaction sigIntHandler;
+	sigIntHandler.sa_handler = control_c;
+	sigemptyset(&sigIntHandler.sa_mask);
+	sigIntHandler.sa_flags = 0;
+	
+	sigaction(SIGINT, &sigIntHandler, NULL);
 	
 	std::string cmd(argv[1]);
 	
