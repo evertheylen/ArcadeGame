@@ -7,3 +7,15 @@ Speler Chip bevindt zich in dit speelveld op positie (8,6).
 Er bevindt zich een ton op positie (2,5).
 Speler Chip bevindt zich in dit speelveld op positie (4,5).
 Speler Ape bevindt zich in dit speelveld op positie (3,3).
+
+
+          
+          
+          
+        Y 
+  O Y     
+          
+   Y      
+          
+          
+          

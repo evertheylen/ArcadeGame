@@ -4,3 +4,15 @@ Eigenschappen van dit veld:
 -Lengte 10
 
 Er bevindt zich een monster op positie (7,5).
+
+
+##########
+#        #
+#        #
+#        #
+#      @ #
+#        #
+#        #
+#        #
+#        #
+##########

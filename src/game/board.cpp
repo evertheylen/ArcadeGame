@@ -206,6 +206,8 @@ void Board::write_board(std::ostream& out) {
 			}
 		}
 	}
+	out << "\n\n";
+	simple_graphics(out);
 }
 
 void Board::simple_graphics(std::ostream& out) {
@@ -243,8 +245,7 @@ Board::~Board() {
 	}
 }
 
-
-// Private
+// =========== Private ===========
 
 int Board::location_size(unsigned int x, unsigned int y) {
 	return data.at(x).at(y).size();

@@ -5,3 +5,15 @@ Eigenschappen van dit veld:
 
 Speler Chip bevindt zich in dit speelveld op positie (5,5).
 Er bevindt zich een valstrik op positie (6,4).
+
+
+##########
+#        #
+#        #
+#        #
+#    Y   #
+#        #
+#        #
+#        #
+#        #
+##########

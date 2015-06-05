@@ -1,2 +1,7 @@
 Game parser started [internal:2:1]
-Actions parser started [tests/filetests/AttackMonster/Acties.xml:2:1]
+Actions parser started [tests/filetests/Attacktests/Acties.xml:2:1]
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.
+Action was unsuccessfull.

@@ -4,3 +4,15 @@ Eigenschappen van dit veld:
 -Lengte 10
 
 Speler Chip bevindt zich in dit speelveld op positie (5,5).
+
+
+##########
+#        #
+#        #
+#        #
+#    Y   #
+#        #
+#        #
+#        #
+#        #
+##########

@@ -9,3 +9,15 @@ Er bevindt zich een knop (gelinkt aan poort gate1) op positie (8,8).
 Er bevindt zich een ton op positie (2,7).
 Er bevindt zich een poort (met id gate1) op positie (5,7).
 Speler Chip bevindt zich in dit speelveld op positie (5,1).
+
+
+          
+#  @ X  . 
+  O  =    
+          
+          
+          
+          
+          
+     Y    
+          

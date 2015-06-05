@@ -63,7 +63,7 @@ TEST(Meta, GTestTest) {
 }
 
 #include "tests/filetests.tests"
-
+#include "tests/errors.tests"
 #include "tests/etc.cpp"
 
 int main(int argc, char **argv) {
