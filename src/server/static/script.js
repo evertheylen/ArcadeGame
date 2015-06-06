@@ -1,11 +1,28 @@
 player_classes = ['speler_beige', 'speler_blue', 'speler_green', 'speler_yellow', 'speler_pink'];
 current_time = 0;
+ended = false;
 
 function timelog(s) {
 	var now = (new Date()).getTime();
 	var diff = now - current_time;
 	console.log("[" + diff.toString() + "] " + s);
 	current_time = now;
+}
+
+function endgame() {
+	if (!ended) {
+		$("#game_ended").css("visibility", "visible");
+		$("#game_ended").animate({opacity: 1}, 1000);
+		ended = true;
+	}
+}
+
+function startgame() {
+	if (ended) {
+		ended = false;
+		$("#game_ended").animate({opacity: 0}, 1000, "swing", 
+			function() { $("#game_ended").css("visibility", "hidden"); });
+	}
 }
 
 String.prototype.hashCode = function() {
@@ -95,8 +112,8 @@ function refresh_grid(el) {
 		}
 		table.append(row);
 	}
-	$("#grid_outer").empty();
-	$("#grid_outer").append(table);
+	$("#grid_inner").empty();
+	$("#grid_inner").append(table);
 	
 	// Put elements in place
 	for (var i=0; i<el.children.length; i++) {
@@ -144,23 +161,33 @@ function on_socket_message(event) {
 			rumble();
 		}
 	}
+	
+	console.log(root);
+	var ended_els = root.getElementsByTagName("ENDED");
+	if (ended_els.length > 0) {
+		endgame();
+	} else {
+		startgame();
+	}
 	timelog("end onmessage -----------");
 }
 
 function do_action(dir, e) {
-	var name;
-	var total = "";
-	if (e.ctrlKey) {
-		name = "AANVAL";
-	} else {
-		name = "BEWEGING";
+	if (!ended) {
+		var name;
+		var total = "";
+		if (e.ctrlKey) {
+			name = "AANVAL";
+		} else {
+			name = "BEWEGING";
+		}
+		total += "<" + name + ">\n";
+		total += "<ID>" + $('#name').val() + "</ID>\n";
+		total += "<RICHTING>" + dir + "</RICHTING>\n";
+		total += "</" + name + ">";
+		
+		send("DOOO", total);
 	}
-	total += "<" + name + ">\n";
-	total += "<ID>" + $('#name').val() + "</ID>\n";
-	total += "<RICHTING>" + dir + "</RICHTING>\n";
-	total += "</" + name + ">";
-	
-	send("DOOO", total);
 }
 
 function send(mode, data) {
@@ -224,4 +251,9 @@ $( document ).ready(function() {
 	if (socket.readyState == socket.OPEN) {
 		socket.onconnect();
 	}
+	
+	// Set restart button
+	$("#restart_button").on('click', function() {
+		send("RSET","");  // reset the game
+	});
 });

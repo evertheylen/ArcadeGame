@@ -45,27 +45,26 @@ int main(int argc, const char** argv) {
 	std::string cmd(argv[1]);
 	
 	if ((cmd == "run" || cmd == "server") && argc >= 4) {
-		TiXmlDocument doc_board, doc_moves;
-
-		bool board_loaded = doc_board.LoadFile(argv[2]);
-		bool moves_loaded = doc_moves.LoadFile(argv[3]);
-
-		if (!board_loaded) {
-			std::cerr << "Error loading board.\n";
-		}
-
-		if (!moves_loaded) {
-			std::cerr << "Error loading moves.\n";
-		}
-
-		if (!(board_loaded && moves_loaded)) {
-			return 1;
-		}
-
-		Game_parser gp(&std::cerr, std::string(argv[1]));
-		Game* g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
-		
 		if (cmd == "run") {
+			TiXmlDocument doc_board, doc_moves;
+
+			bool board_loaded = doc_board.LoadFile(argv[2]);
+			bool moves_loaded = doc_moves.LoadFile(argv[3]);
+
+			if (!board_loaded) {
+				std::cerr << "Error loading board.\n";
+			}
+
+			if (!moves_loaded) {
+				std::cerr << "Error loading moves.\n";
+			}
+
+			if (!(board_loaded && moves_loaded)) {
+				return 1;
+			}
+
+			Game_parser gp(&std::cerr, std::string(argv[2]));
+			Game* g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 			std::ofstream output_file;
 			
 			output_file.open("ResterendeBewegingen_begin.txt");
@@ -88,6 +87,8 @@ int main(int argc, const char** argv) {
 			output_file.open("ResterendeBewegingen_einde.txt");
 			g->write_actions(output_file);
 			output_file.close();
+			
+			delete g;
 		} else { // cmd == "server"
 			int port = 8080;
 			if (argc > 4) {
@@ -98,13 +99,12 @@ int main(int argc, const char** argv) {
 				}
 				port = abs(port);
 			}
-			GameServer s(g, port);
+			GameServer s(argv[2], argv[3], port);
 			s.run();
 			std::cout << "> Press Enter to stop... \n";
 			std::cin.ignore();
 		}
 		
-		delete g;
 	} else if (cmd == "exec" && argc == 3) {
 		UI user_interface;
 		std::string arg(argv[2]);

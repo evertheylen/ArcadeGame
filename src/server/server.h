@@ -67,10 +67,13 @@ typedef SocketServer::message_ptr SocketMessage_ptr;
 
 class GameServer {
 public:
-	GameServer(Game* _g, int _port, int _ws_port=8081);
+	GameServer(std::string _boardfile, std::string _actionsfile, int _port, int _ws_port=8081);
+	
+	void reset();
+	
+	~GameServer();
 	
 	// ------ HTTP ------
-	bool AJAX(Mongo::Request req, Mongo::Response resp);
 	bool homepage(Mongo::Request req, Mongo::Response resp);
 	
 	void run();
@@ -82,13 +85,15 @@ public:
 	
 	void on_message(connection_hdl hdl, SocketServer::message_ptr msg);
 	
-	void update_board();
 	
 	
 private:
+	Game* g;
+	std::string boardfile;
+	std::string actionsfile;
+	
 	// ------ HTTP ------
 	int port;
-	Game* g;
 	Mongo::Server server;
 	Mongo::Dispatcher dispatcher;  // not to be confused with the 'multiple dispatchers' in Game
 	

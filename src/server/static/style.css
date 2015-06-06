@@ -77,7 +77,70 @@ h2 {
 	font-size: 30px;
 }
 
+
+.button {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	display: inline-block;
+	margin: 2px;
+	padding: 8px 15px;
+	background: rgb(210, 0, 0);
+	border: 1px solid rgba(0,0,0,0.15);
+	border-radius: 3px;
+	transition: all 0.3s ease;
+	box-shadow: 
+	inset 0 2px 0 rgba(255,255,255,0.5),
+	0 0 4px 1px rgba(0,0,0,0.2);
+	/* Font styles */
+	text-decoration: none;
+	text-shadow: 0 1px rgba(255,255,255,0.7);
+}
+
+.button:hover {
+	cursor: pointer;
+	background: rgb(255, 161, 55);
+	box-shadow: 
+	inset 0 2px 0 rgba(255,255,255,0.6),
+	0 0 5px 1px rgba(0,0,0,0.2);
+}
+
+.button:active {
+	transition: all 0.01s ease;
+	cursor: pointer;
+	background: rgb(255, 161, 55);
+	box-shadow:
+	inset 0 0 5px rgba(0,0,0,0.7);
+}
+
+#restart_button {
+	font-size: 25px;
+}
+
+.overlay {
+	visibility: hidden;
+	opacity: 0;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:rgba(48, 136, 162, 0.85);
+	z-index:9999;
+	color:white;
+	/* thanks http://howtocenterincss.com/ */
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-size: 25px;
+}
+
 #grid_outer {
+	position: relative;
 	margin-top: 70px;
 	border-radius: 15px;
 	margin-left: auto;
