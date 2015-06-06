@@ -86,13 +86,14 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 			add_board = true;
 
 			if (g->is_ended()) {
-				log << "\nGame has ended!\n";
+				log << "Game has ended!\n";
 			}
 		} else if (mode == "RSET") {
 			try {
 				reset();
 				add_board = true;
 				update_all = true;
+				log << "Reset game!\n";
 			} catch (std::exception& e) {
 				log << "Error while resetting: " << e.what() << "\n";
 				std::cout << "Error while resetting: " << e.what() << "\n";
@@ -100,9 +101,9 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 			}
 		} else {
 			std::cout << "Wrong ajax request mode: " << mode << "\n";
-			status = "FAIL";
+			status = "ERROR";
 		}
-		resp_sender << "<LOG>\n" << log.str() << "\n</LOG>\n";
+		resp_sender << "<LOG>" << log.str() << "</LOG>\n";
 
 		if (add_board) {
 			std::stringstream s_actions;

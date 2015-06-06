@@ -37,6 +37,7 @@ String.prototype.hashCode = function() {
 }
 
 function player_class(naam) {
+	naam = naam.trim();
 	var hash = naam.hashCode();
 	var i = hash % player_classes.length;
 	return player_classes[i];
@@ -85,6 +86,19 @@ function parse_entity(e) {
 			}
 			div.reverse();
 			break;
+	}
+	
+	if (e.tagName == "SPELER" || e.tagName == "MONSTER") {
+		var name = div.attr("title").trim();
+		if ($("#name_"+name).length == 0) {
+			var name_radio = $('<input type="radio" name="names" id="name_'+name+'"value="'+name+'" /><label for="name_'+name+'"><div class="name_text">'+name+'</div></label>');
+			if (e.tagName == "SPELER") {
+				name_radio.prepend($('<div class="name_pic"/>').addClass(player_class(name)));
+			} else {
+				name_radio.prepend($('<div class="name_pic"/>').addClass("monster"));
+			}
+			$("#nameform").append(name_radio);
+		}
 	}
 	
 	return div;
@@ -182,7 +196,7 @@ function do_action(dir, e) {
 			name = "BEWEGING";
 		}
 		total += "<" + name + ">\n";
-		total += "<ID>" + $('#name').val() + "</ID>\n";
+		total += "<ID>" + $("input[type='radio'][name='names']:checked").val() + "</ID>\n";
 		total += "<RICHTING>" + dir + "</RICHTING>\n";
 		total += "</" + name + ">";
 		
