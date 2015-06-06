@@ -1,4 +1,4 @@
-Het huidige speelveld is :
+Het huidige speelveld is test:
 Eigenschappen van dit veld:
 -Breedte 1000
 -Lengte 10

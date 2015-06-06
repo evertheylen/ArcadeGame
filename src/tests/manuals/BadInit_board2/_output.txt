@@ -1,3 +1,2 @@
 Game parser started [internal:2:1]
-Error while parsing the XML file tests/manuals/BadInit_board2/Speelveld.xml: Node was null [tests/manuals/BadInit_board2/Speelveld.xml:3:5] [tests/manuals/BadInit_board2/Speelveld.xml:2:1]
 Actions parser started [tests/manuals/BadInit_board2/Acties.xml:2:1]

@@ -78,7 +78,7 @@
   <MUUR beweegbaar="false" x="0" y="3" />
   <SPELER beweegbaar="true" x="2" y="3">
     <NAAM>
-        Link
+        Chip
     </NAAM>
   </SPELER>
   <KNOP id="gate3" beweegbaar="false" x="5" y="3" />
