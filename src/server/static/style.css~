@@ -78,7 +78,7 @@ h2 {
 }
 
 
-.button, label {
+.button {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -101,7 +101,7 @@ h2 {
 	text-shadow: 0 1px rgba(255,255,255,0.7);
 }
 
-.button:hover, label:hover {
+.button:hover {
 	cursor: pointer;
 	background: rgb(255, 161, 55);
 	box-shadow: 
@@ -109,7 +109,7 @@ h2 {
 	0 0 5px 1px rgba(0,0,0,0.2);
 }
 
-.button:active, input[type="radio"]:checked + label {
+.button:active {
 	transition: all 0.01s ease;
 	cursor: pointer;
 	background: rgb(255, 161, 55);
@@ -117,31 +117,8 @@ h2 {
 	inset 0 0 5px rgba(0,0,0,0.7);
 }
 
-input[type="radio"] {
-    display:none;
-}
-
-label {
-	margin-right: 10px;
-	line-height: 1.6;
-	font-size: 15px;
-}
-
 #restart_button {
 	font-size: 25px;
-}
-
-
-label .name_pic {
-	width: 25px;
-	height: 25px;
-	background-size: contain;
-	float: left;
-	margin-right: 10px;
-}
-
-label .name_text {
-	float: right;
 }
 
 .overlay {
@@ -240,7 +217,7 @@ label .name_text {
 }
 
 .water {
-	opacity: 1;
+	opacity: 0.7;
 	background-image: url('/static/sprites/Water.png');
 }
 
