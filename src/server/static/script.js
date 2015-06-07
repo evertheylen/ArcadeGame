@@ -5,7 +5,7 @@ ended = false;
 function timelog(s) {
 	var now = (new Date()).getTime();
 	var diff = now - current_time;
-	console.log("[" + diff.toString() + "] " + s);
+	//console.log("[" + diff.toString() + "] " + s);
 	current_time = now;
 }
 
@@ -51,45 +51,45 @@ function rumble() {
 	timeout = setTimeout(function(){g.trigger('stopRumble');}, 200);
 }
 
-function get(x,y) {
-	var t = $('#grid').children()[0].children;
+function get(x,y,table) {
+	var t = table.children()[0].children;
 	var realy = t.length - y - 1;
 	return $(t[realy].children[x]);
 }
 
 function parse_entity(e) {
-	var div = $('<div class="entity"/>').addClass(e.tagName.toLowerCase());
+	var divs = [document.createElement("div")];
+	divs[0].classList.add(e.tagName.toLowerCase());
+	divs[0].classList.add("entity");
 	
 	// Special entities
 	switch (e.tagName) {
 		case "SPELER":
 			var naam = e.getElementsByTagName("NAAM")[0].textContent;
-			div.attr("title", naam);
-			div.addClass(player_class(naam));
+			divs[0].setAttribute("title", naam);
+			divs[0].classList.add(player_class(naam));
 			break;
 		case "KNOP":
-			div.attr("title", e.getAttribute("id"));
+			divs[0].setAttribute("title", e.getAttribute("id"));
 			break;
 		case "POORT":
 			if (e.getAttribute("open") != undefined && e.getAttribute("open") == "1") {
-				console.log("open!");
-				div.attr("hidden", "hidden");
+				//console.log("open!");
+				divs[0].setAttribute("hidden", "hidden");
 			}
 		case "MONSTER":
-			div.attr("title", e.getElementsByTagName("ID")[0].textContent);
+			divs[0].setAttribute("title", e.getElementsByTagName("ID")[0].textContent);
 			break;
 		case "WATER":
 			// Contained!
-			div = [div];
 			if (e.getElementsByTagName("CONTAINED").length > 0 && e.getElementsByTagName("CONTAINED")[0].children[0] != undefined) {
-				div.push(parse_entity(e.getElementsByTagName("CONTAINED")[0].children[0]));
+				divs.push(parse_entity(e.getElementsByTagName("CONTAINED")[0].children[0])[0]);
 			}
-			div.reverse();
 			break;
 	}
 	
 	if (e.tagName == "SPELER" || e.tagName == "MONSTER") {
-		var name = div.attr("title").trim();
+		var name = divs[0].getAttribute("title").trim();
 		if ($("#name_"+name).length == 0) {
 			var name_radio = $('<input type="radio" name="names" id="name_'+name+'"value="'+name+'" /><label for="name_'+name+'"><div class="name_text">'+name+'</div></label>');
 			if (e.tagName == "SPELER") {
@@ -101,15 +101,17 @@ function parse_entity(e) {
 		}
 	}
 	
-	return div;
+	return divs;
 }
 
-function place(e) {
+function place(e, table) {
 	var x = parseInt(e.getAttribute("x"));
 	var y = parseInt(e.getAttribute("y"));
-	var cell = get(x,y);
-	var div = parse_entity(e);
-	cell.prepend(div);
+	var cell = get(x,y,table);
+	var divs = parse_entity(e);
+	for (var i=0; i<divs.length; i++) {
+		cell.prepend(divs[i]);
+	}
 }
 
 function refresh_grid(el) {
@@ -126,16 +128,19 @@ function refresh_grid(el) {
 		}
 		table.append(row);
 	}
-	$("#grid_inner").empty();
-	$("#grid_inner").append(table);
+	
 	
 	// Put elements in place
 	for (var i=0; i<el.children.length; i++) {
 		var e = el.children[i];
 		if (e.tagName != "BREEDTE" && e.tagName != "LENGTE" && e.tagName != "NAAM") {
-			place(e);
+			place(e, table);
 		}
 	}
+	
+	$("#grid_inner").empty();
+	$("#grid_inner").append(table);
+	
 	timelog("end refresh");
 }
 
@@ -147,7 +152,7 @@ var dom_parser = new DOMParser();
 
 function on_socket_message(event) {
 	timelog("start onmessage ---------");
-	//console.log(event);
+	////console.log(event);
 	timelog("before parsing");
 	var doc = dom_parser.parseFromString(event.data, "application/xml");
 	timelog("after parsing");
@@ -169,14 +174,14 @@ function on_socket_message(event) {
 	
 	var statuses = root.getElementsByTagName("STATUS");
 	if (statuses.length > 0) {
-		console.log(status);
+		//console.log(status);
 		var statusstr = statuses[0].textContent;
 		if (statusstr != "OK") {
 			rumble();
 		}
 	}
 	
-	console.log(root);
+	//console.log(root);
 	var ended_els = root.getElementsByTagName("ENDED");
 	if (ended_els.length > 0) {
 		endgame();
@@ -205,12 +210,12 @@ function do_action(dir, e) {
 }
 
 function send(mode, data) {
-	//console.log(mode + ":" + data);
+	////console.log(mode + ":" + data);
 	socket.send(mode + ":" + data);
 }
 
 $( document ).ready(function() {
-    console.log("ready!");
+    //console.log("ready!");
 	
 	// Init all the elements that need to be able to rumble
 	$('#grid_outer').jrumble();
@@ -221,7 +226,7 @@ $( document ).ready(function() {
 	music.addEventListener('ended', function() {
 		music.src = music.src;  // very ugly chrome hack, doesn't work otherwise
 		$('#bgmusic')[0].play();
-		//console.log("loop");
+		////console.log("loop");
 	}, false);
 	
 	// Keyboard
@@ -257,7 +262,7 @@ $( document ).ready(function() {
 	socket.onconnect = function (event) {
 		// get board
 		send("SHOW", "");
-		console.log("socket ready");
+		//console.log("socket ready");
 	}
 	
 	socket.onopen = socket.onconnect;

@@ -153,12 +153,14 @@ label .name_text {
 	right:0;
 	bottom:0;
 	background-color:rgba(48, 136, 162, 0.85);
+	padding: 50px;
 	z-index:9999;
 	color:white;
 	/* thanks http://howtocenterincss.com/ */
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	text-align: center;
 	font-size: 25px;
 }
 
