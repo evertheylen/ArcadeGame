@@ -18,17 +18,17 @@
 	<MUUR beweegbaar="false" x="0" y="7"/>
 	<MUUR beweegbaar="false" x="9" y="7"/>
 	<MUUR beweegbaar="false" x="0" y="6"/>
-	<MUUR beweegbaar="false" x="9" y="6"/>
-	<MUUR beweegbaar="false" x="0" y="5"/>
-	<SPELER x="6" y="5" lives="1">
+	<SPELER x="5" y="6" lives="1">
 		<NAAM> Chip </NAAM>
 	</SPELER>
+	<MUUR beweegbaar="false" x="9" y="6"/>
+	<MUUR beweegbaar="false" x="0" y="5"/>
+	<TON beweegbaar="true" x="5" y="5"/>
 	<MUUR beweegbaar="false" x="9" y="5"/>
 	<MUUR beweegbaar="false" x="0" y="4"/>
-	<TON beweegbaar="true" x="6" y="4"/>
+	<TON beweegbaar="true" x="5" y="4"/>
 	<MUUR beweegbaar="false" x="9" y="4"/>
 	<MUUR beweegbaar="false" x="0" y="3"/>
-	<TON beweegbaar="true" x="6" y="3"/>
 	<MUUR beweegbaar="false" x="9" y="3"/>
 	<MUUR beweegbaar="false" x="0" y="2"/>
 	<MUUR beweegbaar="false" x="9" y="2"/>

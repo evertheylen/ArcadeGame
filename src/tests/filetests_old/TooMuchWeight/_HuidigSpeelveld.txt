@@ -3,18 +3,18 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Speler Chip bevindt zich in dit speelveld op positie (6,5).
-Er bevindt zich een ton op positie (6,4).
-Er bevindt zich een ton op positie (6,3).
+Speler Chip bevindt zich in dit speelveld op positie (5,6).
+Er bevindt zich een ton op positie (5,5).
+Er bevindt zich een ton op positie (5,4).
 
 
 ##########
 #        #
 #        #
+#    Y   #
+#    O   #
+#    O   #
 #        #
-#     Y  #
-#     O  #
-#     O  #
 #        #
 #        #
 ##########

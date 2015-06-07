@@ -3,16 +3,16 @@ Eigenschappen van dit veld:
 -Breedte 10
 -Lengte 10
 
-Er bevindt zich een ton op positie (5,5).
-Speler Munk bevindt zich in dit speelveld op positie (4,4).
+Er bevindt zich een ton op positie (6,6).
+Speler Munk bevindt zich in dit speelveld op positie (5,5).
 
 
 ##########
 #        #
 #        #
+#     O  #
+#    Y   #
 #        #
-#    O   #
-#   Y    #
 #        #
 #        #
 #        #

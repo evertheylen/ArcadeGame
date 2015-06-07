@@ -28,7 +28,7 @@ for e in ents:
 
 // Actor
 	const int ACTOR_HEIGHT = 0;
-	const int ACTOR_WEIGHT = 100;
+	const int ACTOR_WEIGHT = 1000;
 	const int ACTOR_LIVES = 1;
 	const int ACTOR_POWER = 1500;  // 1 barrel, 5 actors
 

@@ -4,4 +4,5 @@ Error while parsing the XML file tests/filetests/BadInit_new/Speelveld.xml: Inva
 Error while parsing the XML file tests/filetests/BadInit_new/Speelveld.xml: Wall may not be declared movable [tests/filetests/BadInit_new/Speelveld.xml:37:5] [tests/filetests/BadInit_new/Speelveld.xml:2:1]
 Actions parser started [tests/filetests/BadInit_new/Acties.xml:2:1]
 Error in parse_actions: Error while parsing the XML file tests/filetests/BadInit_new/Acties.xml: Actor doesnt exist [tests/filetests/BadInit_new/Acties.xml:3:5] [tests/filetests/BadInit_new/Acties.xml:3:5]
+Action was unsuccessfull.
 Game ended, stopping.

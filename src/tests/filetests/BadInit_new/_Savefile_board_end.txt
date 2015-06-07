@@ -19,13 +19,16 @@
 	<MUUR beweegbaar="false" x="0" y="6"/>
 	<MUUR beweegbaar="false" x="9" y="6"/>
 	<MUUR beweegbaar="false" x="0" y="5"/>
+	<TON beweegbaar="true" x="5" y="5"/>
 	<MUUR beweegbaar="false" x="9" y="5"/>
 	<MUUR beweegbaar="false" x="0" y="4"/>
-	<TON beweegbaar="true" x="5" y="4"/>
+	<MONSTER x="5" y="4" lives="1">
+		<ID> Bowser </ID>
+	</MONSTER>
 	<MUUR beweegbaar="false" x="9" y="4"/>
 	<MUUR beweegbaar="false" x="0" y="3"/>
 	<MONSTER x="5" y="3" lives="1">
-		<ID> Bowser </ID>
+		<ID> Wario </ID>
 	</MONSTER>
 	<MUUR beweegbaar="false" x="9" y="3"/>
 	<MUUR beweegbaar="false" x="0" y="2"/>

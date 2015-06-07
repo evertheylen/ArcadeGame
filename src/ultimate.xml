@@ -274,7 +274,7 @@
   <MUUR beweegbaar="false" x="6" y="28" />
   <KNOP beweegbaar="false" x="9" y="28" id="fake"/>
   <MUUR beweegbaar="false" x="12" y="28" />
-  <KNOP beweegbaar="false" x="15" y="28" id="level4"/>
+  <KNOP beweegbaar="false" x="15" y="28" id="level3"/>
   <MUUR beweegbaar="false" x="18" y="28" />
   <KNOP beweegbaar="false" x="21" y="28" id="fake"/>
   <MUUR beweegbaar="false" x="24" y="28" />

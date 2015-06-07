@@ -1,2 +1,4 @@
 Game parser started [internal:1:1]
 Actions parser started [tests/filetests_old/TooMuchWeight/Acties.xml:2:1]
+Action was unsuccessfull.
+Action was unsuccessfull.

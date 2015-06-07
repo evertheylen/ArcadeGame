@@ -1,3 +1,5 @@
 Game parser started [internal:2:1]
 Actions parser started [tests/filetests/WaterKills/Acties.xml:2:1]
+Action was unsuccessfull.
+Action was unsuccessfull.
 Game ended, stopping.
