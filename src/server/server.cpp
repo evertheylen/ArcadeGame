@@ -139,6 +139,20 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 	}
 }
 
+void GameServer::ws_start() {
+	// Start the server accept loop
+	ws_server.start_accept();
+	std::cout << "WebSockets starting...\n";
+		
+	// Start the ASIO io_service run loop
+	try {
+		ws_server.run();  // this never ends, unlike the server.start() above
+	} catch (...) {
+		ws_server.stop_listening();
+	}
+}
+
+
 
 
 /*
@@ -250,18 +264,9 @@ void GameServer::reset() {
 
 void GameServer::run() {
 	std::cout << "Running on http://localhost:" << port << "/\n";
-	server.start();
+	server.start(); // runs in its own thread by default
 	
-	// Start the server accept loop
-	ws_server.start_accept();
-	std::cout << "WebSockets starting...\n";
-		
-	// Start the ASIO io_service run loop
-	try {
-		ws_server.run();  // this never ends, unlike the server.start() above
-	} catch (...) {
-		ws_server.stop_listening();
-	}
+	ws_thread = std::thread(&GameServer::ws_start, this);
 }
 
 bool GameServer::homepage(Mongo::Request req, Mongo::Response resp) {
@@ -278,6 +283,12 @@ bool GameServer::homepage(Mongo::Request req, Mongo::Response resp) {
 GameServer::~GameServer() {
 	std::cout << "Server destructor called.\n";
 	ws_server.stop_listening();
+	for (auto it: connections) {
+		websocketpp::close::status::value stat = websocketpp::close::status::normal;
+		ws_server.close(it, stat, "Server shutting down");
+	}
+	ws_thread.join();
+	ws_server.stop();
 }
 
 

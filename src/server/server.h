@@ -2,6 +2,7 @@
 #define _SERVER_H
 
 #include <set>
+#include <thread>
 
 #include "../lib/mongoosecpp/MongoServer.h"
 #include "../lib/mongoosecpp/MongoDispatcher.h"
@@ -85,6 +86,7 @@ public:
 	
 	void on_message(connection_hdl hdl, SocketServer::message_ptr msg);
 	
+	void ws_start();
 	
 	
 private:
@@ -102,6 +104,7 @@ private:
 	int ws_port;
 	SocketServer ws_server;
 	con_list connections;
+	std::thread ws_thread;
 };
 
 #endif
