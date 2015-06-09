@@ -27,7 +27,7 @@ bool Attack::execute(Game* g) {
 	} else {
 		g->kill(to_attack);
 		if (!to_attack->is_alive()) {
-			g->get_board()->leave_top_location(x,y);
+			g->get_board()->clear_top(x,y);
 			g->bury(to_attack);
 		}
 	}

@@ -1108,3 +1108,37 @@ make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMa
 make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
 
 
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1723228202/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1723228202.dir/build.make CMakeFiles/cmTryCompileExec1723228202.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1723228202.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1723228202.dir/CheckIncludeFiles.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1723228202
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1723228202.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1723228202.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec1723228202 -rdynamic 
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec684951070/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec684951070.dir/build.make CMakeFiles/cmTryCompileExec684951070.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec684951070.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec684951070.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec684951070
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec684951070.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec684951070.dir/CheckFunctionExists.c.o  -o cmTryCompileExec684951070 -rdynamic -lpthread 
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+

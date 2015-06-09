@@ -100,6 +100,7 @@ private:
 	
 	// ------ Websockets ------
 	typedef std::set<connection_hdl,std::owner_less<connection_hdl>> con_list;
+	int ws_port;
 	SocketServer ws_server;
 	con_list connections;
 };
