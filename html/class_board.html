@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: Board Class Reference</title>
+<title>Arcade Game: Board Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -123,12 +123,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a533223f28724623e763587dc401baefa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae58237ab49518bbfec3260152e02335c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#ae58237ab49518bbfec3260152e02335c">get_top</a> (unsigned int x, unsigned int y)</td></tr>
 <tr class="separator:ae58237ab49518bbfec3260152e02335c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91b01e0fb35aa30fb60252867fedb1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a91b01e0fb35aa30fb60252867fedb1e7">clear_top</a> (unsigned int x, unsigned int y)</td></tr>
-<tr class="separator:a91b01e0fb35aa30fb60252867fedb1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adad073b1a8011cba63eb8c945da9ba28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#adad073b1a8011cba63eb8c945da9ba28">get</a> (unsigned int loc, unsigned int x, unsigned int y)</td></tr>
 <tr class="separator:adad073b1a8011cba63eb8c945da9ba28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a458cae7e6bb9189f7bf0b3ab1036ea6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a458cae7e6bb9189f7bf0b3ab1036ea6f">set_name</a> (std::string _name)</td></tr>
 <tr class="separator:a458cae7e6bb9189f7bf0b3ab1036ea6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a423e5beda3b08a17c711e5d5773f0b3e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a423e5beda3b08a17c711e5d5773f0b3e">get_name</a> ()</td></tr>
+<tr class="separator:a423e5beda3b08a17c711e5d5773f0b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ea85ce0aad0d905e3757a3531396178"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a4ea85ce0aad0d905e3757a3531396178">valid_location</a> (int x, int y)</td></tr>
 <tr class="separator:a4ea85ce0aad0d905e3757a3531396178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ee871cbc57f75299eb95652ab1c3411"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a8ee871cbc57f75299eb95652ab1c3411">location_height</a> (unsigned int x, unsigned int y)</td></tr>
@@ -155,6 +155,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7077136173994866ec146dcefa3dfe64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af73f45730119a1fd8f6670f53f959e68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a> ()</td></tr>
 <tr class="separator:af73f45730119a1fd8f6670f53f959e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47d78b3aa7e202e5fd029313e10d6ca3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a47d78b3aa7e202e5fd029313e10d6ca3">location_size</a> (unsigned int x, unsigned int y)</td></tr>
+<tr class="separator:a47d78b3aa7e202e5fd029313e10d6ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a533223f28724623e763587dc401baefa"></a>
@@ -205,32 +207,6 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a91b01e0fb35aa30fb60252867fedb1e7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Board::clear_top </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ae4b3c84812939e557a58e92468a2234b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -357,6 +333,21 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a423e5beda3b08a17c711e5d5773f0b3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Board::get_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae58237ab49518bbfec3260152e02335c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -430,6 +421,32 @@ Public Member Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int Board::location_height </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a47d78b3aa7e202e5fd029313e10d6ca3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Board::location_size </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -586,7 +603,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_board.html">Board</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:50 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

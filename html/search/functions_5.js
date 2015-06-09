@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['endgame',['endgame',['../script_8js.html#ae0ac8782cf8820dddd9b2d72294ea571',1,'script.js']]],
   ['enter',['enter',['../class_game.html#a0cc9604134dde3c5e80cebdc97a270e1',1,'Game']]],
   ['enter_5flocation',['enter_location',['../class_board.html#ae4b3c84812939e557a58e92468a2234b',1,'Board']]],
   ['enter_5ftop_5flocation',['enter_top_location',['../class_board.html#a34efaf5d1af34d910525b20a00d8ff34',1,'Board']]],

@@ -1,11 +1,24 @@
 var searchData=
 [
-  ['naam',['naam',['../classconvert_1_1_board.html#ab21be02b600dd26b79e21b3288f4ccff',1,'convert::Board']]],
-  ['name',['name',['../classprecompile_1_1_argument.html#ac93435d982bf89951e502a0329ec5908',1,'precompile::Argument']]],
-  ['new_5fformat',['new_format',['../classconvert_1_1_entity.html#aa71aa733a4e55feec1d0a33773f98b71',1,'convert::Entity']]],
-  ['newtree',['newtree',['../classconvert_1_1_board.html#a77e51b0eff8620e0e38ab4e95c050aeb',1,'convert::Board']]],
-  ['no_5fdir',['no_dir',['../class_direction.html#a218282b2789da5abcafb2be32cf99011a7a7229b2be097dd8271879ea690eb5bf',1,'Direction']]],
-  ['none',['None',['../class_none.html',1,'']]],
-  ['none_2ecpp',['none.cpp',['../none_8cpp.html',1,'']]],
-  ['none_2eh',['none.h',['../none_8h.html',1,'']]]
+  ['main',['main',['../_arcade_main_8cpp.html#a217dbf8b442f20279ea00b898af96f52',1,'main(int argc, const char **argv):&#160;ArcadeMain.cpp'],['../_arcade_tests_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;ArcadeTests.cpp'],['../namespaceprecompile.html#ac67357c475053dc30e9fc5ac393c5165',1,'precompile.main()'],['../namespaceconvert.html#a20a7fc4f39238bb405fcf404425fec60',1,'convert.main()']]],
+  ['manager',['Manager',['../class_manager.html',1,'Manager&lt; DispatcherT &gt;'],['../class_manager.html#acf4518aae98aa841e94511ad59d105a4',1,'Manager::Manager()']]],
+  ['manager_3c_20collisiondispatch_20_3e',['Manager&lt; CollisionDispatch &gt;',['../class_manager.html',1,'']]],
+  ['manager_3c_20ia_5fenterdispatch_20_3e',['Manager&lt; IA_EnterDispatch &gt;',['../class_manager.html',1,'']]],
+  ['manager_3c_20ia_5fleavedispatch_20_3e',['Manager&lt; IA_LeaveDispatch &gt;',['../class_manager.html',1,'']]],
+  ['manager_3c_20killdispatch_20_3e',['Manager&lt; KillDispatch &gt;',['../class_manager.html',1,'']]],
+  ['managers_2ecpp',['managers.cpp',['../managers_8cpp.html',1,'']]],
+  ['managers_2eh',['managers.h',['../managers_8h.html',1,'']]],
+  ['marknote',['marknote',['../marknote_8js.html#a9e395b39beab74c9c9da2dffbd56720a',1,'marknote.js']]],
+  ['marknote_2ejs',['marknote.js',['../marknote_8js.html',1,'']]],
+  ['message_5ftype',['message_type',['../structgame__config.html#a40d90ea0f99930a1b305ed75e733956f',1,'game_config']]],
+  ['monster',['Monster',['../class_monster.html',1,'Monster'],['../class_monster.html#a64ccbcdc6f8687a798bf8317ccec4f8d',1,'Monster::Monster()']]],
+  ['monster_2ecpp',['monster.cpp',['../monster_8cpp.html',1,'']]],
+  ['monster_2eh',['monster.h',['../monster_8h.html',1,'']]],
+  ['monster_5fsymbol',['MONSTER_SYMBOL',['../constants_8h.html#ab54ff43336b4dd9126db1b4554d86751',1,'constants.h']]],
+  ['monstermap',['Monstermap',['../class_game.html#a2c39481e575abd66baa206771c504149',1,'Game']]],
+  ['move',['Move',['../class_move.html',1,'Move'],['../class_move.html#a4713df2a93055e6aa8c6b4d84ab17e0b',1,'Move::Move()']]],
+  ['move_2ecpp',['move.cpp',['../move_8cpp.html',1,'']]],
+  ['move_2eh',['move.h',['../move_8h.html',1,'']]],
+  ['move_5ffrom',['move_from',['../class_direction.html#a769ec4b4375d0a78596109005a66eb80',1,'Direction']]],
+  ['move_5fto',['move_to',['../class_direction.html#a9ccac2a9f99b9c67cac948bfd99cd366',1,'Direction']]]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['managers_2ecpp',['managers.cpp',['../managers_8cpp.html',1,'']]],
-  ['managers_2eh',['managers.h',['../managers_8h.html',1,'']]],
-  ['monster_2ecpp',['monster.cpp',['../monster_8cpp.html',1,'']]],
-  ['monster_2eh',['monster.h',['../monster_8h.html',1,'']]],
-  ['move_2ecpp',['move.cpp',['../move_8cpp.html',1,'']]],
-  ['move_2eh',['move.h',['../move_8h.html',1,'']]]
+  ['lethal_2ecpp',['lethal.cpp',['../lethal_8cpp.html',1,'']]],
+  ['lethal_2eh',['lethal.h',['../lethal_8h.html',1,'']]],
+  ['life_2ecpp',['life.cpp',['../life_8cpp.html',1,'']]],
+  ['life_2eh',['life.h',['../life_8h.html',1,'']]],
+  ['lifeprinter_2ecpp',['lifeprinter.cpp',['../lifeprinter_8cpp.html',1,'']]],
+  ['lifeprinter_2eh',['lifeprinter.h',['../lifeprinter_8h.html',1,'']]]
 ];

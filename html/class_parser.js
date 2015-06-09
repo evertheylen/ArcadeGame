@@ -6,6 +6,7 @@ var class_parser =
     [ "format_message", "class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f", null ],
     [ "log", "class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c", null ],
     [ "readAttribute", "class_parser.html#ab9e0267aecaf7861b8a239fb72da949b", null ],
+    [ "readAttribute", "class_parser.html#ae765b03655574ba15507cd281c384980", null ],
     [ "readElement", "class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c", null ],
     [ "readElement", "class_parser.html#ad6ad607bb6ca701cdaba3dbea8d26ca6", null ],
     [ "reqElement", "class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad", null ],

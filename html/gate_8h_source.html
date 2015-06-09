@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: entities/gate.h Source File</title>
+<title>Arcade Game: entities/gate.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -130,62 +130,70 @@ $(document).ready(function(){initNavTree('gate_8h_source.html','');});
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_gate.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_gate.html">Gate</a>: <span class="keyword">public</span> <a class="code" href="class_none.html">None</a>, <span class="keyword">public</span> <a class="code" href="class_immutable.html">Immutable</a>, <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_gate.html#a8c222415d9aa37b3057038e0fa1cb20f">Gate</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">x</a>, <span class="keywordtype">unsigned</span> <a class="code" href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">y</a>, std::string _name);        <span class="comment">// TODO Add functionality to link a button</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_gate.html#a8c222415d9aa37b3057038e0fa1cb20f">Gate</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">x</a>, <span class="keywordtype">unsigned</span> <a class="code" href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">y</a>, std::string _name);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// spec: Physics</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_gate.html#a92969268c88df32619ae44de87614cf8">get_height</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_gate.html#a71358b21088e77ddcd7c1980e13ba063">get_weight</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// spec: Printer</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">char</span> <a class="code" href="class_gate.html#a4c957d7092b0c53a0a8e711142818dfa">to_char</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string&amp; <a class="code" href="class_gate.html#a49c1fb6fd0f2bbf4a7593e7e6e0bfb48">get_name</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#a6b6e01294cd8f5dbb5c93831c5cd3c3f">open</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#a3733611cc86dfe641915fcbfaf4d41c8">close</a>();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#a194b57934f4ab3ed226a7c5fb45693bd">info</a>(std::ostream&amp; out);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_gate.html#a8c222415d9aa37b3057038e0fa1cb20f">Gate</a>(<span class="keyword">const</span> <a class="code" href="class_gate.html">Gate</a>&amp; that);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_gate.html">Gate</a>&amp; <a class="code" href="class_gate.html#a9535c26ba0aeb7c93d0fa934c773fecc">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_gate.html">Gate</a>&amp; that);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// spec: Physics</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_gate.html#a92969268c88df32619ae44de87614cf8">get_height</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_gate.html#a71358b21088e77ddcd7c1980e13ba063">get_weight</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// spec: Printer</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">char</span> <a class="code" href="class_gate.html#a4c957d7092b0c53a0a8e711142818dfa">to_char</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::string&amp; <a class="code" href="class_gate.html#a49c1fb6fd0f2bbf4a7593e7e6e0bfb48">get_name</a>();</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gate.html#a5cb8530f286fcbe2c40d7f396176b805">is_open</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> _open;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string name;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#a6b6e01294cd8f5dbb5c93831c5cd3c3f">open</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#a3733611cc86dfe641915fcbfaf4d41c8">close</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#a194b57934f4ab3ed226a7c5fb45693bd">info</a>(std::ostream&amp; out);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gate.html#aaa2a3e313f256e99a6598703088a2244">save</a>(std::ostream&amp; out, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gate.html#a5cb8530f286fcbe2c40d7f396176b805">is_open</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> _open;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::string name;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
-<div class="ttc" id="class_entity_html_afa8f48eccdb09a290e2c1ded3f135363"><div class="ttname"><a href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">Entity::x</a></div><div class="ttdeci">unsigned int x</div><div class="ttdef"><b>Definition:</b> entity.h:45</div></div>
+<div class="ttc" id="class_entity_html_afa8f48eccdb09a290e2c1ded3f135363"><div class="ttname"><a href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">Entity::x</a></div><div class="ttdeci">unsigned int x</div><div class="ttdef"><b>Definition:</b> entity.h:51</div></div>
 <div class="ttc" id="none_8h_html"><div class="ttname"><a href="none_8h.html">none.h</a></div></div>
+<div class="ttc" id="class_gate_html_a9535c26ba0aeb7c93d0fa934c773fecc"><div class="ttname"><a href="class_gate.html#a9535c26ba0aeb7c93d0fa934c773fecc">Gate::operator=</a></div><div class="ttdeci">Gate &amp; operator=(const Gate &amp;that)</div><div class="ttdoc">Copy by assignment. </div><div class="ttdef"><b>Definition:</b> gate.cpp:22</div></div>
 <div class="ttc" id="small_8h_html"><div class="ttname"><a href="small_8h.html">small.h</a></div></div>
-<div class="ttc" id="class_gate_html_a4c957d7092b0c53a0a8e711142818dfa"><div class="ttname"><a href="class_gate.html#a4c957d7092b0c53a0a8e711142818dfa">Gate::to_char</a></div><div class="ttdeci">char to_char()</div><div class="ttdef"><b>Definition:</b> gate.cpp:30</div></div>
+<div class="ttc" id="class_gate_html_a4c957d7092b0c53a0a8e711142818dfa"><div class="ttname"><a href="class_gate.html#a4c957d7092b0c53a0a8e711142818dfa">Gate::to_char</a></div><div class="ttdeci">char to_char()</div><div class="ttdef"><b>Definition:</b> gate.cpp:45</div></div>
 <div class="ttc" id="class_immutable_html"><div class="ttname"><a href="class_immutable.html">Immutable</a></div><div class="ttdef"><b>Definition:</b> immutable.h:7</div></div>
 <div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:17</div></div>
-<div class="ttc" id="class_gate_html_a194b57934f4ab3ed226a7c5fb45693bd"><div class="ttname"><a href="class_gate.html#a194b57934f4ab3ed226a7c5fb45693bd">Gate::info</a></div><div class="ttdeci">void info(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> gate.cpp:60</div></div>
+<div class="ttc" id="class_gate_html_a194b57934f4ab3ed226a7c5fb45693bd"><div class="ttname"><a href="class_gate.html#a194b57934f4ab3ed226a7c5fb45693bd">Gate::info</a></div><div class="ttdeci">void info(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> gate.cpp:75</div></div>
 <div class="ttc" id="immutable_8h_html"><div class="ttname"><a href="immutable_8h.html">immutable.h</a></div></div>
 <div class="ttc" id="class_none_html"><div class="ttname"><a href="class_none.html">None</a></div><div class="ttdef"><b>Definition:</b> none.h:13</div></div>
-<div class="ttc" id="class_gate_html_a49c1fb6fd0f2bbf4a7593e7e6e0bfb48"><div class="ttname"><a href="class_gate.html#a49c1fb6fd0f2bbf4a7593e7e6e0bfb48">Gate::get_name</a></div><div class="ttdeci">std::string &amp; get_name()</div><div class="ttdef"><b>Definition:</b> gate.cpp:55</div></div>
-<div class="ttc" id="class_gate_html_a5cb8530f286fcbe2c40d7f396176b805"><div class="ttname"><a href="class_gate.html#a5cb8530f286fcbe2c40d7f396176b805">Gate::is_open</a></div><div class="ttdeci">bool is_open()</div><div class="ttdef"><b>Definition:</b> gate.cpp:50</div></div>
+<div class="ttc" id="class_gate_html_aaa2a3e313f256e99a6598703088a2244"><div class="ttname"><a href="class_gate.html#aaa2a3e313f256e99a6598703088a2244">Gate::save</a></div><div class="ttdeci">void save(std::ostream &amp;out, int x, int y)</div><div class="ttdef"><b>Definition:</b> gate.cpp:80</div></div>
+<div class="ttc" id="class_gate_html_a49c1fb6fd0f2bbf4a7593e7e6e0bfb48"><div class="ttname"><a href="class_gate.html#a49c1fb6fd0f2bbf4a7593e7e6e0bfb48">Gate::get_name</a></div><div class="ttdeci">std::string &amp; get_name()</div><div class="ttdef"><b>Definition:</b> gate.cpp:70</div></div>
+<div class="ttc" id="class_gate_html_a5cb8530f286fcbe2c40d7f396176b805"><div class="ttname"><a href="class_gate.html#a5cb8530f286fcbe2c40d7f396176b805">Gate::is_open</a></div><div class="ttdeci">bool is_open()</div><div class="ttdef"><b>Definition:</b> gate.cpp:65</div></div>
 <div class="ttc" id="class_gate_html"><div class="ttname"><a href="class_gate.html">Gate</a></div><div class="ttdef"><b>Definition:</b> gate.h:19</div></div>
-<div class="ttc" id="class_gate_html_a71358b21088e77ddcd7c1980e13ba063"><div class="ttname"><a href="class_gate.html#a71358b21088e77ddcd7c1980e13ba063">Gate::get_weight</a></div><div class="ttdeci">int get_weight()</div><div class="ttdef"><b>Definition:</b> gate.cpp:25</div></div>
-<div class="ttc" id="class_gate_html_a92969268c88df32619ae44de87614cf8"><div class="ttname"><a href="class_gate.html#a92969268c88df32619ae44de87614cf8">Gate::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdef"><b>Definition:</b> gate.cpp:16</div></div>
+<div class="ttc" id="class_gate_html_a71358b21088e77ddcd7c1980e13ba063"><div class="ttname"><a href="class_gate.html#a71358b21088e77ddcd7c1980e13ba063">Gate::get_weight</a></div><div class="ttdeci">int get_weight()</div><div class="ttdef"><b>Definition:</b> gate.cpp:40</div></div>
+<div class="ttc" id="class_gate_html_a92969268c88df32619ae44de87614cf8"><div class="ttname"><a href="class_gate.html#a92969268c88df32619ae44de87614cf8">Gate::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdef"><b>Definition:</b> gate.cpp:31</div></div>
 <div class="ttc" id="simpleprint_8h_html"><div class="ttname"><a href="simpleprint_8h.html">simpleprint.h</a></div></div>
-<div class="ttc" id="class_entity_html_a9d39843430829a89bb8233dbaadae4f1"><div class="ttname"><a href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">Entity::y</a></div><div class="ttdeci">unsigned int y</div><div class="ttdef"><b>Definition:</b> entity.h:46</div></div>
+<div class="ttc" id="class_entity_html_a9d39843430829a89bb8233dbaadae4f1"><div class="ttname"><a href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">Entity::y</a></div><div class="ttdeci">unsigned int y</div><div class="ttdef"><b>Definition:</b> entity.h:52</div></div>
 <div class="ttc" id="class_gate_html_a8c222415d9aa37b3057038e0fa1cb20f"><div class="ttname"><a href="class_gate.html#a8c222415d9aa37b3057038e0fa1cb20f">Gate::Gate</a></div><div class="ttdeci">Gate(unsigned int x, unsigned y, std::string _name)</div><div class="ttdef"><b>Definition:</b> gate.cpp:11</div></div>
-<div class="ttc" id="class_gate_html_a3733611cc86dfe641915fcbfaf4d41c8"><div class="ttname"><a href="class_gate.html#a3733611cc86dfe641915fcbfaf4d41c8">Gate::close</a></div><div class="ttdeci">void close()</div><div class="ttdef"><b>Definition:</b> gate.cpp:44</div></div>
-<div class="ttc" id="class_gate_html_a6b6e01294cd8f5dbb5c93831c5cd3c3f"><div class="ttname"><a href="class_gate.html#a6b6e01294cd8f5dbb5c93831c5cd3c3f">Gate::open</a></div><div class="ttdeci">void open()</div><div class="ttdef"><b>Definition:</b> gate.cpp:38</div></div>
+<div class="ttc" id="class_gate_html_a3733611cc86dfe641915fcbfaf4d41c8"><div class="ttname"><a href="class_gate.html#a3733611cc86dfe641915fcbfaf4d41c8">Gate::close</a></div><div class="ttdeci">void close()</div><div class="ttdef"><b>Definition:</b> gate.cpp:59</div></div>
+<div class="ttc" id="class_gate_html_a6b6e01294cd8f5dbb5c93831c5cd3c3f"><div class="ttname"><a href="class_gate.html#a6b6e01294cd8f5dbb5c93831c5cd3c3f">Gate::open</a></div><div class="ttdeci">void open()</div><div class="ttdef"><b>Definition:</b> gate.cpp:53</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9404ca00d5cf333c309ae0ebf80749c4.html">entities</a></li><li class="navelem"><a class="el" href="gate_8h.html">gate.h</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

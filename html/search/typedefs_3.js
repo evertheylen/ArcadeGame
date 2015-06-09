@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['killmanager',['KillManager',['../collisionmanager_8h.html#a68b133893cc2135753d73d2eb67d8862',1,'KillManager():&#160;collisionmanager.h'],['../managers_8h.html#a68b133893cc2135753d73d2eb67d8862',1,'KillManager():&#160;managers.h']]]
+  ['gatemap',['Gatemap',['../class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5',1,'Game']]]
 ];

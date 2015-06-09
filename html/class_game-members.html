@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: Member List</title>
+<title>Arcade Game: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -123,7 +123,7 @@ $(document).ready(function(){initNavTree('class_game.html','');});
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#aeab39f9bf569d983f6163add6706ad82">clear_actions</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_game.html#a3eca6db94a95d5fa843ba69a142a62bb">collide</a>(Entity *a, Entity *b)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">CollisionHandler</a> class</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game.html#aba0acb0d0ec55e050440e9f398de773c">do_action</a>(std::ostream &amp;out)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game.html#acb7a6ea7df153fe85882219a5f842178">do_action</a>(Action *a, std::ostream &amp;out)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#a8f72aa6ced41ae11bdaa48ef73d11d39">do_all_actions</a>(std::ostream &amp;out)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_game.html#a0cc9604134dde3c5e80cebdc97a270e1">enter</a>(Entity *top, Entity *bottom)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
@@ -144,15 +144,16 @@ $(document).ready(function(){initNavTree('class_game.html','');});
   <tr><td class="entry"><a class="el" href="class_game.html#a11e553861e3a7fc842680e55171ed06f">Playermap</a> typedef</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#ad6165e671cd454ac4c2296f306d293eb">players_alive</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_game.html#a7a97d89e85982b7d67d13e0c502de6a2">properlyInitialized</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game.html#ac164df696f1b71acc6246a08e8066b70">set_board</a>(Board *b)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game.html#a73b72d3098c7c9a8d232b5fd4b1139ad">write_actions</a>(std::ostream &amp;out)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a7f0da2c3fec4dc75baf72e4c0885a656">save</a>(std::ostream &amp;level, std::ostream &amp;actions)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game.html#ac164df696f1b71acc6246a08e8066b70">set_board</a>(Board *b)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a73b72d3098c7c9a8d232b5fd4b1139ad">write_actions</a>(std::ostream &amp;out)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 6 2015 10:42:51 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

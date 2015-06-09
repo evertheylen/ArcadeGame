@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: game/game.h Source File</title>
+<title>Arcade Game: game/game.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Players have priority if a player and monster have the same name</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_gate.html">Gate</a>* <a class="code" href="class_game.html#af381f79ab245cb6075797323ccf730c1">get_gate</a>(std::string&amp; name);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a532e7897423e470019ada16917b457c2">add_player</a>(<a class="code" href="class_player.html">Player</a>* p);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a5b3ceb773fe5f462bb23679ed0482db1">add_monster</a>(<a class="code" href="class_monster.html">Monster</a>* m);</div>
@@ -167,108 +167,110 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a1845d7f4c11f16a76e79f119f4077f17">bury</a>(<a class="code" href="class_entity.html">Entity</a>* e);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//  //void event_log(std::string s);</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a8f72aa6ced41ae11bdaa48ef73d11d39">do_all_actions</a>(std::ostream&amp; out);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#aba0acb0d0ec55e050440e9f398de773c">do_action</a>(std::ostream&amp; out);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_game.html#aeb84d2cc01cb7e69e82a92bb41221d3e">get_num_actions</a>();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a47be91dcc180c606507cc06d06d351b2">is_ended</a>();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#aeab39f9bf569d983f6163add6706ad82">clear_actions</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="class_board.html">Board</a>* <a class="code" href="class_game.html#a6f66f42cdc7be06668ac60bff23db9d9">get_board</a>();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#ac164df696f1b71acc6246a08e8066b70">set_board</a>(<a class="code" href="class_board.html">Board</a>* b);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#ad37c165fa3af0658bec23511f57785db">kill</a>(<a class="code" href="class_entity.html">Entity</a>* a);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a3eca6db94a95d5fa843ba69a142a62bb">collide</a>(<a class="code" href="class_entity.html">Entity</a>* a, <a class="code" href="class_entity.html">Entity</a>* b);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a0cc9604134dde3c5e80cebdc97a270e1">enter</a>(<a class="code" href="class_entity.html">Entity</a>* top, <a class="code" href="class_entity.html">Entity</a>* bottom);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a737c0a9f00bccef6f3e8e743a2f8bea1">leave</a>(<a class="code" href="class_entity.html">Entity</a>* top, <a class="code" href="class_entity.html">Entity</a>* bottom);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a>();</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a7a97d89e85982b7d67d13e0c502de6a2">properlyInitialized</a>();</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="class_game.html#a11e553861e3a7fc842680e55171ed06f">Playermap</a> playermap;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="class_game.html#a2c39481e575abd66baa206771c504149">Monstermap</a> monstermap;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5">Gatemap</a> gatemap;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="class_board.html">Board</a>* board;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    std::vector&lt;Entity*&gt; graveyard;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">bool</span> ended;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="class_game.html">Game</a>* initCheck;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="class_manager.html">KillManager</a> _kill;         <span class="comment">// kill(a)</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="class_manager.html">CollisionManager</a> _collide; <span class="comment">// collide(a, b) == collide(b, a)</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="class_manager.html">IA_EnterManager</a> _enter;    <span class="comment">// enter(top, bottom)</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="class_manager.html">IA_LeaveManager</a> _leave;    <span class="comment">// leave(top, bottom)</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    </div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">  172</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">CollisionHandler</a>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="class_game.html#ad46435fe6b8e9a384d33d608058862ae">  173</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_i_a___enter_handler.html">IA_EnterHandler</a>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="class_game.html#adc4c20007ad2fd4bc2556fbfbff54945">  174</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_i_a___leave_handler.html">IA_LeaveHandler</a>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="class_game.html#aab5a016b7fd0a16c4e689d3102ec3a17">  175</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_kill_handler.html">KillHandler</a>;</div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="class_game.html#a12525b6ed7c8186be0bee5cf78e2a49c">  176</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_board.html">Board</a>;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;};</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a8f72aa6ced41ae11bdaa48ef73d11d39">do_all_actions</a>(std::ostream&amp; out);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#acb7a6ea7df153fe85882219a5f842178">do_action</a>(<a class="code" href="class_action.html">Action</a>* a, std::ostream&amp; out);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_game.html#aeb84d2cc01cb7e69e82a92bb41221d3e">get_num_actions</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a47be91dcc180c606507cc06d06d351b2">is_ended</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#aeab39f9bf569d983f6163add6706ad82">clear_actions</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="class_board.html">Board</a>* <a class="code" href="class_game.html#a6f66f42cdc7be06668ac60bff23db9d9">get_board</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#ac164df696f1b71acc6246a08e8066b70">set_board</a>(<a class="code" href="class_board.html">Board</a>* b);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#ad37c165fa3af0658bec23511f57785db">kill</a>(<a class="code" href="class_entity.html">Entity</a>* a);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a3eca6db94a95d5fa843ba69a142a62bb">collide</a>(<a class="code" href="class_entity.html">Entity</a>* a, <a class="code" href="class_entity.html">Entity</a>* b);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a0cc9604134dde3c5e80cebdc97a270e1">enter</a>(<a class="code" href="class_entity.html">Entity</a>* top, <a class="code" href="class_entity.html">Entity</a>* bottom);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a737c0a9f00bccef6f3e8e743a2f8bea1">leave</a>(<a class="code" href="class_entity.html">Entity</a>* top, <a class="code" href="class_entity.html">Entity</a>* bottom);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game.html#a7f0da2c3fec4dc75baf72e4c0885a656">save</a>(std::ostream&amp; level, std::ostream&amp; <a class="code" href="class_game.html#a8e61c60693aa39b8a3deb5f3f277b43f">actions</a>);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">~Game</a>();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game.html#a7a97d89e85982b7d67d13e0c502de6a2">properlyInitialized</a>();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="class_game.html#a11e553861e3a7fc842680e55171ed06f">Playermap</a> playermap;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="class_game.html#a2c39481e575abd66baa206771c504149">Monstermap</a> monstermap;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5">Gatemap</a> gatemap;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="class_board.html">Board</a>* board;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    std::vector&lt;Entity*&gt; graveyard;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">bool</span> ended;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <a class="code" href="class_game.html">Game</a>* initCheck;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="class_manager.html">KillManager</a> _kill;         <span class="comment">// kill(a)</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="class_manager.html">CollisionManager</a> _collide; <span class="comment">// collide(a, b) == collide(b, a)</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="class_manager.html">IA_EnterManager</a> _enter;    <span class="comment">// enter(top, bottom)</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="class_manager.html">IA_LeaveManager</a> _leave;    <span class="comment">// leave(top, bottom)</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">  175</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">CollisionHandler</a>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="class_game.html#ad46435fe6b8e9a384d33d608058862ae">  176</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_i_a___enter_handler.html">IA_EnterHandler</a>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="class_game.html#adc4c20007ad2fd4bc2556fbfbff54945">  177</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_i_a___leave_handler.html">IA_LeaveHandler</a>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="class_game.html#aab5a016b7fd0a16c4e689d3102ec3a17">  178</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_kill_handler.html">KillHandler</a>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="class_game.html#a12525b6ed7c8186be0bee5cf78e2a49c">  179</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_board.html">Board</a>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;};</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_game_html_a3ac788aaa1e70509a9b9745acd17a8b5"><div class="ttname"><a href="class_game.html#a3ac788aaa1e70509a9b9745acd17a8b5">Game::Gatemap</a></div><div class="ttdeci">std::map&lt; std::string, Gate * &gt; Gatemap</div><div class="ttdef"><b>Definition:</b> game.h:32</div></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
-<div class="ttc" id="class_game_html_ae3d112ca6e0e55150d2fdbc704474530"><div class="ttname"><a href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">Game::~Game</a></div><div class="ttdeci">~Game()</div><div class="ttdef"><b>Definition:</b> game.cpp:219</div></div>
-<div class="ttc" id="class_game_html_a73b72d3098c7c9a8d232b5fd4b1139ad"><div class="ttname"><a href="class_game.html#a73b72d3098c7c9a8d232b5fd4b1139ad">Game::write_actions</a></div><div class="ttdeci">void write_actions(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> game.cpp:178</div></div>
-<div class="ttc" id="class_game_html_a532e7897423e470019ada16917b457c2"><div class="ttname"><a href="class_game.html#a532e7897423e470019ada16917b457c2">Game::add_player</a></div><div class="ttdeci">void add_player(Player *p)</div><div class="ttdef"><b>Definition:</b> game.cpp:144</div></div>
+<div class="ttc" id="class_game_html_a7f0da2c3fec4dc75baf72e4c0885a656"><div class="ttname"><a href="class_game.html#a7f0da2c3fec4dc75baf72e4c0885a656">Game::save</a></div><div class="ttdeci">void save(std::ostream &amp;level, std::ostream &amp;actions)</div><div class="ttdef"><b>Definition:</b> game.cpp:222</div></div>
+<div class="ttc" id="class_game_html_ae3d112ca6e0e55150d2fdbc704474530"><div class="ttname"><a href="class_game.html#ae3d112ca6e0e55150d2fdbc704474530">Game::~Game</a></div><div class="ttdeci">~Game()</div><div class="ttdef"><b>Definition:</b> game.cpp:263</div></div>
+<div class="ttc" id="class_game_html_a73b72d3098c7c9a8d232b5fd4b1139ad"><div class="ttname"><a href="class_game.html#a73b72d3098c7c9a8d232b5fd4b1139ad">Game::write_actions</a></div><div class="ttdeci">void write_actions(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> game.cpp:179</div></div>
+<div class="ttc" id="class_game_html_a532e7897423e470019ada16917b457c2"><div class="ttname"><a href="class_game.html#a532e7897423e470019ada16917b457c2">Game::add_player</a></div><div class="ttdeci">void add_player(Player *p)</div><div class="ttdef"><b>Definition:</b> game.cpp:145</div></div>
 <div class="ttc" id="class_i_a___enter_handler_html"><div class="ttname"><a href="class_i_a___enter_handler.html">IA_EnterHandler</a></div><div class="ttdef"><b>Definition:</b> ia_enterhandler.h:16</div></div>
-<div class="ttc" id="class_game_html_ad6165e671cd454ac4c2296f306d293eb"><div class="ttname"><a href="class_game.html#ad6165e671cd454ac4c2296f306d293eb">Game::players_alive</a></div><div class="ttdeci">int players_alive()</div><div class="ttdef"><b>Definition:</b> game.cpp:161</div></div>
+<div class="ttc" id="class_game_html_ad6165e671cd454ac4c2296f306d293eb"><div class="ttname"><a href="class_game.html#ad6165e671cd454ac4c2296f306d293eb">Game::players_alive</a></div><div class="ttdeci">int players_alive()</div><div class="ttdef"><b>Definition:</b> game.cpp:162</div></div>
 <div class="ttc" id="actions_8h_html"><div class="ttname"><a href="actions_8h.html">actions.h</a></div></div>
-<div class="ttc" id="class_game_html_a6f66f42cdc7be06668ac60bff23db9d9"><div class="ttname"><a href="class_game.html#a6f66f42cdc7be06668ac60bff23db9d9">Game::get_board</a></div><div class="ttdeci">Board * get_board()</div><div class="ttdef"><b>Definition:</b> game.cpp:206</div></div>
+<div class="ttc" id="class_game_html_a6f66f42cdc7be06668ac60bff23db9d9"><div class="ttname"><a href="class_game.html#a6f66f42cdc7be06668ac60bff23db9d9">Game::get_board</a></div><div class="ttdeci">Board * get_board()</div><div class="ttdef"><b>Definition:</b> game.cpp:211</div></div>
 <div class="ttc" id="class_game_html_a11e553861e3a7fc842680e55171ed06f"><div class="ttname"><a href="class_game.html#a11e553861e3a7fc842680e55171ed06f">Game::Playermap</a></div><div class="ttdeci">std::map&lt; std::string, Player * &gt; Playermap</div><div class="ttdef"><b>Definition:</b> game.h:29</div></div>
 <div class="ttc" id="class_manager_html"><div class="ttname"><a href="class_manager.html">Manager&lt; KillDispatch &gt;</a></div></div>
-<div class="ttc" id="class_game_html_a84d0739f97b1d522c1c5739f1cef3e75"><div class="ttname"><a href="class_game.html#a84d0739f97b1d522c1c5739f1cef3e75">Game::get_monster</a></div><div class="ttdeci">Monster * get_monster(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:112</div></div>
+<div class="ttc" id="class_game_html_a84d0739f97b1d522c1c5739f1cef3e75"><div class="ttname"><a href="class_game.html#a84d0739f97b1d522c1c5739f1cef3e75">Game::get_monster</a></div><div class="ttdeci">Monster * get_monster(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:114</div></div>
 <div class="ttc" id="class_game_html_a8e61c60693aa39b8a3deb5f3f277b43f"><div class="ttname"><a href="class_game.html#a8e61c60693aa39b8a3deb5f3f277b43f">Game::actions</a></div><div class="ttdeci">std::list&lt; Action * &gt; actions</div><div class="ttdef"><b>Definition:</b> game.h:34</div></div>
+<div class="ttc" id="class_game_html_acb7a6ea7df153fe85882219a5f842178"><div class="ttname"><a href="class_game.html#acb7a6ea7df153fe85882219a5f842178">Game::do_action</a></div><div class="ttdeci">bool do_action(Action *a, std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> game.cpp:83</div></div>
 <div class="ttc" id="class_game_html_ad59df6562a58a614fda24622d3715b65"><div class="ttname"><a href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game::Game</a></div><div class="ttdeci">Game()</div><div class="ttdef"><b>Definition:</b> game.cpp:27</div></div>
 <div class="ttc" id="player_8h_html"><div class="ttname"><a href="player_8h.html">player.h</a></div></div>
 <div class="ttc" id="class_i_a___leave_handler_html"><div class="ttname"><a href="class_i_a___leave_handler.html">IA_LeaveHandler</a></div><div class="ttdef"><b>Definition:</b> ia_leavehandler.h:12</div></div>
 <div class="ttc" id="class_game_html_ad37c165fa3af0658bec23511f57785db"><div class="ttname"><a href="class_game.html#ad37c165fa3af0658bec23511f57785db">Game::kill</a></div><div class="ttdeci">void kill(Entity *a)</div><div class="ttdef"><b>Definition:</b> game.cpp:43</div></div>
-<div class="ttc" id="class_game_html_aeccd4cec699287294ff72399eea97bf8"><div class="ttname"><a href="class_game.html#aeccd4cec699287294ff72399eea97bf8">Game::get_player</a></div><div class="ttdeci">Player * get_player(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:101</div></div>
+<div class="ttc" id="class_game_html_aeccd4cec699287294ff72399eea97bf8"><div class="ttname"><a href="class_game.html#aeccd4cec699287294ff72399eea97bf8">Game::get_player</a></div><div class="ttdeci">Player * get_player(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:103</div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> actions.h:67</div></div>
 <div class="ttc" id="gate_8h_html"><div class="ttname"><a href="gate_8h.html">gate.h</a></div></div>
 <div class="ttc" id="class_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdef"><b>Definition:</b> board.h:20</div></div>
-<div class="ttc" id="class_game_html_aa0e2afd92f042ebbc3635c05d8c2a412"><div class="ttname"><a href="class_game.html#aa0e2afd92f042ebbc3635c05d8c2a412">Game::get_actor</a></div><div class="ttdeci">Actor * get_actor(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:122</div></div>
+<div class="ttc" id="class_game_html_aa0e2afd92f042ebbc3635c05d8c2a412"><div class="ttname"><a href="class_game.html#aa0e2afd92f042ebbc3635c05d8c2a412">Game::get_actor</a></div><div class="ttdeci">Actor * get_actor(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:124</div></div>
 <div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:17</div></div>
-<div class="ttc" id="class_game_html_ac164df696f1b71acc6246a08e8066b70"><div class="ttname"><a href="class_game.html#ac164df696f1b71acc6246a08e8066b70">Game::set_board</a></div><div class="ttdeci">void set_board(Board *b)</div><div class="ttdef"><b>Definition:</b> game.cpp:212</div></div>
+<div class="ttc" id="class_game_html_ac164df696f1b71acc6246a08e8066b70"><div class="ttname"><a href="class_game.html#ac164df696f1b71acc6246a08e8066b70">Game::set_board</a></div><div class="ttdeci">void set_board(Board *b)</div><div class="ttdef"><b>Definition:</b> game.cpp:217</div></div>
 <div class="ttc" id="class_game_html_a737c0a9f00bccef6f3e8e743a2f8bea1"><div class="ttname"><a href="class_game.html#a737c0a9f00bccef6f3e8e743a2f8bea1">Game::leave</a></div><div class="ttdeci">void leave(Entity *top, Entity *bottom)</div><div class="ttdef"><b>Definition:</b> game.cpp:53</div></div>
 <div class="ttc" id="killhandler_8h_html"><div class="ttname"><a href="killhandler_8h.html">killhandler.h</a></div></div>
 <div class="ttc" id="class_actor_html"><div class="ttname"><a href="class_actor.html">Actor</a></div><div class="ttdef"><b>Definition:</b> actor.h:20</div></div>
-<div class="ttc" id="class_game_html_a1845d7f4c11f16a76e79f119f4077f17"><div class="ttname"><a href="class_game.html#a1845d7f4c11f16a76e79f119f4077f17">Game::bury</a></div><div class="ttdeci">void bury(Entity *e)</div><div class="ttdef"><b>Definition:</b> game.cpp:172</div></div>
+<div class="ttc" id="class_game_html_a1845d7f4c11f16a76e79f119f4077f17"><div class="ttname"><a href="class_game.html#a1845d7f4c11f16a76e79f119f4077f17">Game::bury</a></div><div class="ttdeci">void bury(Entity *e)</div><div class="ttdef"><b>Definition:</b> game.cpp:173</div></div>
 <div class="ttc" id="monster_8h_html"><div class="ttname"><a href="monster_8h.html">monster.h</a></div></div>
-<div class="ttc" id="class_game_html_a47be91dcc180c606507cc06d06d351b2"><div class="ttname"><a href="class_game.html#a47be91dcc180c606507cc06d06d351b2">Game::is_ended</a></div><div class="ttdeci">bool is_ended()</div><div class="ttdef"><b>Definition:</b> game.cpp:95</div></div>
-<div class="ttc" id="class_game_html_a5b3ceb773fe5f462bb23679ed0482db1"><div class="ttname"><a href="class_game.html#a5b3ceb773fe5f462bb23679ed0482db1">Game::add_monster</a></div><div class="ttdeci">void add_monster(Monster *m)</div><div class="ttdef"><b>Definition:</b> game.cpp:150</div></div>
+<div class="ttc" id="class_game_html_a47be91dcc180c606507cc06d06d351b2"><div class="ttname"><a href="class_game.html#a47be91dcc180c606507cc06d06d351b2">Game::is_ended</a></div><div class="ttdeci">bool is_ended()</div><div class="ttdef"><b>Definition:</b> game.cpp:97</div></div>
+<div class="ttc" id="class_game_html_a5b3ceb773fe5f462bb23679ed0482db1"><div class="ttname"><a href="class_game.html#a5b3ceb773fe5f462bb23679ed0482db1">Game::add_monster</a></div><div class="ttdeci">void add_monster(Monster *m)</div><div class="ttdef"><b>Definition:</b> game.cpp:151</div></div>
 <div class="ttc" id="class_monster_html"><div class="ttname"><a href="class_monster.html">Monster</a></div><div class="ttdef"><b>Definition:</b> monster.h:15</div></div>
-<div class="ttc" id="class_game_html_aeb84d2cc01cb7e69e82a92bb41221d3e"><div class="ttname"><a href="class_game.html#aeb84d2cc01cb7e69e82a92bb41221d3e">Game::get_num_actions</a></div><div class="ttdeci">int get_num_actions()</div><div class="ttdef"><b>Definition:</b> game.cpp:90</div></div>
-<div class="ttc" id="class_game_html_a2b5f926b163ba9ff405f45c5f3e7d734"><div class="ttname"><a href="class_game.html#a2b5f926b163ba9ff405f45c5f3e7d734">Game::add_gate</a></div><div class="ttdeci">void add_gate(Gate *g)</div><div class="ttdef"><b>Definition:</b> game.cpp:155</div></div>
-<div class="ttc" id="class_game_html_ab0955901615f29e137d1ad6b95fc2c55"><div class="ttname"><a href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">Game::CollisionHandler</a></div><div class="ttdeci">friend class CollisionHandler</div><div class="ttdef"><b>Definition:</b> game.h:172</div></div>
-<div class="ttc" id="class_game_html_af381f79ab245cb6075797323ccf730c1"><div class="ttname"><a href="class_game.html#af381f79ab245cb6075797323ccf730c1">Game::get_gate</a></div><div class="ttdeci">Gate * get_gate(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:133</div></div>
+<div class="ttc" id="class_game_html_aeb84d2cc01cb7e69e82a92bb41221d3e"><div class="ttname"><a href="class_game.html#aeb84d2cc01cb7e69e82a92bb41221d3e">Game::get_num_actions</a></div><div class="ttdeci">int get_num_actions()</div><div class="ttdef"><b>Definition:</b> game.cpp:92</div></div>
+<div class="ttc" id="class_game_html_a2b5f926b163ba9ff405f45c5f3e7d734"><div class="ttname"><a href="class_game.html#a2b5f926b163ba9ff405f45c5f3e7d734">Game::add_gate</a></div><div class="ttdeci">void add_gate(Gate *g)</div><div class="ttdef"><b>Definition:</b> game.cpp:156</div></div>
+<div class="ttc" id="class_game_html_ab0955901615f29e137d1ad6b95fc2c55"><div class="ttname"><a href="class_game.html#ab0955901615f29e137d1ad6b95fc2c55">Game::CollisionHandler</a></div><div class="ttdeci">friend class CollisionHandler</div><div class="ttdef"><b>Definition:</b> game.h:175</div></div>
+<div class="ttc" id="class_game_html_af381f79ab245cb6075797323ccf730c1"><div class="ttname"><a href="class_game.html#af381f79ab245cb6075797323ccf730c1">Game::get_gate</a></div><div class="ttdeci">Gate * get_gate(std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> game.cpp:135</div></div>
 <div class="ttc" id="actor_8h_html"><div class="ttname"><a href="actor_8h.html">actor.h</a></div></div>
 <div class="ttc" id="_design_by_contract_8h_html"><div class="ttname"><a href="_design_by_contract_8h.html">DesignByContract.h</a></div></div>
 <div class="ttc" id="class_kill_handler_html"><div class="ttname"><a href="class_kill_handler.html">KillHandler</a></div><div class="ttdef"><b>Definition:</b> killhandler.h:13</div></div>
 <div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:27</div></div>
 <div class="ttc" id="class_game_html_a8f72aa6ced41ae11bdaa48ef73d11d39"><div class="ttname"><a href="class_game.html#a8f72aa6ced41ae11bdaa48ef73d11d39">Game::do_all_actions</a></div><div class="ttdeci">void do_all_actions(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> game.cpp:68</div></div>
-<div class="ttc" id="class_game_html_aeab39f9bf569d983f6163add6706ad82"><div class="ttname"><a href="class_game.html#aeab39f9bf569d983f6163add6706ad82">Game::clear_actions</a></div><div class="ttdeci">void clear_actions()</div><div class="ttdef"><b>Definition:</b> game.cpp:198</div></div>
+<div class="ttc" id="class_game_html_aeab39f9bf569d983f6163add6706ad82"><div class="ttname"><a href="class_game.html#aeab39f9bf569d983f6163add6706ad82">Game::clear_actions</a></div><div class="ttdeci">void clear_actions()</div><div class="ttdef"><b>Definition:</b> game.cpp:203</div></div>
 <div class="ttc" id="class_game_html_a2c39481e575abd66baa206771c504149"><div class="ttname"><a href="class_game.html#a2c39481e575abd66baa206771c504149">Game::Monstermap</a></div><div class="ttdeci">std::map&lt; std::string, Monster * &gt; Monstermap</div><div class="ttdef"><b>Definition:</b> game.h:30</div></div>
 <div class="ttc" id="class_gate_html"><div class="ttname"><a href="class_gate.html">Gate</a></div><div class="ttdef"><b>Definition:</b> gate.h:19</div></div>
 <div class="ttc" id="managers_8h_html"><div class="ttname"><a href="managers_8h.html">managers.h</a></div></div>
 <div class="ttc" id="ia__leavehandler_8h_html"><div class="ttname"><a href="ia__leavehandler_8h.html">ia_leavehandler.h</a></div></div>
 <div class="ttc" id="ia__enterhandler_8h_html"><div class="ttname"><a href="ia__enterhandler_8h.html">ia_enterhandler.h</a></div></div>
-<div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> player.h:14</div></div>
-<div class="ttc" id="class_game_html_aba0acb0d0ec55e050440e9f398de773c"><div class="ttname"><a href="class_game.html#aba0acb0d0ec55e050440e9f398de773c">Game::do_action</a></div><div class="ttdeci">void do_action(std::ostream &amp;out)</div><div class="ttdef"><b>Definition:</b> game.cpp:79</div></div>
+<div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdef"><b>Definition:</b> player.h:15</div></div>
 <div class="ttc" id="collisionhandler_8h_html"><div class="ttname"><a href="collisionhandler_8h.html">collisionhandler.h</a></div></div>
 <div class="ttc" id="class_game_html_a3eca6db94a95d5fa843ba69a142a62bb"><div class="ttname"><a href="class_game.html#a3eca6db94a95d5fa843ba69a142a62bb">Game::collide</a></div><div class="ttdeci">void collide(Entity *a, Entity *b)</div><div class="ttdef"><b>Definition:</b> game.cpp:34</div></div>
 <div class="ttc" id="class_game_html_a0cc9604134dde3c5e80cebdc97a270e1"><div class="ttname"><a href="class_game.html#a0cc9604134dde3c5e80cebdc97a270e1">Game::enter</a></div><div class="ttdeci">void enter(Entity *top, Entity *bottom)</div><div class="ttdef"><b>Definition:</b> game.cpp:48</div></div>
@@ -280,7 +282,7 @@ $(document).ready(function(){initNavTree('game_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_37c6514aeece95293041e34c0f2e0784.html">game</a></li><li class="navelem"><a class="el" href="game_8h.html">game.h</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

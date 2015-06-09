@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: entities/actor.h Source File</title>
+<title>Arcade Game: entities/actor.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -131,7 +131,7 @@ $(document).ready(function(){initNavTree('actor_8h_source.html','');});
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_actor.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_actor.html">Actor</a>: <span class="keyword">public</span> <a class="code" href="class_none.html">None</a>, <span class="keyword">public</span> <a class="code" href="class_alive.html">Alive</a>, <span class="keyword">public</span> <a class="code" href="class_solid.html">Solid</a>, <span class="keyword">public</span> <a class="code" href="class_life_printer.html">LifePrinter</a>, <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a> {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_actor.html#a4589af12f18a05c3c9bc69624b2c4eaf">Actor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">x</a>, <span class="keywordtype">unsigned</span> <a class="code" href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">y</a>, <span class="keywordtype">char</span> print, std::string _name);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_actor.html#a4149e465dbdabc0d88c7b0c4275fac8f">Actor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">x</a>, <span class="keywordtype">unsigned</span> <a class="code" href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">y</a>, <span class="keywordtype">char</span> print, std::string _name, <span class="keywordtype">int</span> life);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::string&amp; <a class="code" href="class_actor.html#a3f29c558595d47ad9620a78bb5e21f1a">get_name</a>();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
@@ -141,10 +141,9 @@ $(document).ready(function(){initNavTree('actor_8h_source.html','');});
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="entity_8h_html"><div class="ttname"><a href="entity_8h.html">entity.h</a></div></div>
-<div class="ttc" id="class_entity_html_afa8f48eccdb09a290e2c1ded3f135363"><div class="ttname"><a href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">Entity::x</a></div><div class="ttdeci">unsigned int x</div><div class="ttdef"><b>Definition:</b> entity.h:45</div></div>
+<div class="ttc" id="class_entity_html_afa8f48eccdb09a290e2c1ded3f135363"><div class="ttname"><a href="class_entity.html#afa8f48eccdb09a290e2c1ded3f135363">Entity::x</a></div><div class="ttdeci">unsigned int x</div><div class="ttdef"><b>Definition:</b> entity.h:51</div></div>
 <div class="ttc" id="alive_8h_html"><div class="ttname"><a href="alive_8h.html">alive.h</a></div></div>
 <div class="ttc" id="none_8h_html"><div class="ttname"><a href="none_8h.html">none.h</a></div></div>
-<div class="ttc" id="class_actor_html_a4589af12f18a05c3c9bc69624b2c4eaf"><div class="ttname"><a href="class_actor.html#a4589af12f18a05c3c9bc69624b2c4eaf">Actor::Actor</a></div><div class="ttdeci">Actor(unsigned int x, unsigned y, char print, std::string _name)</div><div class="ttdef"><b>Definition:</b> actor.cpp:11</div></div>
 <div class="ttc" id="lifeprinter_8h_html"><div class="ttname"><a href="lifeprinter_8h.html">lifeprinter.h</a></div></div>
 <div class="ttc" id="class_alive_html"><div class="ttname"><a href="class_alive.html">Alive</a></div><div class="ttdef"><b>Definition:</b> alive.h:12</div></div>
 <div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> entity.h:17</div></div>
@@ -152,8 +151,9 @@ $(document).ready(function(){initNavTree('actor_8h_source.html','');});
 <div class="ttc" id="class_actor_html"><div class="ttname"><a href="class_actor.html">Actor</a></div><div class="ttdef"><b>Definition:</b> actor.h:20</div></div>
 <div class="ttc" id="class_life_printer_html"><div class="ttname"><a href="class_life_printer.html">LifePrinter</a></div><div class="ttdef"><b>Definition:</b> lifeprinter.h:8</div></div>
 <div class="ttc" id="class_none_html"><div class="ttname"><a href="class_none.html">None</a></div><div class="ttdef"><b>Definition:</b> none.h:13</div></div>
+<div class="ttc" id="class_actor_html_a4149e465dbdabc0d88c7b0c4275fac8f"><div class="ttname"><a href="class_actor.html#a4149e465dbdabc0d88c7b0c4275fac8f">Actor::Actor</a></div><div class="ttdeci">Actor(unsigned int x, unsigned y, char print, std::string _name, int life)</div><div class="ttdef"><b>Definition:</b> actor.cpp:11</div></div>
 <div class="ttc" id="class_actor_html_a3f29c558595d47ad9620a78bb5e21f1a"><div class="ttname"><a href="class_actor.html#a3f29c558595d47ad9620a78bb5e21f1a">Actor::get_name</a></div><div class="ttdeci">std::string &amp; get_name()</div><div class="ttdef"><b>Definition:</b> actor.cpp:17</div></div>
-<div class="ttc" id="class_entity_html_a9d39843430829a89bb8233dbaadae4f1"><div class="ttname"><a href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">Entity::y</a></div><div class="ttdeci">unsigned int y</div><div class="ttdef"><b>Definition:</b> entity.h:46</div></div>
+<div class="ttc" id="class_entity_html_a9d39843430829a89bb8233dbaadae4f1"><div class="ttname"><a href="class_entity.html#a9d39843430829a89bb8233dbaadae4f1">Entity::y</a></div><div class="ttdeci">unsigned int y</div><div class="ttdef"><b>Definition:</b> entity.h:52</div></div>
 <div class="ttc" id="class_solid_html"><div class="ttname"><a href="class_solid.html">Solid</a></div><div class="ttdef"><b>Definition:</b> solid.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('actor_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9404ca00d5cf333c309ae0ebf80749c4.html">entities</a></li><li class="navelem"><a class="el" href="actor_8h.html">actor.h</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

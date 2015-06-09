@@ -1,20 +1,8 @@
 var searchData=
 [
-  ['wall',['Wall',['../class_wall.html',1,'Wall'],['../class_wall.html#a00ec988fcc89a3c1645b0d84c31f1613',1,'Wall::Wall()']]],
-  ['wall_2ecpp',['wall.cpp',['../wall_8cpp.html',1,'']]],
-  ['wall_2eh',['wall.h',['../wall_8h.html',1,'']]],
-  ['wall_5fheight',['WALL_HEIGHT',['../constants_8h.html#a2c179e1471a7811b980f69083e55e53f',1,'constants.h']]],
-  ['wall_5fsymbol',['WALL_SYMBOL',['../constants_8h.html#ac31497685bd0808f66c0533c775340c4',1,'constants.h']]],
-  ['wall_5fweight',['WALL_WEIGHT',['../constants_8h.html#a1bc52a58e5611bc2b14a1fb4ed450904',1,'constants.h']]],
-  ['water',['Water',['../class_water.html',1,'Water'],['../class_water.html#ab5347dafc5898a03fd556f1640d0fd55',1,'Water::Water()']]],
-  ['water_2ecpp',['water.cpp',['../water_8cpp.html',1,'']]],
-  ['water_2eh',['water.h',['../water_8h.html',1,'']]],
-  ['water_5fheight',['WATER_HEIGHT',['../constants_8h.html#a89ed6070bbabee7e11c8c34a8315fc18',1,'constants.h']]],
-  ['water_5fsymbol_5fempty',['WATER_SYMBOL_EMPTY',['../constants_8h.html#a9677842e871ad3aa1c011cb5eb006950',1,'constants.h']]],
-  ['water_5fsymbol_5ffull',['WATER_SYMBOL_FULL',['../constants_8h.html#a1a01f1ae1ab9931122dad025de3733b3',1,'constants.h']]],
-  ['water_5fweight',['WATER_WEIGHT',['../constants_8h.html#aa21d8706c95bff1b2a880ac040b2f588',1,'constants.h']]],
-  ['what',['what',['../class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c',1,'ParseError']]],
-  ['write_5factions',['write_actions',['../class_game.html#a73b72d3098c7c9a8d232b5fd4b1139ad',1,'Game::write_actions()'],['../class_u_i.html#a96dcbe153fb0624e4695a32ea99233b4',1,'UI::write_actions()']]],
-  ['write_5fboard',['write_board',['../class_board.html#ae7e407126c1c113669e645a216fc7848',1,'Board::write_board()'],['../class_u_i.html#a622632c0a198b6d799489eff4f1069c3',1,'UI::write_board()']]],
-  ['write_5fdispatcher',['write_dispatcher',['../namespaceprecompile.html#a4e61ae1ed52408a8e5d52d59a4b1ab6d',1,'precompile']]]
+  ['ui',['UI',['../class_u_i.html',1,'UI'],['../class_u_i.html#a675985a56b5e87ebdc8e5884b9f2ee09',1,'UI::UI()']]],
+  ['ui_2ecpp',['UI.cpp',['../_u_i_8cpp.html',1,'']]],
+  ['ui_2eh',['UI.h',['../_u_i_8h.html',1,'']]],
+  ['up',['up',['../class_direction.html#a218282b2789da5abcafb2be32cf99011a46c48bec0d282018b9d167eef7711b2c',1,'Direction']]],
+  ['util',['Util',['../marknote_8js.html#a2ff155336c49b8bedee316bc0a9048a8',1,'marknote.js']]]
 ];

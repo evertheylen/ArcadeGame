@@ -7,6 +7,7 @@ var class_entity =
     [ "info", "class_entity.html#aa694874d1f59971187de675d1e0c1fdf", null ],
     [ "operator=", "class_entity.html#a5f8e38834cf2661b2edf50b62fa8d8b8", null ],
     [ "properlyInitialized", "class_entity.html#af7f20142aa7883ca29a91c43e3511e48", null ],
+    [ "save", "class_entity.html#ad85f9f647d2008d9f0249352e989285d", null ],
     [ "x", "class_entity.html#afa8f48eccdb09a290e2c1ded3f135363", null ],
     [ "y", "class_entity.html#a9d39843430829a89bb8233dbaadae4f1", null ]
 ];

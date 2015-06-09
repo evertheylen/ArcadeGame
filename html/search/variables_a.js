@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['naam',['naam',['../classconvert_1_1_board.html#ab21be02b600dd26b79e21b3288f4ccff',1,'convert::Board']]],
-  ['name',['name',['../classprecompile_1_1_argument.html#ac93435d982bf89951e502a0329ec5908',1,'precompile::Argument']]]
+  ['lefttrim',['leftTrim',['../marknote_8js.html#ad095704a8e6714ca247078331fcf944e',1,'marknote.js']]],
+  ['lengte',['lengte',['../classconvert_1_1_board.html#a36f114a23926efd5dcb472db47615b59',1,'convert::Board']]]
 ];

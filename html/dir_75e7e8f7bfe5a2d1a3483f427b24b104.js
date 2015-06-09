@@ -4,10 +4,6 @@ var dir_75e7e8f7bfe5a2d1a3483f427b24b104 =
     [ "physics.h", "physics_8h.html", [
       [ "Physics", "class_physics.html", "class_physics" ]
     ] ],
-    [ "simplephysics.cpp", "simplephysics_8cpp.html", null ],
-    [ "simplephysics.h", "simplephysics_8h.html", [
-      [ "SimplePhysics", "class_simple_physics.html", "class_simple_physics" ]
-    ] ],
     [ "small.cpp", "small_8cpp.html", null ],
     [ "small.h", "small_8h.html", [
       [ "Small", "class_small.html", "class_small" ]
