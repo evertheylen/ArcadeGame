@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['playermap',['Playermap',['../class_game.html#a11e553861e3a7fc842680e55171ed06f',1,'Game']]]
+  ['killmanager',['KillManager',['../managers_8h.html#a68b133893cc2135753d73d2eb67d8862',1,'managers.h']]]
 ];

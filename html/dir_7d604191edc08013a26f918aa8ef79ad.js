@@ -3,8 +3,6 @@ var dir_7d604191edc08013a26f918aa8ef79ad =
     [ "dispatch", "dir_1b48d3dcedf24a7ad169e4e4abd0c1c2.html", "dir_1b48d3dcedf24a7ad169e4e4abd0c1c2" ],
     [ "collisionhandler.cpp", "collisionhandler_8cpp.html", null ],
     [ "collisionhandler.h", "collisionhandler_8h.html", null ],
-    [ "collisionmanager.cpp", "collisionmanager_8cpp.html", null ],
-    [ "collisionmanager.h", "collisionmanager_8h.html", "collisionmanager_8h" ],
     [ "handler.cpp", "handler_8cpp.html", null ],
     [ "handler.h", "handler_8h.html", [
       [ "Handler", "class_handler.html", "class_handler" ]

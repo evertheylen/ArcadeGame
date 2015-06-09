@@ -5,11 +5,13 @@ var hierarchy =
       [ "Move", "class_move.html", null ]
     ] ],
     [ "precompile.Argument", "classprecompile_1_1_argument.html", null ],
+    [ "asio", null, [
+      [ "game_config", "structgame__config.html", null ]
+    ] ],
     [ "Board", "class_board.html", null ],
     [ "convert.Board", "classconvert_1_1_board.html", null ],
     [ "CollisionHandler", null, [
       [ "CollisionDispatch", "class_collision_dispatch.html", [
-        [ "Manager< CollisionDispatch >", "class_manager.html", null ],
         [ "Manager< CollisionDispatch >", "class_manager.html", null ]
       ] ]
     ] ],
@@ -20,17 +22,14 @@ var hierarchy =
     ] ],
     [ "Dispatcher< void, Entity * >", "class_dispatcher.html", [
       [ "KillDispatch", "class_kill_dispatch.html", [
-        [ "Manager< KillDispatch >", "class_manager.html", null ],
         [ "Manager< KillDispatch >", "class_manager.html", null ]
       ] ]
     ] ],
     [ "Dispatcher< void, Entity *, Entity * >", "class_dispatcher.html", [
       [ "IA_EnterDispatch", "class_i_a___enter_dispatch.html", [
-        [ "Manager< IA_EnterDispatch >", "class_manager.html", null ],
         [ "Manager< IA_EnterDispatch >", "class_manager.html", null ]
       ] ],
       [ "IA_LeaveDispatch", "class_i_a___leave_dispatch.html", [
-        [ "Manager< IA_LeaveDispatch >", "class_manager.html", null ],
         [ "Manager< IA_LeaveDispatch >", "class_manager.html", null ]
       ] ],
       [ "SymmetricDoubleDispatcher< void, Entity *, Entity * >", "class_symmetric_double_dispatcher.html", [
@@ -42,6 +41,7 @@ var hierarchy =
       [ "ParseError", "class_parse_error.html", null ]
     ] ],
     [ "Game", "class_game.html", null ],
+    [ "GameServer", "class_game_server.html", null ],
     [ "Handler", "class_handler.html", [
       [ "IA_EnterHandler", "class_i_a___enter_handler.html", [
         [ "IA_EnterDispatch", "class_i_a___enter_dispatch.html", null ]
@@ -104,7 +104,6 @@ var hierarchy =
     ] ],
     [ "Physics", "class_physics.html", [
       [ "Entity", "class_entity.html", null ],
-      [ "SimplePhysics", "class_simple_physics.html", null ],
       [ "Small", "class_small.html", [
         [ "Boobytrap", "class_boobytrap.html", null ],
         [ "Button", "class_button.html", null ],
@@ -127,10 +126,13 @@ var hierarchy =
         [ "Wall", "class_wall.html", null ]
       ] ]
     ] ],
+    [ "Result", "struct_result.html", null ],
     [ "precompile.Rule", "classprecompile_1_1_rule.html", null ],
+    [ "transport_config", null, [
+      [ "game_config::transport_config", "structgame__config_1_1transport__config.html", null ]
+    ] ],
     [ "UI", "class_u_i.html", null ],
     [ "DispatcherT", null, [
-      [ "Manager< DispatcherT >", "class_manager.html", null ],
       [ "Manager< DispatcherT >", "class_manager.html", null ]
     ] ]
 ];

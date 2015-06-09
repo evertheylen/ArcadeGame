@@ -12,7 +12,9 @@ var dir_a5a40681709ed751decc24cd7289c9c5 =
     [ "board_parser.h", "board__parser_8h.html", [
       [ "Board_parser", "class_board__parser.html", "class_board__parser" ]
     ] ],
-    [ "entity_parser.cpp", "entity__parser_8cpp.html", null ],
+    [ "entity_parser.cpp", "entity__parser_8cpp.html", [
+      [ "Result", "struct_result.html", "struct_result" ]
+    ] ],
     [ "entity_parser.h", "entity__parser_8h.html", [
       [ "Entity_parser", "class_entity__parser.html", "class_entity__parser" ]
     ] ],

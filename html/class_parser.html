@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: Parser Class Reference</title>
+<title>Arcade Game: Parser Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('class_parser.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_parser-members.html">List of all members</a>  </div>
@@ -141,6 +142,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5bd88cd16274ffe89c0a5ec0678525da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da">set_out</a> (std::ostream *stream)</td></tr>
 <tr class="separator:a5bd88cd16274ffe89c0a5ec0678525da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac7ab6ef02154668d86260ca987d1e4d5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#ac7ab6ef02154668d86260ca987d1e4d5">dummyset</a> = 0</td></tr>
+<tr class="separator:ac7ab6ef02154668d86260ca987d1e4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae8eeb9f3116dce90f8fd5ab267c5773f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">format_message</a> (std::string &amp;msg, TiXmlBase *el)</td></tr>
@@ -155,6 +161,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:ad6ad607bb6ca701cdaba3dbea8d26ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e0267aecaf7861b8a239fb72da949b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">readAttribute</a> (TiXmlElement *elem, const char *tag)</td></tr>
 <tr class="separator:ab9e0267aecaf7861b8a239fb72da949b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae765b03655574ba15507cd281c384980"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#ae765b03655574ba15507cd281c384980">readAttribute</a> (TiXmlElement *elem, const char *tag, const char *default_value)</td></tr>
+<tr class="separator:ae765b03655574ba15507cd281c384980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44cf607802b6863b512ccdbe6c34c9ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">reqElement</a> (TiXmlElement *elem, const char *tag)</td></tr>
 <tr class="separator:a44cf607802b6863b512ccdbe6c34c9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -344,6 +352,46 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae765b03655574ba15507cd281c384980"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Parser::readAttribute </td>
+          <td>(</td>
+          <td class="paramtype">TiXmlElement *&#160;</td>
+          <td class="paramname"><em>elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>default_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a977153b2f9ff5be8cf436696b18e4c6c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -493,6 +541,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ac7ab6ef02154668d86260ca987d1e4d5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Parser::dummyset = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>parsers/<a class="el" href="parser_8h_source.html">parser.h</a></li>
 <li>parsers/<a class="el" href="parser_8cpp.html">parser.cpp</a></li>
@@ -503,7 +571,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_parser.html">Parser</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:53 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

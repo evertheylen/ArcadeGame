@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: actions/actions.h Source File</title>
+<title>Arcade Game: actions/actions.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -114,102 +114,105 @@ $(document).ready(function(){initNavTree('actions_8h_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _H_Action</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../entities/actor.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../entities/player.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;../entities/monster.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../entities/monster.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;string&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="class_game.html">Game</a>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="class_game.html">Game</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_direction.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_direction.html">Direction</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">   17</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Dirk</a> {<a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a46c48bec0d282018b9d167eef7711b2c">up</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a811882fecd5c7618d7099ebbd39ea254">left</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a74e8333ad11685ff3bdae589c8f6e34d">down</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a7c4f29407893c334a6cb7a87bf045c0d">right</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a7a7229b2be097dd8271879ea690eb5bf">no_dir</a>};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction</a>(std::string&amp; s);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction</a>(<a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Dirk</a> d);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction</a>(<span class="keyword">const</span> <a class="code" href="class_direction.html">Direction</a>&amp; that);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_direction.html">Direction</a>&amp; <a class="code" href="class_direction.html#a935591bae199779575f6ddc8d8f73ba1">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_direction.html">Direction</a>&amp; that);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_direction.html#a81c17e954a272036ec685b1e79b1b006">operator&lt;&lt;</a>(std::ostream&amp; out, <a class="code" href="class_direction.html">Direction</a>&amp; d);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Direction::Dirk</a> <a class="code" href="class_direction.html#a8160f7e9bd8442e5a5cc66743c223d1d">get_dir</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_direction.html#a9ccac2a9f99b9c67cac948bfd99cd366">move_to</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_direction.html#a769ec4b4375d0a78596109005a66eb80">move_from</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_direction.html#a892f0d3aecac651fe905f3208a486818">properlyInitialized</a>();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Dirk</a> dir;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_direction.html">Direction</a>* initCheck;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_action.html">   69</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_action.html">Action</a> {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_action.html#aead5ee9e455a9b0033aca036776c255b">   71</a></span>&#160;    <a class="code" href="class_actor.html">Actor</a>* <a class="code" href="class_action.html#aead5ee9e455a9b0033aca036776c255b">actor</a>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_action.html#a04c069c93bbaf099b040379ed976c936">   72</a></span>&#160;    <a class="code" href="class_direction.html">Direction</a> <a class="code" href="class_action.html#a04c069c93bbaf099b040379ed976c936">dir</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <a class="code" href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action</a>(<a class="code" href="class_actor.html">Actor</a>* _actor, std::string&amp; dirname);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action</a>(<span class="keyword">const</span> <a class="code" href="class_action.html">Action</a>&amp; that);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="class_action.html">Action</a>&amp; <a class="code" href="class_action.html#ade12feba8f8f494fd8bc202d85d07d14">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_action.html">Action</a>&amp; that);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="class_actor.html">Actor</a>* <a class="code" href="class_action.html#a7dd87350cb42eccbf2d096eb4f1f9a85">get_actor</a>();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="class_direction.html">Direction</a> <a class="code" href="class_action.html#a26fff2d0b1eaf0109170fe6d8fe77879">get_dir</a>();</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a18a2520db7750f26d7a571c990b82daf">execute</a>(<a class="code" href="class_game.html">Game</a>* g) = 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="class_action.html">Action</a>* initCheck;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;};</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_action_html_ade12feba8f8f494fd8bc202d85d07d14"><div class="ttname"><a href="class_action.html#ade12feba8f8f494fd8bc202d85d07d14">Action::operator=</a></div><div class="ttdeci">Action &amp; operator=(const Action &amp;that)</div><div class="ttdoc">Copy by assignment. </div><div class="ttdef"><b>Definition:</b> actions.cpp:129</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_direction.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_direction.html">Direction</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">   15</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Dirk</a> {<a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a46c48bec0d282018b9d167eef7711b2c">up</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a811882fecd5c7618d7099ebbd39ea254">left</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a74e8333ad11685ff3bdae589c8f6e34d">down</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a7c4f29407893c334a6cb7a87bf045c0d">right</a>, <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011a7a7229b2be097dd8271879ea690eb5bf">no_dir</a>};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction</a>(std::string&amp; s);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction</a>(<a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Dirk</a> d);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction</a>(<span class="keyword">const</span> <a class="code" href="class_direction.html">Direction</a>&amp; that);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_direction.html">Direction</a>&amp; <a class="code" href="class_direction.html#a935591bae199779575f6ddc8d8f73ba1">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_direction.html">Direction</a>&amp; that);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="class_direction.html#a81c17e954a272036ec685b1e79b1b006">operator&lt;&lt;</a>(std::ostream&amp; out, <a class="code" href="class_direction.html">Direction</a>&amp; d);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Direction::Dirk</a> <a class="code" href="class_direction.html#a8160f7e9bd8442e5a5cc66743c223d1d">get_dir</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_direction.html#a9ccac2a9f99b9c67cac948bfd99cd366">move_to</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_direction.html#a769ec4b4375d0a78596109005a66eb80">move_from</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; y);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_direction.html#a892f0d3aecac651fe905f3208a486818">properlyInitialized</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Dirk</a> dir;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_direction.html">Direction</a>* initCheck;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_action.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_action.html">Action</a> {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_action.html#aead5ee9e455a9b0033aca036776c255b">   69</a></span>&#160;    <a class="code" href="class_actor.html">Actor</a>* <a class="code" href="class_action.html#aead5ee9e455a9b0033aca036776c255b">actor</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_action.html#a04c069c93bbaf099b040379ed976c936">   70</a></span>&#160;    <a class="code" href="class_direction.html">Direction</a> <a class="code" href="class_action.html#a04c069c93bbaf099b040379ed976c936">dir</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="class_action.html#ab14006dd0dbcf92bcdae3979209bfaed">   71</a></span>&#160;    <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_action.html#ab14006dd0dbcf92bcdae3979209bfaed">initCheck</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action</a>(<a class="code" href="class_actor.html">Actor</a>* _actor, std::string&amp; dirname);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action</a>(<span class="keyword">const</span> <a class="code" href="class_action.html">Action</a>&amp; that);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="class_action.html">Action</a>&amp; <a class="code" href="class_action.html#ade12feba8f8f494fd8bc202d85d07d14">operator=</a>(<span class="keyword">const</span> <a class="code" href="class_action.html">Action</a>&amp; that);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="class_actor.html">Actor</a>* <a class="code" href="class_action.html#a7dd87350cb42eccbf2d096eb4f1f9a85">get_actor</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="class_direction.html">Direction</a> <a class="code" href="class_action.html#a26fff2d0b1eaf0109170fe6d8fe77879">get_dir</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a18a2520db7750f26d7a571c990b82daf">execute</a>(<a class="code" href="class_game.html">Game</a>* g) = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_action.html#a02bc8ab4b20c581eca92dc9fb73d7c10">save</a>(std::ostream&amp; out) = 0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">properlyInitialized</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_action.html#abcf4c6358f53a666631ace11b325a7cd">  110</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_action.html#abcf4c6358f53a666631ace11b325a7cd">~Action</a>() {};</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_action_html_a02bc8ab4b20c581eca92dc9fb73d7c10"><div class="ttname"><a href="class_action.html#a02bc8ab4b20c581eca92dc9fb73d7c10">Action::save</a></div><div class="ttdeci">virtual void save(std::ostream &amp;out)=0</div></div>
+<div class="ttc" id="class_action_html_ade12feba8f8f494fd8bc202d85d07d14"><div class="ttname"><a href="class_action.html#ade12feba8f8f494fd8bc202d85d07d14">Action::operator=</a></div><div class="ttdeci">Action &amp; operator=(const Action &amp;that)</div><div class="ttdoc">Copy by assignment. </div><div class="ttdef"><b>Definition:</b> actions.cpp:128</div></div>
 <div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011a46c48bec0d282018b9d167eef7711b2c"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011a46c48bec0d282018b9d167eef7711b2c">Direction::Dirk::up</a></div></div>
-<div class="ttc" id="class_direction_html_a935591bae199779575f6ddc8d8f73ba1"><div class="ttname"><a href="class_direction.html#a935591bae199779575f6ddc8d8f73ba1">Direction::operator=</a></div><div class="ttdeci">Direction &amp; operator=(const Direction &amp;that)</div><div class="ttdoc">Copy by assignment. </div><div class="ttdef"><b>Definition:</b> actions.cpp:41</div></div>
+<div class="ttc" id="class_direction_html_a935591bae199779575f6ddc8d8f73ba1"><div class="ttname"><a href="class_direction.html#a935591bae199779575f6ddc8d8f73ba1">Direction::operator=</a></div><div class="ttdeci">Direction &amp; operator=(const Direction &amp;that)</div><div class="ttdoc">Copy by assignment. </div><div class="ttdef"><b>Definition:</b> actions.cpp:40</div></div>
 <div class="ttc" id="class_action_html_a18a2520db7750f26d7a571c990b82daf"><div class="ttname"><a href="class_action.html#a18a2520db7750f26d7a571c990b82daf">Action::execute</a></div><div class="ttdeci">virtual bool execute(Game *g)=0</div></div>
 <div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011a74e8333ad11685ff3bdae589c8f6e34d"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011a74e8333ad11685ff3bdae589c8f6e34d">Direction::Dirk::down</a></div></div>
-<div class="ttc" id="class_direction_html_a81c17e954a272036ec685b1e79b1b006"><div class="ttname"><a href="class_direction.html#a81c17e954a272036ec685b1e79b1b006">Direction::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, Direction &amp;d)</div><div class="ttdef"><b>Definition:</b> actions.cpp:86</div></div>
-<div class="ttc" id="class_action_html_a97da8add4b456b38347ad3447e136d48"><div class="ttname"><a href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action::Action</a></div><div class="ttdeci">Action(Actor *_actor, std::string &amp;dirname)</div><div class="ttdef"><b>Definition:</b> actions.cpp:113</div></div>
-<div class="ttc" id="class_action_html_a6d13b602cc90dbd788c61d8cce8acf2c"><div class="ttname"><a href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">Action::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized()</div><div class="ttdef"><b>Definition:</b> actions.cpp:118</div></div>
-<div class="ttc" id="class_action_html_a26fff2d0b1eaf0109170fe6d8fe77879"><div class="ttname"><a href="class_action.html#a26fff2d0b1eaf0109170fe6d8fe77879">Action::get_dir</a></div><div class="ttdeci">Direction get_dir()</div><div class="ttdef"><b>Definition:</b> actions.cpp:142</div></div>
-<div class="ttc" id="class_action_html_aead5ee9e455a9b0033aca036776c255b"><div class="ttname"><a href="class_action.html#aead5ee9e455a9b0033aca036776c255b">Action::actor</a></div><div class="ttdeci">Actor * actor</div><div class="ttdef"><b>Definition:</b> actions.h:71</div></div>
+<div class="ttc" id="class_direction_html_a81c17e954a272036ec685b1e79b1b006"><div class="ttname"><a href="class_direction.html#a81c17e954a272036ec685b1e79b1b006">Direction::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, Direction &amp;d)</div><div class="ttdef"><b>Definition:</b> actions.cpp:85</div></div>
+<div class="ttc" id="class_action_html_a97da8add4b456b38347ad3447e136d48"><div class="ttname"><a href="class_action.html#a97da8add4b456b38347ad3447e136d48">Action::Action</a></div><div class="ttdeci">Action(Actor *_actor, std::string &amp;dirname)</div><div class="ttdef"><b>Definition:</b> actions.cpp:112</div></div>
+<div class="ttc" id="class_action_html_a6d13b602cc90dbd788c61d8cce8acf2c"><div class="ttname"><a href="class_action.html#a6d13b602cc90dbd788c61d8cce8acf2c">Action::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized()</div><div class="ttdef"><b>Definition:</b> actions.cpp:117</div></div>
+<div class="ttc" id="class_action_html_a26fff2d0b1eaf0109170fe6d8fe77879"><div class="ttname"><a href="class_action.html#a26fff2d0b1eaf0109170fe6d8fe77879">Action::get_dir</a></div><div class="ttdeci">Direction get_dir()</div><div class="ttdef"><b>Definition:</b> actions.cpp:141</div></div>
+<div class="ttc" id="class_action_html_aead5ee9e455a9b0033aca036776c255b"><div class="ttname"><a href="class_action.html#aead5ee9e455a9b0033aca036776c255b">Action::actor</a></div><div class="ttdeci">Actor * actor</div><div class="ttdef"><b>Definition:</b> actions.h:69</div></div>
 <div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011a7c4f29407893c334a6cb7a87bf045c0d"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011a7c4f29407893c334a6cb7a87bf045c0d">Direction::Dirk::right</a></div></div>
-<div class="ttc" id="class_direction_html_a9ccac2a9f99b9c67cac948bfd99cd366"><div class="ttname"><a href="class_direction.html#a9ccac2a9f99b9c67cac948bfd99cd366">Direction::move_to</a></div><div class="ttdeci">void move_to(unsigned int &amp;x, unsigned int &amp;y)</div><div class="ttdef"><b>Definition:</b> actions.cpp:48</div></div>
-<div class="ttc" id="class_direction_html_a8160f7e9bd8442e5a5cc66743c223d1d"><div class="ttname"><a href="class_direction.html#a8160f7e9bd8442e5a5cc66743c223d1d">Direction::get_dir</a></div><div class="ttdeci">Direction::Dirk get_dir()</div><div class="ttdef"><b>Definition:</b> actions.cpp:106</div></div>
-<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> actions.h:69</div></div>
+<div class="ttc" id="class_direction_html_a9ccac2a9f99b9c67cac948bfd99cd366"><div class="ttname"><a href="class_direction.html#a9ccac2a9f99b9c67cac948bfd99cd366">Direction::move_to</a></div><div class="ttdeci">void move_to(unsigned int &amp;x, unsigned int &amp;y)</div><div class="ttdef"><b>Definition:</b> actions.cpp:47</div></div>
+<div class="ttc" id="class_direction_html_a8160f7e9bd8442e5a5cc66743c223d1d"><div class="ttname"><a href="class_direction.html#a8160f7e9bd8442e5a5cc66743c223d1d">Direction::get_dir</a></div><div class="ttdeci">Direction::Dirk get_dir()</div><div class="ttdef"><b>Definition:</b> actions.cpp:105</div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> actions.h:67</div></div>
+<div class="ttc" id="class_action_html_ab14006dd0dbcf92bcdae3979209bfaed"><div class="ttname"><a href="class_action.html#ab14006dd0dbcf92bcdae3979209bfaed">Action::initCheck</a></div><div class="ttdeci">Action * initCheck</div><div class="ttdef"><b>Definition:</b> actions.h:71</div></div>
 <div class="ttc" id="class_actor_html"><div class="ttname"><a href="class_actor.html">Actor</a></div><div class="ttdef"><b>Definition:</b> actor.h:20</div></div>
-<div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Direction::Dirk</a></div><div class="ttdeci">Dirk</div><div class="ttdef"><b>Definition:</b> actions.h:17</div></div>
-<div class="ttc" id="class_action_html_a04c069c93bbaf099b040379ed976c936"><div class="ttname"><a href="class_action.html#a04c069c93bbaf099b040379ed976c936">Action::dir</a></div><div class="ttdeci">Direction dir</div><div class="ttdef"><b>Definition:</b> actions.h:72</div></div>
+<div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011">Direction::Dirk</a></div><div class="ttdeci">Dirk</div><div class="ttdef"><b>Definition:</b> actions.h:15</div></div>
+<div class="ttc" id="class_action_html_a04c069c93bbaf099b040379ed976c936"><div class="ttname"><a href="class_action.html#a04c069c93bbaf099b040379ed976c936">Action::dir</a></div><div class="ttdeci">Direction dir</div><div class="ttdef"><b>Definition:</b> actions.h:70</div></div>
+<div class="ttc" id="class_action_html_abcf4c6358f53a666631ace11b325a7cd"><div class="ttname"><a href="class_action.html#abcf4c6358f53a666631ace11b325a7cd">Action::~Action</a></div><div class="ttdeci">virtual ~Action()</div><div class="ttdef"><b>Definition:</b> actions.h:110</div></div>
 <div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011a811882fecd5c7618d7099ebbd39ea254"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011a811882fecd5c7618d7099ebbd39ea254">Direction::Dirk::left</a></div></div>
 <div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:27</div></div>
-<div class="ttc" id="class_direction_html_a892f0d3aecac651fe905f3208a486818"><div class="ttname"><a href="class_direction.html#a892f0d3aecac651fe905f3208a486818">Direction::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized()</div><div class="ttdef"><b>Definition:</b> actions.cpp:7</div></div>
-<div class="ttc" id="class_direction_html"><div class="ttname"><a href="class_direction.html">Direction</a></div><div class="ttdef"><b>Definition:</b> actions.h:15</div></div>
-<div class="ttc" id="class_action_html_a7dd87350cb42eccbf2d096eb4f1f9a85"><div class="ttname"><a href="class_action.html#a7dd87350cb42eccbf2d096eb4f1f9a85">Action::get_actor</a></div><div class="ttdeci">Actor * get_actor()</div><div class="ttdef"><b>Definition:</b> actions.cpp:137</div></div>
-<div class="ttc" id="class_direction_html_a769ec4b4375d0a78596109005a66eb80"><div class="ttname"><a href="class_direction.html#a769ec4b4375d0a78596109005a66eb80">Direction::move_from</a></div><div class="ttdeci">void move_from(unsigned int &amp;x, unsigned int &amp;y)</div><div class="ttdef"><b>Definition:</b> actions.cpp:67</div></div>
+<div class="ttc" id="class_direction_html_a892f0d3aecac651fe905f3208a486818"><div class="ttname"><a href="class_direction.html#a892f0d3aecac651fe905f3208a486818">Direction::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized()</div><div class="ttdef"><b>Definition:</b> actions.cpp:6</div></div>
+<div class="ttc" id="class_direction_html"><div class="ttname"><a href="class_direction.html">Direction</a></div><div class="ttdef"><b>Definition:</b> actions.h:13</div></div>
+<div class="ttc" id="class_action_html_a7dd87350cb42eccbf2d096eb4f1f9a85"><div class="ttname"><a href="class_action.html#a7dd87350cb42eccbf2d096eb4f1f9a85">Action::get_actor</a></div><div class="ttdeci">Actor * get_actor()</div><div class="ttdef"><b>Definition:</b> actions.cpp:136</div></div>
+<div class="ttc" id="class_direction_html_a769ec4b4375d0a78596109005a66eb80"><div class="ttname"><a href="class_direction.html#a769ec4b4375d0a78596109005a66eb80">Direction::move_from</a></div><div class="ttdeci">void move_from(unsigned int &amp;x, unsigned int &amp;y)</div><div class="ttdef"><b>Definition:</b> actions.cpp:66</div></div>
 <div class="ttc" id="class_direction_html_a218282b2789da5abcafb2be32cf99011a7a7229b2be097dd8271879ea690eb5bf"><div class="ttname"><a href="class_direction.html#a218282b2789da5abcafb2be32cf99011a7a7229b2be097dd8271879ea690eb5bf">Direction::Dirk::no_dir</a></div></div>
-<div class="ttc" id="class_direction_html_af17924e019c164609181cdf6bca30397"><div class="ttname"><a href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction::Direction</a></div><div class="ttdeci">Direction(std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> actions.cpp:18</div></div>
+<div class="ttc" id="class_direction_html_af17924e019c164609181cdf6bca30397"><div class="ttname"><a href="class_direction.html#af17924e019c164609181cdf6bca30397">Direction::Direction</a></div><div class="ttdeci">Direction(std::string &amp;s)</div><div class="ttdef"><b>Definition:</b> actions.cpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_94c36f04b685632061a799a0eb3996ff.html">actions</a></li><li class="navelem"><a class="el" href="actions_8h.html">actions.h</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['x',['../class_entity.html#afa8f48eccdb09a290e2c1ded3f135363',1,'Entity::x()'],['../classconvert_1_1_entity.html#a80eb3f8a523f2f82bce7714aa64dd4e9',1,'convert.Entity.x()']]]
+  ['valid_5flocation',['valid_location',['../class_board.html#a4ea85ce0aad0d905e3757a3531396178',1,'Board']]]
 ];

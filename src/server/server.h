@@ -68,8 +68,9 @@ typedef SocketServer::message_ptr SocketMessage_ptr;
 
 class GameServer {
 public:
-	GameServer(std::string _boardfile, std::string _actionsfile, int _port, int _ws_port=8081);
-	
+	GameServer(std::string _boardfile, std::string _actionsfile, int _port);
+	// HTTP Server on port, WS server on port+1	
+
 	void reset();
 	
 	~GameServer();
@@ -101,7 +102,6 @@ private:
 	
 	// ------ Websockets ------
 	typedef std::set<connection_hdl,std::owner_less<connection_hdl>> con_list;
-	int ws_port;
 	SocketServer ws_server;
 	con_list connections;
 	std::thread ws_thread;

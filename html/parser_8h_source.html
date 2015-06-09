@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: parsers/parser.h Source File</title>
+<title>Arcade Game: parsers/parser.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -125,14 +125,14 @@ $(document).ready(function(){initNavTree('parser_8h_source.html','');});
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _Parser</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_parse_error.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_parse_error.html">ParseError</a>: std::exception {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_parse_error.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_parse_error.html">ParseError</a>: <span class="keyword">public</span> std::exception {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_parse_error.html#a1db9c9dad671ad0a22cb04afa5df6be2">   19</a></span>&#160;    <a class="code" href="class_parse_error.html#a1db9c9dad671ad0a22cb04afa5df6be2">ParseError</a>(std::string info, std::string filename):</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            _info(info), _filename(filename) {}</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c">   22</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c">what</a>()throw() {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        _s = <span class="stringliteral">&quot;Error while parsing the XML file \&#39;&quot;</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        _s += _filename + <span class="stringliteral">&quot;\&#39;: &quot;</span> + _info;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        _s = <span class="stringliteral">&quot;Error while parsing the XML file &quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        _s += _filename + <span class="stringliteral">&quot;: &quot;</span> + _info;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> _s.c_str();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
@@ -150,48 +150,52 @@ $(document).ready(function(){initNavTree('parser_8h_source.html','');});
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da">set_out</a>(std::ostream* stream);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">   43</a></span>&#160;    std::ostream* <a class="code" href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">_out</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">   44</a></span>&#160;    std::string <a class="code" href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">_filename</a>;  <span class="comment">// for debugging purposes</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Error handling</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">format_message</a>(std::string&amp; msg, TiXmlBase* el);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c">log</a>(std::string msg, TiXmlBase* el=<span class="keyword">nullptr</span>);  <span class="comment">// logs to out, if it is set.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#abc90ea43684459b62e7c6e427a837840">fatal</a>(std::string msg, TiXmlBase* el=<span class="keyword">nullptr</span>);  <span class="comment">// throws ParseError</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::string <a class="code" href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">readElement</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::string <a class="code" href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">readElement</a>(TiXmlElement* elem);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::string <a class="code" href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">readAttribute</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">reqElement</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_parser.html#ac7ab6ef02154668d86260ca987d1e4d5">   42</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_parser.html#ac7ab6ef02154668d86260ca987d1e4d5">dummyset</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">   44</a></span>&#160;    std::ostream* <a class="code" href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">_out</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">   45</a></span>&#160;    std::string <a class="code" href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">_filename</a>;  <span class="comment">// for debugging purposes</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// Error handling</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">format_message</a>(std::string&amp; msg, TiXmlBase* el);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c">log</a>(std::string msg, TiXmlBase* el=<span class="keyword">nullptr</span>);  <span class="comment">// logs to out, if it is set.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_parser.html#abc90ea43684459b62e7c6e427a837840">fatal</a>(std::string msg, TiXmlBase* el=<span class="keyword">nullptr</span>);  <span class="comment">// throws ParseError</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::string <a class="code" href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">readElement</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::string <a class="code" href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">readElement</a>(TiXmlElement* elem);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::string <a class="code" href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">readAttribute</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string <a class="code" href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">readAttribute</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag, <span class="keyword">const</span> <span class="keywordtype">char</span>* default_value);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _Parser*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_parser_html_a41c96386f1b315f661dbaeca8b230090"><div class="ttname"><a href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">Parser::_filename</a></div><div class="ttdeci">std::string _filename</div><div class="ttdef"><b>Definition:</b> parser.h:44</div></div>
-<div class="ttc" id="class_parser_html_a5bd88cd16274ffe89c0a5ec0678525da"><div class="ttname"><a href="class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da">Parser::set_out</a></div><div class="ttdeci">void set_out(std::ostream *stream)</div><div class="ttdef"><b>Definition:</b> parser.cpp:57</div></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">reqElement</a>(TiXmlElement* elem, <span class="keyword">const</span> <span class="keywordtype">char</span>* tag);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _Parser*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_parser_html_a41c96386f1b315f661dbaeca8b230090"><div class="ttname"><a href="class_parser.html#a41c96386f1b315f661dbaeca8b230090">Parser::_filename</a></div><div class="ttdeci">std::string _filename</div><div class="ttdef"><b>Definition:</b> parser.h:45</div></div>
+<div class="ttc" id="class_parser_html_a5bd88cd16274ffe89c0a5ec0678525da"><div class="ttname"><a href="class_parser.html#a5bd88cd16274ffe89c0a5ec0678525da">Parser::set_out</a></div><div class="ttdeci">void set_out(std::ostream *stream)</div><div class="ttdef"><b>Definition:</b> parser.cpp:65</div></div>
 <div class="ttc" id="class_parse_error_html"><div class="ttname"><a href="class_parse_error.html">ParseError</a></div><div class="ttdef"><b>Definition:</b> parser.h:17</div></div>
 <div class="ttc" id="class_parser_html"><div class="ttname"><a href="class_parser.html">Parser</a></div><div class="ttdef"><b>Definition:</b> parser.h:34</div></div>
 <div class="ttc" id="class_parse_error_html_aeaca4de4aa07b84893eecbb19b540a3c"><div class="ttname"><a href="class_parse_error.html#aeaca4de4aa07b84893eecbb19b540a3c">ParseError::what</a></div><div class="ttdeci">const char * what()</div><div class="ttdef"><b>Definition:</b> parser.h:22</div></div>
-<div class="ttc" id="class_parser_html_ab9e0267aecaf7861b8a239fb72da949b"><div class="ttname"><a href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">Parser::readAttribute</a></div><div class="ttdeci">std::string readAttribute(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:40</div></div>
-<div class="ttc" id="class_parser_html_abc90ea43684459b62e7c6e427a837840"><div class="ttname"><a href="class_parser.html#abc90ea43684459b62e7c6e427a837840">Parser::fatal</a></div><div class="ttdeci">void fatal(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:69</div></div>
-<div class="ttc" id="class_parser_html_a9d7a3f96e466a7a28a5402283b842341"><div class="ttname"><a href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">Parser::_out</a></div><div class="ttdeci">std::ostream * _out</div><div class="ttdef"><b>Definition:</b> parser.h:43</div></div>
+<div class="ttc" id="class_parser_html_ab9e0267aecaf7861b8a239fb72da949b"><div class="ttname"><a href="class_parser.html#ab9e0267aecaf7861b8a239fb72da949b">Parser::readAttribute</a></div><div class="ttdeci">std::string readAttribute(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:42</div></div>
+<div class="ttc" id="class_parser_html_abc90ea43684459b62e7c6e427a837840"><div class="ttname"><a href="class_parser.html#abc90ea43684459b62e7c6e427a837840">Parser::fatal</a></div><div class="ttdeci">void fatal(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:77</div></div>
+<div class="ttc" id="class_parser_html_a9d7a3f96e466a7a28a5402283b842341"><div class="ttname"><a href="class_parser.html#a9d7a3f96e466a7a28a5402283b842341">Parser::_out</a></div><div class="ttdeci">std::ostream * _out</div><div class="ttdef"><b>Definition:</b> parser.h:44</div></div>
 <div class="ttc" id="class_parse_error_html_a1db9c9dad671ad0a22cb04afa5df6be2"><div class="ttname"><a href="class_parse_error.html#a1db9c9dad671ad0a22cb04afa5df6be2">ParseError::ParseError</a></div><div class="ttdeci">ParseError(std::string info, std::string filename)</div><div class="ttdef"><b>Definition:</b> parser.h:19</div></div>
-<div class="ttc" id="class_parser_html_ae4c1362cb6fe05ba3eb3f1e662654a7c"><div class="ttname"><a href="class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c">Parser::log</a></div><div class="ttdeci">void log(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:74</div></div>
-<div class="ttc" id="class_parser_html_a44cf607802b6863b512ccdbe6c34c9ad"><div class="ttname"><a href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">Parser::reqElement</a></div><div class="ttdeci">bool reqElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:48</div></div>
-<div class="ttc" id="class_parser_html_a977153b2f9ff5be8cf436696b18e4c6c"><div class="ttname"><a href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">Parser::readElement</a></div><div class="ttdeci">std::string readElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:16</div></div>
-<div class="ttc" id="class_parser_html_ae8eeb9f3116dce90f8fd5ab267c5773f"><div class="ttname"><a href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">Parser::format_message</a></div><div class="ttdeci">void format_message(std::string &amp;msg, TiXmlBase *el)</div><div class="ttdef"><b>Definition:</b> parser.cpp:61</div></div>
+<div class="ttc" id="class_parser_html_ae4c1362cb6fe05ba3eb3f1e662654a7c"><div class="ttname"><a href="class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c">Parser::log</a></div><div class="ttdeci">void log(std::string msg, TiXmlBase *el=nullptr)</div><div class="ttdef"><b>Definition:</b> parser.cpp:82</div></div>
+<div class="ttc" id="class_parser_html_a44cf607802b6863b512ccdbe6c34c9ad"><div class="ttname"><a href="class_parser.html#a44cf607802b6863b512ccdbe6c34c9ad">Parser::reqElement</a></div><div class="ttdeci">bool reqElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:56</div></div>
+<div class="ttc" id="class_parser_html_a977153b2f9ff5be8cf436696b18e4c6c"><div class="ttname"><a href="class_parser.html#a977153b2f9ff5be8cf436696b18e4c6c">Parser::readElement</a></div><div class="ttdeci">std::string readElement(TiXmlElement *elem, const char *tag)</div><div class="ttdef"><b>Definition:</b> parser.cpp:18</div></div>
+<div class="ttc" id="class_parser_html_ae8eeb9f3116dce90f8fd5ab267c5773f"><div class="ttname"><a href="class_parser.html#ae8eeb9f3116dce90f8fd5ab267c5773f">Parser::format_message</a></div><div class="ttdeci">void format_message(std::string &amp;msg, TiXmlBase *el)</div><div class="ttdef"><b>Definition:</b> parser.cpp:69</div></div>
 <div class="ttc" id="class_parser_html_a12234f6cd36b61af4b50c94a179422c1"><div class="ttname"><a href="class_parser.html#a12234f6cd36b61af4b50c94a179422c1">Parser::Parser</a></div><div class="ttdeci">Parser()</div><div class="ttdef"><b>Definition:</b> parser.cpp:11</div></div>
+<div class="ttc" id="class_parser_html_ac7ab6ef02154668d86260ca987d1e4d5"><div class="ttname"><a href="class_parser.html#ac7ab6ef02154668d86260ca987d1e4d5">Parser::dummyset</a></div><div class="ttdeci">static int dummyset</div><div class="ttdef"><b>Definition:</b> parser.h:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a5a40681709ed751decc24cd7289c9c5.html">parsers</a></li><li class="navelem"><a class="el" href="parser_8h.html">parser.h</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

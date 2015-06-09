@@ -1,18 +1,9 @@
 var searchData=
 [
-  ['leave',['leave',['../class_game.html#a737c0a9f00bccef6f3e8e743a2f8bea1',1,'Game']]],
-  ['leave_5ftop_5flocation',['leave_top_location',['../class_board.html#ad77efbd5de132a72a97a9307b111f622',1,'Board']]],
-  ['left',['left',['../class_direction.html#a218282b2789da5abcafb2be32cf99011a811882fecd5c7618d7099ebbd39ea254',1,'Direction']]],
-  ['lengte',['lengte',['../classconvert_1_1_board.html#a36f114a23926efd5dcb472db47615b59',1,'convert::Board']]],
-  ['lethal',['Lethal',['../class_lethal.html',1,'']]],
-  ['lethal_2ecpp',['lethal.cpp',['../lethal_8cpp.html',1,'']]],
-  ['lethal_2eh',['lethal.h',['../lethal_8h.html',1,'']]],
-  ['life',['Life',['../class_life.html',1,'']]],
-  ['life_2ecpp',['life.cpp',['../life_8cpp.html',1,'']]],
-  ['life_2eh',['life.h',['../life_8h.html',1,'']]],
-  ['lifeprinter',['LifePrinter',['../class_life_printer.html',1,'LifePrinter'],['../class_life_printer.html#a6693ebbe13889415345d4e9ad0618f75',1,'LifePrinter::LifePrinter()']]],
-  ['lifeprinter_2ecpp',['lifeprinter.cpp',['../lifeprinter_8cpp.html',1,'']]],
-  ['lifeprinter_2eh',['lifeprinter.h',['../lifeprinter_8h.html',1,'']]],
-  ['location_5fheight',['location_height',['../class_board.html#a8ee871cbc57f75299eb95652ab1c3411',1,'Board']]],
-  ['log',['log',['../class_parser.html#ae4c1362cb6fe05ba3eb3f1e662654a7c',1,'Parser']]]
+  ['kill',['kill',['../class_alive.html#aa10e42533e1f6277ce7da1ca9a2d0b71',1,'Alive::kill()'],['../class_immutable.html#ad74ffebf832d588e19e3746c09c90d1a',1,'Immutable::kill()'],['../class_life.html#a40b24b079b08e3a80a582eff6be8faa3',1,'Life::kill()'],['../class_game.html#ad37c165fa3af0658bec23511f57785db',1,'Game::kill()']]],
+  ['killdispatch',['KillDispatch',['../class_kill_dispatch.html',1,'']]],
+  ['killhandler',['KillHandler',['../class_kill_handler.html',1,'KillHandler'],['../class_game.html#aab5a016b7fd0a16c4e689d3102ec3a17',1,'Game::KillHandler()']]],
+  ['killhandler_2ecpp',['killhandler.cpp',['../killhandler_8cpp.html',1,'']]],
+  ['killhandler_2eh',['killhandler.h',['../killhandler_8h.html',1,'']]],
+  ['killmanager',['KillManager',['../managers_8h.html#a68b133893cc2135753d73d2eb67d8862',1,'managers.h']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Arcade Game by Evert Heylen and Stijn Janssens: parsers/action_parser.h Source File</title>
+<title>Arcade Game: parsers/action_parser.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Arcade Game by Evert Heylen and Stijn Janssens
-   &#160;<span id="projectnumber">2.0</span>
+   <div id="projectname">Arcade Game
+   &#160;<span id="projectnumber">Version 2.1</span>
    </div>
-   <div id="projectbrief">Arcade Game for Project Software Engineering</div>
+   <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
  </tr>
  </tbody>
@@ -132,14 +132,18 @@ $(document).ready(function(){initNavTree('action__parser_8h_source.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_action__parser.html#a7fa6713374665d4f749a6fd512a45c80">Action_parser</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::list&lt;Action*&gt; <a class="code" href="class_action__parser.html#ac7663555d2b2d60dd764304a23f7b164">parse_action</a>(TiXmlElement* move_elem, <a class="code" href="class_game.html">Game</a>* g);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _Movement_parser */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::list&lt;Action*&gt; <a class="code" href="class_action__parser.html#ac572bbba2b3bd63427228eefd581e949">parse_actions</a>(TiXmlElement* move_elem, <a class="code" href="class_game.html">Game</a>* g);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_action.html">Action</a>* <a class="code" href="class_action__parser.html#a5deb977a0b51a0b4ab84833f152cb539">parse_action</a>(TiXmlElement* action_elem, <a class="code" href="class_game.html">Game</a>* g);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _Movement_parser */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_parser_html"><div class="ttname"><a href="class_parser.html">Parser</a></div><div class="ttdef"><b>Definition:</b> parser.h:34</div></div>
+<div class="ttc" id="class_action__parser_html_ac572bbba2b3bd63427228eefd581e949"><div class="ttname"><a href="class_action__parser.html#ac572bbba2b3bd63427228eefd581e949">Action_parser::parse_actions</a></div><div class="ttdeci">std::list&lt; Action * &gt; parse_actions(TiXmlElement *move_elem, Game *g)</div><div class="ttdef"><b>Definition:</b> action_parser.cpp:19</div></div>
+<div class="ttc" id="class_action__parser_html_a5deb977a0b51a0b4ab84833f152cb539"><div class="ttname"><a href="class_action__parser.html#a5deb977a0b51a0b4ab84833f152cb539">Action_parser::parse_action</a></div><div class="ttdeci">Action * parse_action(TiXmlElement *action_elem, Game *g)</div><div class="ttdef"><b>Definition:</b> action_parser.cpp:47</div></div>
 <div class="ttc" id="parser_8h_html"><div class="ttname"><a href="parser_8h.html">parser.h</a></div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdef"><b>Definition:</b> actions.h:67</div></div>
 <div class="ttc" id="class_action__parser_html"><div class="ttname"><a href="class_action__parser.html">Action_parser</a></div><div class="ttdef"><b>Definition:</b> action_parser.h:18</div></div>
-<div class="ttc" id="class_action__parser_html_ac7663555d2b2d60dd764304a23f7b164"><div class="ttname"><a href="class_action__parser.html#ac7663555d2b2d60dd764304a23f7b164">Action_parser::parse_action</a></div><div class="ttdeci">std::list&lt; Action * &gt; parse_action(TiXmlElement *move_elem, Game *g)</div><div class="ttdef"><b>Definition:</b> action_parser.cpp:19</div></div>
 <div class="ttc" id="class_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition:</b> game.h:27</div></div>
 <div class="ttc" id="class_action__parser_html_a7fa6713374665d4f749a6fd512a45c80"><div class="ttname"><a href="class_action__parser.html#a7fa6713374665d4f749a6fd512a45c80">Action_parser::Action_parser</a></div><div class="ttdeci">Action_parser()=default</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -148,7 +152,7 @@ $(document).ready(function(){initNavTree('action__parser_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_a5a40681709ed751decc24cd7289c9c5.html">parsers</a></li><li class="navelem"><a class="el" href="action__parser_8h.html">action_parser.h</a></li>
-    <li class="footer">Generated on Wed May 6 2015 10:42:49 for Arcade Game by Evert Heylen and Stijn Janssens by
+    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

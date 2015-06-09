@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['monstermap',['Monstermap',['../class_game.html#a2c39481e575abd66baa206771c504149',1,'Game']]],
-  ['mutexlock',['MutexLock',['../namespacetesting_1_1internal.html#a08b187c6cc4e28400aadf9a32fccc8de',1,'testing::internal']]],
-  ['mytypes',['MyTypes',['../gtest__list__tests__unittest___8cc.html#a16f58cd49c18568802322bbaf9f3f654',1,'gtest_list_tests_unittest_.cc']]]
+  ['socketmessage_5fptr',['SocketMessage_ptr',['../server_8h.html#a851209b504439bbc70039c31d8b22fad',1,'server.h']]],
+  ['socketserver',['SocketServer',['../server_8h.html#a62861ee38ee8318671128ffca868d2a1',1,'server.h']]]
 ];

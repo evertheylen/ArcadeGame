@@ -1,11 +1,11 @@
 
-INCLUDES = -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I ./lib/mongoosecpp/ -I . -I ./lib/ -I ./lib/websocketpp/
+INCLUDES = -L./lib/boost/stage/lib -I ./entities -I ./actions -I ./events -I ./events/dispatch -I ./game -I ./UI -I ./lib/gtest/include/ -I ./lib/mongoosecpp/ -I . -I ./lib/ -I ./lib/websocketpp/ -I ./lib/boost
 
 CXX        = g++
-#CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -fstack-protector-all $(INCLUDES)
-CXXFLAGS   = -O3 -std=c++11 -fstack-protector-all $(INCLUDES)
+CXXFLAGS   = -g3 -O0 -std=c++11 -Werror=nonnull -Werror=return-type -Werror=main -fstack-protector-all $(INCLUDES)
+#CXXFLAGS   = -O3 -std=c++11 -fstack-protector-all $(INCLUDES)
 
-OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 \( -name '*.cpp' -or -name '*.c' \) -and -not -path './lib/gtest/*' -and -not -path './lib/tinyxml/*' -and -not -path './tests/*')))
+OBJS       = $(addsuffix .o, $(basename $(shell find . -mindepth 2 \( -name '*.cpp' -or -name '*.c' \) -and -not -path './lib/gtest/*' -and -not -path './lib/tinyxml/*' -and -not -path './tests/*' -and -not -path './lib/boost/*')))
 SHELL      = /bin/bash
 TARGETS    = ArcadeMain ArcadeTests
 
@@ -20,7 +20,7 @@ TLIBPATH =	-L./lib/gtest/lib
 TLIBS =		-lgtest -lgtest_main
 
 # last 4 are for Websockets
-LIBS = -ldl -lpthread -lreadline -lboost_system -lboost_timer -lboost_chrono -lrt
+LIBS = -ldl -lpthread -lreadline -lrt -Wl,-Bstatic -lboost_system -lboost_timer -lboost_chrono -Wl,-Bdynamic
 
 
 .PHONY: all
@@ -65,6 +65,9 @@ depend:
 	mkdir lib;\
 	mv libgtest.a lib/libgtest.a;\
 	mv libgtest_main.a lib/libgtest_main.a;
+	cd lib/boost/;\
+	./bootstrap.sh --with-libraries=system,chrono,timer;\
+	./b2;	
 
 .PHONY: echo
 echo:

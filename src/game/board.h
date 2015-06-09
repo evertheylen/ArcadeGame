@@ -22,7 +22,7 @@ public:
 	Board(unsigned int _width, unsigned int _height, Game* _game);
 	
 	Entity* get_top(unsigned int x, unsigned int y);
-	void clear_top(unsigned int x, unsigned int y);
+	//void clear_top(unsigned int x, unsigned int y);
 	Entity* get(unsigned int loc, unsigned int x, unsigned int y);
 	
 	void set_name(std::string _name);

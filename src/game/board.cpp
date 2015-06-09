@@ -17,9 +17,6 @@ Entity* Board::get_top(unsigned int x, unsigned int y) {
 	return topdata.at(x).at(y);
 }
 
-void Board::clear_top(unsigned int x, unsigned int y) {
-	topdata.at(x).at(y) = nullptr;
-}
 
 
 Entity* Board::get(unsigned int loc, unsigned int x, unsigned int y) {

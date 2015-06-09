@@ -1239,3 +1239,345 @@ make[1]: *** [cmTryCompileExec3644514758/fast] Error 2
 make[1]: Leaving directory '/Bestanden/Copy/root/Bestanden/School/SE/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec944640873/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec944640873.dir/build.make CMakeFiles/cmTryCompileExec944640873.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec944640873.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec944640873.dir/CheckSymbolExists.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec944640873
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec944640873.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec944640873.dir/CheckSymbolExists.c.o  -o cmTryCompileExec944640873 -rdynamic 
+CMakeFiles/cmTryCompileExec944640873.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec944640873] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec944640873/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+File /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec4220414398/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4220414398.dir/build.make CMakeFiles/cmTryCompileExec4220414398.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4220414398.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4220414398.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4220414398
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4220414398.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4220414398.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4220414398 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec4220414398] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec4220414398/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2528349862/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2528349862.dir/build.make CMakeFiles/cmTryCompileExec2528349862.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2528349862.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2528349862.dir/CheckSymbolExists.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2528349862
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2528349862.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2528349862.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2528349862 -rdynamic 
+CMakeFiles/cmTryCompileExec2528349862.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec2528349862] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2528349862/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+File /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2701978421/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2701978421.dir/build.make CMakeFiles/cmTryCompileExec2701978421.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2701978421.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2701978421.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2701978421
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2701978421.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2701978421.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2701978421 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec2701978421] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2701978421/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec668233946/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec668233946.dir/build.make CMakeFiles/cmTryCompileExec668233946.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec668233946.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec668233946.dir/CheckSymbolExists.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec668233946
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec668233946.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec668233946.dir/CheckSymbolExists.c.o  -o cmTryCompileExec668233946 -rdynamic 
+CMakeFiles/cmTryCompileExec668233946.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec668233946] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec668233946/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+File /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3854759748/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3854759748.dir/build.make CMakeFiles/cmTryCompileExec3854759748.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3854759748.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3854759748.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3854759748
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3854759748.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3854759748.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3854759748 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec3854759748] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec3854759748/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3066207753/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3066207753.dir/build.make CMakeFiles/cmTryCompileExec3066207753.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3066207753.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3066207753.dir/CheckSymbolExists.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3066207753
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3066207753.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3066207753.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3066207753 -rdynamic 
+CMakeFiles/cmTryCompileExec3066207753.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec3066207753] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec3066207753/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+File /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1535005802/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1535005802.dir/build.make CMakeFiles/cmTryCompileExec1535005802.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1535005802.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1535005802.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1535005802
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1535005802.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1535005802.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1535005802 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec1535005802] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1535005802/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec403518192/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec403518192.dir/build.make CMakeFiles/cmTryCompileExec403518192.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec403518192.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec403518192.dir/CheckSymbolExists.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec403518192
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec403518192.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec403518192.dir/CheckSymbolExists.c.o  -o cmTryCompileExec403518192 -rdynamic 
+CMakeFiles/cmTryCompileExec403518192.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec403518192] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec403518192/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+File /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1058752021/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1058752021.dir/build.make CMakeFiles/cmTryCompileExec1058752021.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1058752021.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1058752021.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1058752021
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1058752021.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1058752021.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1058752021 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec1058752021] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1058752021/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2406017255/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2406017255.dir/build.make CMakeFiles/cmTryCompileExec2406017255.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2406017255.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2406017255.dir/CheckSymbolExists.c.o   -c /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2406017255
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2406017255.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2406017255.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2406017255 -rdynamic 
+CMakeFiles/cmTryCompileExec2406017255.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec2406017255] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2406017255/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+File /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec390377363/fast"
+make[1]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec390377363.dir/build.make CMakeFiles/cmTryCompileExec390377363.dir/build
+make[2]: Entering directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec390377363.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec390377363.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec390377363
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec390377363.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec390377363.dir/CheckFunctionExists.c.o  -o cmTryCompileExec390377363 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [cmTryCompileExec390377363] Error 1
+make[2]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec390377363/fast] Error 2
+make[1]: Leaving directory `/home/uauser/ArcadeGame/src/lib/gtest/CMakeFiles/CMakeTmp'
+
+

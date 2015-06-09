@@ -198,10 +198,10 @@ void on_message(SocketServer* s, websocketpp::connection_hdl hdl, SocketMessage_
 
 #define wrap_method(method_name) [&](Mongo::Request req, Mongo::Response resp) -> bool { return method_name(req, resp); }
 
-GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _port, int _ws_port):
+GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _port):
 		boardfile(_boardfile), actionsfile(_actionsfile), g(nullptr),
-		port(_port), dispatcher(server),
-		ws_port(_ws_port) {
+		port(_port), dispatcher(server)/*,
+		ws_port(_ws_port)*/ {
 	
 	// Init game
 	reset();
@@ -227,8 +227,8 @@ GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _po
 		ws_server.set_close_handler(bind(&GameServer::on_close,this,::_1));
 		ws_server.set_message_handler(bind(&GameServer::on_message,this,::_1,::_2));
 		
-		// Listen on the specified port (default 8081)
-		ws_server.listen(ws_port);
+		// Listen on the specified port
+		ws_server.listen(port+1);
 		
 	} catch (websocketpp::exception const& e) {
 		std::cout << e.what() << std::endl;
