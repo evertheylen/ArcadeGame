@@ -146,7 +146,7 @@ void GameServer::ws_start() {
 		
 	// Start the ASIO io_service run loop
 	try {
-		ws_server.run();  // this never ends, unlike the server.start() above
+		ws_server.run();  // this never ends
 	} catch (...) {
 		ws_server.stop_listening();
 	}
