@@ -65,8 +65,9 @@ depend:
 	mkdir lib;\
 	mv libgtest.a lib/libgtest.a;\
 	mv libgtest_main.a lib/libgtest_main.a;
-	# ./bootstrap.sh --with-libraries=system,chrono,timer
-	# ./b2	
+	cd lib/boost/;\
+	./bootstrap.sh --with-libraries=system,chrono,timer;\
+	./b2;	
 
 .PHONY: echo
 echo:
