@@ -186,8 +186,8 @@ void on_message(SocketServer* s, websocketpp::connection_hdl hdl, SocketMessage_
 
 GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _port):
 		boardfile(_boardfile), actionsfile(_actionsfile), g(nullptr),
-		port(_port), dispatcher(server),
-		ws_port(_ws_port) {
+		port(_port), dispatcher(server)/*,
+		ws_port(_ws_port)*/ {
 	
 	// Init game
 	reset();
