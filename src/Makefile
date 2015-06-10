@@ -36,6 +36,9 @@ ArcadeMain: $(OBJS) ArcadeMain.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
 	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(TINYXMLLIBS) ArcadeMain.o $(LIBS)
 
+test: $(OBJS) test.o
+	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(TINYXMLLIBS) test.o $(LIBS)
 
 ArcadeTests: $(OBJS) generate_filetests ArcadeTests.o
 	@echo -e "\033[1;38;2;20;255;20;48;2;0;0;0m --> Compiling and linking $@ \033[0m"

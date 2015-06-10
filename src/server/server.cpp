@@ -31,7 +31,7 @@ void GameServer::on_close(connection_hdl hdl) {
 }
 
 void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
-	std::cout << "on_message called with hdl: " << hdl.lock().get()
+	if (output) std::cout << "on_message called with hdl: " << hdl.lock().get()
 	          << " and message: " << msg->get_payload()
 	          << std::endl;
 	
@@ -57,12 +57,12 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 		} else if (mode == "DOOO") {
 			try {
 				std::string action_text = input.substr(5);
-				Action_parser p(&log, "ajax_req");
+				Action_parser p(&log, "ws_req");
 				TiXmlDocument doc;
 				doc.Parse(action_text.c_str());
 				if (doc.Error()) {
 					status = "ERROR";
-					log << "TinyXML error occured...\n";
+					log << "TinyXML error occured.\n";
 				} else {
 					Action* a = p.parse_action(doc.RootElement(), g);
 					bool success = g->do_action(a, log);
@@ -100,7 +100,7 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 				status = "ERROR";
 			}
 		} else {
-			std::cout << "Wrong ajax request mode: " << mode << "\n";
+			std::cout << "Wrong request mode: " << mode << "\n";
 			status = "ERROR";
 		}
 		resp_sender << "<LOG>" << log.str() << "</LOG>\n";
@@ -142,7 +142,7 @@ void GameServer::on_message(connection_hdl hdl, SocketServer::message_ptr msg) {
 void GameServer::ws_start() {
 	// Start the server accept loop
 	ws_server.start_accept();
-	std::cout << "WebSockets starting...\n";
+	if (output) std::cout << "WebSockets starting...\n";
 		
 	// Start the ASIO io_service run loop
 	try {
@@ -198,16 +198,15 @@ void on_message(SocketServer* s, websocketpp::connection_hdl hdl, SocketMessage_
 
 #define wrap_method(method_name) [&](Mongo::Request req, Mongo::Response resp) -> bool { return method_name(req, resp); }
 
-GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _port):
+GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _port, bool _output):
 		boardfile(_boardfile), actionsfile(_actionsfile), g(nullptr),
-		port(_port), dispatcher(server)/*,
-		ws_port(_ws_port)*/ {
+		port(_port), dispatcher(server), output(_output) {
 	
 	// Init game
 	reset();
 	
 	// Init HTTP
-	server.setOption("listening_ports", std::to_string(_port));
+	server.setOption("listening_ports", std::to_string(port));
 	
 	dispatcher.serve("/", wrap_method(homepage));
 	dispatcher.staticPages("/static", "server/static");
@@ -216,9 +215,18 @@ GameServer::GameServer(std::string _boardfile, std::string _actionsfile, int _po
 	// Init WebSockets
 	try {
 		// Set logging settings
-		ws_server.set_access_channels(websocketpp::log::alevel::all);
-		ws_server.clear_access_channels(websocketpp::log::alevel::frame_payload);
-
+		if (output) {
+			ws_server.set_access_channels(websocketpp::log::alevel::all);
+			ws_server.clear_access_channels(websocketpp::log::alevel::frame_payload);
+			ws_server.set_error_channels(websocketpp::log::elevel::all);
+		} else {
+			ws_server.set_access_channels(websocketpp::log::alevel::none);
+			ws_server.set_error_channels(websocketpp::log::elevel::none);
+		}
+		
+		// Reuse port if already registered (due to unclean shutdown). May be necessary because of a bug in the library.
+		ws_server.set_reuse_addr(true);
+		
 		// Initialize ASIO
 		ws_server.init_asio();
 		
@@ -245,28 +253,26 @@ void GameServer::reset() {
 	bool board_loaded = doc_board.LoadFile(boardfile);
 	bool moves_loaded = doc_moves.LoadFile(actionsfile);
 
-	if (!board_loaded) {
-		std::cout << "Error loading board.\n";
-	}
-
-	if (!moves_loaded) {
-		std::cout << "Error loading moves.\n";
+	if (output) {
+		if (!board_loaded) std::cout << "Error loading board.\n";
+		if (!moves_loaded) std::cout << "Error loading moves.\n";
 	}
 
 	if (!(board_loaded && moves_loaded)) {
 		throw ParseError("Couldn't load XML files", "unspecified");
 	}
-
-	Game_parser gp(&std::cout, boardfile, actionsfile);
+	
+	std::ostream* out = output? &std::cout : nullptr;
+	Game_parser gp(out, boardfile, actionsfile);
 	g = gp.parse_game(doc_board.FirstChildElement(), doc_moves.FirstChildElement());
 }
 
 
 void GameServer::run() {
-	std::cout << "Running on http://localhost:" << port << "/\n";
+	if (output) std::cout << "Running on http://localhost:" << port << "/ (websockets on ws://localhost:" << port+1 << ")\n";
 	server.start(); // runs in its own thread by default
 	
-	ws_thread = std::thread(&GameServer::ws_start, this);
+	ws_thread = std::thread(&GameServer::ws_start, this); // manually put it in its own thread
 }
 
 bool GameServer::homepage(Mongo::Request req, Mongo::Response resp) {
@@ -281,14 +287,18 @@ bool GameServer::homepage(Mongo::Request req, Mongo::Response resp) {
 
 
 GameServer::~GameServer() {
-	std::cout << "Server destructor called.\n";
-	ws_server.stop_listening();
-	for (auto it: connections) {
-		websocketpp::close::status::value stat = websocketpp::close::status::normal;
-		ws_server.close(it, stat, "Server shutting down");
+	if (output) std::cout << "Server destructor called.\n";
+	try {
+		ws_server.stop_listening();
+		for (auto it: connections) {
+			websocketpp::close::status::value stat = websocketpp::close::status::normal;
+			ws_server.close(it, stat, "Server shutting down");
+		}
+		ws_thread.join();
+		ws_server.stop();
+	} catch (std::exception& e) {
+		if (output) std::cout << "Exception in destructor: " << e.what() << "\n";
 	}
-	ws_thread.join();
-	ws_server.stop();
 }
 
 

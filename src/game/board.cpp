@@ -117,7 +117,7 @@ void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 	Water* lowest_water = nullptr;
 	bool e_is_water = (dynamic_cast<Water*>(e) != nullptr);
 	
-	if (!e_is_water) {  // if e is water, just add it to the top by default.
+	if (!e_is_water) {  // if e is water, just add it to the bottom by default.
 		for (; current_pos < loc.size(); current_pos++) {
 			Entity* collider = loc.at(current_pos);
 			
@@ -135,6 +135,9 @@ void Board::enter_location(Entity* e, unsigned int x, unsigned int y) {
 				break;
 			}
 		}
+	} else {
+		// Add to bottom
+		current_pos = std::max<int>(0,loc.size()-1);
 	}
 	
 	// At this point, current_pos should be the location.

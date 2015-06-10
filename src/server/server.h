@@ -43,9 +43,9 @@ struct game_config: public websocketpp::config::asio {
 	transport_type;
 
 	static const websocketpp::log::level elog_level =
-	    websocketpp::log::elevel::all;
+	    websocketpp::log::elevel::none;
 	static const websocketpp::log::level alog_level =
-	    websocketpp::log::alevel::all;
+	    websocketpp::log::alevel::none;
 };
 
 typedef websocketpp::server<game_config> SocketServer;
@@ -68,7 +68,8 @@ typedef SocketServer::message_ptr SocketMessage_ptr;
 
 class GameServer {
 public:
-	GameServer(std::string _boardfile, std::string _actionsfile, int _port);
+	GameServer(std::string _boardfile, std::string _actionsfile, int _port, bool _output=true);
+	bool output;
 	// HTTP Server on port, WS server on port+1	
 
 	void reset();

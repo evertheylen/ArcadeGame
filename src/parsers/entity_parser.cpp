@@ -87,44 +87,45 @@ Water* Entity_parser::parse_water(TiXmlElement* elem, Board& _board, Game* game)
 			fatal("Water may not be movable");
 		} else {
 			water = new Water(r.x, r.y);
-			if (readAttribute(elem, "contained", "false") == "true") {
+			if (readAttribute(elem, "contained", "false") == "true" && elem->FirstChild() != nullptr) {
 				if (elem->FirstChild()->ValueTStr() == "CONTAINED") {
-					std::string tag = elem->FirstChild()->FirstChild()->ValueTStr();
-					TiXmlElement* elem2 = elem->FirstChild()->FirstChildElement();
+					if (elem->FirstChild()->FirstChild() != nullptr) {
+						std::string tag = elem->FirstChild()->FirstChild()->ValueTStr();
+						TiXmlElement* elem2 = elem->FirstChild()->FirstChildElement();
 
-					Entity* contained_e = nullptr;
-					if (tag == "SPELER") {
-						Actor_parser ap;
-						contained_e = ap.parse_player(elem2, _board);
-					} else if (tag == "MONSTER") {
-						Actor_parser ap;
-						contained_e = ap.parse_monster(elem2, _board);
-					} else if (tag == "TON") {
-						Entity_parser ep;
-						contained_e = ep.parse_barrel(elem2, _board);
-					} else if (tag == "VALSTRIK") {
-						Entity_parser ep;
-						contained_e = ep.parse_boobytrap(elem2, _board);
-					} else if (tag == "KNOP") {
-						Entity_parser ep;
-						contained_e = ep.parse_button(elem2, _board, game);
-					} else if (tag == "POORT") {
-						Entity_parser ep;
-						contained_e = ep.parse_gate(elem2, _board);
-					} else if (tag == "DOEL") {
-						Entity_parser ep;
-						contained_e = ep.parse_goal(elem2, _board);
-					} else if (tag == "MUUR") {
-						Entity_parser ep;
-						contained_e = ep.parse_wall(elem2, _board);
-					} else if (tag == "WATER") {
-						Entity_parser ep;
-						contained_e = ep.parse_water(elem2, _board, game);
-					} else {
-						log("Nothing was contained inside of this water");
+						Entity* contained_e = nullptr;
+						if (tag == "SPELER") {
+							Actor_parser ap;
+							contained_e = ap.parse_player(elem2, _board);
+						} else if (tag == "MONSTER") {
+							Actor_parser ap;
+							contained_e = ap.parse_monster(elem2, _board);
+						} else if (tag == "TON") {
+							Entity_parser ep;
+							contained_e = ep.parse_barrel(elem2, _board);
+						} else if (tag == "VALSTRIK") {
+							Entity_parser ep;
+							contained_e = ep.parse_boobytrap(elem2, _board);
+						} else if (tag == "KNOP") {
+							Entity_parser ep;
+							contained_e = ep.parse_button(elem2, _board, game);
+						} else if (tag == "POORT") {
+							Entity_parser ep;
+							contained_e = ep.parse_gate(elem2, _board);
+						} else if (tag == "DOEL") {
+							Entity_parser ep;
+							contained_e = ep.parse_goal(elem2, _board);
+						} else if (tag == "MUUR") {
+							Entity_parser ep;
+							contained_e = ep.parse_wall(elem2, _board);
+						} else if (tag == "WATER") {
+							Entity_parser ep;
+							contained_e = ep.parse_water(elem2, _board, game);
+						} else {
+							log("Nothing was contained inside of this water");
+						}
+						water->contained = contained_e;
 					}
-					water->contained = contained_e;
-
 				} else {
 					fatal("Water can only have CONTAINED as child");
 				}
