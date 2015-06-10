@@ -40,6 +40,7 @@ var hierarchy =
     [ "exception", null, [
       [ "ParseError", "class_parse_error.html", null ]
     ] ],
+    [ "FileClient", "class_file_client.html", null ],
     [ "Game", "class_game.html", null ],
     [ "GameServer", "class_game_server.html", null ],
     [ "Handler", "class_handler.html", [
@@ -128,6 +129,7 @@ var hierarchy =
     ] ],
     [ "Result", "struct_result.html", null ],
     [ "precompile.Rule", "classprecompile_1_1_rule.html", null ],
+    [ "ServerTest", "class_server_test.html", null ],
     [ "transport_config", null, [
       [ "game_config::transport_config", "structgame__config_1_1transport__config.html", null ]
     ] ],

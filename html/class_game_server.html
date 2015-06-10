@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Arcade Game
-   &#160;<span id="projectnumber">Version 2.1</span>
+   &#160;<span id="projectnumber">Version 1.0</span>
    </div>
    <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('class_game_server.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_game_server-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GameServer Class Reference</div>  </div>
@@ -119,8 +120,8 @@ $(document).ready(function(){initNavTree('class_game_server.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0c659002479b445f12d2468aac18edb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#a0c659002479b445f12d2468aac18edb9">GameServer</a> (std::string _boardfile, std::string _actionsfile, int _port)</td></tr>
-<tr class="separator:a0c659002479b445f12d2468aac18edb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc92a61b57c4eb1e5540220694bc1a1b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#adc92a61b57c4eb1e5540220694bc1a1b">GameServer</a> (std::string _boardfile, std::string _actionsfile, int _port, bool _output=true)</td></tr>
+<tr class="separator:adc92a61b57c4eb1e5540220694bc1a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacce4c7c5dac8b1bda9e8aec46c2639d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#aacce4c7c5dac8b1bda9e8aec46c2639d">reset</a> ()</td></tr>
 <tr class="separator:aacce4c7c5dac8b1bda9e8aec46c2639d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5abf46ddd77528735ecdfd546be1b8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#aa5abf46ddd77528735ecdfd546be1b8a">~GameServer</a> ()</td></tr>
@@ -133,11 +134,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a283c50ecab6e5a37028517ecca45d93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ab4c46128af1ae12bb8c8d0eb411089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#a7ab4c46128af1ae12bb8c8d0eb411089">on_close</a> (connection_hdl hdl)</td></tr>
 <tr class="separator:a7ab4c46128af1ae12bb8c8d0eb411089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33e09362744c699d09276c7ac10a2314"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#a33e09362744c699d09276c7ac10a2314">on_message</a> (connection_hdl hdl, SocketServer::message_ptr msg)</td></tr>
+<tr class="memitem:a33e09362744c699d09276c7ac10a2314"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#a33e09362744c699d09276c7ac10a2314">on_message</a> (connection_hdl hdl, <a class="el" href="server__tests_8h.html#a8d7da57f57aec5c532259ba0b3fc7a78">SocketServer::message_ptr</a> msg)</td></tr>
 <tr class="separator:a33e09362744c699d09276c7ac10a2314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2acf5c75f2a856e59eadc0e757d00ee7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#a2acf5c75f2a856e59eadc0e757d00ee7">ws_start</a> ()</td></tr>
+<tr class="separator:a2acf5c75f2a856e59eadc0e757d00ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ab86c5442df72adbeae2716aba67aaeb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_server.html#ab86c5442df72adbeae2716aba67aaeb1">output</a></td></tr>
+<tr class="separator:ab86c5442df72adbeae2716aba67aaeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0c659002479b445f12d2468aac18edb9"></a>
+<a class="anchor" id="adc92a61b57c4eb1e5540220694bc1a1b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -157,7 +165,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>_port</em>&#160;</td>
+          <td class="paramname"><em>_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_output</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -240,7 +254,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SocketServer::message_ptr&#160;</td>
+          <td class="paramtype"><a class="el" href="server__tests_8h.html#a8d7da57f57aec5c532259ba0b3fc7a78">SocketServer::message_ptr</a>&#160;</td>
           <td class="paramname"><em>msg</em>&#160;</td>
         </tr>
         <tr>
@@ -299,6 +313,34 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2acf5c75f2a856e59eadc0e757d00ee7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameServer::ws_start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ab86c5442df72adbeae2716aba67aaeb1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameServer::output</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>server/<a class="el" href="server_8h_source.html">server.h</a></li>
 <li>server/<a class="el" href="server_8cpp.html">server.cpp</a></li>
@@ -309,7 +351,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_game_server.html">GameServer</a></li>
-    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
+    <li class="footer">Generated on Wed Jun 10 2015 08:36:43 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

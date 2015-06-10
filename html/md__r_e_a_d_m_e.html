@@ -31,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="090730-pixel-fantasy-1.jpg"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Arcade Game
-   &#160;<span id="projectnumber">Version 2.1</span>
+   &#160;<span id="projectnumber">Version 1.0</span>
    </div>
    <div id="projectbrief">Project Software Engineering 1Ba Inf: Build an Arcade Game!</div>
   </td>
@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 <div class="contents">
 <div class="textblock"><p>Docs voor onze ArcadeGame.</p>
 <h2><a class="el" href="class_entity.html">Entity</a></h2>
-<p>WIP :D</p>
+<h3>Component based design:</h3>
 <ul>
 <li><a class="el" href="class_physics.html">Physics</a><ul>
 <li><a class="el" href="class_solid.html">Solid</a></li>
@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 </li>
 <li><a class="el" href="class_life.html">Life</a><ul>
 <li><a class="el" href="class_immutable.html">Immutable</a></li>
-<li>SingleLife</li>
+<li><a class="el" href="class_alive.html">Alive</a></li>
 </ul>
 </li>
 <li>InterActive<ul>
@@ -124,35 +124,29 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html','');});
 </ul>
 </li>
 <li><a class="el" href="class_printer.html">Printer</a><ul>
-<li>Standard</li>
+<li>Simple</li>
 <li>LifeBased</li>
 </ul>
 </li>
-<li>Soon... HTML?</li>
 </ul>
-<p>Each provides the following:</p>
+<h3>Dispatchers used for collisions:</h3>
 <ul>
-<li><a class="el" href="class_physics.html">Physics</a>:<ul>
-<li>has an enum: (because stuff needs to react differently on different physics)<ul>
-<li>CONTAINER</li>
-<li>SOLID</li>
-<li>SMALL</li>
+<li>Automatically generated code based on toml file.</li>
 </ul>
-</li>
-<li>bool collide(Entity*)<ul>
-<li>returns whether or not it has taken care of the object</li>
+<h2>Online play</h2>
+<ul>
+<li>HTML: websocket-based local area network online multiplayer support.</li>
 </ul>
-</li>
-<li></li>
-</ul>
-</li>
+<h2>Graphics</h2>
+<ul>
+<li>Provided by Kenney as a free, royalty-free platformer sprites pack. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Jun 9 2015 16:08:01 for Arcade Game by
+    <li class="footer">Generated on Wed Jun 10 2015 08:36:43 for Arcade Game by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -7,7 +7,7 @@ var searchData=
   ['game_5fparser',['Game_parser',['../class_game__parser.html',1,'Game_parser'],['../class_game__parser.html#ac871d4fd670b2b92c1ab27bbb2127e23',1,'Game_parser::Game_parser(std::ostream *stream, std::string _board_filename=&quot;board_file_unspecified&quot;, std::string _actions_filename=&quot;moves_file_unspecified&quot;)'],['../class_game__parser.html#a2c346a615028b9cf26f7560620967a71',1,'Game_parser::Game_parser()=default']]],
   ['game_5fparser_2ecpp',['game_parser.cpp',['../game__parser_8cpp.html',1,'']]],
   ['game_5fparser_2eh',['game_parser.h',['../game__parser_8h.html',1,'']]],
-  ['gameserver',['GameServer',['../class_game_server.html',1,'GameServer'],['../class_game_server.html#a0c659002479b445f12d2468aac18edb9',1,'GameServer::GameServer()']]],
+  ['gameserver',['GameServer',['../class_game_server.html',1,'GameServer'],['../class_game_server.html#adc92a61b57c4eb1e5540220694bc1a1b',1,'GameServer::GameServer()']]],
   ['gate',['Gate',['../class_gate.html',1,'Gate'],['../class_gate.html#a8c222415d9aa37b3057038e0fa1cb20f',1,'Gate::Gate(unsigned int x, unsigned y, std::string _name)'],['../class_gate.html#a91834335b1b8675f7227d6e8250654f2',1,'Gate::Gate(const Gate &amp;that)']]],
   ['gate_2ecpp',['gate.cpp',['../gate_8cpp.html',1,'']]],
   ['gate_2eh',['gate.h',['../gate_8h.html',1,'']]],

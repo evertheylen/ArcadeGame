@@ -19,5 +19,6 @@ var searchData=
   ['write_5factions',['write_actions',['../class_game.html#a73b72d3098c7c9a8d232b5fd4b1139ad',1,'Game::write_actions()'],['../class_u_i.html#a96dcbe153fb0624e4695a32ea99233b4',1,'UI::write_actions()']]],
   ['write_5fboard',['write_board',['../class_board.html#ae7e407126c1c113669e645a216fc7848',1,'Board::write_board()'],['../class_u_i.html#a622632c0a198b6d799489eff4f1069c3',1,'UI::write_board()']]],
   ['write_5fdispatcher',['write_dispatcher',['../namespaceprecompile.html#a4e61ae1ed52408a8e5d52d59a4b1ab6d',1,'precompile']]],
-  ['writer',['Writer',['../marknote_8js.html#ab1eded97253b14958b132ebf8535740e',1,'marknote.js']]]
+  ['writer',['Writer',['../marknote_8js.html#ab1eded97253b14958b132ebf8535740e',1,'marknote.js']]],
+  ['ws_5fstart',['ws_start',['../class_game_server.html#a2acf5c75f2a856e59eadc0e757d00ee7',1,'GameServer']]]
 ];
